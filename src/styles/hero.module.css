@@ -1,0 +1,39 @@
+.wrapper {
+    position: relative;
+    height: 95vh;
+    display: grid;
+    place-content: center;
+    background: linear-gradient(107deg, #D9E6FF -8.85%, #FFFBEE 95.52%);
+    background-repeat: no-repeat;
+    justify-content: space-between;
+}
+
+.wrapper .bg {
+    @apply absolute opacity-20 inset-0 object-cover w-full h-full;
+}
+
+.overlay {
+    z-index: 100;
+    @apply flex w-full h-full justify-between;
+}
+
+.content {
+    @apply text-wrap;
+}
+
+.content h1 {
+    @apply text-blue-900;
+    font-size: clamp(2rem, 3vw, 5rem);
+    font-weight: 600;
+}
+
+.content p {
+    @apply text-gray-500 text-wrap;
+    font-weight: 400;
+}
+
+.imgbox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color: #15294B;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --blue-50: #E8EDF3;
+  --blue-75: #9FB5CF;
+  --blue-100: #7797BC;
+  --blue-200: #3D6A9F;
+  --blue-300: #154B8B;
+  --blue-400: #0F3561;
+  --blue-500: #0D2E55;
+
+  --yellow-50: #FFFAE6;
+  --yellow-75: #FFE996;
+  --yellow-100: #FFE06B;
+  --yellow-200: #FFD22B;
+  --yellow-300: #FFC900;
+  --yellow-400: #B38D00;
+  --yellow-500: #9C7B00;
+
+}
+
+body {
+  font-family: "Be Vietnam Pro", sans-serif;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+a {
+  color: #000;
+}
+
+a:hover,
+a:active {
+  color: #0800ff;
+}
+
+.swiper-slide-shadow-left,
+.swiper-slide-shadow-right {
+  display: none;
+}
+
+.slider-controler .slider-arrow::after {
+  content: '';
+}

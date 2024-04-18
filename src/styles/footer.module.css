@@ -1,0 +1,16 @@
+.wrapper {
+    padding: 2rem;
+    border-top: 2px solid #EEE;
+}
+
+.list {
+    max-width: 1080px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem 2rem;
+}
+
+ul {
+    @apply flex flex-col gap-2 text-nowrap;
+}
