@@ -14,7 +14,7 @@ const Enquiry = () => {
       </video>
 
       <div className="absolute flex flex-col  items-center h-[1000px]   bg-[#7797bc69] opacity-100 w-full ">
-        <div style={{ width: "70%", marginTop: "140px", minWidth:"900px" }}>
+        <div style={{ width: "70%", marginTop: "140px", minWidth: "900px" }}>
           <h1 className="font-mont font-bold md:text-5xl mb-6 mr-8 ml-8 z-10 text-2xl text-center  text-white">
             Get your{" "}
             <span style={{ color: "#ffd700" }}>Products Delivered </span>to your
@@ -26,17 +26,13 @@ const Enquiry = () => {
           className="bg-white p-8 rounded-lg shadow-xl max-w-screen-md w-5/6"
           style={{ width: "450px" }}
         >
-          <div className="w-full flex items-center justify-center">
-          <h2
-            className="text-2xl font-semibold mb-4  "
-      
-          >
-            Enquiry Now
-          </h2>
-          </div>
+          <div className="w-full flex items-center justify-center"></div>
           <form>
             <div className="mb-4 ">
-              <label className="block text-sm font-semibold  mr-8" htmlFor="name">
+              <label
+                className="block text-sm font-semibold  mr-8"
+                htmlFor="name"
+              >
                 Name:
               </label>
               <input
@@ -47,7 +43,10 @@ const Enquiry = () => {
               />
             </div>
             <div className="mb-4 ">
-              <label className="block text-sm font-semibold mr-8" htmlFor="email">
+              <label
+                className="block text-sm font-semibold mr-8"
+                htmlFor="email"
+              >
                 Contact
               </label>
               <input
@@ -58,22 +57,47 @@ const Enquiry = () => {
               />
             </div>
 
-            <div className="mb-4 ">
+            <div>
               <label
                 className="block text-sm font-semibold mb-1 mr-9"
-               
+                htmlFor="dropdown"
               >
                 Product Name
               </label>
-              <input
-                className="w-full px-3 py-2 border rounded-lg focus:outline-none"
+              <select
+                id="dropdown"
+                className="w-full px-3 py-2 border rounded-lg focus:outline-none mb-4"
+               
+              >
                 
-                id="Product"
-                placeholder="Enter Product name"
-              />
+                <option value="" className="text-gray-500">Select </option>
+                <option value="option1">Option 1</option>
+                <option value="option2">Option 2</option>
+                <option value="option3">Option 3</option>
+              </select>
+            </div>
+            <div>
+              <label
+                className="block text-sm font-semibold mb-1 mr-9"
+                htmlFor="dropdown"
+              >
+                Catagory
+              </label>
+              <select
+                id="dropdown"
+                className="w-full px-3 py-2 border rounded-lg focus:outline-none mb-4"
+              >
+                <option value="">Select</option>
+                <option value="option1">Option 1</option>
+                <option value="option2">Option 2</option>
+                <option value="option3">Option 3</option>
+              </select>
             </div>
             <div className="mb-4 ">
-              <label className=" text-sm font-semibold mb-1 mr-8 " htmlFor="mobile">
+              <label
+                className=" text-sm font-semibold mb-1 mr-8 "
+                htmlFor="mobile"
+              >
                 Quantity
               </label>
               <input

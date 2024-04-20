@@ -1,17 +1,18 @@
 import React from 'react'
+import contact from "../assets/contact.png";
 
 
 export default function Contact() {
   return (
     <div className="w-[100%] h-auto p-[75px] bg-gradient-to-br from-blue-100 to-amber-50 flex-col justify-center items-center gap-2.5 inline-flex mt-[100px]">
     <div className="justify-center items-center gap-[30px] flex md:flex-col flex-col lg:flex-row ">
-        <div className="p-[30px] w-[500px] h-[800px] bg-red-500  rounded-3xl shadow " style={{maxWidth:"90%"}}></div>
-        <div className="flex-col bg-blue-500  gap-[30px] inline-flex justify-center items-center">
+        <div className="p-[30px] w-[500px] h-[820px] bg-white  rounded-3xl shadow " style={{maxWidth:"90%"}}></div>
+        <div className="flex-col  gap-[30px] inline-flex justify-center items-center">
             <div className="rounded-3xl shadow flex-col justify-center items-center gap-2.5 flex">
-                <img className=" md:w-[100%] w-[80%]  h-[80%] rounded-3xl" src="https://via.placeholder.com/550x445" />
+                <img className=" md:w-[100%] w-[80%]  h-[80%] rounded-3xl" src={contact} />
             </div>
-            <div className=" md:w-[100%] w-[80%] h-[340px] px-10 pt-9 pb-[30px] bg-white rounded-3xl shadow justify-center items-center inline-flex">
-                <div className="flex-col justify-center items-center w-[100%] gap-5 inline-flex">
+            <div className=" md:w-[100%] w-[100%] h-[340px] px-10 pt-9 pb-[30px] bg-white rounded-3xl shadow justify-start items-start inline-flex">
+                <div className="flex-col justify-start items-start w-[100%] gap-5 inline-flex">
                     <div className="h-[78px] px-6 py-5 bg-neutral-100 rounded-xl flex-col justify-start items-start gap-2.5 flex">
                         <div className="justify-start items-center gap-[23px] inline-flex">
                             <div className="w-8 h-8 relative"></div>
