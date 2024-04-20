@@ -2,9 +2,9 @@ import commodities from "../../assets/commodities.mp4";
 
 const Enquiry = () => {
   return (
-    <div className="flex flex-col items-center justify-center h-[1000px] bg-cover bg-center">
+    <div className="flex flex-col items-center justify-center h-[1000px] bg-cover bg-center  ">
       <video
-        className=" relative inset-0 w-full h-[100%] object-cover "
+        className=" relative inset-0 w-full h-[100%] object-cover opacity-50 "
         style={{ marginTop: "0px" }}
         autoPlay
         loop
@@ -13,9 +13,9 @@ const Enquiry = () => {
         <source src={commodities} type="video/mp4" />
       </video>
 
-      <div className="absolute flex flex-col  items-center inset-8">
-        <div style={{ width: "70%", marginTop: "180px", minWidth:"900px" }}>
-          <h1 className="font-mont font-bold text-5xl text-center mb-6 mr-8 ml-8 z-10  text-white">
+      <div className="absolute flex flex-col  items-center h-[1000px]   bg-[#7797bc69] opacity-100 w-full ">
+        <div style={{ width: "70%", marginTop: "140px", minWidth:"900px" }}>
+          <h1 className="font-mont font-bold md:text-5xl mb-6 mr-8 ml-8 z-10 text-2xl text-center  text-white">
             Get your{" "}
             <span style={{ color: "#ffd700" }}>Products Delivered </span>to your
             destination from India{" "}

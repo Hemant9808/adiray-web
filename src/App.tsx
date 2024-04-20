@@ -6,7 +6,7 @@ const Login = lazy(() => import("./pages/Login"));
 const Layout = lazy(() => import("./pages/Home/Layout"));
 const Home = lazy(() => import("./pages/Home/Home"));
 const Layouts = lazy(() => import("./pages/AI chatbot/Layout"));
-
+const Contact = lazy(() => import("./pages/Contact"));
 
 
 function App() {
@@ -31,7 +31,12 @@ function App() {
         {
           path: "enquiry",
           element: <Enquiry />
+        },
+        {
+          path: "contact",
+          element: <Contact />
         }
+
       ]
     },
     {

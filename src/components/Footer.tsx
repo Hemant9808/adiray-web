@@ -9,8 +9,8 @@ const Footer = () => {
     return (
         <footer className={styles.wrapper}>
             <div className={styles.list}>
-                <div className="flex flex-col gap-5">
-                    <img className="w-20 h-auto" src={Logo} alt="adiray" />
+                <div className="flex flex-col gap-3 ">
+                    <img className="w-[150px] h-[100px]  justify-center " src={Logo} alt="adiray" />
                     <p className="text-[#9A9A9A]">
                         Address any issue effortlessly with a simple
                         question. Problem-solving simplified
@@ -19,7 +19,7 @@ const Footer = () => {
                         <Link to={"https://www.linkedin.com/company/adiray-global"}>
                             <BsLinkedin />
                         </Link>
-
+                   
                         <Link to={"https://twitter.com/AdirayGlobal"}>
                             <BsTwitterX />
                         </Link>
@@ -39,8 +39,8 @@ const Footer = () => {
                     </div>
                 </div>
 
-                <ul>
-                    <h2 className="text-lg font-semibold mb-2">Quick Links</h2>
+                <ul className="md:ml-[50px] ">
+                    <h2 className="text-lg font-semibold mb-2 ">Quick Links</h2>
                     <li>
                         <Link to="">
                             Products

@@ -24,9 +24,9 @@ const Navbar = () => {
 
     return (
         <>
-        <div className="z-50  w-full h-[120px] bg-[#dae8ea]  fixed flex items-center justify-center shadow-2xl">
-            <div className="w-full h-[120px] flex items-center justify-center " >
-                {!open && ( <img className="h-[100px] w-[200px] " src={Logo} alt="adiray" />
+        <div className="z-50  w-full h-[120px]  bg-[#E8EDF3]  fixed flex items-center justify-center shadow-  ">
+            <div className="w-full h-[120px] md:h-[100px] flex items-center justify-center " >
+                {!open && ( <img className="h-[100px] w-[140px] " src={Logo} alt="adiray" />
           ) } </div>
         </div>
         <motion.nav
@@ -38,29 +38,29 @@ const Navbar = () => {
           animate={hidden ? "hidden" : "visible"}
           transition={{ duration:0.35, ease :"easeInOut"}}
         
-        className = { `  z-50 fixed w-full h-[120px]  bg-[#dae8ea] px-4 border-b-2 flex flex-col justify-center items-center  `}>
-             <div className=" px-5 py-[2%] w-[100%] md:w-[80%] sm:w-full  bg-white rounded-xl justify-between items-center "  >
+        className = { `z-50 fixed w-full h-[120px]    px-4 border-b-2 flex flex-col justify-center items-center  `}>
+             <div className=" px-5 py-5 w-[100%] md:w-[80%] sm:w-full  bg-white rounded-xl justify-between items-center "  >
              <menu className="  hidden md:block items-center justify-between object-cover " style={{width:"100%"}} >
                    
                <ul className=" items-center w-full  " style={{display:"flex",  flexDirection:'row', justifyContent:"space-around"}}>
                     <li >
-                        <NavLink className={({ isActive }) => isActive ? "text-blue-800" : "text-black"}  to="/">Home</NavLink>
+                        <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"}  to="/"> <span className="hover:text-black">Home</span></NavLink>
                     </li>
                     <li>
-                        <NavLink className={({ isActive }) => isActive ? "text-blue-800" : "text-black"} to="chatbot">AI Chatbot</NavLink>
+                        <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"} to="chatbot"> <span className="hover:text-black">AI Chatbot</span></NavLink>
                     </li>
                     <li>
-                        <NavLink className={({ isActive }) => isActive ? "text-blue-800" : "text-black"} to="enquiry">Enquiry</NavLink>
+                        <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"} to="enquiry"> <span className="hover:text-black">Enquiry</span></NavLink>
                     </li>
                     <li>
-                        <NavLink className={({ isActive }) => isActive ? "text-blue-800" : "text-black"} to="products">Products</NavLink>
+                        <NavLink className={({ isActive }) => isActive ?"text-black" : "text-slate-600"} to="products"> <span className="hover:text-black">Products</span></NavLink>
                     </li>
                     <li>
-                        <NavLink className={({ isActive }) => isActive ? "text-blue-800" : "text-black"} to="contact">Contact us</NavLink>
+                        <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"} to="contact"> <span className="hover:text-black">Contact us</span></NavLink>
                     </li>
 
                     <li>
-                        <NavLink className={({ isActive }) => isActive ? "text-blue-800" : "text-black"} to="blogs">Blogs</NavLink>
+                        <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"} to="blogs"> <span className="hover:text-black">Blog</span></NavLink>
                     </li>
                 </ul>
                
@@ -76,23 +76,24 @@ const Navbar = () => {
                     <button className=" md:hidden flex items-center justify-end "   onClick={() => setOpen(!open)}>
                     {open ? <AiOutlineClose  style={{ fontSize: '30px', }}   /> : <FiMenu />}
                 </button>
-                    <li>
-                        <NavLink className={({ isActive }) => isActive ? "text-blue-800" : "text-black"} to="/">Home</NavLink>
+                <li >
+                        <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"}  to="/"> <span className="hover:text-black">Home</span></NavLink>
                     </li>
                     <li>
-                        <NavLink className={({ isActive }) => isActive ? "text-blue-800" : "text-black"} to="chatbot">AI Chatbot</NavLink>
+                        <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"} to="chatbot"> <span className="hover:text-black">AI Chatbot</span></NavLink>
                     </li>
                     <li>
-                        <NavLink className={({ isActive }) => isActive ? "text-blue-800" : "text-black"} to="Enquiry">Enquiry</NavLink>
+                        <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"} to="enquiry"> <span className="hover:text-black">Enquiry</span></NavLink>
                     </li>
                     <li>
-                        <NavLink className={({ isActive }) => isActive ? "text-blue-800" : "text-black"} to="contact">Contact us</NavLink>
+                        <NavLink className={({ isActive }) => isActive ?"text-black" : "text-slate-600"} to="products"> <span className="hover:text-black">Products</span></NavLink>
                     </li>
                     <li>
-                        <NavLink className={({ isActive }) => isActive ? "text-blue-800" : "text-black"} to="services">Services</NavLink>
+                        <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"} to="contact"> <span className="hover:text-black">Contact us</span></NavLink>
                     </li>
+
                     <li>
-                        <NavLink className={({ isActive }) => isActive ? "text-blue-800" : "text-black"} to="blogs">Blogs</NavLink>
+                        <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"} to="blogs"> <span className="hover:text-black">Blog</span></NavLink>
                     </li>
                 </ul>
             )}
