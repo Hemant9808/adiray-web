@@ -4,7 +4,7 @@ const Enquiry = () => {
   return (
     <div className="flex flex-col items-center justify-center h-[1000px] bg-cover bg-center  ">
       <video
-        className=" relative inset-0 w-full h-[100%] object-cover opacity-50 "
+        className=" relative inset-0 w-full h-[100%] object-cover opacity-100 "
         style={{ marginTop: "0px" }}
         autoPlay
         loop
@@ -13,7 +13,7 @@ const Enquiry = () => {
         <source src={commodities} type="video/mp4" />
       </video>
 
-      <div className="absolute flex flex-col  items-center h-[1000px] backdrop-blur-sm   bg-[#121e2c69]  w-full ">
+      <div className="absolute flex flex-col  items-center h-[1000px] backdrop-blur-md   bg-[#121e2c69]  w-full ">
         <div style={{ width: "70%", marginTop: "140px", minWidth: "900px" }}>
           <h1 className="font-mont font-bold md:text-5xl mb-6 mr-8 ml-8 z-10 text-2xl text-center  text-white">
             Get your{" "}
@@ -112,7 +112,7 @@ const Enquiry = () => {
                 className="block text-sm font-semibold mb-1 mr-8"
                 htmlFor="address"
               >
-                Adittional Comments
+                Additional Comments
               </label>
               <textarea
                 className="w-full px-3 py-2 border rounded-lg focus:outline-none"
