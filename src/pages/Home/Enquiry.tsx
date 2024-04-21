@@ -13,7 +13,7 @@ const Enquiry = () => {
         <source src={commodities} type="video/mp4" />
       </video>
 
-      <div className="absolute flex flex-col  items-center h-[1000px]   bg-[#7797bc69] opacity-100 w-full ">
+      <div className="absolute flex flex-col  items-center h-[1000px] backdrop-blur-sm   bg-[#121e2c69]  w-full ">
         <div style={{ width: "70%", marginTop: "140px", minWidth: "900px" }}>
           <h1 className="font-mont font-bold md:text-5xl mb-6 mr-8 ml-8 z-10 text-2xl text-center  text-white">
             Get your{" "}
@@ -62,7 +62,7 @@ const Enquiry = () => {
                 className="block text-sm font-semibold mb-1 mr-9"
                 htmlFor="dropdown"
               >
-                Product Name
+                Catagory
               </label>
               <select
                 id="dropdown"
@@ -81,7 +81,7 @@ const Enquiry = () => {
                 className="block text-sm font-semibold mb-1 mr-9"
                 htmlFor="dropdown"
               >
-                Catagory
+                Product Name
               </label>
               <select
                 id="dropdown"
