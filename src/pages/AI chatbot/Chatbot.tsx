@@ -63,7 +63,7 @@ export default function Chatbot() {
               </div>
             </div>
           </div>
-          <div className="left-[61px] top-[720px] absolute text-blue-950 text-lg font-semibold ">
+          <div className="left-[61px] top-[80%] absolute text-blue-950 text-lg font-semibold ">
             User Name
           </div>
           <div className="left-[46px] top-[43px] absolute text-blue-950 text-base font-extrabold ">
