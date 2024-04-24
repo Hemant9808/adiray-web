@@ -8,7 +8,7 @@ const Layout = lazy(() => import("./pages/Home/Layout"));
 const Home = lazy(() => import("./pages/Home/Home"));
 const Layouts = lazy(() => import("./pages/AI chatbot/Chatbot"));
 const Contact = lazy(() => import("./pages/Contact"));
-
+const Blog = lazy(() => import("./pages/Home/Blog"));
 
 function App() {
 
@@ -36,6 +36,9 @@ function App() {
         {
           path: "contact",
           element: <Contact />
+        }, {
+          path: "blog",
+          element: <Blog />
         }
 
       ]

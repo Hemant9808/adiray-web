@@ -6,7 +6,7 @@ export default function Chatbot() {
     const [open,setOpen] = useState(false);
      
   return (
-    <div className="w-100vw h-[100vh] flex overflow-hidden ">
+    <div className="w-100vw h-[100vh] flex overflow-hidden overflow-y-hidden">
       <div className="w-[280px] h-[100vh]  hidden  md:block bg-gradient-to-br from-blue-200 to-orange-100 justify-center items-center overflow-hidden">
         <div className="w-[243px] h-[831px] left-0 top-[1px] absolute">
           <div className="left-[26px] top-[93px] absolute flex-col justify-center items-start gap-6 inline-flex">

@@ -60,7 +60,7 @@ const Navbar = () => {
                     </li>
 
                     <li>
-                        <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"} to="blogs"> <span className="hover:text-black">Blog</span></NavLink>
+                        <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"} to="blog"> <span className="hover:text-black">Blog</span></NavLink>
                     </li>
                 </ul>
                
