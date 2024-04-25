@@ -9,6 +9,7 @@ const Home = lazy(() => import("./pages/Home/Home"));
 const Layouts = lazy(() => import("./pages/AI chatbot/Chatbot"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Blog = lazy(() => import("./pages/Home/Blog"));
+const Products = lazy(() => import("./pages/Products"));
 
 function App() {
 
@@ -36,6 +37,10 @@ function App() {
         {
           path: "contact",
           element: <Contact />
+        },
+        {
+          path: "products",
+          element: <Products />
         }, {
           path: "blog",
           element: <Blog />
