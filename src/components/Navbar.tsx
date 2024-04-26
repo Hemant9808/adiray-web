@@ -25,9 +25,9 @@ const Navbar = () => {
     return (
         <>
         <div className="z-50  w-full h-[120px]  bg-[#E8EDF3]  fixed flex items-center justify-center shadow-  ">
-            <div className="w-full h-[120px] md:h-[100px] flex items-center justify-center " >
-                {!open && ( <img className="h-[100px] w-[140px] " src={Logo} alt="adiray" />
-          ) } </div>
+            <div  className={`w-full h-[120px] md:h-[100px] flex items-center justify-${open ? 'start' : 'center'}`} >
+               <img className="h-[100px] w-[140px] " src={Logo} alt="adiray" />
+          </div>
         </div>
         <motion.nav
         variants={{
@@ -66,34 +66,37 @@ const Navbar = () => {
                
                 
             </menu>
-            <button className=" md:hidden flex items-center justify-center"   onClick={() => setOpen(!open)}>
+            <button className=" md:hidden w-full flex justify-between items-center   "    onClick={() => setOpen(!open)}>
+            <div className="h-[0] flex items-center  "><img className="h-[70px] w-[90px]  " src={Logo} alt="adiray" />
+         </div>
                     {open ? <AiOutlineClose  /> : <FiMenu style={{fontSize:"25px"}} />}
                 </button>
             </div>
 
             {open && (
                 <ul className="p-6 md:hidden  flex-col gap-8 bg-[#dae8ea] w-[50%] h-[800px]  rounded-md " style={{marginTop:"475px", marginLeft:"60%"}}>
+                    
                     <button className=" md:hidden flex items-center justify-end "   onClick={() => setOpen(!open)}>
                     {open ? <AiOutlineClose  style={{ fontSize: '30px', }}   /> : <FiMenu />}
                 </button>
                 <li >
-                        <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"}  to="/"> <span className="hover:text-black">Home</span></NavLink>
+                        <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"}  to="/"  onClick={() => setOpen(!open)}> <span className="hover:text-black">Home</span></NavLink>
                     </li>
                     <li>
-                        <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"} to="chatbot"> <span className="hover:text-black">AI Chatbot</span></NavLink>
+                        <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"} to="chatbot"  onClick={() => setOpen(!open)}> <span className="hover:text-black">AI Chatbot</span></NavLink>
                     </li>
                     <li>
-                        <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"} to="enquiry"> <span className="hover:text-black">Enquiry</span></NavLink>
+                        <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"} to="enquiry"  onClick={() => setOpen(!open)}> <span className="hover:text-black">Enquiry</span></NavLink>
                     </li>
                     <li>
-                        <NavLink className={({ isActive }) => isActive ?"text-black" : "text-slate-600"} to="products"> <span className="hover:text-black">Products</span></NavLink>
+                        <NavLink className={({ isActive }) => isActive ?"text-black" : "text-slate-600"} to="products"  onClick={() => setOpen(!open)}> <span className="hover:text-black">Products</span></NavLink>
                     </li>
                     <li>
-                        <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"} to="contact"> <span className="hover:text-black">Contact us</span></NavLink>
+                        <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"} to="contact"  onClick={() => setOpen(!open)}> <span className="hover:text-black">Contact us</span></NavLink>
                     </li>
 
                     <li>
-                        <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"} to="blogs"> <span className="hover:text-black">Blog</span></NavLink>
+                        <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"} to="blog"  onClick={() => setOpen(!open)}> <span className="hover:text-black">Blog</span></NavLink>
                     </li>
                 </ul>
             )}

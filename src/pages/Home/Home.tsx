@@ -1,6 +1,6 @@
 import Hero from "../../components/Hero";
 import supplychain from "../../assets/supplychain crm.mp4"
-
+import Blog from "../../components/Blog";
 const Home = () => {
     return (
         <>
@@ -13,6 +13,10 @@ const Home = () => {
                         <h2 className="text-white text-3xl">Chatbot Video Section</h2>
                     </div>
                 </section>
+                <section className="relative">
+                   <Blog></Blog>
+                </section>
+
             </main >
         </>
     )
