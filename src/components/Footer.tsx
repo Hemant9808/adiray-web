@@ -51,17 +51,17 @@ const Footer = () => {
                     </li>
                     <li>
                         <Link className="text-gray-300 hover:text-[#ffd700]" to="">
-                            terms & conditions
+                            Terms & Conditions
                         </Link>
                     </li>
                     <li>
                         <Link className="text-gray-300 hover:text-[#ffd700]" to="">
-                            privacy and cookies
+                            Privacy and Cookies
                         </Link>
                     </li>
                     <li>
                         <Link className="text-gray-300 hover:text-[#ffd700]"  to="">
-                            licenses
+                            Licenses
                         </Link>
                     </li>
                    
@@ -73,7 +73,7 @@ const Footer = () => {
                         Address : D 1807, Shriram Greenfield, Bommenahalli, Bangalore. 560049
                     </Link>
                     <Link className="text-gray-300 hover:text-[#ffd700]"  to="mailto:admin@adirayglobal.com">
-                        EmailId : admin@adirayglobal.com
+                        Email Id : admin@adirayglobal.com
                     </Link>
                     <Link className="text-gray-300 hover:text-[#ffd700]" to="tel:+919620199884">
                         Mobile : 9620199884
