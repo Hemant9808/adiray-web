@@ -67,7 +67,7 @@ export default function Products() {
       <div className="w-[80vw] h-auto   flex ">
         <div className="w-[30%] min-w-[200px] h-auto bg-gray-100  mr-4 hidden md:block p-4 rounded-lg ">
           <input
-            className="w-full rounded-md border-none shadow-md"
+            className="w-full p-2 rounded-md border-none shadow-md max-w-[200px]"
             type="text"
             placeholder="search..."
           />

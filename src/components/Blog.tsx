@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import blogbg from "../assets/blogbg.jpg"
 import blogpage from "../assets/blogpage.png"
 export default function Blog() {
   return (
     <div className=" h-auto relative  bottom-[-10s0px]   flex flex-col items-center  " >
+      <img className= 'absolute opacity-20 -z-1 object-cover w-full h-full -z-0'  src={blogbg} alt="background" />
+       
       <div className=" relative w-90vw max-w-[] flex `  justify-center   items-center pt-10 pl-[0vw]"><span className="text-gray-900 text-5xl font-bold ">Latest </span><span className="text-blue-900 text-5xl font-bold ml-3">Updates</span><span className="text-gray-900 text-5xl font-extrabold "> </span></div>
       <section className=" flex justify-center items-center py-10 px-5  ">
         <div className="flex flex-wrap gap-8 justify-center">
