@@ -9,8 +9,8 @@ const Home = lazy(() => import("./pages/Home/Home"));
 const Layouts = lazy(() => import("./pages/AI chatbot/Chatbot"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Blog = lazy(() => import("./pages/Home/Blog"));
-const Products = lazy(() => import("./pages/Products"));
-
+const Category = lazy(() => import("./pages/products/Category"));
+const Products = lazy(() => import("./pages/products/Products"));
 function App() {
 
   const router = createBrowserRouter([
@@ -39,9 +39,15 @@ function App() {
           element: <Contact />
         },
         {
+          path: "products/category",
+          element: <Category />
+        },
+        {
           path: "products",
           element: <Products />
-        }, {
+        },
+        
+        {
           path: "blog",
           element: <Blog />
         }

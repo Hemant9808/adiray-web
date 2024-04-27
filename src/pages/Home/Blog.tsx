@@ -28,7 +28,7 @@ const Blog = () => {
             <div className="grid gap-6">
                 {[1, 2, 3].map((item) => (
                     <div key={item} className="flex justify-center items-center gap-12 md:flex-row flex-col ">
-                        <img src={blogpage} alt="Market Update" className="col-span-1 rounded-lg w-[300px] h-[200px] sm:w-[350px]" />
+                        <img src={blogpage} alt="Market Update" className="col-span-1 rounded-lg w-[300px] h-[200px] md:w-[90%]" />
                         <div className="col-span-2  h-[25vh] flex flex-col items-start justify-start overflow-hidden">
                             <h2 className="text-[clamp(15px,2.5vw,1.7rem)] font-extrabold text-black ">Understanding Market Psychology: How Emotions Influence Trading Decisions</h2>
                             <p className="mt-2 text-zinc-400  font-semibold">Trading isn't just about charts, numbers, and economic indicators—it's also deeply influenced by human psychology. Emotions play a significant role in financial decisions.</p>

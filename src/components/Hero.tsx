@@ -11,7 +11,7 @@ const Hero = () => {
             <img className={styles.bg} src={bg} alt="background" />
             <div className={styles.overlay}>
                 <div className="flex flex-col items-center lg:items-start gap-6">
-                    <h1 className="text-start leading-none text-[clamp(35px,3.5vw,5rem)] font-bold">
+                    <h1 className="text-start leading-none text-[clamp(40px,3.5vw,5rem)] font-bold">
                         Explore Our <br /> <span className={styles.underline}>Products</span>
                     </h1>
                     <p className="text-slate-500 text-base font-semibold text-center lg:text-start max-w-md">

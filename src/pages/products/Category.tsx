@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import clothes from "../assets/productmain.png"
+import productmain from "../../assets/productmain.png"
 
-export default function Products() {
+export default function Category() {
    
   const categories1 = [
     { id: 1, name: "Product 1" },
@@ -56,7 +56,7 @@ export default function Products() {
   return (
     <div className="w-full h-auto flex flex-col justify-center items-center mb-4 ">
         <div className="relative h-64 w-full overflow-hidden group mb-24 mt-[100px]">
-                <img className="object-cover h-full w-full group-hover:scale-150 ease-in-out duration-1000" src={clothes} alt="clothes" />
+                <img className="object-cover h-full w-full group-hover:scale-150 ease-in-out duration-1000" src={productmain} alt="clothes" />
                 <div className="absolute inset-0 overflow-hidden bg-transparent  z-10  flex items-center justify-center">
                     <h1 className="text-[clamp(30px,2.5vw,4rem)] text-white font-semibold">
                         Our <span className="text-[#FFC900]">Products</span>
