@@ -102,14 +102,14 @@ export default function Category() {
           </button>
           </div>
         </div>
-        <div className="w-full  rounded-md border border-solid ml-8">
-          <div className="h-[70px] bg-slate-300 rounded-md flex items-center justify-between p-6 ">
+        <div className="w-full  rounded-md border border-solid md:ml-8">
+          <div className="h-[70px] bg-slate-300 rounded-md flex items-center justify-between md:p-6 p-3">
             <div className=" flex  gap-6">
           
               <h4 className="font-bold text-sm ">Sl No.</h4>
               <div className=" font-bold text-sm">Product Name</div>
             </div>
-            <div className=" w-[70px]   rounded-md font-bold text-sm ">
+            <div className=" w-[70px] md:mr-0 mr-4   rounded-md font-bold text-sm ">
               Enquiry
             </div>
           </div>
@@ -121,7 +121,7 @@ export default function Category() {
               } flex items-center justify-between  p-7`}
               key={categories.id}
             >
-              <div className=" flex gap-14">
+              <div className=" flex md:gap-14 gap-10">
                
                 <h4>{categories.id}</h4>
                 <div className="">{categories.name}</div>

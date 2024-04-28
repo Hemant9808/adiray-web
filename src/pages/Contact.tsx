@@ -10,11 +10,11 @@ export default function Contact() {
     <div className="w-[100%] h-auto p-[75px] bg-gradient-to-br from-blue-100 to-amber-50 flex-col justify-center items-center gap-2.5 inline-flex mt-[100px]">
       <div className="justify-center items-center gap-[30px] flex md:flex-col flex-col lg:flex-row ">
         <div
-          className="p-[30px] w-[500px] h-[820px] bg-white  rounded-3xl shadow flex flex-col justify-center items-center "
-          style={{ maxWidth: "90%" }}
+          className="p-[10px] w-[500px] h-[820px] bg-white  rounded-3xl shadow flex flex-col justify-center items-center "
+          style={{ maxWidth: "90vw" }}
         >
           {!sentMsg && (<>
-            <div className="w-[100%] h-[100%] pt-4  rounded-3xl shadow justify-start items-start inline-flex">
+            <div className="w-[100%] h-[100%] pt-4   rounded-3xl shadow justify-start items-start inline-flex">
               <div className="p-5 justify-center items-center gap-2.5 flex">
                 <div className="flex-col  justify-center items-center gap-[35px] inline-flex">
                   <div className="flex-col justify-center items-center gap-[30px] flex">
@@ -23,22 +23,22 @@ export default function Contact() {
                         <div className="text-pink-600 text-lg font-extrabold ">
                           Get in Touch
                         </div>
-                        <div className="text-center">
-                          <span className="text-gray-900 text-5xl font-bold ">
+                        <div className="text-center md:text-5xl text-[clamp(30px,3.5vw,3rem)] ">
+                          <span className="text-gray-900  font-bold ">
                             Reach Out{" "}
                           </span>
-                          <span className="text-blue-900 text-5xl font-bold ">
+                          <span className="text-blue-900  font-bold ">
                             to
                           </span>
-                          <span className="text-gray-900 text-5xl font-extrabold ">
+                          <span className="text-gray-900 font-extrabold ">
                             {" "}
                           </span>
-                          <span className="text-blue-900 text-5xl font-bold ">
+                          <span className="text-blue-900  font-bold ">
                             Us
                           </span>
                         </div>
                       </div>
-                      <h3 className="w-[100%] h-12 whitespace-normal word-wrap text-slate-500 text-md ">
+                      <h3 className="w-[100%] h-12 whitespace-normal word-wrap text-slate-500 text-[14px] sm:text-[16px]">
                         Address any issue effortlessly with a simple question.
                         Problem-solving simplified.
                       </h3>
@@ -107,20 +107,20 @@ export default function Contact() {
             </>
           )}
         </div>
-        <div className="flex-col  gap-[30px] inline-flex justify-center items-center">
+        <div className="flex-col   gap-[30px] inline-flex justify-center items-center" style={{ maxWidth: "80vw" }}>
           <div className="rounded-3xl shadow flex-col justify-center items-center gap-25 flex">
             <img
-              className=" md:w-[100%] w-[80%]  h-[80%] rounded-3xl"
+              className=" md:w-[100%] w-[100%]  h-[80%] rounded-3xl"
               src={contact}
             />
           </div>
-          <div className=" md:w-[100%] w-[100%] h-[340px] px-10 pt-9 pb-[30px] bg-white rounded-3xl shadow justify-start items-start inline-flex">
-            <div className="flex-col justify-start items-start w-[100%] gap-5 inline-flex">
-              <div className="h-[78px] px-6 py-5 bg-neutral-100 rounded-xl flex-col justify-start items-start gap-2.5 flex">
-                <div className="justify-start items-center gap-[23px] inline-flex">
+          <div className=" md:w-[100%] w-[100%] h-[340px] md:px-10  pt-9 pb-[30px] bg-white rounded-3xl shadow justify-start items-start inline-flex">
+            <div className="flex-col justify-start items-start w-[100%]  gap-5 inline-flex">
+              <div className="h-[78px] md:px-6 px-2 py-5 bg-neutral-100 w-[100%] rounded-xl flex-col justify-start items-start gap-2.5 flex">
+                <div className=" justify-start w-[100%] items-center gap-[23px] flex">
                   <div className="w-8 h-8 relative">
                     <img
-                      className=" md:w-[100%] w-[80%]  h-[80%] rounded-3xl"
+                      className=" md:w-[100%] w-[30px]  h-[30px] rounded-3xl"
                       src={mail}
                     />
                   </div>
@@ -128,17 +128,17 @@ export default function Contact() {
                     <div className="text-slate-700 text-lg font-bold ">
                       Email
                     </div>
-                    <div className="w-[252px] text-slate-600 text-xs font-semibold ">
+                    <div className=" text-slate-600 text-xs font-semibold ">
                       contact@adirayglobal.com
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="h-[78px] px-6 py-5 bg-neutral-100 rounded-xl flex-col justify-start items-start gap-2.5 flex">
-                <div className="justify-start items-center gap-[23px] inline-flex">
+              <div className="h-[78px] md:px-6 w-[100%] px-2 py-5 bg-neutral-100 rounded-xl flex-col justify-start items-start gap-2.5 flex">
+                <div className="justify-start items-center w-[100%] gap-[23px] inline-flex">
                   <div className="w-8 h-8 relative">
                     <img
-                      className=" md:w-[100%] w-[80%]  h-[80%] rounded-3xl"
+                      className=" md:w-[100%] w-[30px]  h-[30px] rounded-3xl"
                       src={phone}
                     />
                   </div>
@@ -146,17 +146,17 @@ export default function Contact() {
                     <div className="text-slate-700 text-lg font-bold ">
                       Phone
                     </div>
-                    <div className="w-[252px] text-slate-600 text-xs font-semibold ">
+                    <div className=" text-slate-600 text-xs font-semibold ">
                       9620199884 | 9525500039
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="h-[78px] px-6 py-5 bg-neutral-100 rounded-xl flex-col justify-start items-start gap-2.5 flex">
+              <div className="h-[78px] md:px-6 px-2 py-5 bg-neutral-100 rounded-xl flex-col justify-start items-start gap-2.5 flex">
                 <div className="w-[100%] justify-start items-center gap-[23px] inline-flex">
-                  <div className="w-8 h-8 relative">
+                  <div className="w-11 h-9 relative">
                     <img
-                      className=" md:w-[100%] w-[80%]  h-[80%] rounded-3xl"
+                      className=" md:w-[100%] w-[30px]  h-[30px] rounded-3xl"
                       src={gps}
                     />
                   </div>
