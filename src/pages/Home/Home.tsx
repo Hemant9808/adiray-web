@@ -5,7 +5,7 @@ import Blog from "../../components/Blog";
 const Home = () => {
     return (
         <>
-            <main className="pt-14 flex-auto gap-10 relative">
+            <main className="pt-[10vh] flex-auto gap-10 relative">
             <Hero />
                 <section className="relative max-h-[90vh] overflow-hidden chatbot">
                     <video className="h-95 -z-50 w-full object-cover aspect-video" src={comp} autoPlay muted loop />
