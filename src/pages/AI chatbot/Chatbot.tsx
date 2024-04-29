@@ -2,8 +2,21 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom"
 import { FiMenu } from "react-icons/fi";
 import { FaPaperclip } from 'react-icons/fa';
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 import { AiOutlineClose } from "react-icons/ai";
 export default function Chatbot() {
+  React.useEffect(() => {
+    AOS.init({
+      duration: 800,
+      easing: "ease-in-sine",
+      delay: 100,
+      offset: 100,
+    });
+    AOS.refresh();
+  }, []);
+
     const [open,setOpen] = useState(false);
     const library =[
       {
@@ -60,7 +73,7 @@ export default function Chatbot() {
       <div className="w-full   flex flex-col justify-center items-center ">
 
        { open &&
-      (<div className="w-[280px] top-0 left-0 absolute z-50  bg-gradient-to-br from-blue-200 to-orange-100 justify-center items-center ">
+      (<div data-aos="slide-right" className="w-[280px] top-0 left-0 absolute z-50  bg-gradient-to-br from-blue-200 to-orange-100 justify-center items-center ">
         <div className="w-[243px] h-[831px] left-0 top-[1px] ">
           <div className="left-[26px] top-[93px] absolute flex-col justify-center items-start gap-6 inline-flex">
             <div className="pl-5 pr-[79px] py-2.5 bg-white rounded-xl justify-start items-center gap-2.5 inline-flex">
@@ -103,7 +116,7 @@ export default function Chatbot() {
       </div>)}
         
       <button className=" md:hidden flex items-center absolute top-0 left-0 m-4"   onClick={() => setOpen(!open)}>
-                    {open ? <AiOutlineClose className="absolute top-0 left-[200px] z-50" style={{fontSize:"25px"}}  /> : <FiMenu style={{fontSize:"25px"}} />}
+                    {open ? <AiOutlineClose data-aos="slide-right" className="absolute top-0 left-[200px] z-50" style={{fontSize:"25px"}}  /> : <FiMenu style={{fontSize:"25px"}} />}
                 </button>
 
 

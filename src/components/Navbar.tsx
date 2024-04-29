@@ -1,14 +1,27 @@
 import { NavLink } from "react-router-dom"
+import React from "react";
 import Logo from "../assets/Logo.png"
 import { FiMenu } from "react-icons/fi";
 import { useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import {motion, useScroll,useMotionValueEvent} from 'framer-motion'
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Navbar = () => {
+    React.useEffect(() => {
+        AOS.init({
+          duration: 800,
+          easing: "ease-in-sine",
+          delay: 100,
+          offset: 100,
+        });
+        AOS.refresh();
+      }, []);
  
     const {scrollY} = useScroll();
   const [hidden,setHidden] = useState(false);
+  
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const prev = scrollY.getPrevious();
@@ -20,13 +33,26 @@ const Navbar = () => {
         }
   })  
 
-    const [open, setOpen] = useState(false)
+    const [open, setOpen] = useState(false);
+    const [margin,setMargin]=useState("60%")
+    var openNav =(open)=>{
+        setOpen(!open);
+        if(open){
+            setMargin("60%");
+
+        }
+        else{
+            setMargin("170%");
+        }
+    }
+    
+      
 
     return (
         <>
         <div className="z-50  w-full h-[120px]  bg-[#E8EDF3]  fixed flex items-center justify-center shadow-  ">
             <div  className={`w-full h-[120px] md:h-[100px] flex items-center justify-${open ? 'start' : 'center'}`} >
-               <img className="h-[100px] w-[140px] " src={Logo} alt="adiray" />
+               <img className="h-[100px] w-[140px] " src={Logo} alt="adiray"/>
           </div>
         </div>
         <motion.nav
@@ -37,9 +63,10 @@ const Navbar = () => {
           }
           animate={hidden ? "hidden" : "visible"}
           transition={{ duration:0.35, ease :"easeInOut"}}
+          
         
         className = { `z-50 fixed w-full h-[120px]    px-4 border-b-2 flex flex-col justify-center items-center  `}>
-             <div className=" px-5 py-5 w-[100%] md:w-[80%] sm:w-full  bg-white rounded-xl justify-between items-center "  >
+             <div className=" px-5 py-5 w-[100%] md:w-[80%] sm:w-full  bg-white rounded-xl justify-between items-center ">
              <menu className="  hidden md:block items-center justify-between object-cover " style={{width:"100%"}} >
                    
                <ul className=" items-center w-full  " style={{display:"flex",  flexDirection:'row', justifyContent:"space-around"}}>
@@ -66,17 +93,19 @@ const Navbar = () => {
                
                 
             </menu>
-            <button className=" md:hidden w-full flex justify-between items-center   "    onClick={() => setOpen(!open)}>
-            <div className="h-[0] flex items-center  "><img className="h-[70px] w-[90px]  " src={Logo} alt="adiray" />
+            <button className=" md:hidden w-full flex justify-between items-center z-60  "    onClick={() => setOpen(!open)}>
+            <div className="h-[0] flex items-center  "><img className="h-[70px] w-[100px]  " src={Logo} alt="adiray" />
          </div>
-                    {open ? <AiOutlineClose  /> : <FiMenu style={{fontSize:"25px"}} />}
+                    {open ? <AiOutlineClose className="relative z-70"  /> : <FiMenu style={{fontSize:"25px"}} />}
                 </button>
             </div>
 
-            {open && (
-                <ul className="p-6 md:hidden  flex-col gap-8 bg-[#dae8ea] w-[50%] h-[800px]  rounded-md " style={{marginTop:"475px", marginLeft:"60%"}}>
+            {open  && (
+                
+                <ul data-aos="slide-left"
+                 className={`p-6 md:hidden justify-end  flex-col gap-8 bg-[#E8EDF3] w-[50%] h-[800px]  rounded-md  transition-${margin} duration-300 ease-in-out `}  style={{marginTop:"320px",marginLeft:`${margin}`,transition: "margin 6s all ease"}}>
                     
-                    <button className=" md:hidden flex items-center justify-end "   onClick={() => setOpen(!open)}>
+                    <button className=" md:hidden flex items-center justify-end transition-margin duration-300 ease-in-out"   onClick={() => openNav(open)}>
                     {open ? <AiOutlineClose  style={{ fontSize: '30px', }}   /> : <FiMenu />}
                 </button>
                 <li >
@@ -99,6 +128,7 @@ const Navbar = () => {
                         <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"} to="blog"  onClick={() => setOpen(!open)}> <span className="hover:text-black">Blog</span></NavLink>
                     </li>
                 </ul>
+                
             )}
         </motion.nav>
         </>
