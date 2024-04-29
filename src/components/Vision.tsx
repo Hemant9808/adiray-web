@@ -8,7 +8,7 @@ export default function Vision() {
         <div className="flex flex-wrap  gap-20  md:gap-40 lg:gap-8 justify-between ">
 
 
-          <div 
+          <div data-aos="fade-right"
            className="w-[600px]   md:h-[320px] h-auto   rounded-[14px] gap-7    flex-col justify-center items-start inline-flex "
            style={{ maxWidth: "85vw" }}>
               <div className="text-4xl"><span className="text-gray-900 font-bold ">Bharat</span><span className="text-black font-bold "> - </span><span className="text-blue-900  font-bold ">Local to Global</span></div>
@@ -21,7 +21,7 @@ Our mission is simple: </p></div>
           </div>
 
 
-          <div 
+          <div data-aos="fade-left"
            className="w-[600px]   md:h-[320px] h-auto   rounded-[14px] gap-4    flex-col justify-center items-start inline-flex "
            style={{ maxWidth: "85vw" }}>
               <div className="text-4xl"><span className="text-gray-900 font-bold ">A World of </span><span className="text-black font-bold "> - </span><span className="text-blue-900  font-bold ">Trust & Opportunity</span></div>
