@@ -12,7 +12,7 @@ const hrClasses = "flex-1 border-zinc-300";
 const Blog = () => {
     
   AOS.init({
-    duration: 500, // Set the duration in milliseconds (e.g., 500ms)
+    duration: 800, 
   });
 
 

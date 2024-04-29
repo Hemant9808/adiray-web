@@ -1,5 +1,6 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Suspense, lazy } from "react";
+
 import Chatbot from "./pages/AI chatbot/Chatbot";
 const Enquiry = lazy(() => import("./pages/Home/Enquiry"));
 const Signup = lazy(() => import("./pages/Home/Signup"));

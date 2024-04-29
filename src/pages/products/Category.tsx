@@ -55,7 +55,7 @@ export default function Category() {
 
   return (
     <div className="w-full h-auto flex flex-col justify-center items-center mb-4 ">
-        <div className="relative h-64 w-full overflow-hidden group mb-24 mt-[100px]">
+        <div className="relative h-64 w-full overflow-hidden group mb-20 mt-[100px]">
                 <img className="object-cover h-full w-full group-hover:scale-150 ease-in-out duration-1000" src={productmain} alt="clothes" />
                 <div className="absolute inset-0 overflow-hidden bg-transparent  z-10  flex items-center justify-center">
                     <h1 className="text-[clamp(30px,2.5vw,4rem)] text-white font-semibold">
@@ -64,7 +64,7 @@ export default function Category() {
                 </div>
             </div>
 
-      <div className="w-[80vw] h-auto   flex ">
+      <div className="w-[80vw] h-auto   flex mb-20">
         <div className="w-[30%] min-w-[200px] h-auto bg-gray-100  mr-4 hidden md:block p-4 rounded-lg ">
           <input
             className="w-full p-2 rounded-md border-none shadow-md max-w-[200px]"
