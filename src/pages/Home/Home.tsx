@@ -3,6 +3,7 @@ import Hero from "../../components/Hero";
 import supplychain from "../../assets/supplychain crm.mp4"
 import comp from "../../assets/Comp.mp4";
 import Blog from "../../components/Blog";
+import Vision from "../../components/Vision";
 import AOS from "aos";
 import "aos/dist/aos.css";
 const Home = () => {
@@ -26,6 +27,9 @@ const Home = () => {
                     <div className="absolute w-full h-full inset-0 flex justify-center items-center backdrop-blur-sm bg-[#7797bc69] -translate-y-full content">
                         <h2 className="text-white text-[clamp(40px,3vw,4rem)] font-medium">Chatbot Video Section</h2>
                     </div>
+                </section>
+                <section className="relative">
+                   <Vision></Vision>
                 </section>
 
                 <section className="relative h-[95vh] overflow-hidden object-cover">
@@ -53,6 +57,8 @@ const Home = () => {
                 <section className="relative">
                    <Blog></Blog>
                 </section>
+               
+
 
             </main >
         </>

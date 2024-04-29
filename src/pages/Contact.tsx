@@ -3,7 +3,6 @@ import contact from "../assets/contact.png";
 import mail from "../assets/logo/mail.svg";
 import phone from "../assets/logo/phone.svg";
 import gps from "../assets/logo/gps.svg";
-import { BiPhoneOutgoing } from "react-icons/bi";
 export default function Contact() {
   const [sentMsg, setSentMsg] = useState(false);
   return (
