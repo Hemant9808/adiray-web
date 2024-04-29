@@ -18,8 +18,16 @@ const Hero = () => {
                     <p data-aos={shouldAnimate ? 'fade-left' : ''} className="text-slate-500 text-base font-semibold text-center lg:text-start max-w-md">
                         Transform your business with our high-quality raw materials, tailored to your unique needs.
                     </p>
+                    <div className="flex gap-5">
                     <div data-aos={shouldAnimate ? 'fade-right' : ''}>
                     <Button  className="text-white bg-blue-800 hover:bg-blue-900">View More</Button>
+                </div>
+                <div data-aos={shouldAnimate ? 'fade-left' : ''}>
+                    <Link to="login">
+                    <Button  className="text-white bg-blue-800 hover:bg-blue-900">Login</Button>
+                    </Link>
+                </div>
+
                 </div>
                 </div>
 
