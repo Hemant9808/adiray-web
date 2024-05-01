@@ -4,7 +4,7 @@ import group from "../assets/Group.png"
 export default function Vision() {
   return (
     <div>
-      <section className=" flex w-full sm:h-auto lg:h-[95vh]  justify-center items-center bg-white py-40 px-5  ">
+      <section className=" flex w-full h-auto md:h-auto    justify-center items-center bg-white py-40 px-5  ">
         <div className="flex flex-wrap  h-auto  gap-20  md:gap-0 lg:gap-20 justify-center ">
 
 
@@ -19,7 +19,7 @@ Our mission is simple: </p></div>
            
               <div className=" p-3  w-full text-[18px] font-semibold shadow-md rounded-md "><h3 className="bg-[#c6d0de] p-3 rounded-md ">With Adiray as your bridge, "Local to Global" becomes your reality.</h3></div>
           </div>
-
+          
            <div className="w-[2px] h-[600px] hidden lg:block  mt-9  bg-[#6e8199]" ></div>
           <div data-aos="fade-left"
            className="w-[600px] md:h-[80vh]    h-auto pt-4  rounded-[14px] gap-7 flex-col justify-center items-start inline-flex "

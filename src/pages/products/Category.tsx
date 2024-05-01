@@ -52,7 +52,7 @@ export default function Category() {
     { id: 10, name: "Product 10" },
   ];
   const [category,setCategory] = useState(categories1);
-
+  
   return (
     <div className="w-full h-auto flex flex-col justify-center items-center mb-4 ">
         <div className="relative h-64 w-full overflow-hidden group mb-20 mt-[100px]">
