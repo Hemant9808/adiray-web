@@ -12,8 +12,8 @@ const Hero = () => {
             <img className={styles.bg} src={bg} alt="background" />
             <div className={styles.overlay}>
                 <div className="flex flex-col items-center lg:items-start gap-6">
-                    <h1 data-aos={shouldAnimate ? 'fade-right' : ''} className="text-start leading-none text-[clamp(40px,3.5vw,5rem)] font-bold">
-                        Explore Our <br /> <span className={styles.underline}>Products</span>
+                    <h1 data-aos={shouldAnimate ? 'fade-right' : ''} className="text-start leading-none text-[clamp(40px,3.5vw,6rem)] font-bold">
+                        Local To <br /> <span className={styles.underline}>Global</span>
                     </h1>
                     <p data-aos={shouldAnimate ? 'fade-left' : ''} className="text-slate-500 text-base font-semibold text-center lg:text-start max-w-md">
                         Transform your business with our high-quality raw materials, tailored to your unique needs.
