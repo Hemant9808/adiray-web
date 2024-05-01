@@ -20,11 +20,11 @@ const Home = () => {
 
     return (
         <>
-            <main className="pt-[10vh] flex-auto gap-10 relative">
+            <main className="pt-[10vh]  flex-auto gap-10 relative">
             <Hero />
-                <section className="relative max-h-[90vh] overflow-hidden chatbot">
-                    <video className="h-95 -z-50 w-full object-cover aspect-video" src={comp} autoPlay muted loop />
-                    <div className="absolute w-full h-full inset-0 flex justify-center items-center backdrop-blur-sm bg-[#7797bc69] -translate-y-full content">
+                <section className="relative  h-auto max-h-[90vh] flex justify-center item-center  overflow-hidden chatbot">
+                    <video className="h-90 -z-50 w-[100vw] h-[100%] object-cover " src={comp} autoPlay muted loop />
+                    <div className="absolute w-[100%] h-[100%] inset-0 flex justify-center items-center backdrop-blur-sm bg-[#7797bc69] -translate-y-full content">
                         <h2 className="text-white text-[clamp(40px,3vw,4rem)] font-medium">Chatbot Video Section</h2>
                     </div>
                 </section>
