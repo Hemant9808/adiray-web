@@ -12,7 +12,7 @@ export default function Vision() {
            className="w-[600px] md:h-[80vh] h-auto rounded-[14px] gap-8 flex-col justify-center items-start inline-flex "
            style={{ maxWidth: "85vw" }}>
               <div className = "text-4xl"><span className="text-gray-900 font-bold ">Bharat</span><span className="text-black font-bold "> - </span><span className="text-blue-900  font-bold ">Local to Global</span></div>
-               <div className="text-[18px] "><p>At Adiray Global, we believe every domestic manufacturer deserves a shot at the international stage. 
+               <div className="text-[18px] "><p>We believe every domestic manufacturer deserves a shot at the international stage. 
 Our mission is simple: </p></div>
             <div className = "  text-[18px] flex gap-7 "><img className="w-[32px] h-[28px] rounded-md " src={group} alt="" /><p>Empower you to trade your high-quality goods across borders.</p></div>
             <div className = "text-[18px] flex gap-7 "><img className="w-[40px] h-[28px] rounded-md " src={group} alt="" /><p>We handle the complexities of the export process, connecting you with global markets so you can focus on what you do best – crafting exceptional products.</p></div>

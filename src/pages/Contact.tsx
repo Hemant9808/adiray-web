@@ -137,7 +137,7 @@ export default function Contact() {
                 <div className="justify-start items-center w-[100%] gap-[23px] inline-flex">
                   <div className="w-8 h-8 relative">
                     <img
-                      className=" md:w-[100%] w-[30px]  h-[30px] rounded-3xl"
+                      className=" md:w-[100%] w-[30px]   h-[30px] rounded-3xl"
                       src={phone}
                     />
                   </div>
@@ -151,7 +151,7 @@ export default function Contact() {
                   </div>
                 </div>
               </div>
-              <div className="h-[78px] md:px-6 px-2 py-5 bg-neutral-100 rounded-xl flex-col justify-start items-start gap-2.5 flex">
+              {/*<div className="h-[78px] md:px-6 px-2 py-5 bg-neutral-100 rounded-xl flex-col justify-start items-start gap-2.5 flex">
                 <div className="w-[100%] justify-start items-center gap-[23px] inline-flex">
                   <div className="w-11 h-9 relative">
                     <img
@@ -168,7 +168,7 @@ export default function Contact() {
                     </div>
                   </div>
                 </div>
-              </div>
+        </div>*/}
             </div>
           </div>
         </div>

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import productmain from "../../assets/productmain.png"
 
 export default function Category() {
-   
+  const inputClasses = "pl-10 pr-4 w-[100%] py-3 shadow-md text-md  rounded-lg";
   const categories1 = [
     { id: 1, name: "Product 1" },
     { id: 2, name: "Product 2" },
@@ -66,11 +66,16 @@ export default function Category() {
 
       <div className="w-[80vw] h-auto   flex mb-20">
         <div className="w-[30%] min-w-[200px] h-auto bg-gray-100  mr-4 hidden md:block p-4 rounded-lg ">
-          <input
-            className="w-full p-2 rounded-md border-none shadow-md max-w-[200px]"
-            type="text"
-            placeholder="search..."
-          />
+
+        <div className="relative w-[90%] flex items-center ">
+                        <input type="text" placeholder="Search..." className={inputClasses} />
+                        <svg className="w-4 h-4 absolute left-3 top-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </div>
+
+
+          
           <button className="w-full text-[14px]  flex mb-3 text-red-400 mt-9 mb-8" 
 >
             All Categories
