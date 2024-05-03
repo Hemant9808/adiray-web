@@ -1,6 +1,9 @@
 import styles from "../styles/footer.module.css"
 import { Link } from "react-router-dom";
 import silverlogo from "../assets/logo/silverlogo.png"
+import { FaEnvelope } from 'react-icons/fa';
+import { FiPhone } from 'react-icons/fi';
+
 import { AiFillInstagram } from "react-icons/ai";
 import { BsFacebook, BsTwitterX, BsYoutube, BsLinkedin } from "react-icons/bs";
 
@@ -69,15 +72,18 @@ const Footer = () => {
                 
                 <ul>
                     <h2 className="text-lg text-white font-semibold mb-2">Contact</h2>
-                    <Link className="text-wrap text-gray-300 hover:text-[#ffd700]" to="https://maps.app.goo.gl/SykjUggdHa4SkLYbA">
+                      {/*<Link className="text-wrap text-gray-300 hover:text-[#ffd700]" to="https://maps.app.goo.gl/SykjUggdHa4SkLYbA">
                         Address : D 1807, Shriram Greenfield, Bommenahalli, Bangalore. 560049
                     </Link>
-                    <Link className="text-gray-300 hover:text-[#ffd700]"  to="mailto:admin@adirayglobal.com">
+                  <Link className="text-gray-300 hover:text-[#ffd700]"  to="mailto:admin@adirayglobal.com">
                         Email Id : admin@adirayglobal.com
                     </Link>
                     <Link className="text-gray-300 hover:text-[#ffd700]" to="tel:+919620199884">
                         Mobile : 9620199884
-                    </Link>
+                     </Link>*/}
+                    <div className="flex gap-9"> <Link to={"tel:9620199884"}><FiPhone color="white" size={30} /></Link>  <Link to={"mailto:contact@adirayglobal.com"} >
+                    <FaEnvelope color="white" size={30}/>
+                    </Link>   </div>
                 </ul>
 
             </div>

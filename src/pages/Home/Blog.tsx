@@ -10,7 +10,7 @@ const inputClasses = "pl-10 pr-4 py-3 shadow-md text-md  rounded-lg";
 const hrClasses = "flex-1 border-zinc-300";
 ``
 const Blog = () => {
-    
+    const shouldAnimate = window.innerWidth <= 768;
   AOS.init({
     duration: 800, 
   });
@@ -34,7 +34,7 @@ const Blog = () => {
             </div>
             <div className="grid gap-6">
                 {[1, 2, 3].map((item) => (
-                    <div data-aos="slide-up" key={item} className="flex justify-center items-center gap-12 md:flex-row flex-col ">
+                    <div data-aos={shouldAnimate ? 'fade-up' : ''} key={item} className="flex justify-center items-center gap-12 md:flex-row flex-col ">
                         <img  src={blogpage} alt="Market Update" className="col-span-1 rounded-lg w-[300px] h-[200px] S" />
                         <div  className="col-span-2  h-[25vh] flex flex-col items-start justify-start overflow-hidden">
                             <h2 className="text-[clamp(15px,2.5vw,1.7rem)] font-extrabold text-black ">Understanding Market Psychology: How Emotions Influence Trading Decisions</h2>
