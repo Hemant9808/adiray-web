@@ -13,7 +13,7 @@ const Hero = () => {
             <img className={styles.bg} src={bg} alt="background" />
             <div className={styles.overlay}>
                 <div className="flex flex-col  items-center md:items-start gap-6">
-                    <h1 data-aos={shouldAnimate ? 'fade-right' : ''} className="text-start leading-none text-[#161e30] text-[clamp(45px,4.3vw,6rem)]  font-semibold">
+                    <h1 data-aos={shouldAnimate ? 'fade-right' : ''} className="text-start leading-none text-[#161e30] text-[clamp(45px,4.1vw,6rem)]  font-semibold">
                         Local To <br /> <span className={styles.underline}>Global</span>
                     </h1>
                     <p data-aos={shouldAnimate ? 'fade-left' : ''} className="text-slate-500 text-[20px]  text-center md:text-start max-w-md">
@@ -35,21 +35,21 @@ const Hero = () => {
                 <div className="flex flex-col gap-4 md:h-75vh">
                     <div className="flex gap-4 items-end ">
                         <Link  data-aos={imageShoudAnimate ? 'fade-up' : ''}  to={""}>
-                            <img className="w-[252.13px] h-[195.28px]  md:w-[300px] md:h-[250px]  left-[172.20px] top-[218.42px]" src={toolbox} />
+                            <img className="w-[252.13px] h-[195.28px]  md:w-[250px] md:h-[210px]  left-[172.20px] top-[218.42px]" src={toolbox} />
                         </Link>
 
                         <Link  data-aos={imageShoudAnimate ? 'fade-right' : ''}  to={""}>
-                            <img className="w-[142.38px] h-[142.05px]  md:w-[180px] md:h-[180px]  left-[38.35px] top-[218.42px] " src={toolbox} />
+                            <img className="w-[142.38px] h-[142.05px]  md:w-[160px] md:h-[160px]  left-[38.35px] top-[218.42px] " src={toolbox} />
                         </Link>
                     </div>
 
                     <div className="flex gap-4 ml-[5vw]">
                         <Link  data-aos={imageShoudAnimate ? 'fade-down' : ''} to={""}>
-                            <img className="w-[142.24px] h-[142.24px] md:w-[180px] md:h-[180px]  left-[267.57px] top-[61.71px]" src={toolbox} />
+                            <img className="w-[142.24px] h-[142.24px] md:w-[160px] md:h-[160px]  left-[267.57px] top-[61.71px]" src={toolbox} />
                         </Link>
 
                         <Link  data-aos={imageShoudAnimate ? 'fade-right' : ''} to={""}>
-                            <img className="w-[252.10px] h-[193.95px] md:w-[300px] md:h-[250px] left-0 top-[10px]" src={toolbox} />
+                            <img className="w-[252.10px] h-[193.95px] md:w-[250px] md:h-[210px] left-0 top-[10px]" src={toolbox} />
                         </Link>
 
                     </div>
