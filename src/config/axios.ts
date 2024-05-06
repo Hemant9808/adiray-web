@@ -5,7 +5,7 @@ import authConfig from './auth'
 // Define the base URL for API requests
 // const baseURL = 'https://dev.tria.so'
 // const baseURL = 'https://prod.tria.so'
-const baseURL = 'https://node-js-jwt-auth.onrender.com/'
+const baseURL = 'https://node-js-jwt-auth.onrender.com'
 
 // Create an instance of Axios with default configuration
 const axiosInstance: AxiosInstance = axios.create({
