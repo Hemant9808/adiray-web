@@ -4,9 +4,15 @@
     background: linear-gradient(107deg, #D9E6FF -8.85%, #FFFBEE 95.52%);
     background-repeat: no-repeat;
     justify-content: space-between;
+    margin-top: -1.5rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
 
     @media (max-width:1024px) {
         height: 100%;
+        margin-top: 2rem;
+        padding-left: 0;
+        padding-right: 0;
     }
 }
 
@@ -14,7 +20,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 2rem;
+    gap: 9rem;
     position: relative;
     height: 100%;
     width: 100%;
@@ -22,6 +28,7 @@
 
     @media (max-width:1024px) {
         flex-direction: column;
+        gap:4rem;
     }
 }
 

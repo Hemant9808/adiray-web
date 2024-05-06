@@ -7,7 +7,7 @@ import productmain from "../../assets/productmain.png"
 
 const Products = () => {
     return (
-        <section className="pt-[13vh]">
+        <section className="pt-[12vh]">
             <div className="relative h-64 overflow-hidden group">
                 <img className="object-cover h-full w-full group-hover:scale-150 ease-in-out duration-1000" src={productmain} alt="clothes" />
                 <div className="absolute inset-0 overflow-hidden bg-transparent  z-10  flex items-center justify-center">
