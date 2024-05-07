@@ -8,10 +8,27 @@ import { AiOutlineUser } from "react-icons/ai"
 import { BiEnvelope } from "react-icons/bi"
 import { PiEyeBold, PiEyeClosed } from "react-icons/pi"
 import { RiKey2Line } from "react-icons/ri"
+import axiosInstance from "../../config/axios";
 
 
 const Signup = () => {
     const [visible, setVisible] = useState(false);
+
+    const handleSignUp= async (values:{ fullname: string, email: string, password: string}) => {
+        try {
+            const apiUrl = '/users/signup'
+
+            // Making the POST request using Axios
+            const response = await axiosInstance.post(apiUrl,values);
+             window.localStorage.setItem('accessToken',response.data.token)
+             window.localStorage.setItem('user',JSON.stringify(response.data.user))
+            console.log('Project details saved:', response.data.user)
+            return response.data
+        } catch (error) {
+            console.log(error);
+        }
+
+    }
 
     return (
         <div className="flex items-center justify-center h-screen overflow-hidden">
@@ -20,6 +37,7 @@ const Signup = () => {
                 validationSchema={signUpSchema}
                 onSubmit={(values, { setSubmitting }) => {
                     console.log(values);
+                    handleSignUp(values);
                     setSubmitting(false)
                 }}
             >

@@ -7,11 +7,28 @@ import { Button } from "../components/Button";
 import { PiEyeBold, PiEyeClosed } from "react-icons/pi";
 import { RiKey2Line } from "react-icons/ri";
 import { BiEnvelope } from "react-icons/bi";
+import axiosInstance from "../config/axios";
 
 
 
 const Login = () => {
     const [visible, setVisible] = useState(false);
+
+    const handleLogin= async (values:{  email: string, password: string}) => {
+        try {
+            const apiUrl = '/users/login'
+
+            // Making the POST request using Axios
+            const response = await axiosInstance.post(apiUrl,values);
+             window.localStorage.setItem('accessToken',response.data.token)
+             window.localStorage.setItem('user',JSON.stringify(response.data.user))
+            console.log('Project details saved:', response.data.user)
+            return response.data
+        } catch (error) {
+            console.log(error);
+        }
+
+    }
 
     return (
         <div className="flex items-center justify-center h-[100dvh]">
@@ -20,6 +37,7 @@ const Login = () => {
                 validationSchema={signInSchema}
                 onSubmit={(values, { setSubmitting }) => {
                     console.log(values);
+                    handleLogin(values);
                     setSubmitting(false);
                 }}
             >
