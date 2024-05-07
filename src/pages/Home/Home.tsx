@@ -37,15 +37,15 @@ const Home = () => {
                     <div className="absolute w-full h-full inset-0 flex items-center justify-center backdrop-blur-md   bg-[#121e2c69]">
                         <div className="flex flex-col justify-between gap-[3rem] max-w-screen-lg px-8">
                             <div data-aos="fade-up" className="flex flex-col gap-2 items-center">
-                                <h1 className="text-[clamp(24px,3vw,4rem)] font-bold text-white">About Us</h1>
-                                <p className="text-white text-[clamp(14px,1.2vw,2rem)] text-center">
+                                <h1 className="text-[clamp(24px,3vw,4rem)] font-bold text-white font-Mont">About Us</h1>
+                                <p className="text-white text-[clamp(14px,1.2vw,2rem)] text-center font-MontBook">
                                     Adiray Global bridges the gap between India and the world through exports, specializing in non-traditional commodities reaching unique destinations. They're a game-changer in trade, offering unprecedented transparency and innovation. From fashion to machinery, they handle diverse commodities, even venturing into tech solutions to streamline the trading process. Think of them as your gateway to connecting unique goods with global markets.
                                 </p>
                             </div>
 
                             <div data-aos="fade-up">
-                                <h1 className="text-[clamp(20px,2.5vw,3rem)] text-white text-center">Supply Chain CRM</h1>
-                                <p className="text-white text-[clamp(14px,1.2vw,2rem)] text-center">
+                                <h1 className="text-[clamp(20px,2.5vw,3rem)] text-white text-center font-Mont">Supply Chain CRM</h1>
+                                <p className="text-white text-[clamp(14px,1.2vw,2rem)] text-center font-MontBook">
                                     Dashboard solution offers trade transparency by providing clients with credentials to track shipments, view shipment ETA, and access associated documents. This tool streamlines shipment monitoring and documentation management for businesses engaged in trade, enhancing operational
                                     visibility and efficiency.
                                 </p>

@@ -19,10 +19,10 @@ export default function Contact() {
                   <div className="flex-col justify-center items-center gap-[30px] flex">
                     <div className="flex-col justify-start items-start gap-3 flex">
                       <div className="flex-col justify-start items-start flex">
-                        <div className="text-pink-600 text-lg font-extrabold ">
+                        <div className="text-pink-600 font-Mont text-lg font-extrabold ">
                           Get in Touch
                         </div>
-                        <div className="text-center md:text-5xl text-[clamp(30px,3.5vw,3rem)] ">
+                        <div className="text-center font-Mont md:text-5xl text-[clamp(30px,3.5vw,3rem)] ">
                           <span className="text-gray-900  font-bold ">
                             Reach Out{" "}
                           </span>
@@ -91,7 +91,7 @@ export default function Contact() {
 
           {sentMsg && (
             <>
-              <div className="w-[241px] text-center">
+              <div className="w-[241px] text-center font-Mont">
                 <span className="text-gray-900 text-3xl font-semibold ">
                   Message
                 </span>

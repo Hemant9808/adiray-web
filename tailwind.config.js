@@ -6,6 +6,10 @@ export default {
   ],
   theme: {
     extend: {},
+    fontFamily:{
+      Mont :['Mont-Bold','sans-serif'],
+      MontBook:['Mont-Book','sans-serif']
+    }
   },
   plugins: [],
 }

@@ -53,7 +53,7 @@ const Footer = () => {
         </div>
 
         <ul className="md:ml-[50px] ">
-          <h2 className="text-lg font-semibold mb-2 text-white ">
+          <h2 className="text-lg font-semibold mb-2 font-Mont text-white ">
             Quick Links
           </h2>
 
@@ -63,7 +63,7 @@ const Footer = () => {
             </Link>
           </li>
           <li>
-            <Link className="text-gray-300 hover:text-[#ffd700]" to="">
+            <Link className="text-gray-300  hover:text-[#ffd700]" to="">
               Contact us
             </Link>
           </li>
@@ -85,7 +85,7 @@ const Footer = () => {
         </ul>
 
         <ul>
-          <h2 className="text-lg text-white font-semibold mb-2">Contact</h2>
+          <h2 className="text-lg text-white font-semibold mb-2 font-Mont">Contact</h2>
           {/*<Link className="text-wrap text-gray-300 hover:text-[#ffd700]" to="https://maps.app.goo.gl/SykjUggdHa4SkLYbA">
                         Address : D 1807, Shriram Greenfield, Bommenahalli, Bangalore. 560049
                     </Link>

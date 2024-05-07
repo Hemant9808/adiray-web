@@ -18,7 +18,7 @@ const Navbar = () => {
         });
         AOS.refresh();
       }, []);
- 
+      const shouldAnimate = window.innerWidth <= 768;
     const {scrollY} = useScroll();
   const [hidden,setHidden] = useState(false);
   
@@ -50,8 +50,8 @@ const Navbar = () => {
 
     return (
         <>
-        <div className="z-50  w-[100vw] min-w-[350px] h-[120px]  bg-[#E8EDF3]  fixed flex items-center justify-center shadow-  ">
-            <div  className={`w-full h-[120px] md:h-[100px] flex items-center justify-${open ? 'start' : 'center'}`} >
+        <div className="z-50   w-[100vw] min-w-[350px] h-[120px]  bg-[#E8EDF3]  fixed flex items-center justify-center shadow-  ">
+            <div data-aos={shouldAnimate ? 'fade-left' : ''}  className={`w-full h-[120px] md:h-[100px] flex items-center justify-${open ? 'start' : 'center'}`} >
                <img className="h-[100px] w-[140px] " src={Logo} alt="adiray"/>
           </div>
         </div>
@@ -65,7 +65,7 @@ const Navbar = () => {
           transition={{ duration:0.35, ease :"easeInOut"}}
           
         
-        className = { `z-50 fixed w-[100vw] h-[120px]    px-4 border-b-2 flex flex-col justify-center items-center  `}>
+        className = { `z-50 fixed w-[100vw] h-[120px] font-MontBook   px-4 border-b-2 flex flex-col justify-center items-center  `}>
              <div className=" px-5 py-5 w-[90vw] md:w-[80%] sm:w-full  bg-white rounded-xl justify-between items-center ">
              <menu className="  hidden md:block items-center justify-between object-cover " style={{width:"100%"}} >
                    

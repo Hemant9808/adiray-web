@@ -9,9 +9,10 @@ const Layout = lazy(() => import("./pages/Home/Layout"));
 const Home = lazy(() => import("./pages/Home/Home"));
 const Layouts = lazy(() => import("./pages/AI chatbot/Chatbot"));
 const Contact = lazy(() => import("./pages/Contact"));
-const Blog = lazy(() => import("./pages/Home/Blog"));
+const Blog = lazy(() => import("./pages/Blogs/Blog"));
 const Category = lazy(() => import("./pages/products/Category"));
 const Products = lazy(() => import("./pages/products/Products"));
+const Blogpost = lazy(() => import("./pages/Blogs/Blogpost"));
 function App() {
 
   const router = createBrowserRouter([
@@ -51,6 +52,10 @@ function App() {
         {
           path: "blog",
           element: <Blog />
+        },
+        {
+          path: "blog/blogpost",
+          element: <Blogpost />
         }
 
       ]

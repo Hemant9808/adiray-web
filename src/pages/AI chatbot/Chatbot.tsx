@@ -34,23 +34,23 @@ export default function Chatbot() {
         <div className="w-[243px] h-screen left-0 top-[1px] absolute">
           <div className="left-[26px] top-[93px] absolute flex-col justify-center items-start gap-6 inline-flex">
             <div className="pl-5 pr-[79px] py-2.5 bg-white rounded-xl justify-start items-center gap-2.5 inline-flex">
-              <div className="text-blue-950 text-base font-semibold ">
+              <div className="text-blue-950 text-base font-semibold font-Mont">
                 New Chat
               </div>
             </div>
             <div className="px-[21px] flex-col justify-start items-start gap-[30px] flex">
-              <div className="text-slate-500 text-base font-semibold ">
+              <div className="text-slate-500 font-Mont text-base font-semibold ">
                 News
               </div>
               <div className="">
-              <div className="text-slate-600 text-lg font-bold mb-3">
+              <div className="text-slate-600 text-lg font-Mont font-bold mb-3">
                 Library
               </div>
               <div className="flex ml-3">
               <div className="w-1 h-auto bg-slate-400"></div>
               <div>
                 {library.map((history)=>(
-                  <h4  className="text-slate-500 text-md pl-3 " key={history.id}>{history.history}</h4>
+                  <h4  className="text-slate-500 text-md pl-3 font-MontBook " key={history.id}>{history.history}</h4>
                
                 ))}
                   </div>  </div>
@@ -58,7 +58,7 @@ export default function Chatbot() {
               
             </div>
           </div>
-          <div className="left-[61px] top-[80vh] absolute text-blue-950 text-lg font-semibold ">
+          <div className="left-[61px] top-[80vh]  absolute text-blue-950 text-lg font-semibold ">
             User Name
           </div>
           <Link to="/" >
@@ -77,7 +77,7 @@ export default function Chatbot() {
         <div className="w-[243px] h-screen left-0 top-[1px] ">
           <div className="left-[26px] top-[93px] absolute flex-col justify-center items-start gap-6 inline-flex">
             <div className="pl-5 pr-[79px] py-2.5 bg-white rounded-xl justify-start items-center gap-2.5 inline-flex">
-              <div className="text-blue-950 text-base font-semibold ">
+              <div className="text-blue-950  text-base font-semibold ">
                 New Chat
               </div>
             </div>
@@ -120,7 +120,7 @@ export default function Chatbot() {
                 </button>
 
 
-        <div className="w-full   flex flex-col justify-center items-center ">
+        <div className="w-full font-Mont  flex flex-col justify-center items-center ">
         <div className="text-slate-600  text-[clamp(25px,3.5vw,2.5rem)]  font-medium mb-1">
           Welcome to ITrade
         </div>

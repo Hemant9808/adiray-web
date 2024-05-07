@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -54,4 +55,16 @@ a:active {
 
 .slider-controler .slider-arrow::after {
   content: '';
+}
+@font-face {
+  font-family: 'Mont-Bold';   
+  src: url('./fonts/Mont-Bold.ttf') format('truetype'); /* Adjust the path and filename according to where you stored your font files */
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Mont-Book';   
+  src: url('./fonts/Mont-Book.ttf') format('truetype'); /* Adjust the path and filename according to where you stored your font files */
+  font-weight: normal;
+  font-style: normal;
 }

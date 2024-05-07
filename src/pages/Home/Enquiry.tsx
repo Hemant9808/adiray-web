@@ -15,7 +15,7 @@ const Enquiry = () => {
 
       <div className="absolute flex flex-col  items-center h-[1000px] backdrop-blur-md   bg-[#121e2c69]  w-full ">
         <div className="w-[80vw] max-w-[900px]" style={{marginTop: "160px",  }}>
-          <h1 className=" font-bold text-[clamp(50px,2.5vw,4rem)] mb-6 z-10 text-center  text-white">
+          <h1 className=" font-bold font-Mont text-[clamp(50px,2.5vw,4rem)] mb-6 z-10 text-center  text-white">
             Get your{" "}
             <span style={{ color: "#ffd700" }}>Products Delivered </span>to your
             destination from India{" "}
