@@ -3,16 +3,19 @@ import { Link } from "react-router-dom";
 import silverlogo from "../assets/logo/silverlogo.png";
 import { FaEnvelope } from "react-icons/fa";
 import { FiPhone } from "react-icons/fi";
+import { useTranslation } from 'react-i18next';
 
 import { AiFillInstagram } from "react-icons/ai";
 import { BsFacebook, BsTwitterX, BsYoutube, BsLinkedin } from "react-icons/bs";
 
 const Footer = () => {
+  const { t } = useTranslation();
   return (
     <footer
       className={styles.wrapper}
       style={{ backgroundColor: "#0B1321", margin: "0",zIndex:50 }}
     >
+        <h1>{t('logIntoSeeProfile')}</h1>
       <div className={styles.list}>
         <div className="flex flex-col gap-9 ">
           <img

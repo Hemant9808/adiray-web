@@ -7,8 +7,17 @@ import { AiOutlineClose } from "react-icons/ai";
 import {motion, useScroll,useMotionValueEvent} from 'framer-motion'
 import AOS from "aos";
 import "aos/dist/aos.css";
+// import { useTranslation } from 'react-i18next';
+import i18n from "../config/i18n"
 
 const Navbar = () => {
+    // const {  i18n } = useTranslation();
+
+    const changeLanguage = (lng: string) => {
+        console.log("lng", lng);
+        i18n.changeLanguage(lng).then(() => console.log("Language changed to", lng));
+    };
+    
     React.useEffect(() => {
         AOS.init({
           duration: 800,
@@ -89,6 +98,14 @@ const Navbar = () => {
                     <li>
                         <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"} to="blog"> <span className="hover:text-black">Blog</span></NavLink>
                     </li>
+                    <ul className="dropdown-menu">
+                        <li className='dropdown-item'>
+                            <div className='' onClick={() => changeLanguage('en')}>English</div>
+                        </li>
+                        <li className='dropdown-item'>
+                            <div className='' onClick={() => changeLanguage('he')}>हिंदी</div>
+                        </li>
+                    </ul>
                 </ul>
                
                 
@@ -123,7 +140,6 @@ const Navbar = () => {
                     <li>
                         <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"} to="contact"  onClick={() => setOpen(!open)}> <span className="hover:text-black">Contact us</span></NavLink>
                     </li>
-
                     <li>
                         <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"} to="blog"  onClick={() => setOpen(!open)}> <span className="hover:text-black">Blog</span></NavLink>
                     </li>
