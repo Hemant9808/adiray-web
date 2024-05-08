@@ -16,7 +16,7 @@ const Footer = () => {
       style={{ backgroundColor: "#0B1321", margin: "0",zIndex:50 }}
     >
 
-      <h1>{t('logout')}</h1>
+      <h1>{t('logout.logoutkrbc')}</h1>
 
             <div className={styles.list}>
         <div className="flex flex-col gap-9 ">

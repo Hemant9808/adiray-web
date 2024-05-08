@@ -11,7 +11,7 @@ const Products = () => {
             <div className="relative h-64 overflow-hidden group">
                 <img className="object-cover h-full w-full group-hover:scale-150 ease-in-out duration-1000" src={productmain} alt="clothes" />
                 <div className="absolute inset-0 overflow-hidden bg-transparent  z-10  flex items-center justify-center">
-                <h1 className="text-[clamp(30px,2.5vw,4rem)] text-white font-semibold">
+                <h1 className="text-[clamp(30px,2.5vw,4rem)] text-white font-Mont font-semibold">
                         Our <span className="text-[#FFC900]">Products</span>
                     </h1>
                 </div>

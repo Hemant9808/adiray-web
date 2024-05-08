@@ -103,7 +103,7 @@ const Navbar = () => {
                     <li className="relative cursor-pointer group">
                   <a
                     href="#"
-                    className="flex items-center gap-[2px] font-semibold text-gray-500 dark:hover:text-white py-2"
+                    className="flex items-center gap-[2px] font-semibold text-gray-500 dark:hover:text-gray-900 py-2"
                   >
                     Quick Links
                     <span>

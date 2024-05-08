@@ -9,11 +9,11 @@ i18n.use(initReactI18next).init({
     en: {
       translation: {
         contactUs: 'Contact Us',
-        login: 'Login',
-        logout: 'Log Out',
+        login: 'Login kr bc',
+        logout: {logoutkrbc :'Log Out kr bhenchod'},
         profile: 'Profile',
         changeLanguage: 'Change Language',
-        logIntoSeeProfile: "Login to see profile"
+        logIntoSeeProfile: {changed:"Login to see profile"}
       },
     },
     he: {
