@@ -10,14 +10,15 @@ import { BsFacebook, BsTwitterX, BsYoutube, BsLinkedin } from "react-icons/bs";
 
 const Footer = () => {
   const { t } = useTranslation();
-
   return (
     <footer
       className={styles.wrapper}
       style={{ backgroundColor: "#0B1321", margin: "0",zIndex:50 }}
     >
+
       <h1>{t('logout')}</h1>
-      <div className={styles.list}>
+
+            <div className={styles.list}>
         <div className="flex flex-col gap-9 ">
           <img
             className="w-[90px]  justify-center mt-[-30px]"

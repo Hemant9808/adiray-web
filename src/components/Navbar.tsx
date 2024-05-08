@@ -8,6 +8,7 @@ import {motion, useScroll,useMotionValueEvent} from 'framer-motion'
 import { FaCaretDown } from "react-icons/fa6";
 import AOS from "aos";
 import "aos/dist/aos.css";
+
 import i18n from "../config/i18n"
 
 const Navbar = () => {
@@ -16,24 +17,8 @@ const Navbar = () => {
         i18n.changeLanguage(lng).then(() => console.log("Language changed to", lng));
   
        }
+    
 
-    const DropdownLinks = [
-        {
-          id: 1,
-          name: "English",
-          link: "/#",
-        },
-        {
-          id: 2,
-          name: "Hindi",
-          link: "/#",
-        },
-        {
-          id: 3,
-          name: "Others",
-          link: "/#",
-        },
-      ];
     React.useEffect(() => {
         AOS.init({
           duration: 800,
@@ -114,6 +99,7 @@ const Navbar = () => {
                     <li>
                         <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"} to="blog"> <span className="hover:text-black">Blog</span></NavLink>
                     </li>
+
                     <li className="relative cursor-pointer group">
                   <a
                     href="#"
@@ -148,6 +134,9 @@ const Navbar = () => {
                     </ul>
                   </div>
                 </li>
+
+                    
+
                 </ul>
                
                 
@@ -182,7 +171,6 @@ const Navbar = () => {
                     <li>
                         <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"} to="contact"  onClick={() => setOpen(!open)}> <span className="hover:text-black">Contact us</span></NavLink>
                     </li>
-
                     <li>
                         <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"} to="blog"  onClick={() => setOpen(!open)}> <span className="hover:text-black">Blog</span></NavLink>
                     </li>
