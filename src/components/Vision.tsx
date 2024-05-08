@@ -10,7 +10,7 @@ export default function Vision() {
         
         <div className="flex flex-wrap  h-auto  gap-20  md:gap-0 lg:gap-20 justify-center ">
 
-
+        
           <div data-aos="fade-right"
            className="w-[600px] md:h-[80vh] h-auto rounded-[14px] gap-8 flex-col justify-center items-start inline-flex "
            style={{ maxWidth: "85vw" }}>

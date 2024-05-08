@@ -5,10 +5,35 @@ import { FiMenu } from "react-icons/fi";
 import { useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import {motion, useScroll,useMotionValueEvent} from 'framer-motion'
+import { FaCaretDown } from "react-icons/fa6";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import i18n from "../config/i18n"
 
 const Navbar = () => {
+       const changeLanguage = (lng:string)=>{
+        console.log("lng",lng);
+        i18n.changeLanguage(lng).then(() => console.log("Language changed to", lng));
+  
+       }
+
+    const DropdownLinks = [
+        {
+          id: 1,
+          name: "English",
+          link: "/#",
+        },
+        {
+          id: 2,
+          name: "Hindi",
+          link: "/#",
+        },
+        {
+          id: 3,
+          name: "Others",
+          link: "/#",
+        },
+      ];
     React.useEffect(() => {
         AOS.init({
           duration: 800,
@@ -35,7 +60,7 @@ const Navbar = () => {
 
     const [open, setOpen] = useState(false);
     const [margin,setMargin]=useState("60%")
-    var openNav =(open)=>{
+    var openNav =(open:boolean)=>{
         setOpen(!open);
         if(open){
             setMargin("60%");
@@ -89,6 +114,40 @@ const Navbar = () => {
                     <li>
                         <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"} to="blog"> <span className="hover:text-black">Blog</span></NavLink>
                     </li>
+                    <li className="relative cursor-pointer group">
+                  <a
+                    href="#"
+                    className="flex items-center gap-[2px] font-semibold text-gray-500 dark:hover:text-white py-2"
+                  >
+                    Quick Links
+                    <span>
+                      <FaCaretDown className="group-hover:rotate-180 duration-300" />
+                    </span>
+                  </a>
+
+                  {/* Dropdown Links */}
+                  <div className="absolute z-[9999] hidden group-hover:block w-[200px] rounded-md bg-white shadow-md  p-2 dark:text-white ">
+                    <ul className="space-y-2">
+                      
+                      
+                        <li className="text-gray-500 hover:text-gray-500   duration-200 inline-block w-full p-2 hover:bg-pink-200 rounded-md font-semibold"
+                       onClick={()=>changeLanguage('en')}
+                       >
+                          English
+                            
+                          
+                        </li>
+                        <li className="text-gray-500 hover:text-gray-500   duration-200 inline-block w-full p-2 hover:bg-pink-200 rounded-md font-semibold"
+                          onClick={()=>changeLanguage('he')}>
+                      hindi
+                            
+                          
+                        </li>
+                     
+                    
+                    </ul>
+                  </div>
+                </li>
                 </ul>
                
                 
