@@ -1,18 +1,44 @@
 
 import blogpage from "../../assets/blogpage.png";
-
+import { useEffect, useState } from "react";
 import blogbg from "../../assets/blogbg.jpg";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
+import axios from "axios";
+
 
 const inputClasses = "pl-10 pr-4 py-3 shadow-md text-md  rounded-lg";
 const hrClasses = "flex-1 border-zinc-300";
 const Blog = () => {
+
   const shouldAnimate = window.innerWidth <= 768;
   AOS.init({
     duration: 800,
   });
+
+  const [blogPosts, setBlogPosts] = useState<any>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    axios.get("https://node-js-jwt-auth.onrender.com/api/posts/")
+      .then(response => {
+        setBlogPosts(response.data);
+        setLoading(false);
+      })
+      .catch(error => {
+        console.error("Error fetching blog posts:", error);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (!blogPosts) {
+    return <div>Post not found</div>;
+  }
 
   return (
     <div className=" relative w-full flex  justify-center shadow-md ">
@@ -55,37 +81,67 @@ const Blog = () => {
           </div>
         </div>
         <div className="grid gap-6">
-          {[1, 2, 3].map((item) => (
+          {[1,2,3].map((item: any) => (
             <div
               data-aos={shouldAnimate ? "fade-up" : ""}
               key={item}
               className="flex justify-center items-center gap-12 md:flex-row flex-col "
-            >   
-            
-            <div className="col-span-2 w-[100%] ">
-            <Link to="/blog/blogpost">
-                 <img
-                  src={blogpage}
-                  alt="Market Update"
-                  className="col-span-1 rounded-lg  sm:w-[350px]"
-                /></Link>
-                </div>
-                
-               
+            >
+
+              <div className="col-span-2 w-[100%] ">
+                <Link to="/blog/blogpost">
+                  <img
+                    src={blogpage}
+                    alt="Market Update"
+                    className="col-span-1 rounded-lg  sm:w-[350px]"
+                  /></Link>
+              </div>
+
+
               <div className="col-span-2  h-[25vh] flex flex-col items-start justify-start overflow-hidden">
                 <h2 className="text-[clamp(15px,2.5vw,1.7rem)] font-Mont font-extrabold text-black ">
                   Understanding Market Psychology: How Emotions Influence
                   Trading Decisions
+                 
+
                 </h2>
                 <p className="mt-2 text-zinc-400 font-Mont  font-semibold">
                   Trading isn't just about charts, numbers, and economic
                   indicators—it's also deeply influenced by human psychology.
                   Emotions play a significant role in financial decisions.
+                 
                 </p>
               </div>
-             
+
             </div>
           ))}
+          {blogPosts.map((post:any) => (
+            <div
+              data-aos={shouldAnimate ? "fade-up" : ""}
+              key={post._id}
+              className="flex justify-center items-center gap-12 md:flex-row flex-col"
+            >
+              <div className="col-span-2 w-[100%]">
+                <Link to={`/blog/blogpost/${post._id}`}>
+                  <img
+                    src={post.imageUrl}
+                    alt={post.title}
+                    className="col-span-1 rounded-lg sm:w-[350px]"
+                  />
+                </Link>
+              </div>
+              <div className="col-span-2 h-[25vh] flex flex-col items-start justify-start overflow-hidden">
+                <h2 className="text-[clamp(15px,2.5vw,1.7rem)] font-Mont font-extrabold text-black">
+                  {post.title}
+                </h2>
+                <p className="mt-2 text-zinc-400 font-Mont font-semibold">
+                  {post.description}
+                </p>
+              </div>
+            </div>
+          ))}
+
+
         </div>
       </div>
     </div>
