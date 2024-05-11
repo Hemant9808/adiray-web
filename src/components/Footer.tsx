@@ -16,7 +16,7 @@ const Footer = () => {
       style={{ backgroundColor: "#0B1321", margin: "0",zIndex:50 }}
     >
 
-      <h1>{t('logout.logoutkrbc')}</h1>
+    
 
             <div className={styles.list}>
         <div className="flex flex-col gap-9 ">
@@ -59,38 +59,38 @@ const Footer = () => {
 
         <ul className="md:ml-[50px] ">
           <h2 className="text-lg font-semibold mb-2 font-Mont text-white ">
-            Quick Links
+          {t('footer.quicklinks')}
           </h2>
 
           <li>
             <Link className="text-gray-300 hover:text-[#ffd700]" to="">
-              Products
+            {t('footer.products')}
             </Link>
           </li>
           <li>
             <Link className="text-gray-300  hover:text-[#ffd700]" to="">
-              Contact us
+            {t('footer.Contactus')} 
             </Link>
           </li>
           <li>
             <Link className="text-gray-300 hover:text-[#ffd700]" to="">
-              Terms & Conditions
+            {t('footer.Terms & Conditions')}
             </Link>
           </li>
           <li>
             <Link className="text-gray-300 hover:text-[#ffd700]" to="">
-              Privacy and Cookies
+            {t('footer.Privacy and Cookies')}
             </Link>
           </li>
           <li>
             <Link className="text-gray-300 hover:text-[#ffd700]" to="">
-              Licenses
+            {t('footer.Licenses')} 
             </Link>
           </li>
         </ul>
 
         <ul>
-          <h2 className="text-lg text-white font-semibold mb-2 font-Mont">Contact</h2>
+          <h2 className="text-lg text-white font-semibold mb-2 font-Mont"> {t('footer.Contact')}</h2>
           {/*<Link className="text-wrap text-gray-300 hover:text-[#ffd700]" to="https://maps.app.goo.gl/SykjUggdHa4SkLYbA">
                         Address : D 1807, Shriram Greenfield, Bommenahalli, Bangalore. 560049
                     </Link>
