@@ -6,12 +6,14 @@ import { useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import {motion, useScroll,useMotionValueEvent} from 'framer-motion'
 import { FaCaretDown } from "react-icons/fa6";
+import { useTranslation } from 'react-i18next';
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 import i18n from "../config/i18n"
 
 const Navbar = () => {
+  const { t } = useTranslation();
        const changeLanguage = (lng:string)=>{
         console.log("lng",lng);
         i18n.changeLanguage(lng).then(() => console.log("Language changed to", lng));
@@ -81,31 +83,32 @@ const Navbar = () => {
                    
                <ul className=" items-center w-full  " style={{display:"flex",  flexDirection:'row', justifyContent:"space-around"}}>
                     <li >
-                        <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"}  to="/"> <span className="hover:text-black">Home</span></NavLink>
+                        <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"}  to="/"> <span className="hover:text-black">{t('navbar.Home')}</span></NavLink>
                     </li>
                     <li>
-                        <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"} to="chatbot"> <span className="hover:text-black">AI Chatbot</span></NavLink>
+                        <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"} to="chatbot"> <span className="hover:text-black">{t('navbar.AI Chatbot')}
+</span></NavLink>
                     </li>
                     <li>
-                        <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"} to="enquiry"> <span className="hover:text-black">Enquiry</span></NavLink>
+                        <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"} to="enquiry"> <span className="hover:text-black">{t('navbar.Enquiry')}</span></NavLink>
                     </li>
                     <li>
-                        <NavLink className={({ isActive }) => isActive ?"text-black" : "text-slate-600"} to="products"> <span className="hover:text-black">Products</span></NavLink>
+                        <NavLink className={({ isActive }) => isActive ?"text-black" : "text-slate-600"} to="products"> <span className="hover:text-black">{t('navbar.Products')}</span></NavLink>
                     </li>
                     <li>
-                        <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"} to="contact"> <span className="hover:text-black">Contact us</span></NavLink>
+                        <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"} to="contact"> <span className="hover:text-black">{t('navbar.Contact us')}</span></NavLink>
                     </li>
 
                     <li>
-                        <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"} to="blog"> <span className="hover:text-black">Blog</span></NavLink>
+                        <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"} to="blog"> <span className="hover:text-black">{t('navbar.Blog')}</span></NavLink>
                     </li>
 
                     <li className="relative cursor-pointer group">
                   <a
                     href="#"
-                    className="flex items-center gap-[2px] font-semibold text-gray-500 dark:hover:text-gray-900 py-2"
+                    className="flex items-center gap-[2px]  text-gray-500 dark:hover:text-gray-900 py-2"
                   >
-                    Quick Links
+                    {t('navbar.Language')}
                     <span>
                       <FaCaretDown className="group-hover:rotate-180 duration-300" />
                     </span>
@@ -151,7 +154,7 @@ const Navbar = () => {
             {open  && (
                 
                 <ul data-aos="slide-left"
-                 className={`p-6 md:hidden justify-end  flex-col gap-8 bg-[#E8EDF3] w-[50%] h-[800px]  rounded-md  transition-${margin} duration-300 ease-in-out `}  style={{marginTop:"320px",marginLeft:`${margin}`,transition: "margin 6s all ease"}}>
+                 className={`p-6 md:hidden justify-end  flex-col gap-8 bg-[#E8EDF3] w-[50%] h-[800px]  rounded-md  transition-${margin} duration-300 ease-in-out `}  style={{marginTop:"380px",marginLeft:`${margin}`,transition: "margin 6s all ease"}}>
                     
                     <button className=" md:hidden flex items-center justify-end transition-margin duration-300 ease-in-out"   onClick={() => openNav(open)}>
                     {open ? <AiOutlineClose  style={{ fontSize: '30px', }}   /> : <FiMenu />}
@@ -174,6 +177,40 @@ const Navbar = () => {
                     <li>
                         <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"} to="blog"  onClick={() => setOpen(!open)}> <span className="hover:text-black">Blog</span></NavLink>
                     </li>
+                    <li className="relative cursor-pointer group">
+                  <a
+                    href="#"
+                    className="flex items-center gap-[2px]  text-gray-500 dark:hover:text-gray-900 py-2"
+                  >
+                    {t('navbar.Language')}
+                    <span>
+                      <FaCaretDown className="group-hover:rotate-180 duration-300" />
+                    </span>
+                  </a>
+
+                  {/* Dropdown Links */}
+                  <div className="absolute z-[9999] hidden group-hover:block w-[200px] rounded-md bg-[#E8EDF3] shadow-md  p-2 dark:text-white ">
+                    <ul className="space-y-2">
+                      
+                      
+                        <li className="text-gray-500 hover:text-gray-500   duration-200 inline-block w-full p-2 hover:bg-pink-200 rounded-md font-semibold"
+                       onClick={()=>changeLanguage('en')}
+                       >
+                          English
+                            
+                          
+                        </li>
+                        <li className="text-gray-500 hover:text-gray-500   duration-200 inline-block w-full p-2 hover:bg-pink-200 rounded-md font-semibold"
+                          onClick={()=>changeLanguage('he')}>
+                      hindi
+                            
+                          
+                        </li>
+                     
+                    
+                    </ul>
+                  </div>
+                </li>
                 </ul>
                 
             )}

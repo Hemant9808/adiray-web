@@ -15,7 +15,7 @@ const Hero = () => {
             <div className={styles.overlay}>
                 <div className="flex   flex-col  items-center md:items-start gap-6">
                     <h1 data-aos={shouldAnimate ? 'fade-right' : ''} className="font-Mont text-start leading-none text-[#161e30] text-[clamp(45px,4.1vw,6rem)]   font-semibold">
-                    {/*t('logout.logoutkrbc')*/} Local To<br /> <span className={styles.underline}>Global</span>
+                   {t('home.hero.tagline1')}<br /> <span className={styles.underline}>{t('home.hero.tagline2')}</span>
                     </h1>
                     <p data-aos={shouldAnimate ? 'fade-left' : ''} className="text-slate-500 text-[20px] font-MontBook  text-center md:text-start font-setTimeout(() => {
                         

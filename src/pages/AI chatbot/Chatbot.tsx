@@ -3,10 +3,12 @@ import { Link } from "react-router-dom"
 import { FiMenu } from "react-icons/fi";
 import { FaPaperclip } from 'react-icons/fa';
 import AOS from "aos";
+import { useTranslation } from 'react-i18next';
 import "aos/dist/aos.css";
 
 import { AiOutlineClose } from "react-icons/ai";
 export default function Chatbot() {
+  const { t } = useTranslation();
   React.useEffect(() => {
     AOS.init({
       duration: 800,
@@ -35,16 +37,16 @@ export default function Chatbot() {
           <div className="left-[26px] top-[93px] absolute flex-col justify-center items-start gap-6 inline-flex">
             <div className="pl-5 pr-[79px] py-2.5 bg-white rounded-xl justify-start items-center gap-2.5 inline-flex">
               <div className="text-blue-950 text-base font-semibold font-Mont">
-                New Chat
+              {t('charbot.New Chat')}
               </div>
             </div>
             <div className="px-[21px] flex-col justify-start items-start gap-[30px] flex">
               <div className="text-slate-500 font-Mont text-base font-semibold ">
-                News
+              {t('charbot.News')}
               </div>
               <div className="">
               <div className="text-slate-600 text-lg font-Mont font-bold mb-3">
-                Library
+              {t('charbot.Library')}
               </div>
               <div className="flex ml-3">
               <div className="w-1 h-auto bg-slate-400"></div>
@@ -59,11 +61,11 @@ export default function Chatbot() {
             </div>
           </div>
           <div className="left-[61px] top-[80vh]  absolute text-blue-950 text-lg font-semibold ">
-            User Name
+          {t('charbot.Username')}
           </div>
           <Link to="/" >
           <div className="left-[46px] top-[43px] absolute text-blue-950 text-base font-extrabold ">
-            Home
+            {t('charbot.Home')}
           </div>
           </Link>
         
@@ -78,16 +80,17 @@ export default function Chatbot() {
           <div className="left-[26px] top-[93px] absolute flex-col justify-center items-start gap-6 inline-flex">
             <div className="pl-5 pr-[79px] py-2.5 bg-white rounded-xl justify-start items-center gap-2.5 inline-flex">
               <div className="text-blue-950  text-base font-semibold ">
-                New Chat
+              {t('charbot.New Chat')}
               </div>
             </div>
             <div className="px-[21px] flex-col justify-start items-start gap-[30px] flex">
               <div className="text-slate-500 text-base font-semibold ">
-                News
+              {t('charbot.News')}
               </div>
               <div className="">
               <div className="text-slate-600 text-lg font-bold mb-3">
-                Library
+              {t('charbot.Library')}
+
               </div>
               <div className="flex ml-3">
               <div className="w-1 h-auto bg-slate-400"></div>
@@ -103,11 +106,11 @@ export default function Chatbot() {
             </div>
           </div>
           <div className="left-[61px] top-[80%] absolute text-blue-950 text-lg font-semibold ">
-            User Name
+          {t('charbot.Username')}
           </div>
           <Link to="/" >
           <div className="left-[46px] top-[43px] absolute text-blue-950 text-base font-extrabold ">
-            Home
+          {t('charbot.Home')}
           </div>
           </Link>
         
@@ -122,14 +125,15 @@ export default function Chatbot() {
 
         <div className="w-full font-Mont  flex flex-col justify-center items-center ">
         <div className="text-slate-600  text-[clamp(25px,3.5vw,2.5rem)]  font-medium mb-1">
-          Welcome to ITrade
+        {t('charbot.Welcome to ITrade')}{t('navbar.Language')}
+
         </div>
         <div className="mb-9 text-[clamp(25px,3.5vw,5rem)]">
           <span className="text-gray-900   font-bold">
-            Start Your{" "}
+          {t('charbot.Start Your')}{" "}
           </span>
           <span className="text-blue-900   font-bold ">
-            Trade Journey
+          {t('charbot.Trade Journey')}
           </span>
 
           {/*chat box*/}
@@ -137,7 +141,7 @@ export default function Chatbot() {
         <div className="w-[80%] h-[22] bg-white border border-gray-400 flex flex-col justify-start rounded-xl">
           <textarea
             className="w-[100%] h-[150px] p-3 rounded-xl "
-            placeholder="Ask Anything..."
+            placeholder={t('charbot.Ask Anything')}
           ></textarea>
 
           <div className="h-[50px] flex justify-between items-center p-3 ">
@@ -147,10 +151,10 @@ export default function Chatbot() {
               < input className="w-7 h-7 bg-slate-200 relative opacity-0 cursor-pointer" type="file" ></input>
             </div>
             <div className="text-slate-500 text-base font-semibold ">
-              Attach files
+            {t('charbot.Attach files')}
             </div>
             </div>
-            <button className="w-[113px] h-8 px-3 py-2 bg-blue-900 rounded-xl justify-start items-center inline-flex text-white">Start Chat</button>
+            <button className="w-[113px] h-8 px-3 py-2 bg-blue-900 rounded-xl justify-start items-center inline-flex text-white">{t('charbot.Start Chat')}</button>
           </div>
         </div>
         </div>

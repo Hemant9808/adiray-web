@@ -13,6 +13,7 @@ const Blog = lazy(() => import("./pages/Blogs/Blog"));
 const Category = lazy(() => import("./pages/products/Category"));
 const Products = lazy(() => import("./pages/products/Products"));
 const Blogpost = lazy(() => import("./pages/Blogs/Blogpost"));
+
 function App() {
 
   const router = createBrowserRouter([

@@ -11,14 +11,16 @@ i18n.use(initReactI18next).init({
         "logoutkrbc":"logoutkrbc",
       "home": {
         "hero": {
-          "tagline": "Local To Global",
+          "tagline1": "Local To ",
+          "tagline2": "Global",
           "description": "Transform your business with our high-quality raw materials, tailored to your unique needs.",
           "btnViewMore": "View More",
           "btnLogin": "Login"
         },
         "vision": {
           "left": {
-            "heading": "Bharat - Local to Global",
+            "heading1": "Bharat",
+            "heading2": "Local to Global",
             "initialDescription": "At Adiray Global, we believe every domestic manufacturer deserves a shot at the international stage. Our mission is simple:",
             "bulletpoints":{
               "point1": "Empower you to trade your high-quality goods across borders.",
@@ -28,7 +30,8 @@ i18n.use(initReactI18next).init({
             "endStatements": "With Adiray as your bridge, 'Local to Global' becomes your reality."
           },
           "right": {
-            "heading": "A World of - Trust & Opportunity",
+            "heading1": "A World of ",
+            "heading2": "Trust & Opportunity",
             "initialdDescription": "",
             "bulletpoints":{
               "point1": "We envision a future where domestic manufacturers confidently expand their reach and tap into global opportunities. To achieve this, Adiray Global is building a groundbreaking platform fueled by cutting-edge technologies like blockchain and AI.",
@@ -50,14 +53,54 @@ i18n.use(initReactI18next).init({
           "carddescription": "Discover innovative strategies for exporting unique goods globally. From market research to branding, unlock success in non-traditional commodity trade."
         }},
         "footer":{
-         " quicklinks":"Quick Links",
+         "quicklinks":"Quick Links",
          "products":"Products ",
          "Contactus":"Contact us",
          "Terms & Conditions":"Terms & Conditions",
          "Privacy and Cookies":"Privacy and Cookies",
          "Licenses":"Licenses",
          "Contact" :"Contact"
-        }
+        },
+        
+
+        "navbar":{
+          "Home":"Home",
+          "AI Chatbot":"AI Chatbot ",
+          "Enquiry":"Enquiry",
+          "Products":"Products",
+          "Contact us":"Contact us",
+          "Blog":"Blog",
+          "Language" :"Language"
+         },
+         "charbot":{
+          "Welcome to ITrade": "Welcome to ITrade",
+          "Start Your": "Start Your",
+          "Trade Journey": "Trade Journey",
+          "Home": "Home",
+          "New Chat": "New Chat",
+          "News": "News",
+          "Library": "Library",
+          "Username": "Username",
+          "Attach files": "Attach files",
+          "Start Chat": "Start Chat",
+          "Ask Anything": "Ask Anything"
+          },
+          "enquiry":{
+            "Get your": "Get your",
+            "Products Delivered": "Products Delivered",
+            "to your destination from India": "to your destination from India",
+            "Name": "Name",
+            "Contact": "Contact",
+            "Catagory": "Catagory",
+            "Product Name": "Product Name",
+            "Quantity": "Quantity",
+            "Additional Comments": "Additional Comments",
+            "Send your query": "Send your query"
+        },
+        "Latest":"Latest",
+        "Update":"Update",
+        "Search":"Search"
+
       },
     },
     "he": {
@@ -65,14 +108,16 @@ i18n.use(initReactI18next).init({
         "logoutkrbc":"त्वरित सम्पक",
       "home": {
         "hero": {
-          "tagline": "स्थानीय से वैश्विक",
+          "tagline1": "स्थानीय से ",
+          "tagline2": "वैश्विक",
           "description": "अपनी विशिष्ट आवश्यकताओं के अनुरूप हमारे उच्च गुणवत्ता वाले कच्चे माल के साथ अपने व्यवसाय को रूपांतरित करें।",
           "btnViewMore": "और देखें",
           "btnLogin": "लॉग इन करें"
         },
         "vision": {
           "left": {
-            "heading": "भारत - स्थानीय से वैश्विक",
+            "heading1": "भारत",
+            "heading2": "स्थानीय से वैश्विक",
             "initialDescription": "एडिरे ग्लोबल में, हमारा मानना ​​है कि प्रत्येक घरेलू निर्माता अंतरराष्ट्रीय मंच पर मौका पाने का हकदार है। हमारा मिशन सरल है:",
             "bulletpoints":{
               "point1": "आपको सीमाओं के पार अपने उच्च-गुणवत्ता वाले सामान का व्यापार करने के लिए सशक्त बनाता है।",
@@ -82,7 +127,8 @@ i18n.use(initReactI18next).init({
             "endStatements": "एडीराय को अपना सेतु बनाकर, 'लोकल टू ग्लोबल' आपकी वास्तविकता बन जाता है।"
           },
           "right": {
-            "heading": "विश्वास और अवसर की दुनिया",
+            "heading1": " दुनिया",
+            "heading2": "विश्वास और अवसर की ",
             "initialdDescription": "",
             "bulletpoints":{
               "point1": "हम एक ऐसे भविष्य की कल्पना करते हैं जहां घरेलू निर्माता आत्मविश्वास से अपनी पहुंच का विस्तार करें और वैश्विक अवसरों का लाभ उठाएं। इसे हासिल करने के लिए, एडिरे ग्लोबल ब्लॉकचेन और एआई जैसी अत्याधुनिक तकनीकों से प्रेरित एक अभूतपूर्व प्लेटफॉर्म का निर्माण कर रहा है।",
@@ -111,7 +157,47 @@ i18n.use(initReactI18next).init({
         "Privacy and Cookies":"गोपनीयता और कुकीज़",
         "Licenses":"लाइसेंस",
         "Contact" :"संपर्क"
-       }
+       },
+
+       "navbar":{
+        "Home":"होम",
+        "AI Chatbot":"एआई चैटबॉट",
+        "Enquiry":"पूछताछ",
+        "Products":"उत्पाद",
+        "Contact us":"संपर्क करें",
+        "Blog":"ब्लॉग",
+        "Language" :"भाषा"
+        },
+        "charbot":{
+          "Welcome to ITrade": "आईट्रेड में आपका स्वागत है",
+          "Start Your": "शुरुआत करें अपनी",
+          "Trade Journey": "व्यापारिक यात्रा",
+          "Home": "होम",
+          "New Chat": "नई चैट",
+          "News": "समाचार",
+          "Library": "पुस्तकालय",
+          "Username": "उपयोगकर्ता नाम",
+          "Attach files": "फ़ाइलें जोड़ें",
+          "Start Chat": "चैट शुरू करें",
+          "Ask Anything": "कुछ भी पूछें"
+          },
+
+          "enquiry":{
+            "Get your": "प्राप्त करें",
+            "Products Delivered": "आपके द्वारा वितरित उत्पाद",
+            "to your destination from India": "भारत से आपके गंतव्य तक ",
+            "Name": "नाम",
+            "Contact": "संपर्क",
+            "Catagory": "श्रेणी",
+            "Product Name": "उत्पाद का नाम",
+            "Quantity": "मात्रा",
+            "Additional Comments": "अतिरिक्त टिप्पणियाँ",
+            "Send your query": "अपना प्रश्न भेजें"
+        },
+        "Latest": "नवीनतम",
+        "Update": "अपडेट",
+        "Search": "खोज"
+        
     }}
   },
   lng: 'en',

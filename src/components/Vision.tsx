@@ -16,7 +16,7 @@ export default function Vision() {
           <div data-aos="fade-right"
            className="w-[600px] md:h-[80vh] h-auto rounded-[14px] gap-8 flex-col justify-center items-start inline-flex "
            style={{ maxWidth: "85vw" }}>
-              <div className = "text-4xl"><span className="text-gray-900 font-bold font-Mont ">Bharat</span><span className="text-black font-bold "> - </span><span className="text-blue-900  font-bold font-Mont">Local to Global</span></div>
+              <div className = "text-4xl"><span className="text-gray-900 font-bold font-Mont ">{t('home.vision.left.heading1')}</span><span className="text-black font-bold "> - </span><span className="text-blue-900  font-bold font-Mont">{t('home.vision.left.heading2')}</span></div>
                <div className="text-[18px] font-MontBook font-extrabold "><p>{t('home.vision.left.initialDescription')} 
  </p></div>
             <div className = "  text-[18px] flex gap-7 font-MontBook "><img className="w-[32px] h-[28px] rounded-md " src={group} alt="" /><p> {t('home.vision.left.bulletpoints.point1')}</p></div>
@@ -29,7 +29,7 @@ export default function Vision() {
           <div data-aos="fade-left"
            className="w-[600px] md:h-[80vh]    h-auto pt-4  rounded-[14px] gap-7 flex-col justify-center items-start inline-flex "
            style={{ maxWidth: "85vw" }}>
-              <div className = "text-4xl"><span className="text-gray-900 font-bold font-Mont ">A World of</span><span className="text-black font-bold "> - </span><span className="text-blue-900  font-bold font-Mont">Trust & Opportunity</span></div>
+              <div className = "text-4xl"><span className="text-gray-900 font-bold font-Mont ">{t('home.vision.right.heading1')}</span><span className="text-black font-bold "> - </span><span className="text-blue-900  font-bold font-Mont">{t('home.vision.right.heading2')}</span></div>
                <div className="text-[18px] font-MontBook font-extrabold "><p>
  </p></div>
             <div className = "  text-[18px] flex gap-7 font-MontBook "><img className="w-[32px] h-[28px] rounded-md " src={group} alt="" /><p> {t('home.vision.right.bulletpoints.point1')}</p></div>

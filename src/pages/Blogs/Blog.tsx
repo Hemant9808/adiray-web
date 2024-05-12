@@ -5,10 +5,12 @@ import blogbg from "../../assets/blogbg.jpg";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 
 const inputClasses = "pl-10 pr-4 py-3 shadow-md text-md  rounded-lg";
 const hrClasses = "flex-1 border-zinc-300";
 const Blog = () => {
+  const { t } = useTranslation();
   const shouldAnimate = window.innerWidth <= 768;
   AOS.init({
     duration: 800,
@@ -27,14 +29,14 @@ const Blog = () => {
             data-aos="slide-right"
             className="text-[clamp(35px,3.5vw,5rem)] font-Mont font-bold"
           >
-            Latest <span className="text-blue-900">Updates</span>
+            {t('Latest')} <span className="text-blue-900">{t('Update')}</span>
           </h1>
           <div data-aos="slide-left" className="flex items-center gap-2 mt-2">
             <hr className={hrClasses} />
             <div className="relative flex items-center ">
               <input
                 type="text"
-                placeholder="Search..."
+                placeholder={t('Search')}
                 className={inputClasses}
               />
               <svg

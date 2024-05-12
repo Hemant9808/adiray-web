@@ -1,6 +1,9 @@
 import commodities from "../../assets/commodities.mp4";
+import { useTranslation } from 'react-i18next';
 
 const Enquiry = () => {
+  const { t } = useTranslation();
+   
   return (
     <div className="flex flex-col items-center justify-center h-[1000px] bg-cover bg-center  ">
       <video
@@ -16,9 +19,10 @@ const Enquiry = () => {
       <div className="absolute flex flex-col  items-center h-[1000px] backdrop-blur-md   bg-[#121e2c69]  w-full ">
         <div className="w-[80vw] max-w-[900px]" style={{marginTop: "160px",  }}>
           <h1 className=" font-bold font-Mont text-[clamp(50px,2.5vw,4rem)] mb-6 z-10 text-center  text-white">
-            Get your{" "}
-            <span style={{ color: "#ffd700" }}>Products Delivered </span>to your
-            destination from India{" "}
+          {t('enquiry.Get your')}{" "}
+            <span style={{ color: "#ffd700" }}>{t('enquiry.Products Delivered')}
+ </span>{" "}{t('enquiry.to your destination from India')}
+{" "}
           </h1>
           {/* Form */}
         </div>
@@ -33,7 +37,7 @@ const Enquiry = () => {
                 className="block text-sm font-semibold  mr-8"
                 htmlFor="name"
               >
-                Name:
+                {t('enquiry.Name')}:
               </label>
               <input
                 className="w-full px-3 py-2 border rounded-lg focus:outline-none"
@@ -47,7 +51,7 @@ const Enquiry = () => {
                 className="block text-sm font-semibold mr-8"
                 htmlFor="email"
               >
-                Contact
+                {t('enquiry.Contact')}
               </label>
               <input
                 className="w-full px-3 py-2 border rounded-lg focus:outline-none"
@@ -62,7 +66,7 @@ const Enquiry = () => {
                 className="block text-sm font-semibold mb-1 mr-9"
                 htmlFor="dropdown"
               >
-                Catagory
+                {t('enquiry.Catagory')}
               </label>
               <select
                 id="dropdown"
@@ -81,7 +85,7 @@ const Enquiry = () => {
                 className="block text-sm font-semibold mb-1 mr-9"
                 htmlFor="dropdown"
               >
-                Product Name
+                {t('enquiry.Product Name')}
               </label>
               <select
                 id="dropdown"
@@ -98,7 +102,7 @@ const Enquiry = () => {
                 className=" text-sm font-semibold mb-1 mr-8 "
                 htmlFor="mobile"
               >
-                Quantity
+                {t('enquiry.Quantity')}
               </label>
               <input
                 className="w-full px-3 py-2 border rounded-lg focus:outline-none"
@@ -112,7 +116,7 @@ const Enquiry = () => {
                 className="block text-sm font-semibold mb-1 mr-8"
                 htmlFor="address"
               >
-                Additional Comments
+                {t('enquiry.Additional Comments')}
               </label>
               <textarea
                 className="w-full px-3 py-2 border rounded-lg focus:outline-none"
@@ -125,7 +129,7 @@ const Enquiry = () => {
               style={{ width: "100%" }}
               type="submit"
             >
-              Send your query
+              {t('enquiry.Send your query')}
             </button>
           </form>
         </div>
