@@ -55,7 +55,7 @@ function App() {
           element: <Blog />
         },
         {
-          path: "blog/blogpost",
+          path: "blog/blogpost/:id?",
           element: <Blogpost />
         }
 
