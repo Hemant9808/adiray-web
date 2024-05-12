@@ -107,7 +107,7 @@ const Blog: React.FC = () => {
           ))}
         </div>
         <div className="flex flex-row mt-6">
-          <ReactPaginate className='flex '
+          <ReactPaginate className='flex justify-between mt-2'
             previousLabel={'Previous'}
             nextLabel={'Next'}
             pageCount={pageCount}

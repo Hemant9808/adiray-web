@@ -163,7 +163,7 @@ export default function Blogpost() {
             </div>
 
             <div className="flex justify-start gap-4">
-              <img className="w-12 h-12" src={post.authorImage} alt="Author" />
+              <img className="w-12 h-12 rounded-full" src={post.authorImg} alt="Author" />
               <div>
                 <h3 className="text-md font font-bold">{post.author}</h3>
                 {/* If author occupation is available, render it */}
