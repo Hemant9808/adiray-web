@@ -108,7 +108,6 @@ const Blog = () => {
                 <h2 className="text-[clamp(15px,2.5vw,1.7rem)] font-Mont font-extrabold text-black ">
                   Understanding Market Psychology: How Emotions Influence
                   Trading Decisions
-                 
 
                 </h2>
                 <p className="mt-2 text-zinc-400 font-Mont  font-semibold">

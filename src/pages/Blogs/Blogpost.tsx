@@ -84,7 +84,6 @@ export default function Blogpost() {
             <span className="text-gray-800 text-[19.5px] leading-[35px] font-MontBook ">
               {" "}
               Humans are social creatures, and this tendency extends to trading
-
               as well. Many traders tend to follow the crowd, leading to herd
               behavior in the markets. This herd mentality can create momentum
               in trends but also increase the risk of market bubbles and
