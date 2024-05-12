@@ -7,6 +7,9 @@ import Vision from "../../components/Vision";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useTranslation } from 'react-i18next';
+import fieo from "../../assets/fieo.png"
+import msme from "../../assets/msme.png"
+import { Link } from "react-router-dom";
 const Home = () => {
     const { t } = useTranslation();
     React.useEffect(() => {
@@ -33,26 +36,26 @@ const Home = () => {
                    <Vision></Vision>
                 </section>
 
-                <section className="relative h-[80vh] overflow-hidden object-cover">
+                <section className="relative sm:h-[80vh] h-[85vh] overflow-hidden object-cover">
                     <video className=" -z-50 w-full object-cover aspect-video" src={supplychain} autoPlay muted loop />
                     <div className="absolute w-full h-full inset-0 flex items-center justify-center backdrop-blur-md   bg-[#121e2c69]">
-                        <div className="flex flex-col justify-between gap-[3rem] max-w-screen-lg px-8">
+                        <div className="flex flex-col justify-between gap-[4rem] max-w-screen-lg px-8">
                             <div data-aos="fade-up" className="flex flex-col gap-2 items-center">
                                 <h1 className="text-[clamp(40px,3vw,4rem)] font-bold text-white font-Mont"> {t('home.aboutus.heading')}</h1>
                                 <p className="text-white text-[clamp(18px,1.2vw,2rem)] text-center font-MontBook">
                                 {t('home.aboutus.description')} 
                                 </p>
-                                {/* Insert Logo Below */}
-                                <div className="h-[200px] w-[200px]">
-                                    <script type="text/javascript">
-                                       var memberfieo2009token='F6akj6K7Q4_2522922',fieo2009img='horz';
-                                    </script>
-                                    <script src="https://fieo.org/fieome2009mberlogo.js"></script>
-                                </div>
-                                {/* End of Logo Insertion */}
+                               
                             </div>
 
-                            
+                             {/* Insert Logo Below */}
+                             <div className=" h-auto flex justify-center gap-5">
+                                    <Link to="https://fieo.org/?token=F6akj6K7Q4_2522922">
+                                    <img className="sm:w-[300px] w-[200px]" src={fieo} alt="" /></Link>
+                                    
+                                    <img  className="sm:w-[300px] w-[200px] " src={msme} alt="" />
+                                </div>
+                                {/* End of Logo Insertion */}
                         </div>
                     </div>
                 </section>
