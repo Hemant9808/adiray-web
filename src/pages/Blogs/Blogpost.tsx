@@ -10,7 +10,7 @@ export default function Blogpost() {
   const [post, setPost] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    axios.get(`https://node-js-jwt-auth.onrender.com/api/posts/${id}`)
+    axios.get(`http://localhost:8080/api/posts/${id}`)
       .then(response => {
         setPost(response.data);
         setLoading(false);
@@ -182,7 +182,16 @@ export default function Blogpost() {
               {/* Render the main description */}
               <div className="text-gray-850 text-xl font-semibold font-Mont leading-[35px]">{post.description}</div>
               {/* If additional details are available, render them */}
-              {post.details && <div className="text-gray-800 text-[19.5px] leading-[35px] font-MontBook">{post.details}</div>}
+              {post && post.details && (
+                <div className="">
+                  {post.details.map((detail: any) => (
+                    <div key={detail._id} className="detail border-b border-gray-300 pb-4 mb-4">
+                      <h2 className="detail-point text-gray-900 text-xl font-semibold">{detail.point}</h2>
+                      <p className="detail-description text-gray-700 leading-7">{detail.description}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         </div>
