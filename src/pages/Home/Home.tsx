@@ -49,11 +49,12 @@ const Home = () => {
                             </div>
 
                              {/* Insert Logo Below */}
-                             <div className=" h-auto flex justify-center gap-5">
-                                    <Link to="https://fieo.org/?token=F6akj6K7Q4_2522922">
-                                    <img className="sm:w-[300px] w-[200px]" src={fieo} alt="" /></Link>
+                             <div className=" flex justify-center gap-4">
+                                    <Link  to="https://fieo.org/?token=F6akj6K7Q4_2522922">
                                     
-                                    <img  className="sm:w-[300px] w-[200px] " src={msme} alt="" />
+                                    <div className="sm:w-[300px] w-[150px]"><img className="sm:w-[300px] w-[200px]" src={fieo} alt="" /></div></Link>
+                                    
+                                    <img  className="sm:w-[300px] w-[150px] " src={msme} alt="" />
                                 </div>
                                 {/* End of Logo Insertion */}
                         </div>
