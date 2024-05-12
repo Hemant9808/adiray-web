@@ -5,21 +5,19 @@ import blogbg from "../../assets/blogbg.jpg";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
-<<<<<<< HEAD
+
 import { useTranslation } from 'react-i18next';
-=======
+
 import axios from "axios";
 
->>>>>>> 4f97fc705b49ed857a59c7156e317b1243c66841
 
 const inputClasses = "pl-10 pr-4 py-3 shadow-md text-md  rounded-lg";
 const hrClasses = "flex-1 border-zinc-300";
 const Blog = () => {
-<<<<<<< HEAD
-  const { t } = useTranslation();
-=======
 
->>>>>>> 4f97fc705b49ed857a59c7156e317b1243c66841
+  const { t } = useTranslation();
+
+
   const shouldAnimate = window.innerWidth <= 768;
   AOS.init({
     duration: 800,
