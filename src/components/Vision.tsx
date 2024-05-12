@@ -7,7 +7,7 @@ export default function Vision() {
   const { t } = useTranslation();
   return (
     <div className="h-auto">
-      <img className="absolute w-[100%] h-auto  bg-gradient-to-br from-yellow-100 to-blue-200 backdrop-blur-md   bg-white sm:opacity-15 opacity-10 md:h-full md:mt-8 md:pl-0 md:pr-0" src={bg} alt="background" />
+      <img className="absolute w-[100%] h-auto rotate-180  bg-gradient-to-br from-yellow-100 to-blue-200 backdrop-blur-md   bg-white sm:opacity-15 opacity-10 md:h-full md:mt-8 md:pl-0 md:pr-0" src={bg} alt="background" />
       <section className=" flex w-full h-auto md:h-auto    justify-center items-center bg-white py-20 px-5  ">
         
         <div className="flex flex-wrap  h-auto  gap-20  md:gap-0 lg:gap-20 justify-center ">

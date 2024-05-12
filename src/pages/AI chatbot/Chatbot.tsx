@@ -8,10 +8,11 @@ import "aos/dist/aos.css";
 
 import { AiOutlineClose } from "react-icons/ai";
 export default function Chatbot() {
+  const [popup,setpopup] = useState(false);
   const { t } = useTranslation();
   React.useEffect(() => {
     AOS.init({
-      duration: 800,
+      duration: 400,
       easing: "ease-in-sine",
       delay: 100,
       offset: 100,
@@ -32,6 +33,7 @@ export default function Chatbot() {
      
   return (
     <div className="w-100vw h-screen flex overflow-hidden overflow-y-hidden">
+      
       <div className="w-[280px] h-[100vh]  hidden  md:block bg-gradient-to-br from-blue-200 to-orange-100 justify-center items-center overflow-hidden">
         <div className="w-[243px] h-screen left-0 top-[1px] absolute">
           <div className="left-[26px] top-[93px] absolute flex-col justify-center items-start gap-6 inline-flex">
@@ -124,6 +126,15 @@ export default function Chatbot() {
 
 
         <div className="w-full font-Mont  flex flex-col justify-center items-center ">
+
+        {popup && <div className="absolute z-[50] w-[80%] h-screen bg-white opacity-85 flex flex-col justify-center items-center gap-4">
+      <h1 data-aos="slide-down" className="sm:text-6xl text-4xl font-Mont  text-blue-900"> Chatbot</h1>
+     
+        <h1 data-aos="slide-up" className="sm:text-6xl text-4xl font-Mont text-black">  Coming Soon</h1>
+        <button className="p-2 px-5  bg-blue-800 rounded-xl text-md  font-Mont justify-start items-center flex text-white" onClick={()=>setpopup(false)}>Back</button>
+         
+      </div>}
+
         <div className="text-slate-600  text-[clamp(25px,3.5vw,2.5rem)]  font-medium mb-1">
         {t('charbot.Welcome to ITrade')}{t('navbar.Language')}
 
@@ -154,7 +165,7 @@ export default function Chatbot() {
             {t('charbot.Attach files')}
             </div>
             </div>
-            <button className="w-[113px] h-8 px-3 py-2 bg-blue-900 rounded-xl justify-start items-center inline-flex text-white">{t('charbot.Start Chat')}</button>
+            <button className="w-[113px] h-8 px-3 py-2 bg-blue-900 rounded-xl justify-start items-center inline-flex text-white" onClick={()=>setpopup(true)}>{t('charbot.Start Chat')}</button>
           </div>
         </div>
         </div>

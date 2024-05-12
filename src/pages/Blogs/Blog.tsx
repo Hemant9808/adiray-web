@@ -30,6 +30,8 @@ const Blog = () => {
     axios.get("https://node-js-jwt-auth.onrender.com/api/posts/")
       .then(response => {
         setBlogPosts(response.data);
+        console.log(blogPosts);
+        
         setLoading(false);
       })
       .catch(error => {
@@ -86,12 +88,12 @@ const Blog = () => {
             </div>
           </div>
         </div>
-        <div className="grid gap-6">
+        <div className="grid gap-6 ">
           {[1,2,3].map((item: any) => (
             <div
               data-aos={shouldAnimate ? "fade-up" : ""}
               key={item}
-              className="flex justify-center items-center gap-12 md:flex-row flex-col "
+              className="flex w-[100%] justify-center items-center gap-10 md:flex-row flex-col  overflow-hidden"
             >
 
               <div className="col-span-2 w-[100%] ">
@@ -99,19 +101,19 @@ const Blog = () => {
                   <img
                     src={blogpage}
                     alt="Market Update"
-                    className="col-span-1 rounded-lg  sm:w-[350px]"
+                    className="col-span-1 rounded-lg  sm:w-[400px]"
                   /></Link>
               </div>
 
 
-              <div className="col-span-2  h-[25vh] flex flex-col items-start justify-start overflow-hidden">
-                <h2 className="text-[clamp(15px,2.5vw,1.7rem)] font-Mont font-extrabold text-black ">
+              <div className="col-span-2    h-[25vh] flex flex-col items-start justify-start overflow-hidden ">
+                <div><h2 className="text-[clamp(15px,2.5vw,1.7rem)] text-wrap font-Mont font-extrabold text-black overflow-hidden">
                   Understanding Market Psychology: How Emotions Influence
                   Trading Decisions
                  
 
-                </h2>
-                <p className="mt-2 text-zinc-400 font-Mont  font-semibold">
+                </h2></div>
+                <p className="mt-2 text-zinc-400 font-Mont font-semibold overflow-hidden ">
                   Trading isn't just about charts, numbers, and economic
                   indicators—it's also deeply influenced by human psychology.
                   Emotions play a significant role in financial decisions.

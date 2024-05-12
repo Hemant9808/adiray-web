@@ -1,5 +1,6 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Suspense, lazy } from "react";
+import { useState } from "react";
 
 import Chatbot from "./pages/AI chatbot/Chatbot";
 const Enquiry = lazy(() => import("./pages/Home/Enquiry"));
@@ -13,6 +14,8 @@ const Blog = lazy(() => import("./pages/Blogs/Blog"));
 const Category = lazy(() => import("./pages/products/Category"));
 const Products = lazy(() => import("./pages/products/Products"));
 const Blogpost = lazy(() => import("./pages/Blogs/Blogpost"));
+const MultiLang = lazy(() => import("./components/MultiLang"));
+import i18n from "./config/i18n"
 
 function App() {
 
@@ -57,6 +60,10 @@ function App() {
         {
           path: "blog/blogpost/:id?",
           element: <Blogpost />
+        },
+        {
+          path: "lang",
+          element: <MultiLang />
         }
 
       ]
@@ -69,9 +76,20 @@ function App() {
     }
   ])
 
+  const [showLanguageSelection, setShowLanguageSelection] = useState(true);
+  const [selectedLanguage, setSelectedLanguage] = useState<string>('');
+
+  const handleLanguageSelect = (language: string) => {
+    setSelectedLanguage(language);
+    setShowLanguageSelection(false);
+    i18n.changeLanguage(language).then(() => console.log("Language changed to", selectedLanguage)); // Hide language selection popup after language selection
+  };
+
+
   return (
     <Suspense fallback={"loading.."}>
-      <RouterProvider router={router} />
+      { showLanguageSelection && <MultiLang onSelectLanguage={handleLanguageSelect} />}
+     {!showLanguageSelection && <RouterProvider router={router} />}
     </Suspense>
   )
 }
