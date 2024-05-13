@@ -3,16 +3,17 @@ import clothes from "../../assets/clothes.png"
 import apple from "../../assets/apple.jpeg"
 import { Button } from "../../components/Button"
 import productmain from "../../assets/productmain.png"
-
+import { useTranslation } from "react-i18next"
 
 const Products = () => {
+    const {t}=useTranslation();
     return (
         <section className="pt-[12vh]">
             <div className="relative h-64 overflow-hidden group">
                 <img className="object-cover h-full w-full group-hover:scale-150 ease-in-out duration-1000" src={productmain} alt="clothes" />
                 <div className="absolute inset-0 overflow-hidden bg-transparent  z-10  flex items-center justify-center">
                 <h1 className="text-[clamp(30px,2.5vw,4rem)] text-white font-Mont font-semibold">
-                        Our <span className="text-[#FFC900]">Products</span>
+                       {t('Our')} <span className="text-[#FFC900]">{t('Products')}</span>
                     </h1>
                 </div>
             </div>

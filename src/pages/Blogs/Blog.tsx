@@ -7,7 +7,7 @@ import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
 
 import { useTranslation } from 'react-i18next';
-
+import loader from "../../assets/loader.gif"
 import axios from "axios";
 
 
@@ -41,7 +41,8 @@ const Blog = () => {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className="w-100vw h-screen flex justify-center items-center"
+    ><img className="w-[70px]" src={loader} alt="" /></div>;
   }
 
   if (!blogPosts) {

@@ -136,7 +136,7 @@ export default function Chatbot() {
       </div>}
 
         <div className="text-slate-600  text-[clamp(25px,3.5vw,2.5rem)]  font-medium mb-1">
-        {t('charbot.Welcome to ITrade')}{t('navbar.Language')}
+        {t('charbot.Welcome to ITrade')}
 
         </div>
         <div className="mb-9 text-[clamp(25px,3.5vw,5rem)]">

@@ -43,7 +43,7 @@ const Enquiry = () => {
                 className="w-full px-3 py-2 border rounded-lg focus:outline-none"
                 type="text"
                 id="name"
-                placeholder="Enter your name"
+                placeholder={t('enquiry.Name')}
               />
             </div>
             <div className="mb-4 ">
@@ -57,7 +57,7 @@ const Enquiry = () => {
                 className="w-full px-3 py-2 border rounded-lg focus:outline-none"
                 type="contact"
                 id="contact"
-                placeholder="Mobile number"
+                placeholder={t('Phone')}
               />
             </div>
 
@@ -91,7 +91,7 @@ const Enquiry = () => {
                 id="dropdown"
                 className="w-full px-3 py-2 border rounded-lg focus:outline-none mb-4"
               >
-                <option value="">Select</option>
+                <option value="">{t('Select')}</option>
                 <option value="option1">Option 1</option>
                 <option value="option2">Option 2</option>
                 <option value="option3">Option 3</option>
@@ -108,7 +108,7 @@ const Enquiry = () => {
                 className="w-full px-3 py-2 border rounded-lg focus:outline-none"
                 type="number"
                 id="Quantity"
-                placeholder="Enter quantity"
+                placeholder={t('Enter your quantity')}
               />
             </div>
             <div className="mb-4 ">
@@ -121,7 +121,7 @@ const Enquiry = () => {
               <textarea
                 className="w-full px-3 py-2 border rounded-lg focus:outline-none"
                 id=" comments"
-                placeholder="Enter your comments"
+                placeholder={t('Enter your Comments')}
               ></textarea>
             </div>
             <button

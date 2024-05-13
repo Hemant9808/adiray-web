@@ -6,6 +6,7 @@ import gps from "../assets/logo/gps.svg";
 import { useTranslation } from 'react-i18next';
 
 export default function Contact() {
+  const {t} = useTranslation();
   const [sentMsg, setSentMsg] = useState(false);
   return (
     <div className="w-[100%] h-auto p-[75px] bg-gradient-to-br from-blue-100 to-amber-50 flex-col justify-center items-center gap-2.5 inline-flex mt-[100px]">
@@ -20,28 +21,29 @@ export default function Contact() {
                 <div className="flex-col  justify-center items-center gap-[35px] inline-flex">
                   <div className="flex-col justify-center items-center gap-[30px] flex">
                     <div className="flex-col justify-start items-start gap-3 flex">
-                      <div className="flex-col justify-start items-start flex">
+                      <div className="flex-col justify-start items-start flex gap-2">
                         <div className="text-pink-600 font-Mont text-lg font-extrabold ">
-                          Get in Touch
+                        {t('contactus.Get in Touch')}
                         </div>
                         <div className="text-center font-Mont md:text-5xl text-[clamp(30px,3.5vw,3rem)] ">
                           <span className="text-gray-900  font-bold ">
-                            Reach Out{" "}
+                            {t('contactus.Reach Out')}{" "}
                           </span>
                           <span className="text-blue-900  font-bold ">
-                            to
+                          {t('contactus.to')}
+
                           </span>
                           <span className="text-gray-900 font-extrabold ">
                             {" "}
                           </span>
                           <span className="text-blue-900  font-bold ">
-                            Us
+                          {t('contactus.Us')}
                           </span>
                         </div>
                       </div>
                       <h3 className="w-[100%] h-12 whitespace-normal word-wrap text-slate-500 text-[14px] sm:text-[16px]">
-                        Address any issue effortlessly with a simple question.
-                        Problem-solving simplified.
+                      {t('contactus.Address any issue effortlessly with a simple question. Problem-solving simplified.')}
+
                       </h3>
                     </div>
                   </div>
@@ -49,41 +51,43 @@ export default function Contact() {
                     <div className=" w-[100%] flex-col justify-start items-start gap-1.5 flex">
                       <div className="flex-col justify-start items-start gap-1.5 flex">
                         <div className="text-slate-700  text-sm font-bold ">
-                          Name
+                        {t('contactus.Name')}
+
                         </div>
                       </div>
                       <div className="w-[100%]  h-11   bg-white rounded-md border border-neutral-300 justify-start items-center gap-2.5 inline-flex">
-                        <input className="w-[100%] h-[100%] pl-5 text-gray-400 text-[12px] font-semibold " placeholder="Name">
+                        <input className="w-[100%] h-[100%] pl-5 text-gray-400 text-[12px] font-semibold " placeholder={t('contactus.Name')}>
                           
                         </input>
                       </div>
                     </div>
                     <div className=" w-[100%] flex-col justify-start items-start gap-1.5 flex">
                       <div className="text-slate-600 text-sm font-bold ">
-                        Contact{" "}
+                      {t('contactus.Contact')}{" "}
                       </div>
                       <div className="w-[100%]  h-11   bg-white rounded-md border border-neutral-300 justify-start items-center gap-2.5 inline-flex">
-                        <input className="w-[100%] h-[100%] pl-5 text-gray-400 text-[12px] font-semibold " placeholder="phone number/email address">
+                        <input className="w-[100%] h-[100%] pl-5 text-gray-400 text-[12px] font-semibold " placeholder={t('contactus.phone number/email address')}>
                           
                         </input>
                       </div>
                     </div>
                     <div className=" w-[100%]  flex-col justify-start items-start gap-1.5 flex">
                       <div className="text-slate-600 text-sm font-bold ">
-                        Your Message
+                      {t('contactus.Your Message')}
+
                       </div>
                       <div className="w-[100%] h-56   bg-white rounded-lg border border-neutral-300 justify-start items-start gap-2.5 inline-flex">
                         <div className="w-[100%] h-56  justify-start items-start gap-2.5 flex">
-                          <textarea  className="text-gray-400 p-5 w-[100%] h-[100%] text-[13px] font-semibold  rounded-lg border-none">
-                            Leave Us Your Message...
-                          </textarea>
+                          <textarea placeholder=  {t('contactus.Leave Us Your Message...')}
+                          className="text-gray-400 p-5 w-[100%] h-[100%] text-[13px] font-semibold  rounded-lg border-none">
+                           </textarea>
                         </div>
                       </div>
                     </div>
                   </div>
                   <div className="w-[100%] h-11 py-2.5 bg-blue-900 rounded-md justify-center items-center gap-2.5 inline-flex">
                     <div className="text-slate-200 text-sm font-bold ">
-                      Send Message
+                    {t('contactus.Send Message')}
                     </div>
                   </div>
                 </div>
@@ -127,7 +131,7 @@ export default function Contact() {
                   </div>
                   <div className="flex-col justify-start items-start inline-flex">
                     <div className="text-slate-700 text-lg font-bold ">
-                      Email
+                    {t('Email')}
                     </div>
                     <div className=" text-slate-600 text-xs font-semibold ">
                       contact@adirayglobal.com
@@ -145,7 +149,7 @@ export default function Contact() {
                   </div>
                   <div className="flex-col justify-start items-start inline-flex">
                     <div className="text-slate-700 text-lg font-bold ">
-                      Phone
+                    {t('Phone')}
                     </div>
                     <div className=" text-slate-600 text-xs font-semibold ">
                       9620199884 | 9525500039
