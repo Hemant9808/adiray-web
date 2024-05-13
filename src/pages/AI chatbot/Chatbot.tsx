@@ -37,8 +37,8 @@ export default function Chatbot() {
       <div className="w-[280px] h-[100vh]  hidden  md:block bg-gradient-to-br from-blue-200 to-orange-100 justify-center items-center overflow-hidden">
         <div className="w-[243px] h-screen left-0 top-[1px] absolute">
           <div className="left-[26px] top-[93px] absolute flex-col justify-center items-start gap-6 inline-flex">
-            <div className="pl-5 pr-[79px] py-2.5 bg-white rounded-xl justify-start items-center gap-2.5 inline-flex">
-              <div className="text-blue-950 text-base font-semibold font-Mont">
+            <div className="pl-5 pr-[79px] py-2.5 bg-white rounded-xl justify-start items-center gap-2.5 inline-flex cursor-pointer" onClick={()=>setpopup(true)}>
+              <div className="text-blue-950 text-base font-semibold font-Mont"  >
               {t('charbot.New Chat')}
               </div>
             </div>
@@ -80,8 +80,8 @@ export default function Chatbot() {
       (<div data-aos="slide-right" className="w-[280px] top-0 left-0 absolute z-50  bg-gradient-to-br from-blue-200 to-orange-100 justify-center items-center ">
         <div className="w-[243px] h-screen left-0 top-[1px] ">
           <div className="left-[26px] top-[93px] absolute flex-col justify-center items-start gap-6 inline-flex">
-            <div className="pl-5 pr-[79px] py-2.5 bg-white rounded-xl justify-start items-center gap-2.5 inline-flex">
-              <div className="text-blue-950  text-base font-semibold ">
+            <div className="pl-5 pr-[79px] py-2.5 bg-white rounded-xl justify-start items-center gap-2.5 inline-flex cursor-pointer"  onClick={()=>setpopup(true)}>
+              <div className="text-blue-950  text-base font-semibold " >
               {t('charbot.New Chat')}
               </div>
             </div>
