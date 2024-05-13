@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios, { AxiosResponse } from 'axios';
-import ReactPaginate from 'react-paginate';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import blogbg from '../../assets/blogbg.jpg';
@@ -26,6 +25,7 @@ const Blog: React.FC = () => {
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(0);
+  const [searchQuery, setSearchQuery] = useState('');
   const itemsPerPage = 5;
 
   useEffect(() => {
@@ -41,8 +41,8 @@ const Blog: React.FC = () => {
       });
   }, []);
 
-  const handlePageChange = ({ selected }: { selected: number }) => {
-    setCurrentPage(selected);
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
   };
 
   if (loading) {
@@ -59,9 +59,13 @@ const Blog: React.FC = () => {
     return first20Words.join(' ');
   };
 
-  const offset = currentPage * itemsPerPage;
-  const currentPosts = blogPosts.slice(offset, offset + itemsPerPage);
-  const pageCount = Math.ceil(blogPosts.length / itemsPerPage);
+  const filteredPosts = blogPosts.filter(post => {
+    return post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+           post.description.toLowerCase().includes(searchQuery.toLowerCase());
+  });
+
+  const pageCount = Math.ceil(filteredPosts.length / itemsPerPage);
+  const paginatedPosts = filteredPosts.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage);
 
   return (
     <div className="relative w-full flex justify-center shadow-md">
@@ -74,7 +78,7 @@ const Blog: React.FC = () => {
           <div data-aos={shouldAnimate ? 'slide-left' : ''} className="flex items-center gap-2 mt-2">
             <hr className={hrClasses} />
             <div className="relative flex items-center ">
-              <input type="text" placeholder="Search..." className={inputClasses} />
+              <input type="text" placeholder="Search..." className={inputClasses} value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
               <svg
                 className="w-4 h-4 absolute left-3  flex items-center "
                 fill="none"
@@ -88,7 +92,7 @@ const Blog: React.FC = () => {
           </div>
         </div>
         <div className="flex flex-col gap-6">
-          {currentPosts.map((post: BlogPost) => (
+          {paginatedPosts.map((post: BlogPost) => (
             <div key={post._id} className="flex flex-col md:flex-row gap-6">
               <div className="flex-shrink-0  md:w-1/3">
                 <Link to={`/blog/blogpost/${post._id}`}>
@@ -107,17 +111,20 @@ const Blog: React.FC = () => {
           ))}
         </div>
         <div className="flex flex-row mt-6">
-          <ReactPaginate className='flex justify-between mt-2'
-            previousLabel={'Previous'}
-            nextLabel={'Next'}
-            pageCount={pageCount}
-            onPageChange={handlePageChange}
-            containerClassName={'pagination'}
-            previousLinkClassName={'pagination__link'}
-            nextLinkClassName={'pagination__link'}
-            disabledClassName={'pagination__link--disabled'}
-            activeClassName={'pagination__link--active'}
-          />
+          <div className="flex justify-center space-x-2">
+          <button onClick={() => setCurrentPage(prevPage => Math.max(prevPage - 1, 0))} className="bg-blue-300 hover:bg-blue-600 text-white py-2 px-4 rounded-md mr-2" disabled={currentPage === 0}>Previous</button>
+         
+            {Array.from({ length: pageCount }, (_, index) => (
+              <button
+                key={index}
+                onClick={() => handlePageChange(index)}
+                className={`px-4 py-2 rounded-md ${currentPage === index ? 'bg-blue-500 text-white' : 'bg-white text-blue-500 hover:bg-blue-100'}`}
+              >
+                {index + 1}
+              </button>
+            ))}
+             <button onClick={() => setCurrentPage(prevPage => Math.min(prevPage + 1, pageCount - 1))} className="bg-blue-300 hover:bg-blue-600 text-white py-2 px-4 rounded-md" disabled={currentPage === pageCount - 1}>Next</button>
+          </div>
         </div>
       </div>
     </div>
