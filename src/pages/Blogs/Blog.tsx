@@ -32,7 +32,8 @@ const Blog: React.FC = () => {
     axios
       .get<BlogPost[]>('http://localhost:8080/api/posts/')
       .then((response: AxiosResponse<BlogPost[]>) => {
-        setBlogPosts(response.data);
+       
+        setBlogPosts(response.data.sort((a:any, b:any) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()));
         setLoading(false);
       })
       .catch((error) => {
@@ -112,8 +113,7 @@ const Blog: React.FC = () => {
         </div>
         <div className="flex flex-row mt-6">
           <div className="flex justify-center space-x-2">
-          <button onClick={() => setCurrentPage(prevPage => Math.max(prevPage - 1, 0))} className="bg-blue-300 hover:bg-blue-600 text-white py-2 px-4 rounded-md mr-2" disabled={currentPage === 0}>Previous</button>
-         
+            <button onClick={() => setCurrentPage(prevPage => Math.max(prevPage - 1, 0))} className="bg-blue-300 hover:bg-blue-600 text-white py-2 px-4 rounded-md mr-2" disabled={currentPage === 0}>Previous</button>
             {Array.from({ length: pageCount }, (_, index) => (
               <button
                 key={index}
@@ -123,7 +123,7 @@ const Blog: React.FC = () => {
                 {index + 1}
               </button>
             ))}
-             <button onClick={() => setCurrentPage(prevPage => Math.min(prevPage + 1, pageCount - 1))} className="bg-blue-300 hover:bg-blue-600 text-white py-2 px-4 rounded-md" disabled={currentPage === pageCount - 1}>Next</button>
+            <button onClick={() => setCurrentPage(prevPage => Math.min(prevPage + 1, pageCount - 1))} className="bg-blue-300 hover:bg-blue-600 text-white py-2 px-4 rounded-md" disabled={currentPage === pageCount - 1}>Next</button>
           </div>
         </div>
       </div>
