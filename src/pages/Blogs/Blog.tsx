@@ -34,7 +34,7 @@ const Blog: React.FC = () => {
 
   useEffect(() => {
     axios
-      .get<BlogPost[]>('http://localhost:8080/api/posts/')
+      .get<BlogPost[]>('https://node-js-jwt-auth.onrender.com/api/posts/')
       .then((response: AxiosResponse<BlogPost[]>) => {
         setBlogPosts(response.data.sort((a:any, b:any) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()));
         setLoading(false);

@@ -1,6 +1,3 @@
-import blogAuthor from "../../assets/blogAuthor.png";
-import blogpage from "../../assets/blogpage.png";
-import { Link } from "react-router-dom";
 import { FaArrowLeft } from 'react-icons/fa';
 import axios from "axios";
 import { useParams } from "react-router-dom";
@@ -10,7 +7,7 @@ export default function Blogpost() {
   const [post, setPost] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    axios.get(`http://localhost:8080/api/posts/${id}`)
+    axios.get(`https://node-js-jwt-auth.onrender.com/api/posts/${id}`)
       .then(response => {
         setPost(response.data);
         setLoading(false);
