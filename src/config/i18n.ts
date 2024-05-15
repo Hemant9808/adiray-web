@@ -13,7 +13,7 @@ i18n.use(initReactI18next).init({
         "hero": {
           "tagline1": "Local To ",
           "tagline2": "Global",
-          "description": "Transform your business with our high-quality raw materials, tailored to your unique needs.",
+          "description": "A stride towards facilitating the transboundary journey of goods",
           "btnViewMore": "View More",
           "btnLogin": "Login"
         },
@@ -132,7 +132,7 @@ i18n.use(initReactI18next).init({
         "hero": {
           "tagline1": "स्थानीय से ",
           "tagline2": "वैश्विक",
-          "description": "अपनी विशिष्ट आवश्यकताओं के अनुरूप हमारे उच्च गुणवत्ता वाले कच्चे माल के साथ अपने व्यवसाय को रूपांतरित करें।",
+          "description": "वस्तुओं की अंतराष्ट्रीय यात्रा को सुगम बनाने की दिशा में एक कदम",
           "btnViewMore": "और देखें",
           "btnLogin": "लॉग इन करें"
         },
