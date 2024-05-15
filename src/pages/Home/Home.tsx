@@ -1,7 +1,7 @@
 import React from "react";
 import Hero from "../../components/Hero";
 import supplychain from "../../assets/supplychain crm.mp4";
-import comp from "../../assets/comp.mp4";
+import chat from "../../assets/chat.mp4";
 import Blog from "../../components/Blog";
 import Vision from "../../components/Vision";
 import vision3 from "../../assets/vision3.png";
@@ -34,7 +34,7 @@ const Home = () => {
         <section className="relative  h-auto max-h-[90vh] flex justify-center item-center object-fit overflow-hidden chatbot">
           <video
             className="h-90 -z-50 w-[100vw] h-[100%] object-cover "
-            src={comp}
+            src={chat}
             autoPlay
             muted
             loop
