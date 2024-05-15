@@ -16,11 +16,7 @@ const Hero = () => {
   const shouldAnimate = window.innerWidth <= 768;
   const imageShoudAnimate = window.innerWidth >= 850;
   const videoRefs = [useRef(), useRef(), useRef(), useRef()];
-  useEffect(() => {
-    videoRefs.forEach((videoRef) => {
-      
-    });
-  }, []);
+  
 
   return (
     <div className={styles.wrapper}>

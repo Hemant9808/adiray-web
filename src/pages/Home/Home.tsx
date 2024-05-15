@@ -25,12 +25,7 @@ const Home = () => {
   }, []);
   const videoRefs = [useRef(), useRef(), useRef(), useRef()];
 
-  useEffect(() => {
-    videoRefs.forEach((videoRef) => {
-      
-    });
-  }, []);
-
+  
 
   return (
     <>
