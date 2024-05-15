@@ -1,5 +1,9 @@
 import styles from "../styles/hero.module.css";
 import bg from "../assets/bg.png";
+import Landscape1 from "../assets/Landscape1.mp4";
+import Landscape2 from "../assets/Landscape2.mp4";
+import Landscape3 from "../assets/Landscape3.mp4";
+import Landscape4 from "../assets/Landscape4.mp4";
 import toolbox from "../assets/toolbox.png";
 import { Link } from "react-router-dom";
 import { Button } from "./Button";
@@ -48,36 +52,80 @@ const Hero = () => {
           </div>
         </div>
 
-        <div className="flex flex-col gap-4 md:h-75vh">
+        <div className="flex flex-col gap-2 md:gap-0  md:h-75vh">
           <div className="flex gap-4 items-end ">
             <Link data-aos={imageShoudAnimate ? "fade-up" : ""} to={""}>
-              <img
+            <video
+              className="w-[252.13px] h-[195.28px]  md:w-[250px] md:h-[210px]  left-[172.20px] top-[218.42px]"
+               
+              width="320"
+              height="240"
+              autoPlay
+              loop
+              muted
+            >
+              <source src={Landscape1} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+              {/*<img
                 className="w-[252.13px] h-[195.28px]  md:w-[250px] md:h-[210px]  left-[172.20px] top-[218.42px]"
                 src={toolbox}
-              />
+                  />*/}
             </Link>
 
             <Link data-aos={imageShoudAnimate ? "fade-right" : ""} to={""}>
-              <img
-                className="w-[142.38px] h-[142.05px]  md:w-[160px] md:h-[160px]  left-[38.35px] top-[218.42px] "
-                src={toolbox}
-              />
+            <video
+              className="w-[182.24px] h-[142.24px] md:w-[180px] md:h-[160px]  left-[267.57px] top-[90.71px] mt-8"
+                 
+              width="320"
+              height="240"
+              autoPlay
+              loop
+              muted
+            >
+              <source src={Landscape2} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
             </Link>
           </div>
 
-          <div className="flex gap-4 ml-[5vw]">
+          <div className="flex gap-4 ml-[4.5vw]">
             <Link data-aos={imageShoudAnimate ? "fade-down" : ""} to={""}>
-              <img
+            <video
+              className="w-[182.24px] h-[142.24px] md:w-[180px] md:h-[160px]  left-[267.57px] top-[0.71px]"
+                 
+              width="320"
+              height="240"
+              autoPlay
+              loop
+              muted
+            >
+              <source src={Landscape3} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+             {/* <img
                 className="w-[142.24px] h-[142.24px] md:w-[160px] md:h-[160px]  left-[267.57px] top-[61.71px]"
                 src={toolbox}
-              />
+                />*/}
             </Link>
 
             <Link data-aos={imageShoudAnimate ? "fade-right" : ""} to={""}>
-              <img
+            <video
+              className="w-[252.13px] h-[195.28px]  md:w-[250px] md:h-[210px]  left-[172.20px] top-[218.42px]"
+               
+              width="320"
+              height="240"
+              autoPlay
+              loop
+              muted
+            >
+              <source src={Landscape4} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+              {/*<img
                 className="w-[252.10px] h-[193.95px] md:w-[250px] md:h-[210px] left-0 top-[10px]"
                 src={toolbox}
-              />
+                />*/}
             </Link>
           </div>
         </div>
