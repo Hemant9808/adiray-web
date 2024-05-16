@@ -4,6 +4,7 @@ import axios, { AxiosResponse } from 'axios';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import blogbg from '../../assets/blogbg.jpg';
+import loader from '../../assets/loader.gif';
 import blogpage from '../../assets/blogpage.png';
 
 import { useTranslation } from 'react-i18next'; // Importing useTranslation hook
@@ -50,7 +51,7 @@ const Blog: React.FC = () => {
   };
 
   if (loading) {
-    return <div>{t('Loading')}...</div>; // Using translation for loading text
+    return <div className='w-full h-screen flex justify-center items-center'><img className='w-8' src={loader} alt="" /></div>; // Using translation for loading text
   }
 
   if (!blogPosts.length) {

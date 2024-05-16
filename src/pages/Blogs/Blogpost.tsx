@@ -1,6 +1,8 @@
 import { FaArrowLeft } from 'react-icons/fa';
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+
+import loader from '../../assets/loader.gif';
 import { useEffect, useState } from 'react'
 export default function Blogpost() {
   const { id } = useParams();
@@ -21,7 +23,8 @@ export default function Blogpost() {
 
 
   if (loading) {
-    return <div>Loading...</div>;
+    return     <div className='w-full h-screen flex justify-center items-center'><img className='w-8' src={loader} alt="" /></div> // Using translation for loading text
+    ;
   }
 
   if (!post) {
