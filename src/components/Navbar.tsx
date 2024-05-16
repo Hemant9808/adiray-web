@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom"
 import React from "react";
 import Logo from "../assets/Logo.png"
+import languageicon from "../assets/languageicon.png"
 import { FiMenu } from "react-icons/fi";
 import { useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
@@ -104,15 +105,16 @@ const Navbar = () => {
                     </li>
 
                     <li className="relative cursor-pointer group">
-                  <a
-                    href="#"
+                  <div
+                    
                     className="flex items-center gap-[2px]  text-gray-500 dark:hover:text-gray-900 py-2"
                   >
-                    {t('navbar.Language')}
+                    <img className="w-10 bg-white" src={languageicon} />
+                    
                     <span>
-                      <FaCaretDown className="group-hover:rotate-180 duration-300" />
-                    </span>
-                  </a>
+                     {/* <FaCaretDown className="group-hover:rotate-180 duration-300" />
+                    */}</span>
+                  </div>
 
                   {/* Dropdown Links */}
                   <div className="absolute z-[9999] hidden group-hover:block w-[200px] rounded-md bg-white shadow-md  p-2 dark:text-white ">
@@ -126,9 +128,9 @@ const Navbar = () => {
                             
                           
                         </li>
-                        <li className="text-gray-500 hover:text-gray-500   duration-200 inline-block w-full p-2 hover:bg-pink-200 rounded-md font-semibold"
+                        <li className="text-gray-500 hover:text-gray-500   duration-200 inline-block w-full p-2 hover:bg-pink-200 rounded-md "
                           onClick={()=>changeLanguage('he')}>
-                      hindi
+                     हिंदी
                             
                           
                         </li>
@@ -200,9 +202,9 @@ const Navbar = () => {
                             
                           
                         </li>
-                        <li className="text-gray-500 hover:text-gray-500   duration-200 inline-block w-full p-2 hover:bg-pink-200 rounded-md font-semibold"
+                        <li className="text-gray-500 hover:text-gray-500   duration-200 inline-block w-full p-2 hover:bg-pink-200 rounded-md "
                           onClick={()=>changeLanguage('he')}>
-                      hindi
+                      हिंदी
                             
                           
                         </li>
