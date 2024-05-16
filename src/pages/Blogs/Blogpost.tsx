@@ -1,9 +1,10 @@
 import { FaArrowLeft } from 'react-icons/fa';
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from 'react'
 export default function Blogpost() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [post, setPost] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -34,7 +35,7 @@ export default function Blogpost() {
           <div className="flex flex-col gap-5">
             <div className="text-pink-600 text-[13px] font-semibold flex gap-1 items-center">
               <FaArrowLeft />
-              <a href="/blog" className="decoration-none text-pink-600 hover:text-pink-600">All Blogs</a>
+              <a onClick={()=>{navigate('/blog')}} className="decoration-none text-pink-600 hover:text-pink-600 cursor-pointer">All Blogs</a>
             </div>
 
             <div className="flex justify-start gap-4">
