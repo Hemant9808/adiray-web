@@ -86,7 +86,7 @@ const Home = () => {
                 Read more
               </a>
               </button> :
-              <button className="bg-white w-[15%] text-md h-10 rounded-lg">
+              <button className="bg-white w-[200px] text-md h-10 rounded-lg">
               <a className ="text-md" href=  {AdirayPortfolio} download="Adiray Portfolio">
                 Read more
               </a>

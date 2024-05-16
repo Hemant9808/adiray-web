@@ -140,9 +140,7 @@ const Navbar = () => {
                         </li>
                         <li className="text-gray-500 hover:text-gray-900   duration-200 inline-block w-full p-2 hover:bg-white rounded-md "
                           onClick={()=>changeLanguage('he')}>
-                     हिंदी
-                            
-                          
+                          हिंदी  
                         </li>
                      
                     
@@ -169,8 +167,7 @@ const Navbar = () => {
                  className={`p-6 md:hidden  absolute justify-end  flex-col gap-8 bg-[#E8EDF3] w-[50%] h-[450px]  rounded-md  transition-${margin} duration-300 ease-in-out `}  style={{marginTop:"512px",marginLeft:`${margin}`,transition: "margin 6s all ease"}}>
                     
                     <button className=" md:hidden flex items-center justify-end transition-margin duration-300 ease-in-out"   onClick={() => openNav(open)}>
-                    {open ? <AiOutlineClose  style={{ fontSize: '30px', }}   /> : <FiMenu />}
-                </button>
+                     </button>
                 <li >
                         <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"}  to="/"  onClick={() => setOpen(!open)}> <span className="hover:text-black">Home</span></NavLink>
                     </li>
