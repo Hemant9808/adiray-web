@@ -33,7 +33,7 @@ const Home = () => {
         <Hero />
         <section className="relative  h-auto max-h-[90vh] flex justify-center item-center object-fit overflow-hidden chatbot">
           <video
-            className="h-90 -z-50 w-[100vw] h-[100%] object-cover "
+            className="h-90 -z-50 w-[100vw] h-[100%]  object-cover "
             src={chat}
             autoPlay
             muted
