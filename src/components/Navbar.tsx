@@ -34,7 +34,7 @@ const Navbar = () => {
        }
     React.useEffect(() => {
         AOS.init({
-          duration: 500,
+          duration: 300,
           easing: "ease-in-sine",
           delay: 100,
           offset: 100,

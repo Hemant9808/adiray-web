@@ -68,3 +68,6 @@ a:active {
   font-weight: normal;
   font-style: normal;
 }
+video{
+  pointer-events: "none";
+}
