@@ -37,8 +37,9 @@ const Navbar = () => {
   
 
   useMotionValueEvent(scrollY, "change", (latest) => {
+    
     const prev = scrollY.getPrevious();
-        if(latest > prev && latest > 150){
+        if(latest > prev && latest > 150 && !open ){
           setHidden(true);
         }
         else{
@@ -69,7 +70,7 @@ const Navbar = () => {
           </div>
         </div>
         <motion.nav
-        variants={{
+       variants={{
             visible:{y:0 },
             hidden:{y:"-100%"},
             }
@@ -107,9 +108,9 @@ const Navbar = () => {
                     <li className="relative cursor-pointer group">
                   <div
                     
-                    className="flex items-center gap-[2px]  text-gray-500 dark:hover:text-gray-900 py-2"
+                    className="flex items-center gap-[2px]  text-gray-500 dark:hover:text-gray-900"
                   >
-                    <img className="w-10 bg-white" src={languageicon} />
+                    <img className="w-8 bg-white" src={languageicon} />
                     
                     <span>
                      {/* <FaCaretDown className="group-hover:rotate-180 duration-300" />
@@ -149,14 +150,14 @@ const Navbar = () => {
             <button className=" md:hidden w-full flex justify-between items-center z-60  "    onClick={() => setOpen(!open)}>
             <div className="h-[0] flex items-center  "><img className="h-[70px] w-[100px]  " src={Logo} alt="adiray" />
          </div>
-                    {open ? <AiOutlineClose className="relative z-70"  /> : <FiMenu style={{fontSize:"25px"}} />}
+                    {open ? <AiOutlineClose className="relative z-70" style={{fontSize:"23px"}} /> : <FiMenu style={{fontSize:"20px"}} />}
                 </button>
             </div>
 
             {open  && (
                 
-                <ul data-aos="slide-left"
-                 className={`p-6 md:hidden justify-end  flex-col gap-8 bg-[#E8EDF3] w-[50%] h-[800px]  rounded-md  transition-${margin} duration-300 ease-in-out `}  style={{marginTop:"380px",marginLeft:`${margin}`,transition: "margin 6s all ease"}}>
+               <ul data-aos="slide-left"
+                 className={`p-6 md:hidden  absolute justify-end  flex-col gap-8 bg-[#E8EDF3] w-[50%] h-[450px]  rounded-md  transition-${margin} duration-300 ease-in-out `}  style={{marginTop:"512px",marginLeft:`${margin}`,transition: "margin 6s all ease"}}>
                     
                     <button className=" md:hidden flex items-center justify-end transition-margin duration-300 ease-in-out"   onClick={() => openNav(open)}>
                     {open ? <AiOutlineClose  style={{ fontSize: '30px', }}   /> : <FiMenu />}
