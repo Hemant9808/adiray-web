@@ -69,7 +69,7 @@ const Home = () => {
           <div className="absolute w-full h-full inset-0 flex items-center justify-center backdrop-blur-md   bg-[#121e2c69]">
             <div className="flex flex-col justify-between gap-[1.5rem] max-w-screen-lg px-8">
               <div
-                data-aos="fade-up"
+               
                 className="flex flex-col gap-2 items-center"
               >
                 <h1 className="text-[clamp(40px,3vw,4rem)] font-bold text-white font-Mont">
