@@ -54,16 +54,12 @@ const Hero = () => {
             </div>
           </div>
         </div>
-
-        <div className="flex flex-col gap-3 md:gap-[0]   md:h-75vh">
-          <div className="flex gap-4 md:gap-6 items-end ">
-            
+        <div className="flex flex-col gap-3 ">
+          <div className="flex gap-4  items-end ">
             <Link data-aos={imageShoudAnimate ? "fade-up" : ""} to={""}>
             <div className="w-[252.13px] h-[195.28px]">
             <video 
-              className="w-[252.13px] h-[195.28px]  md:w-[250px] md:h-[210px]  left-[172.20px] top-[218.42px]"
-               
-             
+              className="w-[252.13px]  h-[195.28px] mb-5  md:w-[250px] md:h-[210px]  left-[172.20px] top-[218.42px]"
               autoPlay
               loop
               muted
@@ -80,9 +76,7 @@ const Hero = () => {
 
             <Link data-aos={imageShoudAnimate ? "fade-right" : ""} to={""}>
             <video 
-              className="w-[182.24px] h-[142.24px] md:w-[180px] md:h-[160px]  left-[267.57px] top-[90.71px] mt-8"
-                 
-             
+              className="w-[182.24px] bg-blue-500  h-[142.24px] md:w-[180px] md:h-[160px]  left-[267.57px] top-[90.71px] md:mt-8"
               autoPlay
               loop
               muted
@@ -93,10 +87,10 @@ const Hero = () => {
             </Link>
           </div>
 
-          <div className="flex gap-4  md:gap-6 ml-[4.5vw] ">
+          <div className="flex gap-4  ml-[4.5vw] ">
             <Link data-aos={imageShoudAnimate ? "fade-down" : ""} to={""}>
             <video 
-              className="w-[182.24px] h-[142.24px] md:w-[180px] md:h-[160px]  left-[267.57px] top-[0.71px]"
+              className="w-[182.24px] h-[142.24px] md:w-[180px]  md:h-[160px]  left-[267.57px] top-[0.71px]"
                  
               width="320"
               height="240"

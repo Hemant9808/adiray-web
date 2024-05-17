@@ -71,3 +71,6 @@ a:active {
 video{
   pointer-events: "none";
 }
+html {
+  scroll-behavior: smooth;
+}
