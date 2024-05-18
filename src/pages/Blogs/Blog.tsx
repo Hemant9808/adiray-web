@@ -51,7 +51,7 @@ const Blog: React.FC = () => {
   };
 
   if (loading) {
-    return <div className='w-full h-screen flex justify-center items-center'><img className='w-8' src={loader} alt="" /></div>; // Using translation for loading text
+    return <div className='w-full h-screen flex justify-center items-center'><img className='w-8' src={loader} alt="" /></div> // Using translation for loading text
   }
 
   if (!blogPosts.length) {

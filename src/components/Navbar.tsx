@@ -169,22 +169,22 @@ const Navbar = () => {
                     <button className=" md:hidden flex items-center justify-end transition-margin duration-300 ease-in-out"   onClick={() => openNav(open)}>
                      </button>
                 <li >
-                        <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"}  to="/"  onClick={() => setOpen(!open)}> <span className="hover:text-black">Home</span></NavLink>
+                        <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"}  to="/"  onClick={() => setOpen(!open)}> <span className="hover:text-black">{t('navbar.Home')}</span></NavLink>
                     </li>
                     <li>
-                        <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"} to="chatbot"  onClick={() => setOpen(!open)}> <span className="hover:text-black">AI Chatbot</span></NavLink>
+                        <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"} to="chatbot"  onClick={() => setOpen(!open)}> <span className="hover:text-black"> {t('navbar.AI Chatbot')}</span></NavLink>
                     </li>
                     <li>
-                        <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"} to="enquiry"  onClick={() => setOpen(!open)}> <span className="hover:text-black">Enquiry</span></NavLink>
+                        <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"} to="enquiry"  onClick={() => setOpen(!open)}> <span className="hover:text-black">{t('navbar.Enquiry')}</span></NavLink>
                     </li>
                     <li>
-                        <NavLink className={({ isActive }) => isActive ?"text-black" : "text-slate-600"} to="products"  onClick={() => setOpen(!open)}> <span className="hover:text-black">Products</span></NavLink>
+                        <NavLink className={({ isActive }) => isActive ?"text-black" : "text-slate-600"} to="products"  onClick={() => setOpen(!open)}> <span className="hover:text-black">{t('navbar.Products')}</span></NavLink>
                     </li>
                     <li>
-                        <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"} to="contact"  onClick={() => setOpen(!open)}> <span className="hover:text-black">Contact us</span></NavLink>
+                        <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"} to="contact"  onClick={() => setOpen(!open)}> <span className="hover:text-black">{t('navbar.Contact us')}</span></NavLink>
                     </li>
                     <li>
-                        <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"} to="blog"  onClick={() => setOpen(!open)}> <span className="hover:text-black">Blog</span></NavLink>
+                        <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"} to="blog"  onClick={() => setOpen(!open)}> <span className="hover:text-black">Blog{t('navbar.Blog')}</span></NavLink>
                     </li>
                     <li className="relative cursor-pointer group">
                   <a

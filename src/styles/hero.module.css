@@ -1,9 +1,10 @@
 .wrapper {
     position: relative;
-    height: 100vh;
+    height: 90vh;
     background: linear-gradient(107deg, #D9E6FF -8.85%, #FFFBEE 95.52%);
     background-repeat: no-repeat;
     justify-content: space-between;
+    align-items: center;
     margin-top: -1.5rem;
     padding-left: 5rem;
     padding-right: 5rem;
@@ -29,6 +30,7 @@
     @media (max-width:1024px) {
         flex-direction: column;
         gap:4rem;
+       
     }
 }
 

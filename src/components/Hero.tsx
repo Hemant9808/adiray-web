@@ -8,13 +8,11 @@ const Hero = () => {
   const { t } = useTranslation();
   const shouldAnimate = window.innerWidth <= 768;
   const imageShoudAnimate = window.innerWidth >= 850;
-  
-
   return (
     <div className={styles.wrapper}>
       <img className={styles.bg} src={bg} alt="background" />
       <div className={styles.overlay}>
-        <div className="flex   flex-col  items-center md:items-start gap-6">
+        <div className="flex   flex-col md:mt-[80px]  items-center md:items-start gap-6">
           <h1
             data-aos={shouldAnimate ? "fade-right" : ""}
             className="font-Mont text-start leading-none text-[#161e30] text-[clamp(45px,4.1vw,6rem)] font-semibold"
@@ -46,11 +44,8 @@ const Hero = () => {
             </div>
           </div>
         </div>
-
-        <div className="flex flex-col gap-3 md:gap-[0]   md:h-75vh">
-          <div className="flex gap-4 md:gap-6 items-end ">
-            
-           
+        <div className="flex flex-col md:mt-[150px] gap-3 md:gap-[0]">
+          <div className="flex gap-4 md:gap-6 items-end">   
             <ImageSwapAnimation/>
           </div>
         </div>
