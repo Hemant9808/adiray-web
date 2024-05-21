@@ -58,9 +58,9 @@ const Home = () => {
           <Vision></Vision>
         </section>
 
-        <section className="relative sm:h-[80vh] h-[85vh] overflow-hidden object-cover">
+        <section className="relative h-[100vh] sm:h-[200vh] md:h-[100vh] overflow-hidden object-cover">
           <video
-            className=" -z-50 w-full object-cover aspect-video"
+            className=" z-50  object-cover aspect-video"
             src={supplychain}
             autoPlay
             muted
@@ -95,15 +95,15 @@ const Home = () => {
               </div>
 
               {/* Insert Logo Below */}
-              <div className=" flex justify-center md:gap-8 gap-4">
+              <div className=" flex justify-center items-center   md:gap-8 gap-4">
                 <Link to="https://fieo.org/?token=F6akj6K7Q4_2522922">
-                  <div className="sm:w-[200px] w-[100px]">
+                  
                     <img
-                      className="sm:w-[200px] w-[100px] mt-7"
+                      className="sm:w-[200px] w-[100px]"
                       src={fieo}
                       alt=""
                     />
-                  </div>
+                 
                 </Link>
 
                 <img className="sm:w-[200px] w-[100px] " src={msme} alt="" />
