@@ -12,6 +12,7 @@ const Enquiry = () => {
         autoPlay
         loop
         muted
+       
       >
         <source src={commodities} type="video/mp4" />
       </video>
