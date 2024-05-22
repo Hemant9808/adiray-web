@@ -57,10 +57,10 @@ export default function Chatbot() {
               <div className="flex ml-3">
               <div className="w-1 h-auto bg-slate-400"></div>
               <div>
-                {library.map((history)=>(
+                {/* {library.map((history)=>(
                   <h4  className="text-slate-500 text-md pl-3 font-MontBook " key={history.id}>{history.history}</h4>
                
-                ))}
+                ))} */}
                   </div>  </div>
               </div>
               
@@ -101,10 +101,10 @@ export default function Chatbot() {
               <div className="flex ml-3">
               <div className="w-1 h-auto bg-slate-400"></div>
               <div>
-                {library.map((history)=>(
+                {/* {library.map((history)=>(
                   <h4  className="text-slate-500 text-md pl-3 " key={history.id}>{history.history}</h4>
                
-                ))}
+                ))} */}
               </div>
               </div>
               </div>
@@ -131,10 +131,10 @@ export default function Chatbot() {
 
         <div className="w-full font-Mont  flex flex-col justify-center items-center ">
 
-        {popup && <div className="absolute z-[50] w-[80%] h-screen bg-white opacity-85 flex flex-col justify-center items-center gap-4">
-      <h1 data-aos="slide-down" className="sm:text-6xl text-4xl font-Mont  text-blue-900"> Chatbot</h1>
+        {popup && <div className="absolute z-[20] w-[80%] h-screen bg-white  flex flex-col justify-center items-center gap-4">
+      <h1 data-aos="slide-left" className="sm:text-6xl text-4xl font-Mont  text-blue-900"> Chatbot</h1>
      
-        <h1 data-aos="slide-up" className="sm:text-6xl text-4xl font-Mont text-black">  Coming Soon </h1>
+        <h1 data-aos="slide-right" className="sm:text-6xl text-4xl font-Mont text-black">  Coming Soon </h1>
         <button className="p-2 px-5  bg-blue-800 rounded-xl text-md  font-Mont justify-start items-center flex text-white cursor-pointer" onClick={handleBack}>Back</button>
          
       </div>}

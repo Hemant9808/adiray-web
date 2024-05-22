@@ -40,7 +40,7 @@ const Home = () => {
     <>
       <main className="pt-[10vh]  flex-auto gap-10 relative">
         <Hero />
-        <section className="relative  h-auto max-h-[90vh] flex justify-center item-center object-fit overflow-hidden chatbot">
+        <section className="relative  max-h-[90vh] flex justify-center item-center object-fit overflow-hidden chatbot">
           <video
             className="h-90 -z-50 w-[100vw] h-[100%]  object-cover "
             src={chat}
@@ -57,10 +57,10 @@ const Home = () => {
         <section className="relative">
           <Vision></Vision>
         </section>
-
+          {/* About Section */}
         <section className="relative h-[100vh] sm:h-[200vh] md:h-[100vh] overflow-hidden object-cover">
           <video
-            className=" z-50  object-cover aspect-video"
+            className=" z-50 md:h-auto h-[100%] object-cover aspect-video"
             src={supplychain}
             autoPlay
             muted

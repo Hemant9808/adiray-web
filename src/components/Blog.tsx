@@ -114,15 +114,15 @@ const Blog: React.FC = () => {
           {blogPosts.map((post) => (
             <Link key={post._id} to={`/blog/blogpost/${post._id}`} >
               <div data-aos="fade-up" data-aos-delay="150"
-                className="md:w-[420px] w-[320px] md:h-[320px] h-[250px] bg-red-500 rounded-[14px] shadow border flex-col justify-center items-center inline-flex">
+                className="md:w-[420px] w-[320px] md:h-[320px] h-[250px]  rounded-[14px] shadow border flex-col justify-center items-center inline-flex">
                 <div className="bg-sky-950 bg-opacity-0 rounded-lg z-1">
                   <img className="z-1 md:w-[420px] md:h-[320px] w-[320px] h-[250px] rounded-xl" src={post.imageUrl || blogpage} alt={post.title} />
                 </div>
-                <div className="absolute md:w-[420px] w-[320px] h-[150px] md:h-[150px] mt-[120px] md:mt-[170px] mr-1 z-3 text-wrap object-cover self-stretch z-3 p-8 bg-white bg-opacity-75 rounded-md shadow-inner flex-col justify-center items-start gap-1.5 flex">
-                  <div className="font-Mont self-stretch text-gray-900 text-xl md:text-2xl font-bold">
+                <div className="absolute   md:w-[420px] w-[320px] h-[150px] md:h-[150px] mt-[120px] md:mt-[170px] mr-1 z-3 text-wrap object-cover self-stretch z-3 p-4 overflow-hidden bg-white bg-opacity-85 rounded-md shadow-inner flex-col justify-start items-start gap-1.5 flex">
+                  <div className="font-Mont  self-stretch  text-gray-900 text-xl md:text-2xl font-bold">
                     {truncateText(post.title, 50) || t('home.blogsection.cardheading')}
                   </div>
-                  <div className="z-3 relative self-stretch text-slate-600 text-[10px] md:text-xs font-semibold">
+                  <div className="z-3  relative self-stretch text-slate-600 text-[10px] md:text-xs font-semibold">
                     {truncateText(post.description, 100) || t('home.blogsection.carddescription')}
                   </div>
                 </div>
