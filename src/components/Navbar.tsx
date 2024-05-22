@@ -191,7 +191,7 @@ const Navbar = () => {
                     href="#"
                     className="flex items-center gap-[2px]  text-gray-500 dark:hover:text-gray-900 py-2"
                   >
-                    {t('navbar.Language')}
+                   <img className="w-8 bg-white" src={languageicon} />
                     <span>
                       <FaCaretDown className="group-hover:rotate-180 duration-300" />
                     </span>
