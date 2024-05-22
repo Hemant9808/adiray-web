@@ -184,7 +184,7 @@ const Navbar = () => {
                         <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"} to="contact"  onClick={() => setOpen(!open)}> <span className="hover:text-black">{t('navbar.Contact us')}</span></NavLink>
                     </li>
                     <li>
-                        <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"} to="blog"  onClick={() => setOpen(!open)}> <span className="hover:text-black">Blog{t('navbar.Blog')}</span></NavLink>
+                        <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"} to="blog"  onClick={() => setOpen(!open)}> <span className="hover:text-black">{t('navbar.Blog')}</span></NavLink>
                     </li>
                     <li className="relative cursor-pointer group">
                   <a
