@@ -3,35 +3,36 @@ import { useTranslation } from 'react-i18next';
 
 const Enquiry = () => {
   const { t } = useTranslation();
-   
-  return (
-    <div className="flex flex-col items-center justify-center h-[1000px] bg-cover bg-center  ">
-      <video
-        className=" relative inset-0 w-full h-[100%] object-cover opacity-100 "
-        style={{ marginTop: "0px" }}
-        autoPlay
-        loop
-        muted
-       
-      >
-        <source src={commodities} type="video/mp4" />
-      </video>
 
-      <div className="absolute flex flex-col  items-center h-[1000px] backdrop-blur-md   bg-[#121e2c69]  w-full ">
-        <div className="w-[80vw] max-w-[900px]" style={{marginTop: "160px",  }}>
-          <h1 className=" font-bold font-Mont text-[clamp(50px,2.5vw,4rem)] mb-6 z-10 text-center  text-white">
-          {t('enquiry.Get your')}{" "}
-            <span style={{ color: "#ffd700" }}>{t('enquiry.Products Delivered')}
- </span>{" "}{t('enquiry.to your destination from India')}
-{" "}
-          </h1>
-          {/* Form */}
+  return (
+   
+
+      <div className="relative flex flex-col items-center justify-center w-full h-[172vh]  sm:h-[120vh] md:h-[139vh] lg:h-[129vh] xl:h-[136vh] bg-cover bg-center  ">
+        <video
+          className="absolute top-0  inset-0 w-full h-[175vh] sm:h-[120vh] md:h-[140vh] lg:h-[130vh] xl:h-[138vh] object-cover opacity-100 bg-cover"
+          autoPlay
+          loop
+          muted
+          playsInline
+        >
+          <source src={commodities} type="video/mp4" />
+        </video>
+
+        <div className="absolute  top-0 flex flex-col   justify-center items-center  backdrop-blur-md   bg-[#12e2c69]  w-full ">
+          <div className="w-[80vw] max-w-[900px] mt-[10rem]" >
+            <h1 className=" font-bold font-Mont text-[clamp(50px,2.5vw,4rem)] mb-6 z-10 text-center  text-white">
+              {t('enquiry.Get your')}{" "}
+              <span style={{ color: "#ffd700" }}>{t('enquiry.Products Delivered')}
+              </span>{" "}{t('enquiry.to your destination from India')}
+              {" "}
+            </h1>
+            {/* Form */}
+          </div>
+
         </div>
         <div
-          className="bg-white p-8 rounded-lg shadow-xl max-w-screen-md w-5/6"
-          style={{ width: "450px" }}
+          className="absolute top-[40rem] sm:top-[28.5rem] lg:top-[30rem] xl:top-[23rem] bg-white p-8 rounded-lg shadow-xl max-w-screen-md  w-5/6  "
         >
-          <div className="w-full flex items-center justify-center"></div>
           <form>
             <div className="mb-4 ">
               <label
@@ -72,9 +73,9 @@ const Enquiry = () => {
               <select
                 id="dropdown"
                 className="w-full px-3 py-2 border rounded-lg focus:outline-none mb-4"
-               
+
               >
-                
+
                 <option value="" className="text-gray-500">Select </option>
                 <option value="option1">Option 1</option>
                 <option value="option2">Option 2</option>
@@ -134,8 +135,10 @@ const Enquiry = () => {
             </button>
           </form>
         </div>
+      
       </div>
-    </div>
+     
+   
   );
 };
 

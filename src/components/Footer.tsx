@@ -11,15 +11,16 @@ import { BsFacebook, BsTwitterX, BsYoutube, BsLinkedin } from "react-icons/bs";
 const Footer = () => {
   const { t } = useTranslation();
   return (
-    <footer
+    <footer 
+    
       className={styles.wrapper}
-      style={{ backgroundColor: "#0B1321", margin: "0",zIndex:50 }}
+      style={{ backgroundColor: "#0B1321",zIndex:50,   }}
     >
 
     
 
             <div className={styles.list}>
-        <div className="flex flex-col gap-9 ">
+        <div className="flex flex-col gap-9  ">
           <img
             className="w-[90px]  justify-center mt-[-30px]"
             style={{ marginLeft: "-10px" }}
