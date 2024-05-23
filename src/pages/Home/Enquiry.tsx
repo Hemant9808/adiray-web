@@ -39,7 +39,7 @@ const Enquiry = () => {
   }
 
   useEffect(() => {
-    if (categoryList && categoryList.length > 0 && categoryName !=='') {
+    if (categoryList && categoryList.length > 0 && categoryName !== '') {
       getProductList();
     }
   }, [categoryName, categoryList])
@@ -63,8 +63,10 @@ const Enquiry = () => {
         className="relative inset-0 w-full h-[100%] object-cover opacity-100"
         style={{ marginTop: "0px" }}
         autoPlay
-        loop
         muted
+        playsInline
+        loop
+        webkit-playsinline
       >
         <source src={commodities} type="video/mp4" />
       </video>
