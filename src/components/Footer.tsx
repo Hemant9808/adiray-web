@@ -1,10 +1,9 @@
 import styles from "../styles/footer.module.css";
 import { Link } from "react-router-dom";
-import silverlogo from "../assets/logo/silverlogo.png";
 import { FaEnvelope } from "react-icons/fa";
 import { FiPhone } from "react-icons/fi";
 import { useTranslation } from 'react-i18next';
-
+import silverlogo from "../assets/logo/silverlogo.png";
 import { AiFillInstagram } from "react-icons/ai";
 import { BsFacebook, BsTwitterX, BsYoutube, BsLinkedin } from "react-icons/bs";
 
