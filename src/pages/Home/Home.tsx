@@ -26,16 +26,16 @@ const Home = () => {
     AOS.refresh();
   }, []);
   const videoRefs = [useRef(), useRef(), useRef(), useRef()];
-  const [hindiPdf,setHindiPdf] = useState(false)
-  useEffect(()=>{
-    if(t("home.aboutus.heading")=="हमारे बारे में"){
+  const [hindiPdf, setHindiPdf] = useState(false)
+  useEffect(() => {
+    if (t("home.aboutus.heading") == "हमारे बारे में") {
       setHindiPdf(true);
     }
-    else{
+    else {
       setHindiPdf(false);
     }
-  },[t("home.aboutus.heading")])
- 
+  }, [t("home.aboutus.heading")])
+
   return (
     <>
       <main className="pt-[10vh]  flex-auto gap-10 relative">
@@ -46,7 +46,9 @@ const Home = () => {
             src={chat}
             autoPlay
             muted
+            playsInline
             loop
+            webkit-playsinline
           />
           <div className="absolute w-[100%] h-[100%] inset-0 flex justify-center items-center backdrop-blur-sm bg-[#7797bc69] -translate-y-full content">
             <h2 className="text-white text-[clamp(40px,3vw,4rem)] font-medium">
@@ -64,12 +66,14 @@ const Home = () => {
             src={supplychain}
             autoPlay
             muted
+            playsInline
             loop
+            webkit-playsinline
           />
           <div className="absolute w-full h-full inset-0 flex items-center justify-center backdrop-blur-md   bg-[#121e2c69]">
             <div className="flex flex-col justify-between gap-[1.5rem] max-w-screen-lg px-8">
               <div
-               
+
                 className="flex flex-col gap-2 items-center"
               >
                 <h1 className="text-[clamp(40px,3vw,4rem)] font-bold text-white font-Mont">
@@ -79,19 +83,19 @@ const Home = () => {
                 <p className="text-white text-[clamp(18px,1.2vw,2rem)] text-center font-MontBook">
                   {t("home.aboutus.description")}
                 </p>
-                {/*download button*/ }
+                {/*download button*/}
                 <div className="mt-3 w-full flex justify-center">
-                {hindiPdf ? <button className="bg-white w-[15%] text-md h-10 rounded-lg">
-              <a className ="text-md" href=  {AdirayPortfoliohindi} download="Adiray Portfolio">
-                Read more
-              </a>
-              </button> :
-              <button className="bg-white w-[200px] text-md h-10 rounded-lg">
-              <a className ="text-md" href=  {AdirayPortfolio} download="Adiray Portfolio">
-                Read more
-              </a>
-              </button>}
-              </div>
+                  {hindiPdf ? <button className="bg-white w-[15%] text-md h-10 rounded-lg">
+                    <a className="text-md" href={AdirayPortfoliohindi} download="Adiray Portfolio">
+                      Read more
+                    </a>
+                  </button> :
+                    <button className="bg-white w-[200px] text-md h-10 rounded-lg">
+                      <a className="text-md" href={AdirayPortfolio} download="Adiray Portfolio">
+                        Read more
+                      </a>
+                    </button>}
+                </div>
               </div>
 
               {/* Insert Logo Below */}
@@ -109,7 +113,7 @@ const Home = () => {
                 <img className="sm:w-[200px] w-[100px] " src={msme} alt="" />
                 <img className="sm:w-[200px] w-[100px] " src={vision3} alt="" />
               </div>
-             
+
               {/* End of Logo Insertion */}
             </div>
           </div>
