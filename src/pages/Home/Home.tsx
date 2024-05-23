@@ -64,7 +64,9 @@ const Home = () => {
             src={supplychain}
             autoPlay
             muted
+            playsInline
             loop
+            webkit-playsinline
           />
           <div className="absolute w-full h-full inset-0 flex items-center justify-center backdrop-blur-md   bg-[#121e2c69]">
             <div className="flex flex-col justify-between gap-[1.5rem] max-w-screen-lg px-8">
