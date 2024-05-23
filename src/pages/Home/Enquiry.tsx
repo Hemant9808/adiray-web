@@ -14,6 +14,7 @@ const Enquiry = () => {
           loop
           muted
           playsInline
+          webkit-playsInline
         >
           <source src={commodities} type="video/mp4" />
         </video>
