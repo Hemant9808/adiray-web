@@ -17,8 +17,7 @@ const Products = lazy(() => import("./pages/products/Products"));
 const Blogpost = lazy(() => import("./pages/Blogs/Blogpost"));
 const MultiLang = lazy(() => import("./components/MultiLang"));
 
-import i18n from "./config/i18n"
-import loader from './assets/loader.gif'
+
 import CategoryLayout from "./pages/products/CategoryLayout";
 import ProductList from "./pages/products/ProductList";
 

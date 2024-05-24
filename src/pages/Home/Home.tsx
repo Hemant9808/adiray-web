@@ -70,7 +70,7 @@ const Home = () => {
             loop
 
 
-            playsInline
+          
             webkit-playsInline
 
           />

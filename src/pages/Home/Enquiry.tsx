@@ -62,22 +62,22 @@ const Enquiry = () => {
     <div className="relative flex flex-col items-center justify-center w-full min-h-screen bg-cover bg-center">
       <video
 
-        className="relative inset-0 w-full h-[100%] object-cover opacity-100"
-        style={{ marginTop: "0px" }}
+        // className="relative inset-0 w-full h-[100%] object-cover opacity-100"
+        // style={{ marginTop: "0px" }}
 
-<!--         className="absolute top-0 inset-0 w-full h-full object-cover opacity-70" -->
+    className="absolute top-0 inset-0 w-full h-full object-cover opacity-70" 
 
         autoPlay
         muted
-        playsInline
-
+       
+  
 
         webkit-playsInline
 
       >
         <source src={commodities} type="video/mp4" />
       </video>
-
+      
 
       <div className="relative flex flex-col items-center justify-center w-full h-full bg-[#12e2c69] bg-opacity-60 backdrop-blur-md p-4">
         <div className="w-[90%] max-w-[900px] mt-32 px-4 text-center">
