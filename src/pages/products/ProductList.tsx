@@ -39,9 +39,9 @@ export default function ProductList() {
     const navigate = useNavigate();
 
     function handleEnquiry(productName: string) {
-        const data = {
+      const data = {
             productName: productName,
-            categoryName: categoryName,
+           categoryName: categoryName,
             categoryId: categoryId,
         }
         navigate('/enquiry', { state: { data } });

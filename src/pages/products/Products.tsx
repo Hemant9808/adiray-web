@@ -37,9 +37,10 @@ const Products = () => {
   >();
 
   async function getCategoryList() {
-    const response = await fetch("http://localhost:8080/api/category");
+    const response = await fetch("https://node-js-jwt-auth.onrender.com/api/category");
     const data = await response.json();
     setCategoryList(data);
+    console.log(categoryList);
   }
 
     const [imageIndex, setImageIndex] = useState(0);
@@ -84,17 +85,15 @@ const Products = () => {
 
       <section className="flex justify-center items-center py-20 px-5">
         <div className="flex flex-wrap gap-8 justify-center">
-          {categoryList &&
-            categoryList.map((category, index) => {
-              return (
+          {categoryList ?
+           ( categoryList.map((category, index) => (
                 <CategoryCard
                   key={index}
                   categoryId={category.id}
                   categoryName={category.name}
                   imageUrl={category.imageUrl}
                 />
-              );
-            })}
+            )) ): <p>no catagory found</p> }
 
           {/* <div className="relative w-80 h-96 flex">
             {imageSets.map((set: any, setIndex: any) => (
@@ -104,7 +103,7 @@ const Products = () => {
             ))}
           </div> */}
 
-          <Link to="category" className="relative w-80 h-96">
+          {/* <Link to="category" className="relative w-80 h-96">
             <img
               className="w-full h-full object-cover rounded-lg"
               src={set1[imageIndex % set1.length ]}
@@ -146,7 +145,7 @@ const Products = () => {
             <Button className="absolute bottom-0 bg-blue-700 text-white w-full ">
               Category 4
             </Button>
-          </Link>  
+          </Link>   */}
         </div>
       </section>
     </section>

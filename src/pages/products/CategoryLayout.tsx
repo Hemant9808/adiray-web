@@ -13,7 +13,7 @@ export default function CategoryLayout() {
   const [searchQuery, setSearchQuery] = useState('');
 
   async function getCategoryList() {
-    const response = await fetch('http://localhost:8080/api/category');
+    const response = await fetch('http://https://node-js-jwt-auth.onrender.com/api/category');
     const data = await response.json();
     setCategory(data);
   }
@@ -24,7 +24,7 @@ export default function CategoryLayout() {
 
   async function getProductByName() {
     try {
-      const response = await fetch(`http://localhost:8080/api/category/product/query`, {
+      const response = await fetch(`https://node-js-jwt-auth.onrender.com/api/category/product/query`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -95,7 +95,7 @@ export default function CategoryLayout() {
     try {
       if (!categoryId)
         return;
-      const response = await fetch(`http://localhost:8080/api/category/product/${categoryId}`);
+      const response = await fetch(`https://node-js-jwt-auth.onrender.com/api/category/product/${categoryId}`);
       const data = await response.json();
       setData(data.products);
       setCategoryName(data.name);
@@ -117,7 +117,7 @@ export default function CategoryLayout() {
   const navigate = useNavigate();
 
   async function handleEnquiry(productName: string) {
-    const response = await fetch('http://localhost:8080/api/category/categorybyproduct', {
+    const response = await fetch('http://https://node-js-jwt-auth.onrender.com/api/category/categorybyproduct', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
