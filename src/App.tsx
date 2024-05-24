@@ -12,10 +12,17 @@ const Home = lazy(() => import("./pages/Home/Home"));
 const Layouts = lazy(() => import("./pages/AI chatbot/Chatbot"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Blog = lazy(() => import("./pages/Blogs/Blog"));
-const Category = lazy(() => import("./pages/products/Category"));
+const Category = lazy(() => import("./pages/products/CategoryLayout"));
 const Products = lazy(() => import("./pages/products/Products"));
 const Blogpost = lazy(() => import("./pages/Blogs/Blogpost"));
 const MultiLang = lazy(() => import("./components/MultiLang"));
+
+import i18n from "./config/i18n"
+import loader from './assets/loader.gif'
+import CategoryLayout from "./pages/products/CategoryLayout";
+import ProductList from "./pages/products/ProductList";
+
+
 
 function App() {
 
@@ -46,13 +53,19 @@ function App() {
         },
         {
           path: "products/category",
-          element: <Category />
+          element: <CategoryLayout />,
+          children: [
+            {
+              path: ':categoryId',
+              element: <ProductList />
+            }
+          ]
         },
         {
           path: "products",
           element: <Products />
         },
-        
+
         {
           path: "blog",
           element: <Blog />
@@ -87,9 +100,9 @@ function App() {
 
 
   return (
-    <Suspense  fallback={<div className="flex items-center justify-center h-screen"><img className="w-[60px]" src={loader} alt="Loading..." /></div>}> {/*fallback={"loading.."}*/}
-      { showLanguageSelection && <MultiLang onSelectLanguage={handleLanguageSelect} />}
-     {!showLanguageSelection && <RouterProvider router={router} />}
+    <Suspense fallback={<div className="flex items-center justify-center h-screen"><img className="w-[60px]" src={loader} alt="Loading..." /></div>}> {/*fallback={"loading.."}*/}
+      {showLanguageSelection && <MultiLang onSelectLanguage={handleLanguageSelect} />}
+      {!showLanguageSelection && <RouterProvider router={router} />}
     </Suspense>
   )
 }
