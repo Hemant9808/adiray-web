@@ -28,13 +28,13 @@ const Products = () => {
     setCategoryList(data);
   }
 
-<!--   const [imageIndex, setImageIndex] = useState(0);
+  {/*  const [imageIndex, setImageIndex] = useState(0);
   
   
   const set1 = [image1, image2, image3, image4];
   const set2 = [image5, image6, image7, image8];
   const set3 = [image9, image10, image11, image12];
-  const set4 = [image13, image14, image15, image16]; -->
+  const set4 = [image13, image14, image15, image16]; */}
 
 
   // const imageSets = [set1, set2, set3, set4];
@@ -43,12 +43,12 @@ const Products = () => {
 
     getCategoryList();
 
-<!--     const interval = setInterval(() => {
+  {/*const interval = setInterval(() => {
       setImageIndex(prevIndex => (prevIndex + 1));
       
     }, 4000); // Change image every 3 seconds
 
-    return () => clearInterval(interval); -->
+    return () => clearInterval(interval); */}
 
   }, []);
 
@@ -88,15 +88,15 @@ const Products = () => {
 
 
  
-      {/* <div className="relative w-80 h-96 flex">
+     <div className="relative w-80 h-96 flex">
       {imageSets.map((set, setIndex) => (
         <div key={setIndex} className="mb-8">
           <ProductCard images={set} />
         </div>
          ))}
-        </div> */}
+        </div> 
 
-<!--            <Link to="category" className="relative w-80 h-96">
+ {/*<Link to="category" className="relative w-80 h-96">
             <img
               className="w-full h-full object-cover rounded-lg"
               src={set1[imageIndex % set1.length ]}
@@ -138,7 +138,7 @@ const Products = () => {
             <Button className="absolute bottom-0 bg-blue-700 text-white w-full ">
               Category 4
             </Button>
-          </Link>  -->
+          </Link>  */}
 
         </div>
       </section>
