@@ -1,7 +1,8 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import { useState } from "react";
-
+import i18n from "./config/i18n"
+import loader from './assets/loader.gif'
 import Chatbot from "./pages/AI chatbot/Chatbot";
 const Enquiry = lazy(() => import("./pages/Home/Enquiry"));
 const Signup = lazy(() => import("./pages/Home/Signup"));
@@ -15,10 +16,14 @@ const Category = lazy(() => import("./pages/products/CategoryLayout"));
 const Products = lazy(() => import("./pages/products/Products"));
 const Blogpost = lazy(() => import("./pages/Blogs/Blogpost"));
 const MultiLang = lazy(() => import("./components/MultiLang"));
+
 import i18n from "./config/i18n"
 import loader from './assets/loader.gif'
 import CategoryLayout from "./pages/products/CategoryLayout";
 import ProductList from "./pages/products/ProductList";
+
+
+
 function App() {
 
   const router = createBrowserRouter([
@@ -71,7 +76,7 @@ function App() {
         },
         {
           path: "lang",
-          element: <MultiLang />
+          element: <MultiLang/>
         }
 
       ]

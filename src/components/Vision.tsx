@@ -1,5 +1,3 @@
-import React from "react";
-import styles from "../styles/hero.module.css"
 import group from "../assets/Group.png"
 import bg from "../assets/bg.png";
 import { useTranslation } from 'react-i18next';

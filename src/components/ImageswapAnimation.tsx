@@ -1,8 +1,8 @@
 import  {  useEffect } from 'react';
-import appleImg from '../assets/apple.jpeg'
-import clothImg from "../assets/clothes.png"
-import toolbox from "../assets/toolbox.png"
-import brick from "../assets/bricks.png"
+import appleImg from '../assets/MovingImageHomepage/movingimage-1.jpg'
+import clothImg from '../assets/MovingImageHomepage/movingimage-2.jpg'
+import toolbox from '../assets/MovingImageHomepage/movingimage-3.jpg'
+import brick from '../assets/MovingImageHomepage/movingimage-4.jpg'
 // Inline CSS
 const styles = `
   .container {
@@ -19,8 +19,8 @@ const styles = `
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    width: 500px;
-    height: 500px;
+    width: 550px;
+    height: 550px;
     position: relative;
     gap: 12px;
   }
@@ -29,7 +29,7 @@ const styles = `
     width: 100%;
     height: 80%;
     object-fit: cover;
-    border-radius: 3px;
+   
     transition: transform 1s ease-in-out;
   }
 

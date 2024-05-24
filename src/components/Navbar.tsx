@@ -184,14 +184,14 @@ const Navbar = () => {
                         <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"} to="contact"  onClick={() => setOpen(!open)}> <span className="hover:text-black">{t('navbar.Contact us')}</span></NavLink>
                     </li>
                     <li>
-                        <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"} to="blog"  onClick={() => setOpen(!open)}> <span className="hover:text-black">Blog{t('navbar.Blog')}</span></NavLink>
+                        <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"} to="blog"  onClick={() => setOpen(!open)}> <span className="hover:text-black">{t('navbar.Blog')}</span></NavLink>
                     </li>
                     <li className="relative cursor-pointer group">
                   <a
                     href="#"
                     className="flex items-center gap-[2px]  text-gray-500 dark:hover:text-gray-900 py-2"
                   >
-                    {t('navbar.Language')}
+                   <img className="w-8 bg-white" src={languageicon} />
                     <span>
                       <FaCaretDown className="group-hover:rotate-180 duration-300" />
                     </span>

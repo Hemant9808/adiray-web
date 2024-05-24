@@ -61,6 +61,7 @@ export default function Blogpost() {
               {/* Render the main description */}
               <div className="text-gray-850 text-xl font-semibold font-Mont leading-[35px]">{post.description}</div>
               {/* If additional details are available, render them */}
+              <br/>
               {post && post.details && (
                 <div className="">
                   {post.details.map((detail: any) => (

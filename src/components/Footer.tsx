@@ -1,25 +1,25 @@
 import styles from "../styles/footer.module.css";
 import { Link } from "react-router-dom";
-import silverlogo from "../assets/logo/silverlogo.png";
 import { FaEnvelope } from "react-icons/fa";
 import { FiPhone } from "react-icons/fi";
 import { useTranslation } from 'react-i18next';
-
+import silverlogo from "../assets/logo/silverlogo.png";
 import { AiFillInstagram } from "react-icons/ai";
 import { BsFacebook, BsTwitterX, BsYoutube, BsLinkedin } from "react-icons/bs";
 
 const Footer = () => {
   const { t } = useTranslation();
   return (
-    <footer
+    <footer 
+    
       className={styles.wrapper}
-      style={{ backgroundColor: "#0B1321", margin: "0",zIndex:50 }}
+      style={{ backgroundColor: "#0B1321",zIndex:50,   }}
     >
 
     
 
             <div className={styles.list}>
-        <div className="flex flex-col gap-9 ">
+        <div className="flex flex-col gap-9  ">
           <img
             className="w-[90px]  justify-center mt-[-30px]"
             style={{ marginLeft: "-10px" }}

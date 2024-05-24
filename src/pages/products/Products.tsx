@@ -1,4 +1,9 @@
-import { useState, useEffect } from "react";
+
+import { Link } from "react-router-dom";
+
+import { useState,useEffect } from "react";
+
+import { Button } from "../../components/Button";
 
 import productmain from "../../assets/productmain.png";
 import CategoryCard from "../../components/CategoryCard";
@@ -14,6 +19,7 @@ export interface CategoryData {
 
 const Products = () => {
 
+
   const [categoryList, setCategoryList] = useState<CategoryData[] | undefined>();
 
   async function getCategoryList() {
@@ -22,8 +28,28 @@ const Products = () => {
     setCategoryList(data);
   }
 
+<!--   const [imageIndex, setImageIndex] = useState(0);
+  
+  
+  const set1 = [image1, image2, image3, image4];
+  const set2 = [image5, image6, image7, image8];
+  const set3 = [image9, image10, image11, image12];
+  const set4 = [image13, image14, image15, image16]; -->
+
+
+  // const imageSets = [set1, set2, set3, set4];
+
   useEffect(() => {
+
     getCategoryList();
+
+<!--     const interval = setInterval(() => {
+      setImageIndex(prevIndex => (prevIndex + 1));
+      
+    }, 4000); // Change image every 3 seconds
+
+    return () => clearInterval(interval); -->
+
   }, []);
 
   const { t } = useTranslation();
@@ -31,6 +57,9 @@ const Products = () => {
 
   return (
     <section className="pt-[12vh]">
+
+
+
       <div className="relative h-64 overflow-hidden group">
         <img
           className="object-cover h-full w-full group-hover:scale-150 ease-in-out duration-1000"
@@ -46,7 +75,9 @@ const Products = () => {
 
 
       <section className="flex justify-center items-center py-20 px-5">
+      
         <div className="flex flex-wrap gap-8 justify-center">
+
           {
             categoryList && categoryList.map((category, index) => {
               return (
@@ -54,6 +85,60 @@ const Products = () => {
               )
             })
           }
+
+
+ 
+      {/* <div className="relative w-80 h-96 flex">
+      {imageSets.map((set, setIndex) => (
+        <div key={setIndex} className="mb-8">
+          <ProductCard images={set} />
+        </div>
+         ))}
+        </div> */}
+
+<!--            <Link to="category" className="relative w-80 h-96">
+            <img
+              className="w-full h-full object-cover rounded-lg"
+              src={set1[imageIndex % set1.length ]}
+              alt="Category 1"
+            />
+            <Button className="absolute bottom-0 bg-blue-700 text-white w-full ">
+              Category 1
+            </Button>
+          </Link>
+
+          <Link to="category" className="relative w-80 h-96">
+            <img
+              className="w-full h-full object-cover rounded-lg"
+              src={set2[imageIndex % set1.length]}
+              alt="Category 2"
+            />
+            <Button className="absolute bottom-0 bg-blue-700 text-white w-full ">
+              Category 2
+            </Button>
+          </Link>
+
+          <Link to="category" className="relative w-80 h-96">
+            <img
+              className="w-full h-full object-cover rounded-lg"
+              src={set3[imageIndex % set1.length]}
+              alt="Category 3"
+            />
+            <Button className="absolute bottom-0 bg-blue-700 text-white w-full ">
+              Category 3
+            </Button>
+          </Link>
+
+          <Link to="category" className="relative w-80 h-96">
+            <img
+              className="w-full h-full object-cover rounded-lg"
+              src={set4[imageIndex % set1.length]}
+              alt="Category 4"
+            />
+            <Button className="absolute bottom-0 bg-blue-700 text-white w-full ">
+              Category 4
+            </Button>
+          </Link>  -->
 
         </div>
       </section>

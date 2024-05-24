@@ -10,6 +10,7 @@ interface ProductData {
 
 const Enquiry = () => {
   const { t } = useTranslation();
+
   const location = useLocation();
   const [productName, setProductName] = useState("");
   const [categoryName, setCategoryName] = useState("");
@@ -58,41 +59,42 @@ const Enquiry = () => {
   }, [location.state]);
 
   return (
-    <div className="flex flex-col items-center justify-center h-[1000px] bg-cover bg-center  ">
+    <div className="relative flex flex-col items-center justify-center w-full min-h-screen bg-cover bg-center">
       <video
+
         className="relative inset-0 w-full h-[100%] object-cover opacity-100"
         style={{ marginTop: "0px" }}
+
+<!--         className="absolute top-0 inset-0 w-full h-full object-cover opacity-70" -->
+
         autoPlay
         muted
         playsInline
-        loop
-        webkit-playsinline
+
+
+        webkit-playsInline
+
       >
         <source src={commodities} type="video/mp4" />
       </video>
 
-      <div className="absolute flex flex-col items-center h-[1000px] backdrop-blur-md bg-[#121e2c69] w-full">
-        <div className="w-[80vw] max-w-[900px]" style={{ marginTop: "160px" }}>
-          <h1 className="font-bold font-Mont text-[clamp(50px,2.5vw,4rem)] mb-6 z-10 text-center text-white">
+
+      <div className="relative flex flex-col items-center justify-center w-full h-full bg-[#12e2c69] bg-opacity-60 backdrop-blur-md p-4">
+        <div className="w-[90%] max-w-[900px] mt-32 px-4 text-center">
+          <h1 className="font-bold font-Mont text-[clamp(2rem,5vw,3.5rem)] mb-6  text-white">
             {t('enquiry.Get your')}{" "}
-            <span style={{ color: "#ffd700" }}>
-              {t('enquiry.Products Delivered')}
-            </span>{" "}
+            <span style={{ color: "#ffd700" }}>{t('enquiry.Products Delivered')}</span>{" "}
+
             {t('enquiry.to your destination from India')}
           </h1>
-          {/* Form */}
         </div>
-        <div
-          className="bg-white p-8 rounded-lg shadow-xl max-w-screen-md w-5/6"
-          style={{ width: "450px" }}
-        >
-          <div className="w-full flex items-center justify-center"></div>
+
+        <div className="w-[90%] max-w-[700px] bg-white p-6 rounded-lg shadow-xl mt-12 sm:mt-16 md:mt-20 lg:mt-24">
           <form>
             <div className="mb-4">
-              <label
-                className="block text-sm font-semibold mr-8"
-                htmlFor="name"
-              >
+
+              <label className="block text-sm font-semibold mb-1" htmlFor="name">
+
                 {t('enquiry.Name')}:
               </label>
               <input
@@ -103,19 +105,19 @@ const Enquiry = () => {
               />
             </div>
             <div className="mb-4">
-              <label
-                className="block text-sm font-semibold mr-8"
-                htmlFor="contact"
-              >
+
+              <label className="block text-sm font-semibold mb-1" htmlFor="contact">
+
                 {t('enquiry.Contact')}
               </label>
               <input
                 className="w-full px-3 py-2 border rounded-lg focus:outline-none"
-                type="contact"
+                type="text"
                 id="contact"
                 placeholder={t('Phone')}
               />
             </div>
+
 
             <div>
               <label
@@ -129,6 +131,7 @@ const Enquiry = () => {
                 className="w-full px-3 py-2 border rounded-lg focus:outline-none mb-4"
                 value={categoryName}
                 onChange={(e) => setCategoryName(e.target.value)}
+
               >
                 <option value="" className="text-gray-500">Select</option>
                 {categoryList && categoryList.map((category, index) => {
@@ -139,6 +142,7 @@ const Enquiry = () => {
 
               </select>
             </div>
+
             {
               categoryName !== '' &&
               <div>
@@ -168,6 +172,8 @@ const Enquiry = () => {
                 className="text-sm font-semibold mb-1 mr-8"
                 htmlFor="quantity"
               >
+
+            
                 {t('enquiry.Quantity')}
               </label>
               <input
@@ -178,10 +184,11 @@ const Enquiry = () => {
               />
             </div>
             <div className="mb-4">
-              <label
-                className="block text-sm font-semibold mb-1 mr-8"
-                htmlFor="comments"
-              >
+
+             
+
+              <label className="block text-sm font-semibold mb-1" htmlFor="comments">
+
                 {t('enquiry.Additional Comments')}
               </label>
               <textarea
@@ -191,8 +198,7 @@ const Enquiry = () => {
               ></textarea>
             </div>
             <button
-              className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none ml-22"
-              style={{ width: "100%" }}
+              className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none w-full"
               type="submit"
             >
               {t('enquiry.Send your query')}

@@ -40,7 +40,7 @@ const Home = () => {
     <>
       <main className="pt-[10vh]  flex-auto gap-10 relative">
         <Hero />
-        <section className="relative  h-auto max-h-[90vh] flex justify-center item-center object-fit overflow-hidden chatbot">
+        <section className="relative  max-h-[90vh] flex justify-center item-center object-fit overflow-hidden chatbot">
           <video
             className="h-90 -z-50 w-[100vw] h-[100%]  object-cover "
             src={chat}
@@ -59,16 +59,20 @@ const Home = () => {
         <section className="relative">
           <Vision></Vision>
         </section>
-
-        <section className="relative sm:h-[80vh] h-[85vh] overflow-hidden object-cover">
+          {/* About Section */}
+        <section className="relative h-[100vh] sm:h-[200vh] md:h-[100vh] overflow-hidden object-cover">
           <video
-            className=" -z-50 w-full object-cover aspect-video"
+            className=" z-50 md:h-auto h-[100%] object-cover aspect-video"
             src={supplychain}
             autoPlay
             muted
             playsInline
             loop
-            webkit-playsinline
+
+
+            playsInline
+            webkit-playsInline
+
           />
           <div className="absolute w-full h-full inset-0 flex items-center justify-center backdrop-blur-md   bg-[#121e2c69]">
             <div className="flex flex-col justify-between gap-[1.5rem] max-w-screen-lg px-8">
@@ -99,15 +103,15 @@ const Home = () => {
               </div>
 
               {/* Insert Logo Below */}
-              <div className=" flex justify-center md:gap-8 gap-4">
+              <div className=" flex justify-center items-center   md:gap-8 gap-4">
                 <Link to="https://fieo.org/?token=F6akj6K7Q4_2522922">
-                  <div className="sm:w-[200px] w-[100px]">
+                  
                     <img
-                      className="sm:w-[200px] w-[100px] mt-7"
+                      className="sm:w-[200px] w-[100px]"
                       src={fieo}
                       alt=""
                     />
-                  </div>
+                 
                 </Link>
 
                 <img className="sm:w-[200px] w-[100px] " src={msme} alt="" />

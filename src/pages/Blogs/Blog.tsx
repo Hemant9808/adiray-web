@@ -99,9 +99,9 @@ const Blog: React.FC = () => {
         <div className="flex flex-col gap-6">
           {paginatedPosts.map((post: BlogPost) => (
             <div key={post._id} className="flex flex-col md:flex-row gap-6">
-              <div className="flex-shrink-0  md:w-1/3">
+              <div className="flex-shrink-0 md:w-1/3">
                 <Link to={`/blog/blogpost/${post._id}`}>
-                  <img src={post.imageUrl || blogpage} alt={post.title} className="rounded-lg object-cover w-full " />
+                  <img src={post.imageUrl || blogpage} alt={post.title} className="rounded-lg object-cover w-full h-[200px]" /> {/* Ensuring uniform image size */}
                 </Link>
               </div>
               <div className="flex flex-col flex-grow">
@@ -110,14 +110,19 @@ const Blog: React.FC = () => {
                     {post.title}
                   </Link>
                 </h2>
-                <p className="text-gray-700">{extractFirst20Words(post.description)}</p>
+                <p className="relative text-gray-700 max-h-[100px] overflow-hidden md:max-h-none md:overflow-visible">
+                  {extractFirst20Words(post.description)}
+                  <span
+                    className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-white to-transparent md:hidden"
+                  ></span>
+                </p>
               </div>
             </div>
           ))}
         </div>
         <div className="flex flex-row mt-6">
           <div className="flex justify-center space-x-2">
-            <button onClick={() => setCurrentPage(prevPage => Math.max(prevPage - 1, 0))} className="bg-blue-300 hover:bg-blue-600 text-white py-2 px-4 rounded-md mr-2" disabled={currentPage === 0}>{t('Previous')}</button> {/* Using translation for Previous button */}
+            <button onClick={() => setCurrentPage(prevPage => Math.max(prevPage - 1, 0))} className="bg-blue-300 hover:bg-blue-600 text-white py-2 rounded-md  w-[90px]" disabled={currentPage === 0}>{t('Previous')}</button> {/* Using translation for Previous button */}
             {Array.from({ length: pageCount }, (_, index) => (
               <button
                 key={index}
@@ -127,7 +132,7 @@ const Blog: React.FC = () => {
                 {index + 1}
               </button>
             ))}
-            <button onClick={() => setCurrentPage(prevPage => Math.min(prevPage + 1, pageCount - 1))} className="bg-blue-300 hover:bg-blue-600 text-white py-2 px-4 rounded-md" disabled={currentPage === pageCount - 1}>{t('Next')}</button> {/* Using translation for Next button */}
+            <button onClick={() => setCurrentPage(prevPage => Math.min(prevPage + 1, pageCount - 1))} className="bg-blue-300 hover:bg-blue-600 text-white py-2 w-[90px] rounded-md" disabled={currentPage === pageCount - 1}>{t('Next')}</button> {/* Using translation for Next button */}
           </div>
         </div>
       </div>

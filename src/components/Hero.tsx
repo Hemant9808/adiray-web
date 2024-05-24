@@ -7,7 +7,7 @@ import ImageSwapAnimation from "./ImageswapAnimation";
 const Hero = () => {
   const { t } = useTranslation();
   const shouldAnimate = window.innerWidth <= 768;
-  const imageShoudAnimate = window.innerWidth >= 850;
+
   return (
     <div className={styles.wrapper}>
       <img className={styles.bg} src={bg} alt="background" />
