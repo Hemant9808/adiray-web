@@ -24,6 +24,7 @@ const Enquiry = () => {
     const response = await fetch("https://node-js-jwt-auth.onrender.com/api/category");
     const data = await response.json();
     setCategoryList(data);
+    console.log(data)
   }
 
   async function getProductList() {
@@ -58,6 +59,7 @@ const Enquiry = () => {
       
       const { productName, categoryName, categoryId } = location.state.data;
       setProductName(productName);
+      console.log(productList)
       setCategoryName(categoryName);
       setCategoryId(categoryId);
     }
@@ -71,6 +73,7 @@ const Enquiry = () => {
 
         className="absolute top-0 inset-0 w-full h-full object-cover opacity-70"
         autoPlay
+        playsInline
         muted
         webkit-playsInline
       >
