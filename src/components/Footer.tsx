@@ -1,4 +1,3 @@
-import styles from "../styles/footer.module.css";
 import { Link } from "react-router-dom";
 import { FaEnvelope } from "react-icons/fa";
 import { FiPhone } from "react-icons/fi";
@@ -10,81 +9,36 @@ import { BsFacebook, BsTwitterX, BsYoutube, BsLinkedin } from "react-icons/bs";
 const Footer = () => {
   const { t } = useTranslation();
   return (
-    <footer 
-    
-      className={styles.wrapper}
-      style={{ backgroundColor: "#0B1321",zIndex:50,   }}
+    <footer
+      className="flex flex-col bg-[#0B1321]  justify-center "
     >
-
-    
-
-            <div className={styles.list}>
-        <div className="flex flex-col gap-9  ">
+      <div className="flex pl-12 pb-8 sm:pl-0 justify-around items-start flex-col sm:flex-row gap-9 sm:gap-0 bg-[#0B1321] sm:pb-8 pt-8">
+      <div className="mt-[-32px] ml-[-8px]">
           <img
-            className="w-[90px]  justify-center mt-[-30px]"
-            style={{ marginLeft: "-10px" }}
+            className="w-[90px]"
             src={silverlogo}
             alt="adiray"
           />
-
-          <div className="flex gap-5 items-center ">
-            <Link
-              className=" "
-              to={"https://www.linkedin.com/company/adiray-global"}
-            >
-              <BsLinkedin className="w-7 h-7 text-white " />
-            </Link>
-
-            <Link to={"https://twitter.com/AdirayGlobal"}>
-              <BsTwitterX className="w-7 h-7 text-white" />
-            </Link>
-
-            <Link
-              to={
-                "https://www.facebook.com/share/xDBzdbxqt3TijffV/?mibextid=WC7FNe"
-              }
-            >
-              <BsFacebook className="w-8 h-8 text-white" />
-            </Link>
-
-            <Link to={"https://www.instagram.com/adirayglobal/"}>
-              <AiFillInstagram className="w-8 h-8 text-white" />
-            </Link>
-
-            <Link to={" https://www.youtube.com/@ADIRAYGLOBAL"}>
-              <BsYoutube className="w-8 h-8 text-white " />
-            </Link>
-          </div>
         </div>
 
-        <ul className="md:ml-[50px] ">
-          <h2 className="text-lg font-semibold mb-2 font-Mont text-white ">
-          {t('footer.quicklinks')}
-          </h2>
 
+        <ul className="flex flex-col ">
+          <h2 className="text-lg font-semibold mb-2 font-Mont text-white ">
+            {t('footer.quicklinks')}
+          </h2>
           <li>
             <Link className="text-gray-300 hover:text-[#ffd700]" to="">
-            {t('footer.products')}
-            </Link>
-          </li>
-          <li>
-            <Link className="text-gray-300  hover:text-[#ffd700]" to="">
-            {t('footer.Contactus')} 
-            </Link>
-          </li>
-          <li>
-            <Link className="text-gray-300 hover:text-[#ffd700]" to="">
-            {t('footer.Terms & Conditions')}
+              {t('footer.Terms & Conditions')}
             </Link>
           </li>
           <li>
             <Link className="text-gray-300 hover:text-[#ffd700]" to="">
-            {t('footer.Privacy and Cookies')}
+              {t('footer.Privacy and Cookies')}
             </Link>
           </li>
           <li>
             <Link className="text-gray-300 hover:text-[#ffd700]" to="">
-            {t('footer.Licenses')} 
+              {t('footer.Licenses')}
             </Link>
           </li>
         </ul>
@@ -110,7 +64,52 @@ const Footer = () => {
             </Link>{" "}
           </div>
         </ul>
+        <ul className="flex flex-col  ">
+          <h2 className="text-lg font-semibold mb-2 font-Mont text-white ">
+            Social
+          </h2>
+          <div className="flex gap-9 ">
+
+            <Link
+              className=" "
+              to={"https://www.linkedin.com/company/adiray-global"}
+            >
+              <BsLinkedin className="w-7 h-7 text-white " />
+            </Link>
+
+            <Link to={"https://twitter.com/AdirayGlobal"}>
+              <BsTwitterX className="w-7 h-7 text-white" />
+            </Link>
+
+            
+            </div>
+              <div className="flex gap-8 mt-4">
+              <Link
+              to={
+                "https://www.facebook.com/share/xDBzdbxqt3TijffV/?mibextid=WC7FNe"
+              }
+            >
+              <BsFacebook className="w-8 h-8 text-white" />
+            </Link>
+              <Link to={"https://www.instagram.com/adirayglobal/"}>
+              <AiFillInstagram className="w-8 h-8 text-white" />
+            </Link>
+
+            <Link to={" https://www.youtube.com/@ADIRAYGLOBAL"}>
+              <BsYoutube className="w-8 h-8 text-white " />
+            </Link>
+              </div>
+            
+         
+        </ul>
       </div>
+       
+        <div className="flex  justify-center items-center mb-4  text-gray-500 ">
+        ©2024 adirayglobal.com{' '}
+        
+        {t('footer.All rights reserved')}
+      </div>
+     
     </footer>
   );
 };

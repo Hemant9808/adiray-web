@@ -59,7 +59,8 @@ i18n.use(initReactI18next).init({
          "Terms & Conditions":"Terms & Conditions",
          "Privacy and Cookies":"Privacy and Cookies",
          "Licenses":"Licenses",
-         "Contact" :"Contact"
+         "Contact" :"Contact",
+         "All rights reserved":"All rights reserved"
         },
         
 

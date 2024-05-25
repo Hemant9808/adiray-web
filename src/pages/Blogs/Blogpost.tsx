@@ -9,7 +9,7 @@ export default function Blogpost() {
   const navigate = useNavigate();
   const [post, setPost] = useState<any>(null);
   const [loading, setLoading] = useState(true);
-
+  console.log(id)
   useEffect(() => {
     axios.get(`https://node-js-jwt-auth.onrender.com/api/posts/${id}`)
       .then(response => {
@@ -44,7 +44,7 @@ export default function Blogpost() {
     const urlRegex = /(https?:\/\/[^\s]+)/g;
     return text.replace(urlRegex, (url) => {
       const anchorText = generateAnchorText(url);
-      return `<a href="${url}" class="text-blue-500 hover:underline" target="_blank">${anchorText}</a>`;
+      return `<a href="${url}" class="text-blue-500 hover:underline hover:visited" target="_blank">${anchorText}</a>`;
     });
   };
 
