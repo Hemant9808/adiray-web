@@ -88,7 +88,7 @@ const Enquiry = () => {
           </h1>
         </div>
 
-        <div className="w-[90%] max-w-[700px] bg-white p-6 rounded-lg shadow-xl mt-12 sm:mt-16 md:mt-20 lg:mt-24">
+        <div className="w-[90%] max-w-[700px] bg-white p-6 rounded-lg shadow-xl  ">
           <form>
             <div className="mb-4">
               <label
@@ -116,6 +116,20 @@ const Enquiry = () => {
                 type="text"
                 id="contact"
                 placeholder={t("Phone")}
+              />
+            </div>
+            <div className="mb-4">
+              <label
+                className="block text-sm font-semibold mb-1"
+                htmlFor="country"
+              >
+                {t("enquiry.Country")}
+              </label>
+              <input
+                className="w-full px-3 py-2 border rounded-lg focus:outline-none"
+                type="text"
+                id="country"
+                placeholder={t("Country")}
               />
             </div>
 
@@ -147,7 +161,6 @@ const Enquiry = () => {
               </select>
             </div>
 
-            {categoryName !== "" && (
               <div>
                 <label
                   className="block text-sm font-semibold mb-1 mr-9"
@@ -172,7 +185,8 @@ const Enquiry = () => {
                     })}
                 </select>
               </div>
-            )}
+            
+            
             <div className="mb-4">
               <label
                 className="text-sm font-semibold mb-1 mr-8"
@@ -195,7 +209,7 @@ const Enquiry = () => {
                 {t("enquiry.Additional Comments")}
               </label>
               <textarea
-                className="w-full px-3 py-2 border rounded-lg focus:outline-none"
+                className="w-full h-48 px-3 py-2 border rounded-lg focus:outline-none"
                 id="comments"
                 placeholder={t("Enter your Comments")}
               ></textarea>
