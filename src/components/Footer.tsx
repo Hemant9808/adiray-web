@@ -66,7 +66,7 @@ const Footer = () => {
         </ul>
         <ul className="flex flex-col  ">
           <h2 className="text-md font-semibold mb-2 font-Mont text-white ">
-            Social
+          {t('footer.Social')}
           </h2>
           <div className="flex gap-6 ">
 

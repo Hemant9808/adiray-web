@@ -60,6 +60,7 @@ i18n.use(initReactI18next).init({
          "Privacy and Cookies":"Privacy and Cookies",
          "Licenses":"Licenses",
          "Contact" :"Contact",
+         "Social" :"Social",
          "All rights reserved":"All rights reserved"
         },
         
@@ -180,7 +181,9 @@ i18n.use(initReactI18next).init({
         "Terms & Conditions":"नियम एवं शर्तें",
         "Privacy and Cookies":"गोपनीयता और कुकीज़",
         "Licenses":"लाइसेंस",
-        "Contact" :"संपर्क"
+        "Contact" :"संपर्क" ,
+        "Social" : "सामाजिक",
+        "All rights reserved" : "सभी अधिकार सुरक्षित हैं"
        },
 
        "navbar":{
@@ -212,7 +215,7 @@ i18n.use(initReactI18next).init({
             "to your destination from India": "भारत से आपके गंतव्य तक ",
             "Name": "नाम",
             "Contact": "संपर्क",
-            "Country": "देश " ,
+            "Country": "देश" ,
             "Category": "श्रेणी",
             "Product Name": "उत्पाद का नाम",
             "Quantity": "मात्रा",
