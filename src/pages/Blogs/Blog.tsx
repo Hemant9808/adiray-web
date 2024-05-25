@@ -100,13 +100,13 @@ const Blog: React.FC = () => {
           {paginatedPosts.map((post: BlogPost) => (
             <div key={post._id} className="flex flex-col md:flex-row gap-6">
               <div className="flex-shrink-0 md:w-1/3">
-                <Link to={`/blog/blogpost/${post._id}`}>
+                <Link to={`/blogpost/${post._id}`}>
                   <img src={post.imageUrl || blogpage} alt={post.title} className="rounded-lg object-cover w-full h-[200px]" /> {/* Ensuring uniform image size */}
                 </Link>
               </div>
               <div className="flex flex-col flex-grow">
                 <h2 className="text-lg font-semibold text-black mb-2">
-                  <Link to={`/blog/blogpost/${post._id}`} className="hover:text-blue-900">
+                  <Link to={`/blogpost/${post._id}`} className="hover:text-blue-900">
                     {post.title}
                   </Link>
                 </h2>

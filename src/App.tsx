@@ -70,7 +70,7 @@ function App() {
           element: <Blog />
         },
         {
-          path: "blog/blogpost/:id?",
+          path: "blogpost/:id?",
           element: <Blogpost />
         },
         {
