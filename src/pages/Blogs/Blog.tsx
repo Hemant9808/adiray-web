@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import axios, { AxiosResponse } from 'axios';
 import AOS from 'aos';
@@ -7,7 +7,7 @@ import blogbg from '../../assets/blogbg.jpg';
 import loader from '../../assets/loader.gif';
 import blogpage from '../../assets/blogpage.png';
 
-import { useTranslation } from 'react-i18next'; // Importing useTranslation hook
+import { useTranslation } from 'react-i18next';
 
 type BlogPost = {
   _id: string;
@@ -20,12 +20,14 @@ const inputClasses = 'pl-10 pr-4 py-3 shadow-md text-md rounded-lg';
 const hrClasses = 'flex-1 border-zinc-300';
 
 const Blog: React.FC = () => {
-  const { t } = useTranslation(); // Using useTranslation hook for translation
-
+  const { t } = useTranslation();
   const shouldAnimate = window.innerWidth <= 768;
-  AOS.init({
-    duration: 800,
-  });
+
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+    });
+  }, []);
 
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
@@ -34,43 +36,46 @@ const Blog: React.FC = () => {
   const itemsPerPage = 5;
 
   useEffect(() => {
-    axios
-      .get<BlogPost[]>('https://node-js-jwt-auth.onrender.com/api/posts')
-      .then((response: AxiosResponse<BlogPost[]>) => {
-        setBlogPosts(response.data.sort((a:any, b:any) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()));
-        setLoading(false);
-      })
-      .catch((error) => {
+    const fetchBlogPosts = async () => {
+      try {
+        const response: AxiosResponse<BlogPost[]> = await axios.get('https://node-js-jwt-auth.onrender.com/api/posts');
+        setBlogPosts(response.data.sort((a: any, b: any) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()));
+      } catch (error) {
         console.error('Error fetching blog posts:', error);
+      } finally {
         setLoading(false);
-      });
+      }
+    };
+    fetchBlogPosts();
   }, []);
 
-  const handlePageChange = (page: number) => {
+  const handlePageChange = useCallback((page: number) => {
     setCurrentPage(page);
-  };
+  }, []);
 
-  if (loading) {
-    return <div className='w-full h-screen flex justify-center items-center'><img className='w-8' src={loader} alt="" /></div> // Using translation for loading text
-  }
+  const filteredPosts = useMemo(() => {
+    return blogPosts.filter(post => {
+      return post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        post.description.toLowerCase().includes(searchQuery.toLowerCase());
+    });
+  }, [blogPosts, searchQuery]);
 
-  if (!blogPosts.length) {
-    return <div>{t('No posts found')}</div>; // Using translation for no posts found text
-  }
+  const pageCount = useMemo(() => Math.ceil(filteredPosts.length / itemsPerPage), [filteredPosts.length]);
+  const paginatedPosts = useMemo(() => filteredPosts.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage), [filteredPosts, currentPage, itemsPerPage]);
 
   const extractFirst20Words = (text: string): string => {
     const words = text.split(' ');
-    const first20Words = words.slice(0, 40);
-    return first20Words.join(' ');
+    const first20Words = words.slice(0, 20);
+    return first20Words.join(' ') + (words.length > 20 ? '...' : '');
   };
 
-  const filteredPosts = blogPosts.filter(post => {
-    return post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-           post.description.toLowerCase().includes(searchQuery.toLowerCase());
-  });
+  if (loading) {
+    return <div className='w-full h-screen flex justify-center items-center'><img className='w-8' src={loader} alt="" /></div>;
+  }
 
-  const pageCount = Math.ceil(filteredPosts.length / itemsPerPage);
-  const paginatedPosts = filteredPosts.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage);
+  if (!blogPosts.length) {
+    return <div>{t('No posts found')}</div>;
+  }
 
   return (
     <div className="relative w-full flex justify-center shadow-md">
@@ -78,14 +83,20 @@ const Blog: React.FC = () => {
       <div className="p-8 px-[10vw] z-[5] max-w-[1300px] flex flex-col justify-center mt-[17vh] ">
         <div className="mb-6 md:flex justify-between items-center">
           <h1 data-aos={shouldAnimate ? 'slide-right' : ''} className="text-[clamp(35px,3.5vw,5rem)] font-Mont font-bold">
-            {t('Latest')} <span className="text-blue-900">{t('Updates')}</span> {/* Using translation for Latest Updates */}
+            {t('Latest')} <span className="text-blue-900">{t('Updates')}</span>
           </h1>
           <div data-aos={shouldAnimate ? 'slide-left' : ''} className="flex items-center gap-2 mt-2">
             <hr className={hrClasses} />
-            <div className="relative flex items-center ">
-              <input type="text" placeholder={t('Search')} className={inputClasses} value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} /> {/* Using translation for placeholder text */}
+            <div className="relative flex items-center">
+              <input
+                type="text"
+                placeholder={t('Search')}
+                className={inputClasses}
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
               <svg
-                className="w-4 h-4 absolute left-3  flex items-center "
+                className="w-4 h-4 absolute left-3 flex items-center"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -101,7 +112,7 @@ const Blog: React.FC = () => {
             <div key={post._id} className="flex flex-col md:flex-row gap-6">
               <div className="flex-shrink-0 md:w-1/3">
                 <Link to={`/blogpost/${post._id}`}>
-                  <img src={post.imageUrl || blogpage} alt={post.title} className="rounded-lg object-cover w-full h-[200px]" /> {/* Ensuring uniform image size */}
+                  <img src={post.imageUrl || blogpage} alt={post.title} className="rounded-lg object-cover w-full h-[200px]" />
                 </Link>
               </div>
               <div className="flex flex-col flex-grow">
@@ -112,9 +123,7 @@ const Blog: React.FC = () => {
                 </h2>
                 <p className="relative text-gray-700 max-h-[100px] overflow-hidden md:max-h-none md:overflow-visible">
                   {extractFirst20Words(post.description)}
-                  <span
-                    className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-white to-transparent md:hidden"
-                  ></span>
+                  <span className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-white to-transparent md:hidden"></span>
                 </p>
               </div>
             </div>
@@ -122,7 +131,13 @@ const Blog: React.FC = () => {
         </div>
         <div className="flex flex-row mt-6">
           <div className="flex justify-center space-x-2">
-            <button onClick={() => setCurrentPage(prevPage => Math.max(prevPage - 1, 0))} className="bg-blue-300 hover:bg-blue-600 text-white py-2 rounded-md  w-[90px]" disabled={currentPage === 0}>{t('Previous')}</button> {/* Using translation for Previous button */}
+            <button
+              onClick={() => setCurrentPage(prevPage => Math.max(prevPage - 1, 0))}
+              className="bg-blue-300 hover:bg-blue-600 text-white py-2 rounded-md w-[90px]"
+              disabled={currentPage === 0}
+            >
+              {t('Previous')}
+            </button>
             {Array.from({ length: pageCount }, (_, index) => (
               <button
                 key={index}
@@ -132,7 +147,13 @@ const Blog: React.FC = () => {
                 {index + 1}
               </button>
             ))}
-            <button onClick={() => setCurrentPage(prevPage => Math.min(prevPage + 1, pageCount - 1))} className="bg-blue-300 hover:bg-blue-600 text-white py-2 w-[90px] rounded-md" disabled={currentPage === pageCount - 1}>{t('Next')}</button> {/* Using translation for Next button */}
+            <button
+              onClick={() => setCurrentPage(prevPage => Math.min(prevPage + 1, pageCount - 1))}
+              className="bg-blue-300 hover:bg-blue-600 text-white py-2 w-[90px] rounded-md"
+              disabled={currentPage === pageCount - 1}
+            >
+              {t('Next')}
+            </button>
           </div>
         </div>
       </div>
@@ -140,4 +161,4 @@ const Blog: React.FC = () => {
   );
 };
 
-export default Blog;
+export default React.memo(Blog);

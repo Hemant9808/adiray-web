@@ -79,7 +79,7 @@ export default function Blogpost() {
             <div className="text-gray-900 text-4xl font-Mont font-bold">
               {post.title}
             </div>
-            <img className="w-[752px] rounded-3xl" src={post.imageUrl} alt="Blog" />
+            <img className="w-[752px] h-[500px] rounded-3xl" src={post.imageUrl} alt="Blog" />
 
             <div className="text-gray-900">
               <div className="text-gray-850 text-xl font-semibold font-Mont leading-[35px]" dangerouslySetInnerHTML={{ __html: processTextWithLinks(post.description) }}></div>
