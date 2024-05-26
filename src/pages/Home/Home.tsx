@@ -68,9 +68,6 @@ const Home = () => {
             muted
             playsInline
             loop
-
-
-          
             webkit-playsInline
 
           />

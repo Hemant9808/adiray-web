@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import contact from "../assets/contact.png";
 import mail from "../assets/logo/mail.svg";
 import phone from "../assets/logo/phone.svg";
-import gps from "../assets/logo/gps.svg";
 import { useTranslation } from 'react-i18next';
 
 export default function Contact() {
