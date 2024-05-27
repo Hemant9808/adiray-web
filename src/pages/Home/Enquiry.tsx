@@ -66,12 +66,12 @@ const Enquiry = () => {
   }, [location.state]);
 
   return (
-    <div className="relative flex flex-col items-center justify-center w-full min-h-screen bg-cover bg-center">
+    <div className="relative flex  bg-gray-800 flex-col items-center justify-center w-full min-h-screen bg-cover bg-center">
       <video
         // className="relative inset-0 w-full h-[100%] object-cover opacity-100"
         // style={{ marginTop: "0px" }}
 
-        className="absolute top-0 inset-0 w-full h-full object-cover opacity-70"
+        className="absolute top-0   inset-0 w-full h-full object-cover opacity-70"
         autoPlay
         playsInline
         muted
@@ -80,8 +80,8 @@ const Enquiry = () => {
         <source src={commodities} type="video/mp4" />
       </video>
 
-      <div className="relative flex flex-col items-center justify-center w-full h-full bg-[#12e2c69] bg-opacity-60 backdrop-blur-md p-4">
-        <div className="w-[90%] max-w-[900px] mt-48 px-4 text-center">
+      <div className="relative flex flex-col   items-center justify-center  bg-opacity-60 backdrop-blur-md w-full h-full  p-4">
+        <div className="w-[90%] max-w-[900px] sm:mt-40 mt-[28%] px-4 text-center">
           <h1 className="font-bold font-Mont text-[clamp(2rem,5vw,3.5rem)] mb-6  text-white">
             {t("enquiry.Get your")}{" "}
             <span style={{ color: "#ffd700" }}>
@@ -91,7 +91,7 @@ const Enquiry = () => {
           </h1>
         </div>
 
-        <div className="w-[90%] max-w-[700px] bg-white p-6 rounded-lg shadow-xl  ">
+        <div className="w-[90%] max-w-[700px] bg-white p-6 rounded-lg shadow-xl mb-5  sm:mt-10 md:mt-10 lg:mt-15">
           <form>
             <div className="mb-4">
               <label
