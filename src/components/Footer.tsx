@@ -104,7 +104,7 @@ const Footer = () => {
         </ul>
       </div>
        
-        <div className="flex  justify-center items-center  p-4 text-gray-500 ">
+        <div className="flex  justify-center items-center text-center p-4 text-gray-500 ">
         ©2024 adirayglobal.com{' '}
         
         {t('footer.All rights reserved')}

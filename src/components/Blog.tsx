@@ -11,6 +11,7 @@ interface BlogPost {
   title: string;
   description: string;
   imageUrl?: string;
+  createdAt : string ;
 }
 
 const Blog: React.FC = () => {
@@ -23,7 +24,7 @@ const Blog: React.FC = () => {
       .get<BlogPost[]>('https://node-js-jwt-auth.onrender.com/api/posts/')
       .then((response: AxiosResponse<BlogPost[]>) => {
         // Sort blog posts by createdAt in descending order
-        const sortedPosts = response.data.sort((a:any, b:any) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+        const sortedPosts = response.data.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
         // Limit the number of blog posts to three
         const limitedPosts = sortedPosts.slice(0, 3);
         setBlogPosts(limitedPosts);
@@ -112,7 +113,7 @@ const Blog: React.FC = () => {
       <section className="flex justify-center items-center py-10 px-5">
         <div className="flex flex-wrap gap-8 justify-center">
           {blogPosts.map((post) => (
-            <Link key={post._id} to={`/blog/blogpost/${post._id}`} >
+            <Link key={post._id} to={`/blogpost/${post._id}`} >
               <div data-aos="fade-up" data-aos-delay="150"
                 className="md:w-[420px] w-[320px] md:h-[320px] h-[250px]  rounded-[14px] shadow border flex-col justify-center items-center inline-flex">
                 <div className="bg-sky-950 bg-opacity-0 rounded-lg z-1">
