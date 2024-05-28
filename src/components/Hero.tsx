@@ -29,11 +29,12 @@ const Hero = () => {
           >
             {t("home.hero.description")}
           </p>
-          <div className="flex gap-5">
+          <div className="flex gap-5 ">
             <div data-aos={shouldAnimate ? "fade-right" : ""}>
-              <Button className="text-white font-Mont bg-blue-800 hover:bg-blue-900">
+              <Button className="text-white mr-4 font-Mont bg-blue-900  hover:text-yellow-400">
                 {t("home.hero.btnViewMore")}
               </Button>
+            
             </div>
             <div data-aos={shouldAnimate ? "fade-left" : ""}>
               {/*<Link to="login">

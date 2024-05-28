@@ -15,7 +15,8 @@ i18n.use(initReactI18next).init({
           "tagline2": "Global",
           "description": "A stride towards facilitating the transboundary journey of goods",
           "btnViewMore": "View More",
-          "btnLogin": "Login"
+          "btnLogin": "Login",
+          "Become A Manufactural":"Become A Manufactural"
         },
         "vision": {
           "left": {
@@ -115,7 +116,7 @@ i18n.use(initReactI18next).init({
       },
 
         "Latest":"Latest",
-        "Update":"Update",
+        "Updates":"Updates",
         "Search":"Search",
         "Email": "Email",
         "Phone": "Phone",
@@ -236,7 +237,7 @@ i18n.use(initReactI18next).init({
       },
       
         "Latest": "नवीनतम",
-        "Update": "अपडेट",
+        "Updates": "अपडेट",
         "Search": "खोज",
         "Email": "ईमेल",
         "Phone": "फ़ोन",

@@ -131,7 +131,7 @@ const Navbar = () => {
                     <ul className="space-y-2">
                       
                       
-                        <li className="text-gray-500 hover:text-gray-900   duration-200 inline-block w-full p-2 hover:bg-white rounded-md font-semibold"
+                        <li className="text-gray-500 hover:text-gray-900   duration-200 inline-block w-full p-2 hover:bg-gray-400 rounded-md font-semibold"
                        onClick={()=>changeLanguage('en')}
                        >
                           English
