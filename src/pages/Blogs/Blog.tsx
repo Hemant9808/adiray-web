@@ -78,7 +78,7 @@ const Blog: React.FC = () => {
   }
 
   return (
-    <div className="relative w-full flex justify-center shadow-md">
+    <div className="relative w-screen  flex justify-center shadow-md">
       <img className="absolute opacity-20 -z-1 object-cover w-full h-full -z-0" src={blogbg} alt="background" />
       <div className="p-8 px-[10vw] z-[5] max-w-[1300px] flex flex-col justify-center mt-[17vh] ">
         <div className="mb-6 md:flex justify-between items-center">
