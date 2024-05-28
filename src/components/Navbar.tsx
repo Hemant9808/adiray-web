@@ -164,9 +164,9 @@ const Navbar = () => {
             {open  && (
                 
                <ul ref={menuRef} data-aos={open ? "slide-left" : "slide-right"}
-                 className={`p-6 md:hidden  absolute justify-end  flex-col gap-8 bg-[#E8EDF3] w-[50%] h-[450px]  rounded-md  transition-${margin} duration-300 ease-in-out `}  style={{marginTop:"512px",marginLeft:`${margin}`,transition: "margin 6s all ease"}}>
+                 className={`p-6 md:hidden absolute top-24 right-0  w-[50%] flex flex-col justify-between items-center gap-8 bg-[#E8EDF3] rounded-md transition-all duration-300 ease-in-out`}>
                     
-                    <button className=" md:hidden flex items-center justify-end transition-margin duration-300 ease-in-out"   onClick={() => openNav(open)}>
+                    <button className=" md:hidden flex   transition-margin duration-300 ease-in-out"   onClick={() => openNav(open)}>
                      </button>
                 <li >
                         <NavLink className={({ isActive }) => isActive ? "text-black" : "text-slate-600"}  to="/"  onClick={() => setOpen(!open)}> <span className="hover:text-black">{t('navbar.Home')}</span></NavLink>
