@@ -81,7 +81,7 @@ const Enquiry = () => {
       </video>
 
       <div className="relative flex flex-col   items-center justify-center  bg-opacity-60 backdrop-blur-md w-full h-full  p-4">
-        <div className="w-[90%] max-w-[900px] mt-28 sm:mt-40 mt-[28%] px-4 text-center">
+        <div className="w-[90%] max-w-[900px] mt-36 sm:mt-40 mt-[28%] px-4 text-center">
           <h1 className="font-bold font-Mont text-[clamp(2rem,5vw,3.5rem)] mb-6  text-white">
             {t("enquiry.Get your")}{" "}
             <span style={{ color: "#ffd700" }}>
