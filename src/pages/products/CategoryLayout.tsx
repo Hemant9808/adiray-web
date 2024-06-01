@@ -3,6 +3,7 @@ import productmain from "../../assets/productmain.png"
 import { Link, Outlet } from "react-router-dom";
 import { CategoryData } from "./Products";
 import { useLocation, useNavigate, useParams } from "react-router-dom"
+import Spinner from "../../components/Spinner";
 
 
 
@@ -13,7 +14,7 @@ export default function CategoryLayout() {
   const [searchQuery, setSearchQuery] = useState('');
 
   async function getCategoryList() {
-    const response = await fetch('http://https://node-js-jwt-auth.onrender.com/api/category');
+    const response = await fetch('https://node-js-jwt-auth.onrender.com/api/category');
     const data = await response.json();
     setCategory(data);
   }
@@ -106,6 +107,7 @@ export default function CategoryLayout() {
   }
 
   useEffect(() => {
+    setFilteredProducts([]);
     getProductList();
   }, [categoryId]);
 
@@ -117,7 +119,7 @@ export default function CategoryLayout() {
   const navigate = useNavigate();
 
   async function handleEnquiry(productName: string) {
-    const response = await fetch('http://https://node-js-jwt-auth.onrender.com/api/category/categorybyproduct', {
+    const response = await fetch('https://node-js-jwt-auth.onrender.com/api/category/categorybyproduct', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -175,15 +177,20 @@ export default function CategoryLayout() {
 
             CATAGORIES
           </button>
-          <div className="p-3">
-            {filteredCategory && filteredCategory.map((data, index) => {
-              return (
-                <Link key={index} to={data.id} className="w-full text-slate-500 border-none rounded-md  text-[17px] mb-3 flex">
-                  {" "}
-                  {data.name}
-                </Link>
-              )
-            })}
+          <div className="p-3 min-h-[400px]">
+            {filteredCategory &&
+              filteredCategory.length > 0 ? filteredCategory.map((data, index) => {
+                return (
+                  <Link key={index} to={data.id} className="w-full text-slate-500 border-none rounded-md  text-[17px] mb-3 flex">
+                    {" "}
+                    {data.name}
+                  </Link>
+                )
+              })
+              : <div className="mt-8">
+                <Spinner />
+              </div>
+            }
           </div>
         </div>
         <div className="w-full  rounded-md border border-solid md:ml-8">
@@ -207,7 +214,7 @@ export default function CategoryLayout() {
               )
             }
 
-            {filteredProducts && filteredProducts.map((item, index) => (
+            {filteredProducts?.length > 0 ? filteredProducts.map((item, index) => (
               <div
                 className={`w-full h-[55px] ${index % 2 === 0 ? "bg-gray-100" : "bg-white"
                   } flex items-center justify-between  p-7`}
@@ -222,7 +229,12 @@ export default function CategoryLayout() {
                   Enquiry
                 </button>
               </div>
-            ))}
+            ))
+              :
+              <div className="mt-8">
+                <Spinner />
+              </div>
+            }
           </>
         </div>
       </div>
