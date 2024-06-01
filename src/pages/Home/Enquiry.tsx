@@ -30,7 +30,7 @@ const Enquiry = () => {
   async function getProductList() {
     try {
       // console.log("Getting Product list");
-      // console.log('a'+categoryName+'e')
+      // console.log('a'+categoryName+'e')  
       const encodedCategoryName = await encodeURIComponent(categoryName);
       // console.log("Making fetch request to: " + `http://localhost:8080/api/category/product/name/${encodedCategoryName}`)
       const response = await fetch(
@@ -55,8 +55,8 @@ const Enquiry = () => {
 
   useEffect(() => {
     if (location.state && location.state.data) {
-      console.log(location.state.data);
-      
+      console.log('location state data',location.state.data);
+
       const { productName, categoryName, categoryId } = location.state.data;
       setProductName(productName);
       console.log(productList)
@@ -137,7 +137,7 @@ const Enquiry = () => {
             </div>
 
             <div>
-          
+
               <label
                 className="block text-sm font-semibold mb-1 mr-9"
                 htmlFor="category"
@@ -164,32 +164,32 @@ const Enquiry = () => {
               </select>
             </div>
 
-              <div>
-                <label
-                  className="block text-sm font-semibold mb-1 mr-9"
-                  htmlFor="productName"
-                >
-                  {t("enquiry.Product Name")}
-                </label>
-                <select
-                  id="productName"
-                  className="w-full px-3 py-2 border rounded-lg focus:outline-none mb-4"
-                  value={productName}
-                  onChange={(e) => setProductName(e.target.value)}
-                >
-                  <option value="">{t("Select")}</option>
-                  {productList &&
-                    productList.map((product, index) => {
-                      return (
-                        <option key={index} value={product.name}>
-                          {product.name}
-                        </option>
-                      );
-                    })}
-                </select>
-              </div>
-            
-            
+            <div>
+              <label
+                className="block text-sm font-semibold mb-1 mr-9"
+                htmlFor="productName"
+              >
+                {t("enquiry.Product Name")}
+              </label>
+              <select
+                id="productName"
+                className="w-full px-3 py-2 border rounded-lg focus:outline-none mb-4"
+                value={productName}
+                onChange={(e) => setProductName(e.target.value)}
+              >
+                <option value="">{t("Select")}</option>
+                {productList && productList?.length > 0 &&
+                  productList.map((product, index) => {
+                    return (
+                      <option key={index} value={product.name}>
+                        {product.name}
+                      </option>
+                    );
+                  })}
+              </select>
+            </div>
+
+
             <div className="mb-4">
               <label
                 className="text-sm font-semibold mb-1 mr-8"
