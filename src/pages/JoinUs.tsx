@@ -4,6 +4,7 @@ import mail from "../assets/logo/mail.svg";
 import phone from "../assets/logo/phone.svg";
 import gps from "../assets/logo/gps.svg";
 import { useTranslation } from 'react-i18next';
+import axiosInstance from "../config/axios";
 
 export default function JoinUs() {
   const { t } = useTranslation();
@@ -17,21 +18,15 @@ export default function JoinUs() {
 
   async function handleFormSubmit() {
     setSentMsg(true);
-    const response = await fetch('http://localhost:8080/api/send-mail/join-us', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        name: name,
-        productName: productName,
-        productCategory: productCategory,
-        productQuantity: productQuantity,
-        contact: contact,
-        message: message
-      })
+    const response = await axiosInstance.post('/send-mail/join-us', {
+      name: name,
+      productName: productName,
+      productCategory: productCategory,
+      productQuantity: productQuantity,
+      contact: contact,
+      message: message
     });
-    const data = await response.json();
+    const data = response.data;
     if (data.success) {
       setSentMsg(true);
     } else {
@@ -58,20 +53,14 @@ export default function JoinUs() {
                           <div className="text-pink-600 font-Mont text-lg font-extrabold ">
                             {t('contactus.Get in Touch')}
                           </div>
-                          <div className="text-center font-Mont md:text-5xl text-[clamp(30px,3.5vw,3rem)] ">
+                          <div className=" font-Mont md:text-5xl text-[clamp(30px,3.5vw,3rem)] ">
                             <span className="text-gray-900  font-bold ">
-                              {t('contactus.Reach Out')}{" "}
-                            </span>
-                            <span className="text-blue-900  font-bold ">
-                              {t('contactus.to')}
-
+                              {t('home.hero.btnManufacturer')}{" "}
                             </span>
                             <span className="text-gray-900 font-extrabold ">
                               {" "}
                             </span>
-                            <span className="text-blue-900  font-bold ">
-                              {t('contactus.Us')}
-                            </span>
+                            
                           </div>
                         </div>
                         <h3 className="w-[100%] h-12 whitespace-normal word-wrap text-slate-500 text-[14px] sm:text-[16px]">
@@ -170,7 +159,7 @@ export default function JoinUs() {
                       </div>
                     </div>
                     <button className="w-[100%] h-11 py-2.5 bg-blue-900 text-center text-slate-200 text-sm font-bold rounded-md justify-center items-center gap-2.5 inline-flex">
-                        {t('contactus.Send Message')}
+                      {t('contactus.Send Message')}
                     </button>
                   </div>
                 </div>
@@ -199,7 +188,7 @@ export default function JoinUs() {
           <div className="rounded-3xl shadow flex-col justify-center items-center gap-25 flex">
             <img
               className=" md:w-[100%] w-[100%]  h-[80%] rounded-3xl"
-              src={``}
+              src={`/src/assets/contact.png`}
             />
           </div>
           <div className=" md:w-[100%] w-[100%] h-[340px] md:px-10  pt-9 pb-[30px] bg-white rounded-3xl shadow justify-start items-start inline-flex">

@@ -16,7 +16,7 @@ i18n.use(initReactI18next).init({
           "description": "A stride towards facilitating the transboundary journey of goods",
           "btnViewMore": "View More",
           "btnLogin": "Login",
-          "btnJoinUs":"Join Us",
+          "btnManufacturer":"Become A Manufacturer",
         },
         "vision": {
           "left": {
@@ -92,6 +92,7 @@ i18n.use(initReactI18next).init({
             "to your destination from India": "to your destination from India",
             "Name": "Name",
             "Contact": "Contact",
+            "Country": "Country",
             "Catagory": "Catagory",
             "Product Name": "Product Name",
             "Quantity": "Quantity",
@@ -138,7 +139,7 @@ i18n.use(initReactI18next).init({
           "tagline2": "वैश्विक",
           "description": "वस्तुओं की अंतराष्ट्रीय यात्रा को सुगम बनाने की दिशा में एक कदम",
           "btnViewMore": "और देखें",
-          "btnJoinUs":"हमसे जुड़ें",
+          "btnManufacturer":"एक निर्माता बनें",
           "btnLogin": "लॉग इन करें"
         },
         "vision": {
@@ -216,6 +217,7 @@ i18n.use(initReactI18next).init({
             "Name": "नाम",
             "Contact": "संपर्क",
             "Catagory": "श्रेणी",
+            "Country":"देश",
             "Product Name": "उत्पाद का नाम",
             "Quantity": "मात्रा",
             "Additional Comments": "अतिरिक्त टिप्पणियाँ",
