@@ -12,10 +12,16 @@ export default function CategoryLayout() {
   const [category, setCategory] = useState<CategoryData[] | undefined>();
   const [filteredCategory, setFilteredCategory] = useState<CategoryData[] | undefined>();
   const [searchQuery, setSearchQuery] = useState('');
+  const [noCategoryFound, setNoCategoryFound] = useState(false);
+  const [noProductFound, setNoProductFound] = useState(false);
+  const [categoryLoading, setCategoryLoading] = useState(true);
+  const [productLoading, setProductLoading] = useState(true);
 
   async function getCategoryList() {
+    setCategoryLoading(true);
     const response = await fetch('https://node-js-jwt-auth.onrender.com/api/category');
     const data = await response.json();
+    setCategoryLoading(false);
     setCategory(data);
   }
 
@@ -25,7 +31,8 @@ export default function CategoryLayout() {
 
   async function getProductByName() {
     try {
-      const response = await fetch(`https://node-js-jwt-auth.onrender.com/api/category/product/query`, {
+      setProductLoading(true);
+      const response = await fetch(`http://localhost:8080/api/category/product/query`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -35,11 +42,12 @@ export default function CategoryLayout() {
         })
       });
       const data = await response.json();
+      setProductLoading(false);
       if (data.success) {
         console.log('data', data);
         setFilteredProducts(data.products);
         console.log("woejfowejfowejfioewjfeowijfoewjfwoiefjoaiwejfoiewjfowejfweoifj", data.categories);
-        setFilteredCategory(data.categories);
+        // setFilteredCategory(data.categories);
         console.log('filteredCategory', filteredCategory);
       }
       else {
@@ -54,26 +62,24 @@ export default function CategoryLayout() {
 
   //Query Handler
   useEffect(() => {
+    //Get Product List based on categroyId if user cancels search
     if (searchQuery === '') {
       getProductList();
     }
-    console.log('searchQuery: ', searchQuery);
-
+    //Retrun if categories haven't already been fetched
     if (!category) {
       return;
     }
-    console.log('category', category);
     const filtered = category.filter(item =>
-      item.name.toLowerCase().includes(searchQuery.toLowerCase())
+      item.name.toLowerCase().includes(searchQuery.toLowerCase())// Filter category based on query
     );
-    if (filtered === undefined)
-      return;
     if (filtered.length === 0) {
-      if (!searchQuery) {
-        return;
-      }
-      getProductByName();
+      setNoCategoryFound(true);
     }
+    else {
+      setNoCategoryFound(false);
+    }
+    getProductByName();
     setFilteredCategory(filtered);
     console.log('filteredCategory', filtered);
   }, [category, searchQuery]);
@@ -94,10 +100,12 @@ export default function CategoryLayout() {
 
   async function getProductList() {
     try {
+      setProductLoading(true);
       if (!categoryId)
         return;
       const response = await fetch(`https://node-js-jwt-auth.onrender.com/api/category/product/${categoryId}`);
       const data = await response.json();
+      setProductLoading(false);
       setData(data.products);
       setCategoryName(data.name);
     } catch (err) {
@@ -169,17 +177,18 @@ export default function CategoryLayout() {
 
 
 
-          <button className="w-full text-[14px]  flex mb-3 text-red-400 mt-9 mb-8"
+          <Link to="/products"><button className="w-full text-[14px]  flex mb-3 text-red-400 mt-9 mb-8"
           >
             All Categories
-          </button>
+          </button></Link>
           <button className="w-full text-[19px] font-semibold flex mb-2" >
 
             CATAGORIES
           </button>
           <div className="p-3 min-h-[400px]">
+            {noCategoryFound && <div className="text-center">No Category Found</div>}
             {filteredCategory &&
-              filteredCategory.length > 0 ? filteredCategory.map((data, index) => {
+              filteredCategory.length > 0 && filteredCategory.map((data, index) => {
                 return (
                   <Link key={index} to={data.id} className="w-full text-slate-500 border-none rounded-md  text-[17px] mb-3 flex">
                     {" "}
@@ -187,7 +196,11 @@ export default function CategoryLayout() {
                   </Link>
                 )
               })
-              : <div className="mt-8">
+
+            }
+
+            {
+              productLoading && <div className="mt-8">
                 <Spinner />
               </div>
             }
@@ -214,10 +227,10 @@ export default function CategoryLayout() {
               )
             }
 
-            {filteredProducts?.length > 0 ? filteredProducts.map((item, index) => (
-              <div className={`w-full h-[55px] ${index % 2 === 0 ? "bg-gray-100" : "bg-white"} flex items-center justify-between  p-7`} key={index}>
+            {filteredProducts?.length > 0 && filteredProducts.map((item, index) => (
+              <div className={`w-full min-h-[55px] ${index % 2 === 0 ? "bg-gray-100" : "bg-white"} flex items-center justify-between md:p-6 p-3`} key={index}>
                 <div className=" flex gap-6">
-                  <h4 className="w-10 pl-2">{index + 1}</h4>
+                  <h4 className="w-10">{index + 1}</h4>
                   <div className="">{item.name}</div>
                 </div>
                 <button type="button" onClick={() => { handleEnquiry(item.name) }} className="bg-blue-800 w-[70px]  text-white rounded-md text-[14px] p-1">
@@ -225,11 +238,10 @@ export default function CategoryLayout() {
                 </button>
               </div>
             ))
-              :
-              <div className="mt-8">
-                <Spinner />
-              </div>
+
+
             }
+            {productLoading && <div className="mt-8"><Spinner /></div>}
           </>
         </div>
       </div>

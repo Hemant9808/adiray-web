@@ -53,20 +53,14 @@ export default function JoinUs() {
                           <div className="text-pink-600 font-Mont text-lg font-extrabold ">
                             {t('contactus.Get in Touch')}
                           </div>
-                          <div className="text-center font-Mont md:text-5xl text-[clamp(30px,3.5vw,3rem)] ">
+                          <div className=" font-Mont md:text-5xl text-[clamp(30px,3.5vw,3rem)] ">
                             <span className="text-gray-900  font-bold ">
-                              {t('contactus.Reach Out')}{" "}
-                            </span>
-                            <span className="text-blue-900  font-bold ">
-                              {t('contactus.to')}
-
+                              {t('home.hero.btnManufacturer')}{" "}
                             </span>
                             <span className="text-gray-900 font-extrabold ">
                               {" "}
                             </span>
-                            <span className="text-blue-900  font-bold ">
-                              {t('contactus.Us')}
-                            </span>
+                            
                           </div>
                         </div>
                         <h3 className="w-[100%] h-12 whitespace-normal word-wrap text-slate-500 text-[14px] sm:text-[16px]">
@@ -194,7 +188,7 @@ export default function JoinUs() {
           <div className="rounded-3xl shadow flex-col justify-center items-center gap-25 flex">
             <img
               className=" md:w-[100%] w-[100%]  h-[80%] rounded-3xl"
-              src={``}
+              src={`/src/assets/contact.png`}
             />
           </div>
           <div className=" md:w-[100%] w-[100%] h-[340px] md:px-10  pt-9 pb-[30px] bg-white rounded-3xl shadow justify-start items-start inline-flex">
