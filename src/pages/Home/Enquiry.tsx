@@ -29,8 +29,8 @@ const Enquiry = () => {
   const [productList, setProductList] = useState<ProductData[] | undefined>([]);
 
   async function getCategoryList() {
-    const response = await fetch("https://node-js-jwt-auth.onrender.com/api/category");
-    const data = await response.json();
+    const response = await axiosInstance.get("/category");
+    const data = await response.data;
     setCategoryList(data);
     console.log(data)
   }
@@ -40,11 +40,10 @@ const Enquiry = () => {
       // console.log("Getting Product list");
       // console.log('a'+categoryName+'e')  
       const encodedCategoryName = await encodeURIComponent(categoryName);
-      // console.log("Making fetch request to: " + `http://localhost:8080/api/category/product/name/${encodedCategoryName}`)
-      const response = await fetch(
-        `https://node-js-jwt-auth.onrender.com/api/category/product/name/${encodedCategoryName}`
+      const response = await axiosInstance.get(
+        `/category/product/name/${encodedCategoryName}`
       );
-      const data = await response.json();
+      const data = await response.data;
       setProductList(data);
     } catch (err) {
       console.error(err);
