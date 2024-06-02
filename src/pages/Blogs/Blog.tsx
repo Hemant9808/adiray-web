@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback, useMemo } from 'react';
+import  { useEffect, useState, useCallback, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import axios, { AxiosResponse } from 'axios';
 import AOS from 'aos';
@@ -14,12 +14,13 @@ type BlogPost = {
   title: string;
   description: string;
   imageUrl?: string;
+  createdAt : string ;
 };
 
 const inputClasses = 'pl-10 pr-4 py-3 shadow-md text-md rounded-lg';
 const hrClasses = 'flex-1 border-zinc-300';
 
-const Blog: React.FC = () => {
+const Blog = () => {
   const { t } = useTranslation();
   const shouldAnimate = window.innerWidth <= 768;
 
@@ -39,7 +40,7 @@ const Blog: React.FC = () => {
     const fetchBlogPosts = async () => {
       try {
         const response: AxiosResponse<BlogPost[]> = await axios.get('https://node-js-jwt-auth.onrender.com/api/posts');
-        setBlogPosts(response.data.sort((a: any, b: any) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()));
+        setBlogPosts(response.data.sort((a:BlogPost, b:BlogPost) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()));
       } catch (error) {
         console.error('Error fetching blog posts:', error);
       } finally {
@@ -161,4 +162,4 @@ const Blog: React.FC = () => {
   );
 };
 
-export default React.memo(Blog);
+export default Blog;
