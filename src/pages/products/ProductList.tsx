@@ -34,18 +34,23 @@ export default function ProductList() {
     useEffect(() => {
         const { categoryId } = params;
         setCategoryId(categoryId);
+        console.log(categoryId)
     }, [location])
 
     const navigate = useNavigate();
 
-    function handleEnquiry(productName: string) {
-      const data = {
-            productName: productName,
-           categoryName: categoryName,
-            categoryId: categoryId,
-        }
-        navigate('/enquiry', { state: { data } });
-    }
+    //function handleEnquiry() {
+    //   const data = {
+    //         productName: productName,
+    //        categoryName: categoryName,
+    //         categoryId: categoryId,
+    //     }
+       // navigate('enquiry', { state: { data } });
+    //   navigate('/enquiry');
+    //}
+    const handleEnquiry = () => {
+        navigate('/about');
+      };
 
     useEffect(() => {
         if (data) {
@@ -81,7 +86,7 @@ export default function ProductList() {
                         <h4>{index + 1}</h4>
                         <div className="">{item.name}</div>
                     </div>
-                    <button type="button" onClick={() => { handleEnquiry(item.name) }} className="bg-blue-800 w-[70px]  text-white rounded-md text-[14px] p-1">
+                    <button type="button" onClick={ handleEnquiry } className="bg-blue-800 w-[70px]  text-white rounded-md text-[14px] p-1">
                         Enquiry
                     </button>
                 </div>
