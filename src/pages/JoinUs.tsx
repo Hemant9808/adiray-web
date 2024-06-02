@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import contact from "../assets/contact.png";
+import contactImage from "../assets/contact.png";
 import mail from "../assets/logo/mail.svg";
 import phone from "../assets/logo/phone.svg";
 import gps from "../assets/logo/gps.svg";
@@ -188,7 +188,7 @@ export default function JoinUs() {
           <div className="rounded-3xl shadow flex-col justify-center items-center gap-25 flex">
             <img
               className=" md:w-[100%] w-[100%]  h-[80%] rounded-3xl"
-              src={`/src/assets/contact.png`}
+              src={contactImage}
             />
           </div>
           <div className=" md:w-[100%] w-[100%] h-[340px] md:px-10  pt-9 pb-[30px] bg-white rounded-3xl shadow justify-start items-start inline-flex">

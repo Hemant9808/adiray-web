@@ -16,6 +16,7 @@ i18n.use(initReactI18next).init({
           "description": "A stride towards facilitating the transboundary journey of goods",
           "btnViewMore": "View More",
           "btnLogin": "Login",
+          "btnJoinUs":"Join Us",
           "btnManufacturer":"Become A Manufacturer",
         },
         "vision": {
@@ -139,6 +140,7 @@ i18n.use(initReactI18next).init({
           "tagline2": "वैश्विक",
           "description": "वस्तुओं की अंतराष्ट्रीय यात्रा को सुगम बनाने की दिशा में एक कदम",
           "btnViewMore": "और देखें",
+          "btnJoinUs":"हमसे जुड़ें",
           "btnManufacturer":"एक निर्माता बनें",
           "btnLogin": "लॉग इन करें"
         },

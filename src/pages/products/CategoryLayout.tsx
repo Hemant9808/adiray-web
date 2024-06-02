@@ -4,6 +4,7 @@ import { Link, Outlet } from "react-router-dom";
 import { CategoryData } from "./Products";
 import { useLocation, useNavigate, useParams } from "react-router-dom"
 import Spinner from "../../components/Spinner";
+import axiosInstance from "../../config/axios";
 
 
 
@@ -32,16 +33,10 @@ export default function CategoryLayout() {
   async function getProductByName() {
     try {
       setProductLoading(true);
-      const response = await fetch(`http://localhost:8080/api/category/product/query`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          query: searchQuery
-        })
+      const response = await axiosInstance.post('/category/product/query', {
+        query: searchQuery
       });
-      const data = await response.json();
+      const data = response.data;
       setProductLoading(false);
       if (data.success) {
         console.log('data', data);
@@ -103,8 +98,8 @@ export default function CategoryLayout() {
       setProductLoading(true);
       if (!categoryId)
         return;
-      const response = await fetch(`https://node-js-jwt-auth.onrender.com/api/category/product/${categoryId}`);
-      const data = await response.json();
+      const response = await axiosInstance.get(`/category/product/${categoryId}`);
+      const data = response.data;
       setProductLoading(false);
       setData(data.products);
       setCategoryName(data.name);
@@ -127,16 +122,10 @@ export default function CategoryLayout() {
   const navigate = useNavigate();
 
   async function handleEnquiry(productName: string) {
-    const response = await fetch('https://node-js-jwt-auth.onrender.com/api/category/categorybyproduct', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        productName: productName,
-      })
+    const response = await axiosInstance.post('/category/categorybyproduct', {
+      productName: productName,
     });
-    const res = await response.json();
+    const res = response.data;
     const data = {
       productName: productName,
       categoryName: res.categoryName,
