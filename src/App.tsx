@@ -16,7 +16,7 @@ const Category = lazy(() => import("./pages/products/CategoryLayout"));
 const Products = lazy(() => import("./pages/products/Products"));
 const Blogpost = lazy(() => import("./pages/Blogs/Blogpost"));
 const MultiLang = lazy(() => import("./components/MultiLang"));
-
+const JoinUs = lazy(() => import("./pages/JoinUs"));
 
 import CategoryLayout from "./pages/products/CategoryLayout";
 import ProductList from "./pages/products/ProductList";
@@ -72,6 +72,10 @@ function App() {
         {
           path: "blogpost/:id?",
           element: <Blogpost />
+        },
+        {
+          path: "join-us",
+          element: <JoinUs />
         },
         {
           path: "lang",
