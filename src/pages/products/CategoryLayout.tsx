@@ -197,7 +197,7 @@ export default function CategoryLayout() {
           <div className="h-[70px] bg-slate-300 rounded-md flex items-center justify-between md:p-6 p-3">
             <div className=" flex  gap-6">
 
-              <h4 className="font-bold text-sm ">Sl No.</h4>
+              <div className="font-bold text-sm w-10 ">S No.</div>
               <div className=" font-bold text-sm">Product Name</div>
             </div>
             <div className=" w-[70px] md:mr-0 mr-4   rounded-md font-bold text-sm ">
@@ -215,14 +215,9 @@ export default function CategoryLayout() {
             }
 
             {filteredProducts?.length > 0 ? filteredProducts.map((item, index) => (
-              <div
-                className={`w-full h-[55px] ${index % 2 === 0 ? "bg-gray-100" : "bg-white"
-                  } flex items-center justify-between  p-7`}
-                key={index}
-              >
-                <div className=" flex md:gap-14 gap-10">
-
-                  <h4>{index + 1}</h4>
+              <div className={`w-full h-[55px] ${index % 2 === 0 ? "bg-gray-100" : "bg-white"} flex items-center justify-between  p-7`} key={index}>
+                <div className=" flex gap-6">
+                  <h4 className="w-10 pl-2">{index + 1}</h4>
                   <div className="">{item.name}</div>
                 </div>
                 <button type="button" onClick={() => { handleEnquiry(item.name) }} className="bg-blue-800 w-[70px]  text-white rounded-md text-[14px] p-1">

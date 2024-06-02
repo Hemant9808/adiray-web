@@ -16,7 +16,7 @@ i18n.use(initReactI18next).init({
           "description": "A stride towards facilitating the transboundary journey of goods",
           "btnViewMore": "View More",
           "btnLogin": "Login",
-          "Become A Manufactural":"Become A Manufactural"
+          "btnJoinUs":"Join Us",
         },
         "vision": {
           "left": {
@@ -60,9 +60,7 @@ i18n.use(initReactI18next).init({
          "Terms & Conditions":"Terms & Conditions",
          "Privacy and Cookies":"Privacy and Cookies",
          "Licenses":"Licenses",
-         "Contact" :"Contact",
-         "Social" :"Social",
-         "All rights reserved":"All rights reserved"
+         "Contact" :"Contact"
         },
         
 
@@ -94,8 +92,7 @@ i18n.use(initReactI18next).init({
             "to your destination from India": "to your destination from India",
             "Name": "Name",
             "Contact": "Contact",
-            "Country": "Country",
-            "Category": "Category",
+            "Catagory": "Catagory",
             "Product Name": "Product Name",
             "Quantity": "Quantity",
             "Additional Comments": "Additional Comments",
@@ -109,6 +106,9 @@ i18n.use(initReactI18next).init({
     "Address any issue effortlessly with a simple question. Problem-solving simplified.": "Address any issue effortlessly with a simple question. Problem-solving simplified.",
           "Name": "Name",
           "Contact": "Contact",
+          "Product Name": "Product Name",
+          "Product Category": "Product Category",
+          "Product Quantity": "Product Quantity",
           "Your Message": "Your Message",
           "Send Message": "Send Message",
           "Leave Us Your Message...": "Leave Us Your Message...",
@@ -116,7 +116,7 @@ i18n.use(initReactI18next).init({
       },
 
         "Latest":"Latest",
-        "Updates":"Updates",
+        "Update":"Update",
         "Search":"Search",
         "Email": "Email",
         "Phone": "Phone",
@@ -138,6 +138,7 @@ i18n.use(initReactI18next).init({
           "tagline2": "वैश्विक",
           "description": "वस्तुओं की अंतराष्ट्रीय यात्रा को सुगम बनाने की दिशा में एक कदम",
           "btnViewMore": "और देखें",
+          "btnJoinUs":"हमसे जुड़ें",
           "btnLogin": "लॉग इन करें"
         },
         "vision": {
@@ -182,9 +183,7 @@ i18n.use(initReactI18next).init({
         "Terms & Conditions":"नियम एवं शर्तें",
         "Privacy and Cookies":"गोपनीयता और कुकीज़",
         "Licenses":"लाइसेंस",
-        "Contact" :"संपर्क" ,
-        "Social" : "सामाजिक",
-        "All rights reserved" : "सभी अधिकार सुरक्षित हैं"
+        "Contact" :"संपर्क"
        },
 
        "navbar":{
@@ -216,8 +215,7 @@ i18n.use(initReactI18next).init({
             "to your destination from India": "भारत से आपके गंतव्य तक ",
             "Name": "नाम",
             "Contact": "संपर्क",
-            "Country": "देश" ,
-            "Category": "श्रेणी",
+            "Catagory": "श्रेणी",
             "Product Name": "उत्पाद का नाम",
             "Quantity": "मात्रा",
             "Additional Comments": "अतिरिक्त टिप्पणियाँ",
@@ -230,6 +228,9 @@ i18n.use(initReactI18next).init({
     "Us": "करें", "Address any issue effortlessly with a simple question. Problem-solving simplified.": "किसी भी मुद्दे का सरल प्रश्न पूछकर आसानी से समाधान करें। समस्या-समाधान सरल हुआ।",
           "Name": "नाम",
           "Contact": "संपर्क",
+          "Product Name": "उत्पाद नाम",
+          "Product Category": "उत्पाद रेणी",
+          "Product Quantity": "उत्पाद मात्रा",
           "Your Message": "आपका संदेश",
           "Send Message": "संदेश भेजें",
           "Leave Us Your Message...": "हमें अपना संदेश छोड़ें...",
@@ -237,7 +238,7 @@ i18n.use(initReactI18next).init({
       },
       
         "Latest": "नवीनतम",
-        "Updates": "अपडेट",
+        "Update": "अपडेट",
         "Search": "खोज",
         "Email": "ईमेल",
         "Phone": "फ़ोन",
