@@ -4,6 +4,7 @@ import mail from "../assets/logo/mail.svg";
 import phone from "../assets/logo/phone.svg";
 import gps from "../assets/logo/gps.svg";
 import { useTranslation } from 'react-i18next';
+import axiosInstance from "../config/axios";
 
 export default function JoinUs() {
   const { t } = useTranslation();
@@ -17,21 +18,15 @@ export default function JoinUs() {
 
   async function handleFormSubmit() {
     setSentMsg(true);
-    const response = await fetch('http://localhost:8080/api/send-mail/join-us', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        name: name,
-        productName: productName,
-        productCategory: productCategory,
-        productQuantity: productQuantity,
-        contact: contact,
-        message: message
-      })
+    const response = await axiosInstance.post('/send-mail/join-us', {
+      name: name,
+      productName: productName,
+      productCategory: productCategory,
+      productQuantity: productQuantity,
+      contact: contact,
+      message: message
     });
-    const data = await response.json();
+    const data = response.data;
     if (data.success) {
       setSentMsg(true);
     } else {
@@ -170,7 +165,7 @@ export default function JoinUs() {
                       </div>
                     </div>
                     <button className="w-[100%] h-11 py-2.5 bg-blue-900 text-center text-slate-200 text-sm font-bold rounded-md justify-center items-center gap-2.5 inline-flex">
-                        {t('contactus.Send Message')}
+                      {t('contactus.Send Message')}
                     </button>
                   </div>
                 </div>
