@@ -195,7 +195,38 @@ export default function CategoryLayout() {
             }
           </div>
         </div>
-        <div className="w-full  rounded-md border border-solid md:ml-8">
+        <table className="w-full rounded-md border border-solid md:ml-8 text-left text-[12px] sm:text-[14px]">
+          <thead>
+            <tr className="font-bold text-sm h-[70px] bg-slate-300 rounded-md flex items-center justify-between md:p-6 p-3">
+              <th style={{width:"10%"}}>S No.</th>
+              <th style={{width:"70%"}}>Product Name</th>
+              <th style={{width:"20%"}}>Enquiry</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              fetchError && (
+                <div className="flex items-center justify-center h-screen">
+                  <h1 className="text-red-500">Error fetching data</h1>
+                </div>
+              )
+            }
+            {
+              filteredProducts?.length > 0 && filteredProducts.map((item, index) => (
+                <tr className={`w-full min-h-[55px] ${index % 2 === 0 ? "bg-gray-100" : "bg-white"} flex items-center justify-between md:p-6 p-3`} key={index}>
+                  <td style={{width:"10%"}}>{index + 1}</td>
+                  <td style={{width:"70%"}}>{item.name}</td>
+                  <td style={{width:"20%"}}>
+                    <button className="bg-blue-800 w-full max-w-[70px]  text-white rounded-md p-1" onClick={() => handleEnquiry(item.name)}>
+                      Enquiry
+                    </button>
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+        {/* <div className="w-full  rounded-md border border-solid md:ml-8">
           <div className="h-[70px] bg-slate-300 rounded-md flex items-center justify-between md:p-6 p-3">
             <div className=" flex  gap-6">
 
@@ -232,7 +263,7 @@ export default function CategoryLayout() {
             }
             {productLoading && <div className="mt-8"><Spinner /></div>}
           </>
-        </div>
+        </div> */}
       </div>
     </div>
   );

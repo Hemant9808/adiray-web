@@ -32,9 +32,9 @@ const Hero = () => {
           </p>
           <div className="flex gap-5 ">
             <div data-aos={shouldAnimate ? "fade-right" : ""}>
-              <Button className="text-white mr-4 font-Mont bg-blue-900  hover:text-yellow-400">
-                {t("home.hero.btnViewMore")}
-              </Button>
+              <Link to={`products`} className=" inline-flex text-nowrap items-center justify-center gap-2 px-4 py-2 rounded-lg text-white mr-4 font-Mont bg-blue-900  hover:text-yellow-400">
+                {t("home.hero.btnViewProducts")}
+              </Link>
               <Link to="join-us" className="inline-flex text-nowrap items-center justify-center gap-2 px-4 py-2 rounded-lg text-white mr-4 font-Mont bg-blue-900  hover:text-yellow-400">
                 {t("home.hero.btnJoinUs")}
               </Link>
