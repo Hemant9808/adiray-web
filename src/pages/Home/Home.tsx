@@ -40,22 +40,29 @@ const Home = () => {
     <>
       <main className="pt-[10vh]  flex-auto gap-10 relative">
         <Hero />
-        <section className="relative  max-h-[90vh] flex justify-center item-center object-fit overflow-hidden chatbot">
-          <video
-            className="h-90 -z-50 w-[100vw] h-[100%]  object-cover "
-            src={chat}
-            autoPlay
-            muted
-            playsInline
-            loop
-            webkit-playsinline
-          />
-          <div className="absolute w-[100%] h-[100%] inset-0 flex justify-center items-center backdrop-blur-sm bg-[#7797bc69] -translate-y-full content">
-            <h2 className="text-white text-[clamp(40px,3vw,4rem)] font-medium">
-              Chatbot Video Section
-            </h2>
-          </div>
-        </section>
+        <section className="relative  flex justify-center items-center overflow-hidden ">
+  <div className="relative w-full h-full flex justify-center items-center">
+    <div className="w-full relative" style={{ paddingTop: "50.10%" }}>
+      <video
+        className="absolute top-0 left-0 w-full h-full object-contain"
+        src={chat}
+        autoPlay
+        muted
+        playsInline
+        loop
+        webkit-playsinline
+      />
+    </div>
+    {/* <div className="absolute w-full h-full inset-0 flex justify-center items-center backdrop-blur-sm bg-[#7797bc69] content">
+      <h2 className="text-white text-[clamp(40px,3vw,4rem)] font-medium">
+        Chatbot Video Section
+      </h2>
+    </div> */}
+  </div>
+</section>
+
+
+
         <section className="relative">
           <Vision></Vision>
         </section>

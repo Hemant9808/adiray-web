@@ -1,8 +1,6 @@
-import { Link } from "react-router-dom";
 
 import { useState, useEffect } from "react";
 
-import { Button } from "../../components/Button";
 import image1 from "../../assets/image1.jpg";
 import image2 from "../../assets/image2.jpg";
 import image3 from "../../assets/image3.jpg";
@@ -24,6 +22,7 @@ import image16 from "../../assets/image16.jpg";
 import productmain from "../../assets/productmain.png";
 import CategoryCard from "../../components/CategoryCard";
 import { useTranslation } from "react-i18next";
+import Spinner from "../../components/Spinner";
 
 export interface CategoryData {
   id: string;
@@ -43,14 +42,14 @@ const Products = () => {
     console.log(categoryList);
   }
 
-    const [imageIndex, setImageIndex] = useState(0);
-  
-  
+  const [imageIndex, setImageIndex] = useState(0);
+
+
   const set1 = [image1, image2, image3, image4];
   const set2 = [image5, image6, image7, image8];
   const set3 = [image9, image10, image11, image12];
-  const set4 = [image13, image14, image15, image16]; 
-  
+  const set4 = [image13, image14, image15, image16];
+
 
   const imageSets = [set1, set2, set3, set4];
 
@@ -59,11 +58,11 @@ const Products = () => {
 
     const interval = setInterval(() => {
       setImageIndex(prevIndex => (prevIndex + 1));
-      
+
     }, 4000); // Change image every 3 seconds
 
-    return () => clearInterval(interval); 
-    
+    return () => clearInterval(interval);
+
   }, []);
 
   const { t } = useTranslation();
@@ -84,16 +83,16 @@ const Products = () => {
       </div>
 
       <section className="flex justify-center items-center py-20 px-5">
-        <div className="flex flex-wrap gap-8 justify-center">
-          {categoryList ?
-           ( categoryList.map((category, index) => (
-                <CategoryCard
-                  key={index}
-                  categoryId={category.id}
-                  categoryName={category.name}
-                  imageUrl={category.imageUrl}
-                />
-            )) ): <p>no catagory found</p> }
+        <div className="flex flex-wrap gap-8 justify-center min-h-screen">
+          {categoryList && categoryList?.length !== 0 ?
+            (categoryList.map((category, index) => (
+              <CategoryCard
+                key={index}
+                categoryId={category.id}
+                categoryName={category.name}
+                imageUrl={category.imageUrl}
+              />
+            ))) : <Spinner />}
 
           {/* <div className="relative w-80 h-96 flex">
             {imageSets.map((set: any, setIndex: any) => (

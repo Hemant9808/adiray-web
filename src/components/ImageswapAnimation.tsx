@@ -125,6 +125,8 @@ function ImageSwapAnimation() {
    
   
     useEffect(() => {
+
+      
       const imageGrid:any = document.querySelector('.image-grid');
       let isActive = false;
   

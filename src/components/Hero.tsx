@@ -3,6 +3,7 @@ import bg from "../assets/bg.png";
 import { Button } from "./Button";
 import { useTranslation } from "react-i18next";
 import ImageSwapAnimation from "./ImageswapAnimation";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   const { t } = useTranslation();
@@ -29,11 +30,15 @@ const Hero = () => {
           >
             {t("home.hero.description")}
           </p>
-          <div className="flex gap-5">
+          <div className="flex gap-5 ">
             <div data-aos={shouldAnimate ? "fade-right" : ""}>
-              <Button className="text-white font-Mont bg-blue-800 hover:bg-blue-900">
-                {t("home.hero.btnViewMore")}
-              </Button>
+              <Link to={`products`} className=" inline-flex text-nowrap items-center justify-center gap-2 px-4 py-2 rounded-lg text-white mr-4 font-Mont bg-blue-900  hover:text-yellow-400">
+                {t("home.hero.btnViewProducts")}
+              </Link>
+              <Link to="join-us" className="inline-flex text-nowrap items-center justify-center gap-2 px-4 py-2 rounded-lg text-white mr-4 font-Mont bg-blue-900  hover:text-yellow-400">
+                {t("home.hero.btnJoinUs")}
+              </Link>
+            
             </div>
             <div data-aos={shouldAnimate ? "fade-left" : ""}>
               {/*<Link to="login">

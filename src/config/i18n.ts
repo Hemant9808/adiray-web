@@ -15,7 +15,10 @@ i18n.use(initReactI18next).init({
           "tagline2": "Global",
           "description": "A stride towards facilitating the transboundary journey of goods",
           "btnViewMore": "View More",
-          "btnLogin": "Login"
+          "btnViewProducts": "View Products",
+          "btnLogin": "Login",
+          "btnJoinUs":"Join Us",
+          "btnManufacturer":"Become A Manufacturer",
         },
         "vision": {
           "left": {
@@ -108,6 +111,9 @@ i18n.use(initReactI18next).init({
     "Address any issue effortlessly with a simple question. Problem-solving simplified.": "Address any issue effortlessly with a simple question. Problem-solving simplified.",
           "Name": "Name",
           "Contact": "Contact",
+          "Product Name": "Product Name",
+          "Product Category": "Product Category",
+          "Product Quantity": "Product Quantity",
           "Your Message": "Your Message",
           "Send Message": "Send Message",
           "Leave Us Your Message...": "Leave Us Your Message...",
@@ -136,7 +142,10 @@ i18n.use(initReactI18next).init({
           "tagline1": "स्थानीय से ",
           "tagline2": "वैश्विक",
           "description": "वस्तुओं की अंतराष्ट्रीय यात्रा को सुगम बनाने की दिशा में एक कदम",
+          "btnViewProducts": "उत्पाद देखें",
           "btnViewMore": "और देखें",
+          "btnJoinUs":"हमसे जुड़ें",
+          "btnManufacturer":"एक निर्माता बनें",
           "btnLogin": "लॉग इन करें"
         },
         "vision": {
@@ -229,6 +238,9 @@ i18n.use(initReactI18next).init({
     "Us": "करें", "Address any issue effortlessly with a simple question. Problem-solving simplified.": "किसी भी मुद्दे का सरल प्रश्न पूछकर आसानी से समाधान करें। समस्या-समाधान सरल हुआ।",
           "Name": "नाम",
           "Contact": "संपर्क",
+          "Product Name": "उत्पाद नाम",
+          "Product Category": "उत्पाद रेणी",
+          "Product Quantity": "उत्पाद मात्रा",
           "Your Message": "आपका संदेश",
           "Send Message": "संदेश भेजें",
           "Leave Us Your Message...": "हमें अपना संदेश छोड़ें...",
