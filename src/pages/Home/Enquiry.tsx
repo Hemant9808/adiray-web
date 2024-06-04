@@ -178,7 +178,7 @@ const Enquiry = () => {
                   className="block text-sm font-semibold mb-1 mr-9"
                   htmlFor="category"
                 >
-                  {t("enquiry.Catagory")}
+                  {t("enquiry.Category")}
                 </label>
                 <select
                   id="category"
