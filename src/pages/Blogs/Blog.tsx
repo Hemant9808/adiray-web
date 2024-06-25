@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback, useMemo } from 'react';
+import  { useEffect, useState, useCallback, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import axios, { AxiosResponse } from 'axios';
 import AOS from 'aos';
@@ -14,7 +14,7 @@ type BlogPost = {
   title: string;
   description: string;
   imageUrl?: string;
-  createdAt: string;
+  createdAt : string ;
 };
 
 const inputClasses = 'pl-10 pr-4 py-3 shadow-md text-md rounded-lg';
@@ -40,7 +40,7 @@ const Blog = () => {
     const fetchBlogPosts = async () => {
       try {
         const response: AxiosResponse<BlogPost[]> = await axios.get('https://node-js-jwt-auth.onrender.com/api/posts');
-        setBlogPosts(response.data.sort((a: BlogPost, b: BlogPost) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()));
+        setBlogPosts(response.data.sort((a:BlogPost, b:BlogPost) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()));
       } catch (error) {
         console.error('Error fetching blog posts:', error);
       } finally {
@@ -79,7 +79,7 @@ const Blog = () => {
   }
 
   return (
-    <div className="relative w-screen flex justify-center shadow-md">
+    <div className="relative w-screen  flex justify-center shadow-md">
       <img className="absolute opacity-20 -z-1 object-cover w-full h-full -z-0" src={blogbg} alt="background" />
       <div className="p-8 px-[10vw] z-[5] max-w-[1300px] flex flex-col justify-center mt-[17vh] ">
         <div className="mb-6 md:flex justify-between items-center">
@@ -130,16 +130,32 @@ const Blog = () => {
             </div>
           ))}
         </div>
-        <div className="flex justify-center flex-shrink mt-6">
-          {Array.from({ length: pageCount }, (_, index) => (
+        <div className="flex flex-row mt-6">
+          <div className="flex justify-center  flex-wrap gap-2 space-x-2">
             <button
-              key={index}
-              className={`px-4 py-2 mx-1 ${index === currentPage ? 'bg-blue-900 text-white' : 'bg-gray-200 text-black'}`}
-              onClick={() => handlePageChange(index)}
+              onClick={() => setCurrentPage(prevPage => Math.max(prevPage - 1, 0))}
+              className="bg-blue-300 hover:bg-blue-600 text-white py-2 rounded-md w-[90px]"
+              disabled={currentPage === 0}
             >
-              {index + 1}
+              {t('Previous')}
             </button>
-          ))}
+            {Array.from({ length: pageCount }, (_, index) => (
+              <button
+                key={index}
+                onClick={() => handlePageChange(index)}
+                className={`px-4 py-2 rounded-md ${currentPage === index ? 'bg-blue-500 text-white' : 'bg-white text-blue-500 hover:bg-blue-100'}`}
+              >
+                {index + 1}
+              </button>
+            ))}
+            <button
+              onClick={() => setCurrentPage(prevPage => Math.min(prevPage + 1, pageCount - 1))}
+              className="bg-blue-300 hover:bg-blue-600 text-white py-2 w-[90px] rounded-md"
+              disabled={currentPage === pageCount - 1}
+            >
+              {t('Next')}
+            </button>
+          </div>
         </div>
       </div>
     </div>
