@@ -46,7 +46,7 @@ i18n.use(initReactI18next).init({
         },
         "aboutus": {
           "heading": "About Us",
-          "description": "Adiray Global bridges the gap between India and the world through exports, specializing in non-traditional commodities reaching unique destinations. They're a game-changer in trade, offering unprecedented transparency and innovation. From fashion to machinery, they handle diverse commodities, even venturing into tech solutions to streamline the trading process. Think of them as your gateway to connecting unique goods with global markets."
+          "description": "Adiray Global bridges the gap between India and the world through exports, specializing in non-traditional commodities reaching unique destinations. We're a game-changer in trade, offering unprecedented transparency and innovation. From fashion to machinery, we handle diverse commodities, even venturing into tech solutions to streamline the trading process. Think of us as your gateway to connecting unique goods with global markets."
         },
         "blogsection": {
           "mainheading1": "Latest ",
