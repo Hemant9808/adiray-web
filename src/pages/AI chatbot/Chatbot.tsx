@@ -263,7 +263,10 @@ export default function Chatbot() {
           )}
         </button>
 
-        <div className="w-full font-Mont  flex flex-col justify-center items-center ">
+
+           {/* chatbot component */}
+        <div className={`w-full font-Mont h-screen   flex flex-col ${chat.length>0 ? "justify-between" : "justify-center" } items-center`} >
+        {chat.length==0 &&  <div className="flex flex-col justify-center items-center ">
           <div className="text-slate-600  text-[clamp(25px,3.5vw,2.5rem)]  font-medium mb-1">
             {t("charbot.Welcome to ITrade")}
           </div>
@@ -275,27 +278,31 @@ export default function Chatbot() {
               {t("charbot.Trade Journey")}
             </span>
 
-            {/*chat box*/}
           </div>
-
-          <div className="w-[80%] max-h-[500px] bg-white border border-gray-400 flex flex-col justify-start rounded-xl overflow-scroll" ref={containerRef}>
-            {chat !== undefined &&
-              chat.map((data, index) => {
+          </div>}
+    
+    {/* chatbox */}
+    <div className= {` w-[90%] md:w-[60%] max-w-[40rem] sm:w-[60%] flex  flex-col justify-center items-center  ${chat.length>0 ? "absolute bottom-[3rem]" : "" } `} >
+          <div className="w-[100%] max-h-[32rem] scrollbar-hide overflow-y-scroll h-auto    flex flex-col justify-start rounded-xl overflow-scroll" ref={containerRef}>
+          {chat.length>0 && <div className=" bg-white border border-gray-400 rounded-xl custom-scrollbar  " >
+          
+              {chat.map((data, index) => {
                 return (
-                  <>
-                    <div key={index} className={`w-[100%] flex ${data.sender === 'human' ? 'justify-end' : 'justify-start'}`}>
-                      <div className={`max-w-[60%] rounded-lg p-5 border border-gray-200 mx-2 my-4 ${data.sender === 'human' ? 'bg-white' : ' bg-blue-900 text-white'}`}>
-                        <div className="font-bold  text-2xl">
+                  <div className=" " >
+                    <div key={index} className={`w-[100%]  flex ${data.sender === 'human' ? 'justify-end' : 'justify-start'}`}>
+                      <div className={`max-w-[60%] rounded-lg p-2 border border-gray-200 mx-2 my-4 ${data.sender === 'human' ? 'bg-gradient-to-br from-blue-200 to-green-100' : 'bg-blue-400 text-gray-100'}`}>
+                        <div className=" text-[12px]">
                           {data.sender === "human" ? "You" : "Bot"}&nbsp;
                         </div>
-                        <div>
+                        <div className=" text-[1rem]" >
                           <Indent text={data.message} />
                         </div>
                       </div>
                     </div>
-                  </>
+                  </div>
                 );
               })}
+              </div>}
             {streaming === true && (
               <div className="w-[100%] bg-white flex justify-start">
                 <div className="bg-blue-900 text-white mx-2 my-4 rounded-lg p-5 max-w-[60%] border border-gray-200">
@@ -312,16 +319,17 @@ export default function Chatbot() {
             )}
           </div>
 
-          <div className="w-[80%] bg-white border border-gray-400 flex flex-col justify-start rounded-xl">
+
+{/* inputfield */}
+          <div className=" w-[100%] bg-white border border-gray-400 flex flex-col justify-start rounded-xl">
             <textarea
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               onKeyPress={handleKeyPress}
-              className="w-[100%] p-3 rounded-xl "
+              className="w-[100%] p-3 rounded-xl focus:outline-none focus:ring-0 "
               placeholder={t("charbot.Ask Anything")}
             ></textarea>
-
-            <div className="h-[50px] flex justify-between items-center p-3 ">
+            <div className=" flex justify-between items-center p-3 ">
               <div className="flex gap-2 cursor-pointer">
                 <div className="w-7 h-7 relative z-[10] bg-slate-200 rounded-md justify-center items-center gap-2.5 flex cursor-pointer">
                   <FaPaperclip
@@ -338,12 +346,13 @@ export default function Chatbot() {
                 </div>
               </div>
               <button
-                className="w-[113px] h-8 px-3 py-2 bg-blue-900 rounded-xl justify-start items-center inline-flex text-white"
+                className="w-[113px] h-8 px-3 py-2 bg-blue-600 rounded-xl justify-center items-center inline-flex text-white"
                 onClick={sendMessage}
               >
-                {t("charbot.Start Chat")}
+               {chat.length>0 ? "Send" : t("charbot.Start Chat") }  
               </button>
             </div>
+          </div>
           </div>
         </div>
       </div>

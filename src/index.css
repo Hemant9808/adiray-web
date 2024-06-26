@@ -94,3 +94,17 @@ video{
 html {
   scroll-behavior: smooth;
 }
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+  overflow-x: hidden;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+  overflow-x: hidden;
+}
+.custom-scrollbar {
+  scrollbar-width: thin; /* Thin scrollbar */
+  scrollbar-color: #888 #f1f1f1; /* Color of the thumb and track */
+}
