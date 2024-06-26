@@ -283,14 +283,14 @@ export default function Chatbot() {
     
     {/* chatbox */}
     <div className= {` w-[90%] md:w-[60%] max-w-[40rem] sm:w-[60%] flex  flex-col justify-center items-center  ${chat.length>0 ? "absolute bottom-[3rem]" : "" } `} >
-          <div className="w-[100%] max-h-[32rem] scrollbar-hide overflow-y-scroll h-auto    flex flex-col justify-start rounded-xl overflow-scroll" ref={containerRef}>
-          {chat.length>0 && <div className=" bg-white border border-gray-400 rounded-xl custom-scrollbar  " >
+          <div className="w-[100%] max-h-[32rem] scrollbar-hide overflow-y-scroll h-auto shadow-lg    flex flex-col justify-start rounded-xl overflow-scroll" ref={containerRef}>
+          {chat.length>0 && <div className=" bg-white shadow-lg rounded-xl custom-scrollbar  " >
           
               {chat.map((data, index) => {
                 return (
                   <div className=" " >
                     <div key={index} className={`w-[100%]  flex ${data.sender === 'human' ? 'justify-end' : 'justify-start'}`}>
-                      <div className={`max-w-[60%] rounded-lg p-2 border border-gray-200 mx-2 my-4 ${data.sender === 'human' ? 'bg-gradient-to-br from-blue-200 to-green-100' : 'bg-blue-400 text-gray-100'}`}>
+                      <div className={`max-w-[90%] rounded-lg p-2 border border-gray-200 mx-2 my-4 ${data.sender === 'human' ? 'bg-gradient-to-br from-blue-200 to-green-100 text-stone-700' : 'bg-blue-800 text-gray-100'}`}>
                         <div className=" text-[12px]">
                           {data.sender === "human" ? "You" : "Bot"}&nbsp;
                         </div>
