@@ -8,6 +8,25 @@ import "aos/dist/aos.css";
 
 import { AiOutlineClose } from "react-icons/ai";
 
+interface IntentProps {
+  text: string;
+}
+
+function Indent({ text }: IntentProps) {
+
+  return (
+    <div>
+      {text.split('\n').map((line: string, index: number) => (
+        <React.Fragment key={index}>
+          {line}
+          <br />
+        </React.Fragment>
+      ))}
+    </div>
+  )
+}
+
+
 interface WebSocketResponse {
   sender: "human" | "bot";
   message: string;
@@ -259,7 +278,7 @@ export default function Chatbot() {
             {/*chat box*/}
           </div>
 
-          <div className="w-[80%] bg-white border border-gray-400 flex flex-col justify-start rounded-xl overflow-scroll" ref={containerRef}>
+          <div className="w-[80%] max-h-[500px] bg-white border border-gray-400 flex flex-col justify-start rounded-xl overflow-scroll" ref={containerRef}>
             {chat !== undefined &&
               chat.map((data, index) => {
                 return (
@@ -270,7 +289,7 @@ export default function Chatbot() {
                           {data.sender === "human" ? "You" : "Bot"}&nbsp;
                         </div>
                         <div>
-                          {data.message}
+                          <Indent text={data.message} />
                         </div>
                       </div>
                     </div>
@@ -278,8 +297,17 @@ export default function Chatbot() {
                 );
               })}
             {streaming === true && (
-              <div className="w-[100%] bg-white border border-gray-400 rounded-xl">
-                {streamingResponse}
+              <div className="w-[100%] bg-white flex justify-start">
+                <div className="bg-blue-900 text-white mx-2 my-4 rounded-lg p-5 max-w-[60%] border border-gray-200">
+                  <div>
+                    <div className="font-bold text-2xl">
+                      Bot
+                    </div>
+                    <div>
+                      <Indent text={streamingResponse}/>
+                    </div>
+                  </div>
+                </div>
               </div>
             )}
           </div>
@@ -322,3 +350,4 @@ export default function Chatbot() {
     </div>
   );
 }
+
