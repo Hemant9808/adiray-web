@@ -78,11 +78,11 @@ export default function Chatbot() {
   const [streaming, setStreaming] = useState<boolean>(false);
   const [streamingResponse, setStreamingResponse] = useState<string>("");
   const containerRef = useRef(null);
-  const token = localStorage.getItem('token')
+  const token = localStorage.getItem('accessToken')
   
   useEffect(() => {
     const ws = new WebSocket("wss://bot-f.onrender.com/ws");
-
+    
     ws.onopen = () => {
       setSocket(ws);
     };
