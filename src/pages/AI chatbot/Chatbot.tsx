@@ -2,6 +2,8 @@ import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FiMenu } from "react-icons/fi";
 import { FaPaperclip } from "react-icons/fa";
+import silverlogo from "../../assets/footer_logo.png";
+import send from "../../assets/arrowup.png";
 import AOS from "aos";
 import { useTranslation } from "react-i18next";
 import "aos/dist/aos.css";
@@ -139,6 +141,11 @@ export default function Chatbot() {
     if (socket && message.trim()) {
       socket.send(message);
       setMessage("");
+      const textarea = textareaRef.current;
+      if (textarea) {
+
+
+      textarea.style.height = 'auto';}
     }
   }, [socket, message]);
 
@@ -154,6 +161,14 @@ export default function Chatbot() {
       e.preventDefault();
       sendMessage();
     }
+  };
+  const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+  const adjustHeight = () => {
+    const textarea = textareaRef.current;
+    if (textarea) {
+
+    textarea.style.height = 'auto';
+    textarea.style.height = `${textarea.scrollHeight}px`;}
   };
 
   return (
@@ -282,34 +297,36 @@ export default function Chatbot() {
           </div>}
     
     {/* chatbox */}
-    <div className= {` w-[90%] md:w-[60%] max-w-[40rem] sm:w-[60%] flex  flex-col justify-center items-center  ${chat.length>0 ? "absolute bottom-[3rem]" : "" } `} >
-          <div className="w-[100%] max-h-[32rem] scrollbar-hide overflow-y-scroll h-auto shadow-lg    flex flex-col justify-start rounded-xl overflow-scroll" ref={containerRef}>
-          {chat.length>0 && <div className=" bg-white shadow-lg rounded-xl custom-scrollbar  " >
+    <div className= {` w-[90%] md:w-[80%]  sm:w-[60%] flex  flex-col justify-center items-center ${streaming ? "pb-[10rem]":"" }   ${chat.length>0 ? "absolute bottom-[1rem]" : "" } `} >
+          <div className="w-[100%] sm:px-[5rem] max-h-[42rem] scrollbar-hide overflow-y-scroll h-auto pb-[8rem]   flex flex-col justify-start rounded-xl overflow-scroll" ref={containerRef}>
+          {chat.length>0 && <div className=" bg-white  rounded-xl custom-scrollbar  " >
           
               {chat.map((data, index) => {
                 return (
                   <div className=" " >
-                    <div key={index} className={`w-[100%]  flex ${data.sender === 'human' ? 'justify-end' : 'justify-start'}`}>
-                      <div className={`max-w-[90%] rounded-lg p-2 border border-gray-200 mx-2 my-4 ${data.sender === 'human' ? 'bg-gradient-to-br from-blue-200 to-green-100 text-stone-700' : 'bg-blue-800 text-gray-100'}`}>
-                        <div className=" text-[12px]">
-                          {data.sender === "human" ? "You" : "Bot"}&nbsp;
-                        </div>
-                        <div className=" text-[1rem]" >
-                          <Indent text={data.message} />
+                     
+                    <div key={index} className={`w-[100%] md:w-[80%]  flex justify-start `}>
+                      <div className={`max-w-[90%] rounded-lg px-2  mx-2  ${data.sender === 'human' ? ' text-stone-700' : 'font-Mont  text-gray-700'}`}>
+                        
+                           {data.sender === "human" ? "" : <div className="flex gap-2 items-start  text-[0.8rem] h-[0.6rem] text-stone-600    text-md  "><img className="w-5" src={silverlogo} alt="" /> <p>Answer</p> </div>
+                           }&nbsp;
+                      
+                        <div className={`text-slate-600 font-MontBook ${data.sender === "human" ? "text-3xl font-extrabold mt-3 mb-3" : "text-md font-extrabold  mb-9 "} `}>
+                          <Indent  text={data.message} />
                         </div>
                       </div>
                     </div>
+                    {data.sender === "human" ? "" : <div className="w=[100%] h-[1.5px] bg-stone-300 " ></div> }
+                    
                   </div>
                 );
               })}
               </div>}
             {streaming === true && (
               <div className="w-[100%] bg-white flex justify-start">
-                <div className="bg-blue-900 text-white mx-2 my-4 rounded-lg p-5 max-w-[60%] border border-gray-200">
+                <div className="text-slate-600 mx-2 my-4 font-MontBook  rounded-lg p-5  ">
                   <div>
-                    <div className="font-bold text-2xl">
-                      Bot
-                    </div>
+                 
                     <div>
                       <Indent text={streamingResponse}/>
                     </div>
@@ -321,16 +338,22 @@ export default function Chatbot() {
 
 
 {/* inputfield */}
-          <div className=" w-[100%] bg-white border border-gray-400 flex flex-col justify-start rounded-xl">
+         
+          <div className= {`sm:w-[61%] h-auto shadow-md w-[100%] p-1.5  bg-white  ${chat.length>0 ? "absolute bottom-[2rem] sm:left-[6rem]" : "" }     flex  justify-start rounded-[30px]`}>
+          <div className="w-[100%] flex bg-white justify-start pl-5 rounded-[30px] border border-[2px] border-gray-400" >
             <textarea
+             ref={textareaRef}
               value={message}
-              onChange={(e) => setMessage(e.target.value)}
+              rows={1}
+              onChange={(e) => {setMessage(e.target.value);
+                adjustHeight();}
+              }
               onKeyPress={handleKeyPress}
-              className="w-[100%] p-3 rounded-xl focus:outline-none focus:ring-0 "
+              className="w-[100%]  p-3 rounded-xl  focus:outline-none focus:ring-0 scrollbar-hide resize-none "
               placeholder={t("charbot.Ask Anything")}
             ></textarea>
             <div className=" flex justify-between items-center p-3 ">
-              <div className="flex gap-2 cursor-pointer">
+              {/* <div className="flex gap-2 cursor-pointer">
                 <div className="w-7 h-7 relative z-[10] bg-slate-200 rounded-md justify-center items-center gap-2.5 flex cursor-pointer">
                   <FaPaperclip
                     className="absolute w-5 h-5 z-[0] cursor-pointer"
@@ -344,14 +367,20 @@ export default function Chatbot() {
                 <div className="text-slate-500 text-base font-semibold ">
                   {t("charbot.Attach files")}
                 </div>
-              </div>
+              </div> */}
+
+
+{chat.length>0 ?
+              <div  onClick={sendMessage} className="rounded-full cursor-pointer bg-gray-200 w-9 h-9 flex justify-center items-center" > <img className=" w-6 text-white" src={send} alt="" /></div>:
               <button
-                className="w-[113px] h-8 px-3 py-2 bg-blue-600 rounded-xl justify-center items-center inline-flex text-white"
-                onClick={sendMessage}
-              >
-               {chat.length>0 ? "Send" : t("charbot.Start Chat") }  
-              </button>
+              className="w-[113px] h-8 px-3 py-2 bg-blue-600 rounded-xl justify-center  items-center inline-flex text-white"
+              onClick={sendMessage}
+            >
+               {  t("charbot.Start Chat") } 
+            </button>
+            }
             </div>
+          </div>
           </div>
           </div>
         </div>
