@@ -160,7 +160,7 @@ export default function Chatbot() {
   };
   if(!token){
     Navigate('/login')
-   
+   return <></>
   }
   return (
 
