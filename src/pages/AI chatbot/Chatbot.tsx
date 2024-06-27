@@ -44,6 +44,8 @@ interface Chat {
 export default function Chatbot() {
   const Navigate = useNavigate();
   const [popup, setpopup] = useState(true);
+ 
+
   const { t } = useTranslation();
   React.useEffect(() => {
     AOS.init({
@@ -76,7 +78,8 @@ export default function Chatbot() {
   const [streaming, setStreaming] = useState<boolean>(false);
   const [streamingResponse, setStreamingResponse] = useState<string>("");
   const containerRef = useRef(null);
-
+  const token = localStorage.getItem('token')
+  
   useEffect(() => {
     const ws = new WebSocket("wss://bot-f.onrender.com/ws");
 
@@ -162,7 +165,11 @@ export default function Chatbot() {
       sendMessage();
     }
   };
-  const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+  if(!token){
+    Navigate('/login')
+   return <></>
+  } 
+   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
   const adjustHeight = () => {
     const textarea = textareaRef.current;
     if (textarea) {
@@ -172,6 +179,7 @@ export default function Chatbot() {
   };
 
   return (
+
     <div className="w-100vw h-screen flex overflow-hidden overflow-y-hidden">
       <div className="w-[280px] h-[100vh]  hidden  md:block bg-gradient-to-br from-blue-200 to-orange-100 justify-center items-center overflow-hidden">
         <div className="w-[243px] h-screen left-0 top-[1px] absolute">

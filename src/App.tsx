@@ -6,7 +6,7 @@ import loader from './assets/loader.gif'
 import Chatbot from "./pages/AI chatbot/Chatbot";
 const Enquiry = lazy(() => import("./pages/Home/Enquiry"));
 const Signup = lazy(() => import("./pages/Home/Signup"));
-const Login = lazy(() => import("./pages/Login"));
+const Login = lazy(() => import("./pages/Home/Login"));
 const Layout = lazy(() => import("./pages/Home/Layout"));
 const Home = lazy(() => import("./pages/Home/Home"));
 const Layouts = lazy(() => import("./pages/AI chatbot/Chatbot"));
