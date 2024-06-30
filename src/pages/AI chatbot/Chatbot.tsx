@@ -9,25 +9,31 @@ import { useTranslation } from "react-i18next";
 import "aos/dist/aos.css";
 
 import { AiOutlineClose } from "react-icons/ai";
+import Login from "../Home/Login";
 
 interface IntentProps {
   text: string;
 }
 
 function Indent({ text }: IntentProps) {
-
   return (
     <div>
-      {text.split('\n').map((line: string, index: number) => (
+      {text.split("\n").map((line: string, index: number) => (
         <React.Fragment key={index}>
           {line}
           <br />
         </React.Fragment>
       ))}
     </div>
-  )
+  );
 }
-
+interface user {
+  _id: string;
+  fullname: string;
+  email: string;
+  password: string;
+  __v: number;
+}
 
 interface WebSocketResponse {
   sender: "human" | "bot";
@@ -44,7 +50,6 @@ interface Chat {
 export default function Chatbot() {
   const Navigate = useNavigate();
   const [popup, setpopup] = useState(true);
- 
 
   const { t } = useTranslation();
   React.useEffect(() => {
@@ -78,11 +83,16 @@ export default function Chatbot() {
   const [streaming, setStreaming] = useState<boolean>(false);
   const [streamingResponse, setStreamingResponse] = useState<string>("");
   const containerRef = useRef(null);
-  const token = localStorage.getItem('accessToken')
-  
+  const token = localStorage.getItem("accessToken");
+  const user = localStorage.getItem("user");
+  if (user != null) {
+    var User: user = JSON.parse(user);
+    console.log(User);
+  }
+
   useEffect(() => {
     const ws = new WebSocket("wss://bot-f.onrender.com/ws");
-    
+
     ws.onopen = () => {
       setSocket(ws);
     };
@@ -146,9 +156,8 @@ export default function Chatbot() {
       setMessage("");
       const textarea = textareaRef.current;
       if (textarea) {
-
-
-      textarea.style.height = 'auto';}
+        textarea.style.height = "auto";
+      }
     }
   }, [socket, message]);
 
@@ -165,21 +174,24 @@ export default function Chatbot() {
       sendMessage();
     }
   };
-  if(!token){
-    Navigate('/login')
-   return <></>
-  } 
-   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+
+  // if(!token){
+  //   Navigate('/login')
+  //  return <></>
+  // }
+  const textareaRef = useRef<HTMLTextAreaElement | null>(null);
   const adjustHeight = () => {
     const textarea = textareaRef.current;
     if (textarea) {
-
-    textarea.style.height = 'auto';
-    textarea.style.height = `${textarea.scrollHeight}px`;}
+      textarea.style.height = "auto";
+      textarea.style.height = `${textarea.scrollHeight}px`;
+    }
+  };
+  const signOut = () => {
+    localStorage.clear();
   };
 
   return (
-
     <div className="w-100vw h-screen flex overflow-hidden overflow-y-hidden">
       <div className="w-[280px] h-[100vh]  hidden  md:block bg-gradient-to-br from-blue-200 to-orange-100 justify-center items-center overflow-hidden">
         <div className="w-[243px] h-screen left-0 top-[1px] absolute">
@@ -212,8 +224,13 @@ export default function Chatbot() {
               </div>
             </div>
           </div>
-          <div className="left-[61px] top-[80vh]  absolute text-blue-950 text-lg font-semibold ">
-            {t("charbot.Username")}
+          <div className="left-[40px] gap-2 top-[85vh]  flex  absolute text-blue-950 text-lg font-semibold ">
+            <img
+              className="w-8"
+              src="https://static-00.iconduck.com/assets.00/profile-default-icon-2048x2045-u3j7s5nj.png"
+              alt=""
+            />
+            {User?.fullname}
           </div>
           <Link to="/">
             <div className="left-[46px] top-[43px] absolute text-blue-950 text-base font-extrabold ">
@@ -226,7 +243,7 @@ export default function Chatbot() {
       <div className="w-full   flex flex-col justify-center items-center ">
         {open && (
           <div
-            data-aos="slide-right"
+            data-aos="fade-right"
             className="w-[280px] top-0 left-0 absolute z-50  bg-gradient-to-br from-blue-200 to-orange-100 justify-center items-center "
           >
             <div className="w-[243px] h-screen left-0 top-[1px] ">
@@ -259,8 +276,13 @@ export default function Chatbot() {
                   </div>
                 </div>
               </div>
-              <div className="left-[61px] top-[80%] absolute text-blue-950 text-lg font-semibold ">
-                {t("charbot.Username")}
+              <div className="left-[40px] gap-2 top-[85vh]  flex  absolute text-blue-950 text-lg font-semibold ">
+                <img
+                  className="w-8"
+                  src="https://static-00.iconduck.com/assets.00/profile-default-icon-2048x2045-u3j7s5nj.png"
+                  alt=""
+                />
+                {User?.fullname}
               </div>
               <Link to="/">
                 <div className="left-[46px] top-[43px] absolute text-blue-950 text-base font-extrabold ">
@@ -277,7 +299,7 @@ export default function Chatbot() {
         >
           {open ? (
             <AiOutlineClose
-              data-aos="slide-right"
+              data-aos="fade-right"
               className="absolute top-0 left-[200px] z-50"
               style={{ fontSize: "25px" }}
             />
@@ -286,82 +308,118 @@ export default function Chatbot() {
           )}
         </button>
 
+        {/* chatbot component */}
+        <div
+          className={`w-full font-Mont h-screen   flex flex-col ${
+            chat.length > 0 ? "justify-between" : "justify-center"
+          } items-center`}
+        >
+          {chat.length == 0 && (
+            <div className="flex flex-col justify-center items-center ">
+              <div className="text-slate-600  text-[clamp(25px,3.5vw,2.5rem)]  font-medium mb-1">
+                {t("charbot.Welcome to ITrade")}
+              </div>
+              <div className="mb-9 text-[clamp(25px,3.5vw,5rem)]">
+                <span className="text-gray-900   font-bold">
+                  {t("charbot.Start Your")}{" "}
+                </span>
+                <span className="text-blue-900   font-bold ">
+                  {t("charbot.Trade Journey")}
+                </span>
+              </div>
+            </div>
+          )}
 
-           {/* chatbot component */}
-        <div className={`w-full font-Mont h-screen   flex flex-col ${chat.length>0 ? "justify-between" : "justify-center" } items-center`} >
-        {chat.length==0 &&  <div className="flex flex-col justify-center items-center ">
-          <div className="text-slate-600  text-[clamp(25px,3.5vw,2.5rem)]  font-medium mb-1">
-            {t("charbot.Welcome to ITrade")}
-          </div>
-          <div className="mb-9 text-[clamp(25px,3.5vw,5rem)]">
-            <span className="text-gray-900   font-bold">
-              {t("charbot.Start Your")}{" "}
-            </span>
-            <span className="text-blue-900   font-bold ">
-              {t("charbot.Trade Journey")}
-            </span>
-
-          </div>
-          </div>}
-    
-    {/* chatbox */}
-    <div className= {` w-[90%] md:w-[80%]  sm:w-[60%] flex  flex-col justify-center items-center ${streaming ? "pb-[10rem]":"" }   ${chat.length>0 ? "absolute bottom-[1rem]" : "" } `} >
-          <div className="w-[100%] sm:px-[5rem] max-h-[42rem] scrollbar-hide overflow-y-scroll h-auto pb-[8rem]   flex flex-col justify-start rounded-xl overflow-scroll" ref={containerRef}>
-          {chat.length>0 && <div className=" bg-white  rounded-xl custom-scrollbar  " >
-          
-              {chat.map((data, index) => {
-                return (
-                  <div className=" " >
-                     
-                    <div key={index} className={`w-[100%] md:w-[80%]  flex justify-start `}>
-                      <div className={`max-w-[90%] rounded-lg px-2  mx-2  ${data.sender === 'human' ? ' text-stone-700' : 'font-Mont  text-gray-700'}`}>
-                        
-                           {data.sender === "human" ? "" : <div className="flex gap-2 items-start  text-[0.8rem] h-[0.6rem] text-stone-600    text-md  "><img className="w-5" src={silverlogo} alt="" /> <p>Answer</p> </div>
-                           }&nbsp;
-                      
-                        <div className={`text-slate-600 font-MontBook ${data.sender === "human" ? "text-3xl font-extrabold mt-3 mb-3" : "text-md font-extrabold  mb-9 "} `}>
-                          <Indent  text={data.message} />
+          {/* chatbox */}
+          <div
+            className={` w-[90%] md:w-[80%]  sm:w-[60%] flex  flex-col justify-center items-center ${
+              streaming ? "sm:pb-[2.1rem] pb-[1rem]" : ""
+            }   ${chat.length > 0 ? "absolute bottom-[1rem]" : ""} `}
+          >
+            <div
+              className="w-[100%] sm:px-[5rem] max-h-[42rem] scrollbar-hide overflow-y-scroll h-auto pb-[8rem]   flex flex-col justify-start rounded-xl overflow-scroll"
+              ref={containerRef}
+            >
+              {chat.length > 0 && (
+                <div className=" bg-white  rounded-xl custom-scrollbar  ">
+                  {chat.map((data, index) => {
+                    const isLastIndex = index === chat.length - 1;
+                    return (
+                      <div className=" ">
+                        <div
+                          key={index}
+                          className={`w-[100%] md:w-[80%]  flex justify-start `}
+                        >
+                          <div
+                            className={`max-w-[90%] rounded-lg px-2  mx-2  ${
+                              data.sender === "human"
+                                ? " text-stone-700"
+                                : "font-Mont  text-gray-700"
+                            }`}
+                          >
+                            {data.sender === "human" ? (
+                              ""
+                            ) : (
+                              <div className="flex gap-2 items-start  text-[0.8rem] h-[0.6rem] text-stone-600    text-md  ">
+                                <img className="w-5" src={silverlogo} alt="" />{" "}
+                                <p>Answer</p>{" "}
+                              </div>
+                            )}
+                            &nbsp;
+                            <div
+                              className={`text-slate-600 font-MontBook ${
+                                data.sender === "human"
+                                  ? "text-3xl font-extrabold mt-3 mb-6"
+                                  : "text-md font-extrabold  mb-9 "
+                              } `}
+                            >
+                              <Indent text={data.message} />
+                            </div>
+                          </div>
                         </div>
+                        {!isLastIndex && data.sender !== "human" && (
+                          <div className="w-[100%] h-[1.1px] bg-stone-300"></div>
+                        )}
                       </div>
-                    </div>
-                    {data.sender === "human" ? "" : <div className="w=[100%] h-[1.5px] bg-stone-300 " ></div> }
-                    
-                  </div>
-                );
-              })}
-              </div>}
-            {streaming === true && (
-              <div className="w-[100%] bg-white flex justify-start">
-                <div className="text-slate-600 mx-2 my-4 font-MontBook  rounded-lg p-5  ">
-                  <div>
-                 
+                    );
+                  })}
+                </div>
+              )}
+              {streaming === true && (
+                <div className="w-[100%] md:w-[80%] bg-white flex justify-start">
+                  <div className="text-slate-600 mx-2  font-MontBook  rounded-lg p-2  ">
                     <div>
-                      <Indent text={streamingResponse}/>
+                      <div>
+                        <Indent text={streamingResponse} />
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            )}
-          </div>
+              )}
+            </div>
 
+            {/* inputfield */}
 
-{/* inputfield */}
-         
-          <div className= {`sm:w-[61%] h-auto shadow-md w-[100%] p-1.5  bg-white  ${chat.length>0 ? "absolute bottom-[2rem] sm:left-[6rem]" : "" }     flex  justify-start rounded-[30px]`}>
-          <div className="w-[100%] flex bg-white justify-start pl-5 rounded-[30px] border border-[2px] border-gray-400" >
-            <textarea
-             ref={textareaRef}
-              value={message}
-              rows={1}
-              onChange={(e) => {setMessage(e.target.value);
-                adjustHeight();}
-              }
-              onKeyPress={handleKeyPress}
-              className="w-[100%]  p-3 rounded-xl  focus:outline-none focus:ring-0 scrollbar-hide resize-none "
-              placeholder={t("charbot.Ask Anything")}
-            ></textarea>
-            <div className=" flex justify-between items-center p-3 ">
-              {/* <div className="flex gap-2 cursor-pointer">
+            <div
+              className={` absolute h-auto shadow-md w-[100%] p-1.5  bg-white  ${
+                chat.length > 0 ? " bottom-[2rem] sm:w-[61%] sm:left-[6rem]" : "sm:w-[45%]"
+              }     flex  justify-start rounded-[30px]`}
+            >
+              <div className="w-[100%] flex bg-white justify-start pl-5 rounded-[30px] border border-[2px] border-gray-400">
+                <textarea
+                  ref={textareaRef}
+                  value={message}
+                  rows={1}
+                  onChange={(e) => {
+                    setMessage(e.target.value);
+                    adjustHeight();
+                  }}
+                  onKeyPress={handleKeyPress}
+                  className="w-[100%]  p-3 rounded-xl  focus:outline-none focus:ring-0 scrollbar-hide resize-none "
+                  placeholder={t("charbot.Ask Anything")}
+                ></textarea>
+                <div className=" flex justify-between items-center p-3 ">
+                  {/* <div className="flex gap-2 cursor-pointer">
                 <div className="w-7 h-7 relative z-[10] bg-slate-200 rounded-md justify-center items-center gap-2.5 flex cursor-pointer">
                   <FaPaperclip
                     className="absolute w-5 h-5 z-[0] cursor-pointer"
@@ -377,23 +435,28 @@ export default function Chatbot() {
                 </div>
               </div> */}
 
-
-{chat.length>0 ?
-              <div  onClick={sendMessage} className="rounded-full cursor-pointer bg-gray-200 w-9 h-9 flex justify-center items-center" > <img className=" w-6 text-white" src={send} alt="" /></div>:
-              <button
-              className="w-[113px] h-8 px-3 py-2 bg-blue-600 rounded-xl justify-center  items-center inline-flex text-white"
-              onClick={sendMessage}
-            >
-               {  t("charbot.Start Chat") } 
-            </button>
-            }
+                  {chat.length > 0 ? (
+                    <div
+                      onClick={sendMessage}
+                      className="rounded-full cursor-pointer bg-gray-200 w-9 h-9 flex justify-center items-center"
+                    >
+                      {" "}
+                      <img className=" w-6 text-white" src={send} alt="" />
+                    </div>
+                  ) : (
+                    <button
+                      className="w-[113px] h-8 px-3 py-2 bg-blue-600 rounded-xl justify-center  items-center inline-flex text-white"
+                      onClick={sendMessage}
+                    >
+                      {t("charbot.Start Chat")}
+                    </button>
+                  )}
+                </div>
+              </div>
             </div>
-          </div>
-          </div>
           </div>
         </div>
       </div>
     </div>
   );
 }
-
