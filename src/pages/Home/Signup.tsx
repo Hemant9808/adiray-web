@@ -134,7 +134,7 @@ const Signup = () => {
                   {errors.password && touched.password && errors.password}
                 </p>
               </div>
-              <Button type="submit" className="w-full font-medium text-lg text-white py-2 rounded-md bg-[#154B8B]" disabled={isSubmitting}>
+              <Button type="submit" className="w-full cursor-pointer font-medium text-lg text-white py-2 rounded-md bg-[#154B8B]" disabled={isSubmitting}>
                 Sign up
               </Button>
             </form>
@@ -143,7 +143,7 @@ const Signup = () => {
             </div>
             <div
 
-              className="w-full font-medium text-lg py-2 rounded-md bg-white text-black border mt-4 flex items-center justify-center gap-2"
+              className="w-full font-medium text-lg py-2 cursor-pointer rounded-md bg-white text-black border mt-4 flex items-center justify-center gap-2"
               onClick={() => { handleGoogleLogin() }} // Ensuring the event handler is correctly bound
             >
               <FcGoogle size={24} />

@@ -149,7 +149,7 @@ const Login = () => {
                 </div>
                 <div
                   
-                    className="w-full font-medium text-lg py-2 rounded-md bg-white text-black border mt-4 flex items-center justify-center gap-2"
+                    className="w-full font-medium text-lg py-2 cursor-pointer rounded-md bg-white text-black border mt-4 flex items-center justify-center gap-2"
                     onClick={()=>{handleGoogleLogin()}} // Ensuring the event handler is correctly bound
                 >
                     <FcGoogle size={24} />
