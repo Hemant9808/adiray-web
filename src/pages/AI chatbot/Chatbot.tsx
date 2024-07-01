@@ -32,6 +32,7 @@ interface user {
   fullname: string;
   email: string;
   password: string;
+  pic:string 
   __v: number;
 }
 
@@ -231,10 +232,10 @@ export default function Chatbot() {
           <div className="left-[40px] gap-2 top-[85vh]  flex  absolute text-blue-950 text-lg font-semibold ">
             <img
               className="w-8"
-              src="https://static-00.iconduck.com/assets.00/profile-default-icon-2048x2045-u3j7s5nj.png"
+              src={User.pic || "https://static-00.iconduck.com/assets.00/profile-default-icon-2048x2045-u3j7s5nj.png"}
               alt="U"
             />
-            {User?.fullname}
+            {User.fullname}
           </div>
           <Link to="/">
             <div className="left-[46px] top-[43px] absolute text-blue-950 text-base font-extrabold ">

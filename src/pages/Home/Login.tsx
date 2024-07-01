@@ -64,6 +64,7 @@ const Login = () => {
             console.log(user.uid)
             const password = user.uid ;
             const fullname = user.displayName ;
+            const pic = user.photoURL
             
             if(!email || !fullname || !password){
                 return <div>
@@ -76,7 +77,7 @@ const Login = () => {
             try {
                 const apiUrl = '/users/signwithfirebase';
     
-                const response = await axiosInstance.post(apiUrl, {fullname , email , password ,confirm});
+                const response = await axiosInstance.post(apiUrl, {fullname , email , password ,pic});
                 window.localStorage.setItem('accessToken', response.data.token);
                 window.localStorage.setItem('user', JSON.stringify(response.data.user));
                 console.log('User details saved:', response.data.user);
