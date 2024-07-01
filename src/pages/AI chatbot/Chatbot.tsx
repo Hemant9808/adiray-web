@@ -206,7 +206,7 @@ export default function Chatbot() {
 
     signOut(auth).then(() => {
       console.log('Logout successfully')
-      window.location.reload()
+      Navigate('/login')
     }).catch((error) => {
       console.log('Error during logout', error)
       // An error happened.
