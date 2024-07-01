@@ -141,7 +141,7 @@ const Login = () => {
                         <Link to="/forgot-password" className="text-blue-600 underline text-sm">Forgot Password?</Link>
                     </div>
                     <Button type="submit" className="w-full font-medium text-lg py-2 rounded-md bg-[#154B8B] text-white">
-                        Login
+                        SignIn
                     </Button>
                 </form>
                 <div className="flex items-center justify-center mt-4">
