@@ -9,7 +9,7 @@ import { useTranslation } from "react-i18next";
 import "aos/dist/aos.css";
 
 import { AiOutlineClose } from "react-icons/ai";
-import Login from "../Home/Login";
+
 
 interface IntentProps {
   text: string;
@@ -232,7 +232,7 @@ export default function Chatbot() {
             <img
               className="w-8"
               src="https://static-00.iconduck.com/assets.00/profile-default-icon-2048x2045-u3j7s5nj.png"
-              alt=""
+              alt="U"
             />
             {User?.fullname}
           </div>
