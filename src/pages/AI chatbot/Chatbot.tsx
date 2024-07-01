@@ -93,6 +93,10 @@ export default function Chatbot() {
   }, []);
 
   useEffect(() => {
+    if(!token){
+      Navigate('/login')
+   
+    } 
     if (socket) {
       const handleClose = () => {
         setSocket(null);
@@ -165,10 +169,7 @@ export default function Chatbot() {
       sendMessage();
     }
   };
-  if(!token){
-    Navigate('/login')
-   return <></>
-  } 
+ 
    const textareaRef = useRef<HTMLTextAreaElement | null>(null);
   const adjustHeight = () => {
     const textarea = textareaRef.current;

@@ -11,6 +11,9 @@ import { PiEyeBold, PiEyeClosed } from "react-icons/pi";
 import { RiKey2Line } from "react-icons/ri";
 import axiosInstance from "../../config/axios";
 import { useNavigate } from "react-router-dom";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { auth } from "../../firebase/firebaseconfig";
+import { FcGoogle } from "react-icons/fc";
 const Signup = () => {
   const [visible, setVisible] = useState(false);
   const navigate = useNavigate()
@@ -25,6 +28,44 @@ const Signup = () => {
       return response.data;
     } catch (error) {
       console.log(error);
+    }
+  };
+  const handleGoogleLogin = async () => {
+    console.log("Google login clicked");
+    const provider = new GoogleAuthProvider();
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+      const email = user.email;
+
+      console.log(user.email)
+
+      console.log(user.uid)
+      const password = user.uid;
+      const fullname = user.displayName;
+
+      if (!email || !fullname || !password) {
+        return <div>
+          Something went wrong during Signing
+        </div>
+      }
+
+      console.log(user);
+
+      try {
+        const apiUrl = '/users/signwithfirebase';
+
+        const response = await axiosInstance.post(apiUrl, { fullname, email, password, confirm });
+        window.localStorage.setItem('accessToken', response.data.token);
+        window.localStorage.setItem('user', JSON.stringify(response.data.user));
+        console.log('User details saved:', response.data.user);
+        navigate('/chatbot');
+      } catch (error) {
+        console.log(error);
+      }
+
+    } catch (error) {
+      console.log("Error during Google login:", error);
     }
   };
 
@@ -101,9 +142,20 @@ const Signup = () => {
                 Sign up
               </Button>
             </form>
-           
+            <div className="flex items-center justify-center mt-4">
+              <span className="text-gray-400 text-sm">or</span>
+            </div>
+            <div
+
+              className="w-full font-medium text-lg py-2 rounded-md bg-white text-black border mt-4 flex items-center justify-center gap-2"
+              onClick={() => { handleGoogleLogin() }} // Ensuring the event handler is correctly bound
+            >
+              <FcGoogle size={24} />
+              Continue with Google
+            </div>
           </div>
         )}
+
       </Formik>
     </div>
   );
