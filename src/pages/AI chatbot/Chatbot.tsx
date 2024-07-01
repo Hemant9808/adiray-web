@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FiMenu } from "react-icons/fi";
-import { FaPaperclip } from "react-icons/fa";
+import { FaPaperclip, FaSignOutAlt } from "react-icons/fa";
 import silverlogo from "../../assets/footer_logo.png";
 import send from "../../assets/arrowup.png";
 import AOS from "aos";
@@ -9,7 +9,8 @@ import { useTranslation } from "react-i18next";
 import "aos/dist/aos.css";
 
 import { AiOutlineClose } from "react-icons/ai";
-
+import { signOut } from "firebase/auth";
+import { auth } from "../../firebase/firebaseconfig";
 
 interface IntentProps {
   text: string;
@@ -32,7 +33,7 @@ interface user {
   fullname: string;
   email: string;
   password: string;
-  pic:string 
+  pic: string
   __v: number;
 }
 
@@ -51,6 +52,7 @@ interface Chat {
 export default function Chatbot() {
   const Navigate = useNavigate();
   const [popup, setpopup] = useState(true);
+  const [User, setUser] = useState<user>()
 
   const { t } = useTranslation();
   React.useEffect(() => {
@@ -86,10 +88,16 @@ export default function Chatbot() {
   const containerRef = useRef(null);
   const token = localStorage.getItem("accessToken");
   const user = localStorage.getItem("user");
-  if (user != null) {
-    var User: user = JSON.parse(user);
-    console.log(User);
-  }
+
+  useEffect(() => {
+    if (user != null) {
+      const User: user = JSON.parse(user);
+      setUser(User)
+      console.log(User)
+    }
+
+  }, [user])
+
 
   useEffect(() => {
     const ws = new WebSocket("wss://bot-f.onrender.com/ws");
@@ -104,10 +112,10 @@ export default function Chatbot() {
   }, []);
 
   useEffect(() => {
-    if(!token){
+    if (!token) {
       Navigate('/login')
-   
-    } 
+
+    }
     if (socket) {
       const handleClose = () => {
         setSocket(null);
@@ -192,8 +200,17 @@ export default function Chatbot() {
       textarea.style.height = `${textarea.scrollHeight}px`;
     }
   };
-  const signOut = () => {
+  const logOut = async () => {
+
     localStorage.clear();
+
+    signOut(auth).then(() => {
+      console.log('Logout successfully')
+      window.location.reload()
+    }).catch((error) => {
+      console.log('Error during logout', error)
+      // An error happened.
+    });
   };
 
   return (
@@ -232,10 +249,14 @@ export default function Chatbot() {
           <div className="left-[40px] gap-2 top-[85vh]  flex  absolute text-blue-950 text-lg font-semibold ">
             <img
               className="w-8"
-              src={User.pic || "https://static-00.iconduck.com/assets.00/profile-default-icon-2048x2045-u3j7s5nj.png"}
+              src={User?.pic || "https://static-00.iconduck.com/assets.00/profile-default-icon-2048x2045-u3j7s5nj.png"}
               alt="U"
             />
-            {User.fullname}
+            {User?.fullname}
+          </div>
+          <div className="absolute top-[88vh] flex w-auto p-4 ml-8 mb-4  gap-2 cursor-pointer" onClick={() => { logOut() }}>
+            <FaSignOutAlt size={24} />
+            Logout
           </div>
           <Link to="/">
             <div className="left-[46px] top-[43px] absolute text-blue-950 text-base font-extrabold ">
@@ -284,10 +305,16 @@ export default function Chatbot() {
               <div className="left-[40px] gap-2 top-[85vh]  flex  absolute text-blue-950 text-lg font-semibold ">
                 <img
                   className="w-8"
-                  src="https://static-00.iconduck.com/assets.00/profile-default-icon-2048x2045-u3j7s5nj.png"
+                  src={User?.pic || "https://static-00.iconduck.com/assets.00/profile-default-icon-2048x2045-u3j7s5nj.png"}
                   alt=""
                 />
                 {User?.fullname}
+
+              </div>
+
+              <div className="absolute top-[88vh] flex w-auto p-4 ml-8 mb-4  gap-2 cursor-pointer" onClick={()=>{logOut()}}>
+                <FaSignOutAlt size={24}/>
+                Logout
               </div>
               <Link to="/">
                 <div className="left-[46px] top-[43px] absolute text-blue-950 text-base font-extrabold ">
@@ -315,9 +342,8 @@ export default function Chatbot() {
 
         {/* chatbot component */}
         <div
-          className={`w-full font-Mont h-screen   flex flex-col ${
-            chat.length > 0 ? "justify-between" : "justify-center"
-          } items-center`}
+          className={`w-full font-Mont h-screen   flex flex-col ${chat.length > 0 ? "justify-between" : "justify-center"
+            } items-center`}
         >
           {chat.length == 0 && (
             <div className="flex flex-col justify-center items-center ">
@@ -337,9 +363,8 @@ export default function Chatbot() {
 
           {/* chatbox */}
           <div
-            className={` w-[90%] md:w-[80%]  sm:w-[60%] flex  flex-col justify-center items-center ${
-              streaming ? "sm:pb-[2.1rem] pb-[1rem]" : ""
-            }   ${chat.length > 0 ? "absolute bottom-[1rem]" : ""} `}
+            className={` w-[90%] md:w-[80%]  sm:w-[60%] flex  flex-col justify-center items-center ${streaming ? "sm:pb-[2.1rem] pb-[1rem]" : ""
+              }   ${chat.length > 0 ? "absolute bottom-[1rem]" : ""} `}
           >
             <div
               className="w-[100%] sm:px-[5rem] max-h-[42rem] scrollbar-hide overflow-y-scroll h-auto pb-[8rem]   flex flex-col justify-start rounded-xl overflow-scroll"
@@ -356,11 +381,10 @@ export default function Chatbot() {
                           className={`w-[100%] md:w-[80%]  flex justify-start `}
                         >
                           <div
-                            className={`max-w-[90%] rounded-lg px-2  mx-2  ${
-                              data.sender === "human"
-                                ? " text-stone-700"
-                                : "font-Mont  text-gray-700"
-                            }`}
+                            className={`max-w-[90%] rounded-lg px-2  mx-2  ${data.sender === "human"
+                              ? " text-stone-700"
+                              : "font-Mont  text-gray-700"
+                              }`}
                           >
                             {data.sender === "human" ? (
                               ""
@@ -372,11 +396,10 @@ export default function Chatbot() {
                             )}
                             &nbsp;
                             <div
-                              className={`text-slate-600 font-MontBook ${
-                                data.sender === "human"
-                                  ? "text-3xl font-extrabold mt-3 mb-6"
-                                  : "text-md font-extrabold  mb-9 "
-                              } `}
+                              className={`text-slate-600 font-MontBook ${data.sender === "human"
+                                ? "text-3xl font-extrabold mt-3 mb-6"
+                                : "text-md font-extrabold  mb-9 "
+                                } `}
                             >
                               <Indent text={data.message} />
                             </div>
@@ -406,9 +429,8 @@ export default function Chatbot() {
             {/* inputfield */}
 
             <div
-              className={` absolute h-auto shadow-md w-[100%] p-1.5  bg-white  ${
-                chat.length > 0 ? " bottom-[2rem] sm:w-[61%] sm:left-[6rem]" : "sm:w-[45%]"
-              }     flex  justify-start rounded-[30px]`}
+              className={` absolute h-auto shadow-md w-[100%] p-1.5  bg-white  ${chat.length > 0 ? " bottom-[2rem] sm:w-[61%] sm:left-[6rem]" : "sm:w-[45%]"
+                }     flex  justify-start rounded-[30px]`}
             >
               <div className="w-[100%] flex bg-white justify-start pl-5 rounded-[30px] border border-[2px] border-gray-400">
                 <textarea
