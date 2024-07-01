@@ -78,9 +78,9 @@ const Signup = () => {
       >
         {({ values, errors, touched, handleBlur, handleChange, handleSubmit, isSubmitting }) => (
           <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
-            <h1 className="text-2xl font-semibold  mb-4">Create <span>Account</span></h1>
+            <h1 className="text-2xl font-semibold  mb-4">Create <span className="text-[#154B8B]">Account</span></h1>
             <h2 className="text-gray-400 flex gap-2 items-center text-base font-normal mb-4">
-              Already have an account? <Link to="/login" className="text-blue-700 underline">Sign in</Link>
+              Already have an account? <Link to="/login" className="text-[#154B8B] underline">Sign in</Link>
             </h2>
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
@@ -134,7 +134,7 @@ const Signup = () => {
                   {errors.password && touched.password && errors.password}
                 </p>
               </div>
-              <Button type="submit" className="w-full font-medium text-lg py-2 rounded-md bg-blue-800" disabled={isSubmitting}>
+              <Button type="submit" className="w-full font-medium text-lg text-white py-2 rounded-md bg-[#154B8B]" disabled={isSubmitting}>
                 Sign up
               </Button>
             </form>

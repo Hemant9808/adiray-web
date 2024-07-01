@@ -94,8 +94,8 @@ const Login = () => {
     return (
         <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-100 to-white">
             <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
-                <h1 className="text-4xl font-semibold text-center mb-4">
-                    Welcome Back
+                <h1 className="text-4xl font-semibold text-left mb-4">
+                    Welcome <span className="text-[#154B8B]">Back !!</span>
                 </h1>
                 <form
                     onSubmit={(e) => {
@@ -140,7 +140,7 @@ const Login = () => {
                     <div className="flex justify-end">
                         <Link to="/forgot-password" className="text-blue-600 underline text-sm">Forgot Password?</Link>
                     </div>
-                    <Button type="submit" className="w-full font-medium text-lg py-2 rounded-md bg-blue-800 text-white">
+                    <Button type="submit" className="w-full font-medium text-lg py-2 rounded-md bg-[#154B8B] text-white">
                         Login
                     </Button>
                 </form>
@@ -156,7 +156,7 @@ const Login = () => {
                     Continue with Google
                 </div>
                 <h2 className="text-gray-400 flex gap-2 items-center text-base font-normal mt-6">
-                    Are you new? <Link to="/sign-up" className="text-blue-700 underline">Sign up</Link>
+                    Are you new? <Link to="/sign-up" className="text-[#154B8B] underline">Sign up</Link>
                 </h2>
             </div>
         </div>
