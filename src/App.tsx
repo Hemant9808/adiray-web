@@ -20,6 +20,7 @@ const JoinUs = lazy(() => import("./pages/JoinUs"));
 
 import CategoryLayout from "./pages/products/CategoryLayout";
 import ProductList from "./pages/products/ProductList";
+import ForgotPassword from "./components/ForgetPassword";
 
 
 
@@ -34,6 +35,10 @@ function App() {
         {
           path: "",
           element: <Home />
+        },
+        {
+          path: "forgot-password",
+          element: <ForgotPassword />
         },
         {
           path: "sign-up",

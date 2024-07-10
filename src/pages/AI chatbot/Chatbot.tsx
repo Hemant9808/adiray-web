@@ -246,17 +246,21 @@ export default function Chatbot() {
               </div>
             </div>
           </div>
-          <div className="left-[40px] gap-2 top-[85vh]  flex  absolute text-blue-950 text-lg font-semibold ">
-            <img
-              className="w-8"
-              src={User?.pic || "https://static-00.iconduck.com/assets.00/profile-default-icon-2048x2045-u3j7s5nj.png"}
-              alt="U"
-            />
-            {User?.fullname}
-          </div>
-          <div className="absolute top-[88vh] flex w-auto p-4 ml-8 mb-4  gap-2 cursor-pointer" onClick={() => { logOut() }}>
-            <FaSignOutAlt size={24} />
-            Logout
+          <div className="left-[40px] gap-2 top-[85vh] flex flex-col absolute text-blue-950 text-lg font-semibold">
+            <div className="flex items-center gap-2">
+              <img
+                className="w-8 h-8 rounded-full"
+                src={User?.pic || "https://static-00.iconduck.com/assets.00/profile-default-icon-2048x2045-u3j7s5nj.png"}
+                alt="U"
+              />
+              <p className="flex flex-wrap break-words ">
+                {User?.fullname}
+              </p>
+            </div>
+            <div className="flex items-center ml-2  gap-2 cursor-pointer" onClick={logOut}>
+              <FaSignOutAlt size={24} />
+              <span>Logout</span>
+            </div>
           </div>
           <Link to="/">
             <div className="left-[46px] top-[43px] absolute text-blue-950 text-base font-extrabold ">
@@ -302,19 +306,21 @@ export default function Chatbot() {
                   </div>
                 </div>
               </div>
-              <div className="left-[40px] gap-2 top-[85vh]  flex  absolute text-blue-950 text-lg font-semibold ">
-                <img
-                  className="w-8"
-                  src={User?.pic || "https://static-00.iconduck.com/assets.00/profile-default-icon-2048x2045-u3j7s5nj.png"}
-                  alt=""
-                />
-                {User?.fullname}
-
-              </div>
-
-              <div className="absolute top-[88vh] flex w-auto p-4 ml-8 mb-4  gap-2 cursor-pointer" onClick={()=>{logOut()}}>
-                <FaSignOutAlt size={24}/>
-                Logout
+              <div className="left-[40px] gap-2 top-[85vh] flex flex-col absolute text-blue-950 text-lg font-semibold">
+                <div className="flex items-center gap-2">
+                  <img
+                    className="w-8 h-8 rounded-full"
+                    src={User?.pic || "https://static-00.iconduck.com/assets.00/profile-default-icon-2048x2045-u3j7s5nj.png"}
+                    alt="U"
+                  />
+                  <p className="flex flex-wrap break-words max-w-[150px] sm:max-w-[200px] md:max-w-[250px] lg:max-w-[300px]">
+                    {User?.fullname}
+                  </p>
+                </div>
+                <div className="flex items-center gap-2 ml-2 cursor-pointer" onClick={logOut}>
+                  <FaSignOutAlt size={24} />
+                  <span>Logout</span>
+                </div>
               </div>
               <Link to="/">
                 <div className="left-[46px] top-[43px] absolute text-blue-950 text-base font-extrabold ">
