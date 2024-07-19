@@ -50,7 +50,7 @@ const Home = () => {
         muted
         playsInline
         loop
-        webkit-playsinline
+        webkit-playsinline="true"
       />
     </div>
     {/* <div className="absolute w-full h-full inset-0 flex justify-center items-center backdrop-blur-sm bg-[#7797bc69] content">
@@ -75,10 +75,7 @@ const Home = () => {
             muted
             playsInline
             loop
-
-
-          
-            webkit-playsInline
+            webkit-playsinline="true"
 
           />
           <div className="absolute w-full h-full inset-0 flex items-center justify-center backdrop-blur-md   bg-[#121e2c69]">

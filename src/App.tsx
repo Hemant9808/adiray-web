@@ -1,28 +1,24 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { Suspense, lazy } from "react";
-import { useState } from "react";
+import { Suspense, lazy,useState } from "react";
 import i18n from "./config/i18n"
 import loader from './assets/loader.gif'
 import Chatbot from "./pages/AI chatbot/Chatbot";
+
 const Enquiry = lazy(() => import("./pages/Home/Enquiry"));
 const Signup = lazy(() => import("./pages/Home/Signup"));
 const Login = lazy(() => import("./pages/Home/Login"));
 const Layout = lazy(() => import("./pages/Home/Layout"));
 const Home = lazy(() => import("./pages/Home/Home"));
-const Layouts = lazy(() => import("./pages/AI chatbot/Chatbot"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Blog = lazy(() => import("./pages/Blogs/Blog"));
-const Category = lazy(() => import("./pages/products/CategoryLayout"));
+const ProductList=lazy(() => import("./pages/products/ProductList"));
 const Products = lazy(() => import("./pages/products/Products"));
 const Blogpost = lazy(() => import("./pages/Blogs/Blogpost"));
 const MultiLang = lazy(() => import("./components/MultiLang"));
 const JoinUs = lazy(() => import("./pages/JoinUs"));
 
 import CategoryLayout from "./pages/products/CategoryLayout";
-import ProductList from "./pages/products/ProductList";
 import ForgotPassword from "./components/ForgetPassword";
-
-
 
 
 function App() {
@@ -85,7 +81,9 @@ function App() {
         },
         {
           path: "lang",
-          element: <MultiLang/>
+          element: <MultiLang onSelectLanguage={function (_language: string): void {
+            throw new Error("Function not implemented.");
+          } }/>
         }
 
       ]
@@ -104,7 +102,8 @@ function App() {
   const handleLanguageSelect = (language: string) => {
     setSelectedLanguage(language);
     setShowLanguageSelection(false);
-    i18n.changeLanguage(language).then(() => console.log("Language changed to", selectedLanguage)); // Hide language selection popup after language selection
+    i18n.changeLanguage(language).then(() => console.log("Language changed to", selectedLanguage)); //updated to log the new language
+    // Hide language selection popup after language selection
   };
 
 
