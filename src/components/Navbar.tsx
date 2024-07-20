@@ -14,7 +14,9 @@ import i18n from "../config/i18n"
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const menuRef = useRef(null);
+  // const menuRef = useRef(null);
+  const menuRef = useRef<HTMLUListElement | null>(null);
+
 
   useEffect(() => {
     function handleClickOutside(event:any) {
@@ -48,7 +50,7 @@ const Navbar = () => {
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     
-    const prev = scrollY.getPrevious();
+    const prev = scrollY.getPrevious() ?? 0;
         if(latest > prev && latest > 150 && !open ){
           setHidden(true);
         }
@@ -210,7 +212,7 @@ const Navbar = () => {
                           
                         </li>
                         <li className="text-gray-500 hover:text-gray-500   duration-200 inline-block w-full p-2 hover:bg-pink-200 rounded-md "
-                          onClick={()=>changeLanguage('he')}>
+                          onClick={()=>changeLanguage('hi')}>
                       हिंदी
                             
                           

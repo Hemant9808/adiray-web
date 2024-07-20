@@ -51,7 +51,7 @@ let translations = {
         }}
       },
     },
-    "he": {
+    "hi": {
       translation: {
       "home": {
         "hero": {
