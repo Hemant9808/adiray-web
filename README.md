@@ -1,30 +1,46 @@
-# React + TypeScript + Vite
+# Adiray Global
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Adiray Global bridges the gap between India and the world through exports, specializing in non-traditional commodities reaching unique destinations. We're a game-changer in trade, offering unprecedented transparency and innovation. From fashion to machinery, we handle diverse commodities, even venturing into tech solutions to streamline the trading process. Think of us as your gateway to connecting unique goods with global markets.
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Getting Started](#getting-started)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Diverse Commodities**: From fashion to machinery, we handle a wide range of products.
+- **Tech-Driven Solutions**: Innovative tech solutions to streamline the trading process.
+- **Global Reach**: Bridging the gap between India and the world, reaching unique destinations.
+- **Transparency**: Offering unprecedented transparency in trade.
 
-- Configure the top-level `parserOptions` property like this:
+## Technologies Used
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- **Frontend**: React, TypeScript, Tailwind CSS
+- **Backend**: Node.js, Express.js
+- **Database**: MongoDB
+- **Other Tools**: Axios, React Router
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Getting Started
+
+To get a local copy up and running, follow these simple steps.
+
+### Prerequisites
+
+Make sure you have the following installed:
+
+- Node.js
+- npm or yarn
+- MongoDB
+
+### Installation
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/your-username/adiray-global.git
