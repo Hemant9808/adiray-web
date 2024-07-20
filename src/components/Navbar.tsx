@@ -139,7 +139,7 @@ const Navbar = () => {
                           
                         </li>
                         <li className="text-gray-500 hover:text-gray-900   duration-200 inline-block w-full p-2 hover:bg-white rounded-md "
-                          onClick={()=>changeLanguage('he')}>
+                          onClick={()=>changeLanguage('hi')}>
                           हिंदी  
                         </li>
                      
@@ -210,7 +210,7 @@ const Navbar = () => {
                           
                         </li>
                         <li className="text-gray-500 hover:text-gray-500   duration-200 inline-block w-full p-2 hover:bg-pink-200 rounded-md "
-                          onClick={()=>changeLanguage('he')}>
+                          onClick={()=>changeLanguage('hi')}>
                       हिंदी
                             
                           

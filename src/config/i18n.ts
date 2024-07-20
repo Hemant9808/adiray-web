@@ -134,7 +134,7 @@ i18n.use(initReactI18next).init({
 
       },
     },
-    "he": {
+    "hi": {
       translation: {
         "logoutkrbc":"त्वरित सम्पक",
       "home": {
