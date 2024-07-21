@@ -22,7 +22,7 @@ export default function MultiLang({ onSelectLanguage }: MultiLangProps) {
 
   const handleLanguageSelect = (language: string) => {
     setSelectedLanguage(language);
-    localStorage.setItem('language', language); // Save the selected language to localStorage
+    sessionStorage.setItem('language', language); // Save the selected language to localStorage
     onSelectLanguage(language);
   };
 

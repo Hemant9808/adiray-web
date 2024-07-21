@@ -12,7 +12,7 @@ i18n.use(initReactI18next).init({
         "hero": {
           "tagline1": "Local To ",
           "tagline2": "Global",
-          "description": "A stride towards facilitating the transboundary journey of goods",
+          "description": "A stride towards facilitating the transboundary journey of goods",
           "btnViewMore": "View More",
           "btnViewProducts": "View Products",
           "btnLogin": "Login",
