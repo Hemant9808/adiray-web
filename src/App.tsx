@@ -73,8 +73,7 @@ function App() {
 
   return (
     <Suspense fallback={<div className="flex items-center justify-center h-screen"><img className="w-[60px]" src={loader} alt="Loading..." /></div>}>
-      {showLanguageSelection && <MultiLang onSelectLanguage={handleLanguageSelect} />}
-      {!showLanguageSelection && <RouterProvider router={router} />}
+      {<RouterProvider router={router} />}
     </Suspense>
   );
 }
