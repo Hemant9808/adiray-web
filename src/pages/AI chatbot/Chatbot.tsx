@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FiMenu } from "react-icons/fi";
-import { FaPaperclip, FaSignOutAlt } from "react-icons/fa";
+import {FaSignOutAlt } from "react-icons/fa";
 import silverlogo from "../../assets/footer_logo.png";
 import send from "../../assets/arrowup.png";
 import AOS from "aos";
@@ -51,7 +51,7 @@ interface Chat {
 
 export default function Chatbot() {
   const Navigate = useNavigate();
-  const [popup, setpopup] = useState(true);
+  const [_popup, setpopup] = useState(true);
   const [User, setUser] = useState<user>()
 
   const { t } = useTranslation();
@@ -66,20 +66,6 @@ export default function Chatbot() {
   }, []);
 
   const [open, setOpen] = useState(false);
-  const library = [
-    {
-      id: 1,
-      history: "how to get...",
-    },
-    {
-      id: 2,
-      history: "how to get...",
-    },
-  ];
-  const handleBack = () => {
-    Navigate("/");
-  };
-
   const [socket, setSocket] = useState<WebSocket | null>(null);
   const [message, setMessage] = useState<string>("");
   const [chat, setChat] = useState<Chat[]>([]);
@@ -188,10 +174,6 @@ export default function Chatbot() {
     }
   };
 
-  // if(!token){
-  //   Navigate('/login')
-  //  return <></>
-  // }
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
   const adjustHeight = () => {
     const textarea = textareaRef.current;
@@ -209,7 +191,6 @@ export default function Chatbot() {
       Navigate('/login')
     }).catch((error) => {
       console.log('Error during logout', error)
-      // An error happened.
     });
   };
 
@@ -236,12 +217,7 @@ export default function Chatbot() {
                 </div>
                 <div className="flex ml-3">
                   <div className="w-1 h-auto bg-slate-400"></div>
-                  <div>
-                    {/* {library.map((history)=>(
-                  <h4  className="text-slate-500 text-md pl-3 font-MontBook " key={history.id}>{history.history}</h4>
-               
-                ))} */}
-                  </div>{" "}
+                  {" "}
                 </div>
               </div>
             </div>
@@ -296,12 +272,6 @@ export default function Chatbot() {
                     </div>
                     <div className="flex ml-3">
                       <div className="w-1 h-auto bg-slate-400"></div>
-                      <div>
-                        {/* {library.map((history)=>(
-                  <h4  className="text-slate-500 text-md pl-3 " key={history.id}>{history.history}</h4>
-               
-                ))} */}
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -452,22 +422,6 @@ export default function Chatbot() {
                   placeholder={t("charbot.Ask Anything")}
                 ></textarea>
                 <div className=" flex justify-between items-center p-3 ">
-                  {/* <div className="flex gap-2 cursor-pointer">
-                <div className="w-7 h-7 relative z-[10] bg-slate-200 rounded-md justify-center items-center gap-2.5 flex cursor-pointer">
-                  <FaPaperclip
-                    className="absolute w-5 h-5 z-[0] cursor-pointer"
-                    style={{ zIndex: "0" }}
-                  />
-                  <input
-                    className="w-7 h-7 bg-slate-200 relative opacity-0 cursor-pointer"
-                    type="file"
-                  ></input>
-                </div>
-                <div className="text-slate-500 text-base font-semibold ">
-                  {t("charbot.Attach files")}
-                </div>
-              </div> */}
-
                   {chat.length > 0 ? (
                     <div
                       onClick={sendMessage}

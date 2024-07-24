@@ -60,7 +60,7 @@ const Navbar = () => {
   })  
 
   
-    const [margin,setMargin]=useState("60%")
+    const [_margin,setMargin]=useState("60%")
     var openNav =(open:boolean)=>{
         setOpen(!open);
         if(open){

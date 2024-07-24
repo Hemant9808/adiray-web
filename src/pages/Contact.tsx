@@ -2,7 +2,6 @@ import  { useState } from "react";
 import contactImage from "../assets/contact.png";
 import mail from "../assets/logo/mail.svg";
 import phone from "../assets/logo/phone.svg";
-import gps from "../assets/logo/gps.svg";
 import { useTranslation } from 'react-i18next';
 import axiosInstance from "../config/axios";
 import { useNavigate } from "react-router-dom";

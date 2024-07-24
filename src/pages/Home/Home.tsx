@@ -11,7 +11,7 @@ import { useTranslation } from "react-i18next";
 import fieo from "../../assets/fieo.png";
 import msme from "../../assets/msme.png";
 import { Link } from "react-router-dom";
-import { useState, useRef, useEffect } from "react";
+import { useState,useEffect } from "react";
 import AdirayPortfolio from "../../assets/AdirayPortfolio.pdf";
 import AdirayPortfoliohindi from "../../assets/AdirayPortfoliohindi.pdf";
 const Home = () => {
@@ -25,7 +25,7 @@ const Home = () => {
     });
     AOS.refresh();
   }, []);
-  const videoRefs = [useRef(), useRef(), useRef(), useRef()];
+
   const [hindiPdf, setHindiPdf] = useState(false)
   useEffect(() => {
     if (t("home.aboutus.heading") == "हमारे बारे में") {
@@ -53,15 +53,8 @@ const Home = () => {
         webkit-playsinline="true"
       />
     </div>
-    {/* <div className="absolute w-full h-full inset-0 flex justify-center items-center backdrop-blur-sm bg-[#7797bc69] content">
-      <h2 className="text-white text-[clamp(40px,3vw,4rem)] font-medium">
-        Chatbot Video Section
-      </h2>
-    </div> */}
   </div>
 </section>
-
-
 
         <section className="relative">
           <Vision></Vision>

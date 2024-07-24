@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import productmain from "../../assets/productmain.png"
-import { Link, Outlet } from "react-router-dom";
+import { Link} from "react-router-dom";
 import { CategoryData } from "./Products";
 import { useLocation, useNavigate, useParams } from "react-router-dom"
 import Spinner from "../../components/Spinner";
@@ -14,8 +14,7 @@ export default function CategoryLayout() {
   const [filteredCategory, setFilteredCategory] = useState<CategoryData[] | undefined>();
   const [searchQuery, setSearchQuery] = useState('');
   const [noCategoryFound, setNoCategoryFound] = useState(false);
-  const [noProductFound, setNoProductFound] = useState(false);
-  const [categoryLoading, setCategoryLoading] = useState(true);
+  const [_categoryLoading, setCategoryLoading] = useState(true);
   const [productLoading, setProductLoading] = useState(true);
 
   async function getCategoryList() {
@@ -87,11 +86,11 @@ export default function CategoryLayout() {
   const [categoryId, setCategoryId] = useState<string | undefined>();
   const [data, setData] = useState<DataType[] | undefined>();
   const [fetchError, setFetchError] = useState(false);
-  const [categoryName, setCategoryName] = useState('');
+  const [_categoryName, setCategoryName] = useState('');
   const location = useLocation();
   const params = useParams();
   const [filteredProducts, setFilteredProducts] = useState<DataType[]>([]);
-  const [query, setQuery] = useState('');
+  const [query, _setQuery] = useState('');
 
   async function getProductList() {
     try {
@@ -226,46 +225,7 @@ export default function CategoryLayout() {
             }
           </tbody>
         </table>
-        {/* <div className="w-full  rounded-md border border-solid md:ml-8">
-          <div className="h-[70px] bg-slate-300 rounded-md flex items-center justify-between md:p-6 p-3">
-            <div className=" flex  gap-6">
-
-              <div className="font-bold text-sm w-10 ">S No.</div>
-              <div className=" font-bold text-sm">Product Name</div>
-            </div>
-            <div className=" w-[70px] md:mr-0 mr-4   rounded-md font-bold text-sm ">
-              Enquiry
-            </div>
-          </div>
-
-          <>
-            {
-              fetchError && (
-                <div className="flex items-center justify-center h-screen">
-                  <h1 className="text-red-500">Error fetching data</h1>
-                </div>
-              )
-            }
-
-            {filteredProducts?.length > 0 && filteredProducts.map((item, index) => (
-              <div className={`w-full min-h-[55px] ${index % 2 === 0 ? "bg-gray-100" : "bg-white"} flex items-center justify-between md:p-6 p-3`} key={index}>
-                <div className=" flex gap-6">
-                  <h4 className="w-10">{index + 1}</h4>
-                  <div className="">{item.name}</div>
-                </div>
-                <button type="button" onClick={() => { handleEnquiry(item.name) }} className="bg-blue-800 w-[70px]  text-white rounded-md text-[14px] p-1">
-                  Enquiry
-                </button>
-              </div>
-            ))
-
-
-            }
-            {productLoading && <div className="mt-8"><Spinner /></div>}
-          </>
-        </div> */}
       </div>
     </div>
   );
 }
-

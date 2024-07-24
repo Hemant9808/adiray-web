@@ -12,5 +12,8 @@
 }
 
 ul {
-    @apply flex flex-col gap-2 text-nowrap;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5 rem;
+    white-space: nowrap;
 }

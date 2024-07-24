@@ -9,7 +9,7 @@ export default function ProductList() {
     const [categoryId, setCategoryId] = useState<string | undefined>();
     const [data, setData] = useState<DataType[] | undefined>();
     const [fetchError, setFetchError] = useState(false);
-    const [categoryName, setCategoryName] = useState('');
+    const [_categoryName, setCategoryName] = useState('');
     const location = useLocation();
     const params = useParams();
     const [filteredProducts, setFilteredProducts] = useState<DataType[]>([]);

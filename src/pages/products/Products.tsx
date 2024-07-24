@@ -1,24 +1,4 @@
-
 import { useState, useEffect } from "react";
-
-import image1 from "../../assets/image1.jpg";
-import image2 from "../../assets/image2.jpg";
-import image3 from "../../assets/image3.jpg";
-import image4 from "../../assets/image4.jpg";
-import image5 from "../../assets/image5.jpg";
-import image6 from "../../assets/image6.jpg";
-import image7 from "../../assets/image7.jpg";
-import image8 from "../../assets/image8.jpg";
-import image9 from "../../assets/image9.jpg";
-import image10 from "../../assets/image10.png";
-import image11 from "../../assets/image11.png";
-import image12 from "../../assets/image12.png";
-import image13 from "../../assets/image13.jpg";
-import image14 from "../../assets/image14.jpg";
-import image15 from "../../assets/image15.jpg";
-import image16 from "../../assets/image16.jpg";
-
-
 import productmain from "../../assets/productmain.png";
 import CategoryCard from "../../components/CategoryCard";
 import { useTranslation } from "react-i18next";
@@ -42,16 +22,7 @@ const Products = () => {
     console.log(categoryList);
   }
 
-  const [imageIndex, setImageIndex] = useState(0);
-
-
-  const set1 = [image1, image2, image3, image4];
-  const set2 = [image5, image6, image7, image8];
-  const set3 = [image9, image10, image11, image12];
-  const set4 = [image13, image14, image15, image16];
-
-
-  const imageSets = [set1, set2, set3, set4];
+  const [_imageIndex, setImageIndex] = useState(0);
 
   useEffect(() => {
     getCategoryList();
@@ -93,58 +64,6 @@ const Products = () => {
                 imageUrl={category.imageUrl}
               />
             ))) : <Spinner />}
-
-          {/* <div className="relative w-80 h-96 flex">
-            {imageSets.map((set: any, setIndex: any) => (
-              <div key={setIndex} className="mb-8">
-                <ProductCard images={set} />
-              </div>
-            ))}
-          </div> */}
-
-          {/* <Link to="category" className="relative w-80 h-96">
-            <img
-              className="w-full h-full object-cover rounded-lg"
-              src={set1[imageIndex % set1.length ]}
-              alt="Category 1"
-            />
-            <Button className="absolute bottom-0 bg-blue-700 text-white w-full ">
-              Category 1
-            </Button>
-          </Link>
-
-          <Link to="category" className="relative w-80 h-96">
-            <img
-              className="w-full h-full object-cover rounded-lg"
-              src={set2[imageIndex % set1.length]}
-              alt="Category 2"
-            />
-            <Button className="absolute bottom-0 bg-blue-700 text-white w-full ">
-              Category 2
-            </Button>
-          </Link>
-
-          <Link to="category" className="relative w-80 h-96">
-            <img
-              className="w-full h-full object-cover rounded-lg"
-              src={set3[imageIndex % set1.length]}
-              alt="Category 3"
-            />
-            <Button className="absolute bottom-0 bg-blue-700 text-white w-full ">
-              Category 3
-            </Button>
-          </Link>
-
-          <Link to="category" className="relative w-80 h-96">
-            <img
-              className="w-full h-full object-cover rounded-lg"
-              src={set4[imageIndex % set1.length]}
-              alt="Category 4"
-            />
-            <Button className="absolute bottom-0 bg-blue-700 text-white w-full ">
-              Category 4
-            </Button>
-          </Link>   */}
         </div>
       </section>
     </section>

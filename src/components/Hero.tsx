@@ -1,6 +1,5 @@
 import styles from "../styles/hero.module.css";
 import bg from "../assets/bg.png";
-import { Button } from "./Button";
 import { useTranslation } from "react-i18next";
 import ImageSwapAnimation from "./ImageswapAnimation";
 import { Link } from "react-router-dom";

@@ -1,5 +1,4 @@
-import { LanguageIcon } from '@heroicons/react/16/solid';
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 type LanguageSelectHandler = (language: string) => void;
 

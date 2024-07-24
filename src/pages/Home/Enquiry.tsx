@@ -22,7 +22,7 @@ const Enquiry = () => {
   const [productQuantity, setProductQuantity] = useState("");
   const [contact, setContact] = useState("");
   const [message, setMessage] = useState("");
-  const [categoryId, setCategoryId] = useState("");
+  const [_categoryId, setCategoryId] = useState("");
   const [categoryList, setCategoryList] = useState<
     CategoryData[] | undefined
   >();
