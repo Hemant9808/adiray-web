@@ -1,4 +1,8 @@
 @import '@fortawesome/fontawesome-free/css/all.min.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html{
   overflow-x: hidden;
 }
