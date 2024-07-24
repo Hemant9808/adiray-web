@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'; // Import Link from React Router
-import blogbg from "../assets/blogbg.jpg";
-import blogpage from "../assets/blogpage.png";
+import blogbg from "../assets/blogbg.webp";
+import blogpage from "../assets/blogpage.webp";
 import { useTranslation } from 'react-i18next';
 import axios, { AxiosResponse } from 'axios';
 

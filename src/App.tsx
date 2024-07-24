@@ -43,7 +43,8 @@ function App() {
         { path: "join-us", element: <JoinUs /> },
       ]
     },
-    { path: "/chatbot", element: <Chatbot /> }
+    { path: "/chatbot", element: <Chatbot /> },
+    { path: "/sitemap.xml", element: <Chatbot /> }
   ]);
 
   return (
