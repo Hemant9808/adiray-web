@@ -130,8 +130,8 @@ const Blog = () => {
             </div>
           ))}
         </div>
-        <div className="flex flex-row mt-6">
-          <div className="flex justify-center  flex-wrap gap-2 space-x-2">
+          <div className="flex flex-row mt-6">
+          <div className="flex justify-center flex-wrap gap-2 space-x-2">
             <button
               onClick={() => setCurrentPage(prevPage => Math.max(prevPage - 1, 0))}
               className="bg-blue-300 hover:bg-blue-600 text-white py-2 rounded-md w-[90px]"
@@ -140,13 +140,15 @@ const Blog = () => {
               {t('Previous')}
             </button>
             {Array.from({ length: pageCount }, (_, index) => (
-              <button
-                key={index}
-                onClick={() => handlePageChange(index)}
-                className={`px-4 py-2 rounded-md ${currentPage === index ? 'bg-blue-500 text-white' : 'bg-white text-blue-500 hover:bg-blue-100'}`}
-              >
-                {index + 1}
-              </button>
+              index >= currentPage - 1 && index <= currentPage + 1 && (
+                <button
+                  key={index}
+                  onClick={() => handlePageChange(index)}
+                  className={`px-4 py-2 rounded-md ${currentPage === index ? 'bg-blue-500 text-white' : 'bg-white text-blue-500 hover:bg-blue-100'}`}
+                >
+                  {index + 1}
+                </button>
+              )
             ))}
             <button
               onClick={() => setCurrentPage(prevPage => Math.min(prevPage + 1, pageCount - 1))}
