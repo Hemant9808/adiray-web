@@ -26,7 +26,6 @@ export default function Blogpost(): JSX.Element {
     try {
       
      
-
       const response = await axios.get<Post>(`https://node-js-jwt-auth.onrender.com/api/posts/${id}`, {
         
       });
