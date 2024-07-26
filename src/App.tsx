@@ -64,7 +64,7 @@ function App() {
         },
         { path: "products", element: <Products /> },
         { path: "blog", element: <Blog /> },
-        { path: "blogpost/:id?/:title", element: <Blogpost /> },
+        { path: "blogpost/:id?/:title?", element: <Blogpost /> },
         { path: "join-us", element: <JoinUs /> },
       ]
     },
