@@ -118,7 +118,7 @@ const Blog = () => {
               </div>
               <div className="flex flex-col flex-grow">
                 <h2 className="text-lg font-semibold text-black mb-2">
-                  <Link to={`/blogpost/${post._id}/${post.title}`} className="hover:text-blue-900">
+                  <Link to={`/blogpost/${post._id}/${post.title.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '')}`} className="hover:text-blue-900">
                     {post.title}
                   </Link>
                 </h2>
