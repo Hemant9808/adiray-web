@@ -11,7 +11,7 @@ import { useTranslation } from "react-i18next";
 import fieo from "../../assets/fieo.png";
 import msme from "../../assets/msme.png";
 import { Link } from "react-router-dom";
-import { useState, useRef, useEffect } from "react";
+import { useState,useEffect } from "react";
 import AdirayPortfolio from "../../assets/AdirayPortfolio.pdf";
 import AdirayPortfoliohindi from "../../assets/AdirayPortfoliohindi.pdf";
 const Home = () => {
@@ -25,7 +25,6 @@ const Home = () => {
     });
     AOS.refresh();
   }, []);
-  const videoRefs = [useRef(), useRef(), useRef(), useRef()];
   const [hindiPdf, setHindiPdf] = useState(false)
   useEffect(() => {
     if (t("home.aboutus.heading") == "हमारे बारे में") {
@@ -50,7 +49,7 @@ const Home = () => {
         muted
         playsInline
         loop
-        webkit-playsinline
+        webkit-playsinline="true"
       />
     </div>
     {/* <div className="absolute w-full h-full inset-0 flex justify-center items-center backdrop-blur-sm bg-[#7797bc69] content">
@@ -78,7 +77,7 @@ const Home = () => {
 
 
           
-            webkit-playsInline
+            webkit-playsInline="true"
 
           />
           <div className="absolute w-full h-full inset-0 flex items-center justify-center backdrop-blur-md   bg-[#121e2c69]">

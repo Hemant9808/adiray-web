@@ -4,7 +4,7 @@ import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
-import chatbot from "../assets/chatbot_8074919.png"
+import chatbot from "../new_assets/chatbot_8074919.webp"
 
 export function Carousel() {
     return (

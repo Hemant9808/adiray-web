@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { FaEnvelope } from "react-icons/fa";
 import { FiPhone } from "react-icons/fi";
 import { useTranslation } from 'react-i18next';
-import silverlogo from "../assets/footer_logo.png";
+import silverlogo from "../new_assets/footer_logo.webp";
 import { AiFillInstagram } from "react-icons/ai";
 import { BsFacebook, BsTwitterX, BsYoutube, BsLinkedin } from "react-icons/bs";
 
@@ -45,15 +45,6 @@ const Footer = () => {
 
         <ul>
           <h2 className="text-md text-white font-semibold mb-2 font-Mont"> {t('footer.Contact')}</h2>
-          {/*<Link className="text-wrap text-gray-300 hover:text-[#ffd700]" to="https://maps.app.goo.gl/SykjUggdHa4SkLYbA">
-                        Address : D 1807, Shriram Greenfield, Bommenahalli, Bangalore. 560049
-                    </Link>
-                  <Link className="text-gray-300 hover:text-[#ffd700]"  to="mailto:admin@adirayglobal.com">
-                        Email Id : admin@adirayglobal.com
-                    </Link>
-                    <Link className="text-gray-300 hover:text-[#ffd700]" to="tel:+919620199884">
-                        Mobile : 9620199884
-                     </Link>*/}
           <div className="flex gap-6">
             {" "}
             <Link to={"tel:9620199884"}>
