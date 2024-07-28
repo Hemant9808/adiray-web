@@ -4,16 +4,16 @@ import supplychain from "../../assets/supplychain crm.mp4";
 import chat from "../../assets/chat.mp4";
 import Blog from "../../components/Blog";
 import Vision from "../../components/Vision";
-import vision3 from "../../assets/vision3.png";
+import vision3 from "../../new_assets/vision3.webp";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useTranslation } from "react-i18next";
-import fieo from "../../assets/fieo.png";
-import msme from "../../assets/msme.png";
+import fieo from "../../new_assets/fieo.webp";
+import msme from "../../new_assets/msme.webp";
 import { Link } from "react-router-dom";
 import { useState,useEffect } from "react";
-import AdirayPortfolio from "../../assets/AdirayPortfolio.pdf";
-import AdirayPortfoliohindi from "../../assets/AdirayPortfoliohindi.pdf";
+import AdirayPortfolio from "../../new_assets/AdirayPortfolio.pdf";
+import AdirayPortfoliohindi from "../../new_assets/AdirayPortfoliohindi.pdf";
 const Home = () => {
   const { t } = useTranslation();
   React.useEffect(() => {
@@ -52,11 +52,6 @@ const Home = () => {
         webkit-playsinline="true"
       />
     </div>
-    {/* <div className="absolute w-full h-full inset-0 flex justify-center items-center backdrop-blur-sm bg-[#7797bc69] content">
-      <h2 className="text-white text-[clamp(40px,3vw,4rem)] font-medium">
-        Chatbot Video Section
-      </h2>
-    </div> */}
   </div>
 </section>
 

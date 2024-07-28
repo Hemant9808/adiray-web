@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import productmain from "../../assets/productmain.png"
+import productmain from "../../new_assets/productmain.webp"
 import { Link, Outlet } from "react-router-dom";
 import { CategoryData } from "./Products";
 import { useLocation, useNavigate, useParams } from "react-router-dom"
