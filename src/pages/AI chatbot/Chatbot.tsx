@@ -317,6 +317,7 @@ export default function Chatbot() {
         <button
           className=" md:hidden flex items-center absolute top-0 left-0 m-4"
           onClick={() => setOpen(!open)}
+          aria-label={open ? "Close menu" : "Open Menu"}
         >
           {open ? (
             <AiOutlineClose
