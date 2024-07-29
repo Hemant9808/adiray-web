@@ -100,12 +100,14 @@ const Home = () => {
                       >
                       Read more
                       </a>
-                  </button> :
-                    <button 
-                      className="bg-white w-[200px] text-md h-10 rounded-lg">
-                      <a className="text-md" 
-                      href={AdirayPortfolio} 
-                      download="Adiray Portfolio">
+                    </button> :
+                    <button className="bg-white w-[200px] text-md h-10 rounded-lg">
+                      <a 
+                        className="text-md" 
+                        href={AdirayPortfolio} 
+                        download="Adiray Portfolio"
+                        aria-label="Download Adiray Portfolio"
+                      >
                         Read more
                       </a>
                     </button>}
