@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import contactImage from "../new_assets/contact.webp";
 import mail from "../new_assets/logo/mail.svg";
 import phone from "../new_assets/logo/phone.svg";
