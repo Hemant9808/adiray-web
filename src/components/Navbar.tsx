@@ -105,7 +105,7 @@ const Navbar = () => {
               </li>
               <li className="relative cursor-pointer group">
                 <div className="flex items-center gap-[2px] text-gray-500 dark:hover:text-gray-900">
-                  <img className="w-8 bg-white" src={languageicon} />
+                  <img className="w-8 bg-white" src={languageicon} alt="Language Selector" />
                 </div>
                 <div className="absolute z-[9999] hidden group-hover:block w-[200px] rounded-md bg-gray-100 shadow-md p-2 dark:text-white">
                   <ul className="space-y-2">
@@ -148,7 +148,7 @@ const Navbar = () => {
             </li>
             <li className="relative cursor-pointer group">
               <a href="#" className="flex items-center gap-[2px] text-gray-500 dark:hover:text-gray-900 py-2">
-                <img className="w-8 bg-white" src={languageicon} />
+                <img className="w-8 bg-white" src={languageicon} alt="Language Selector" />
                 <span>
                   <FaCaretDown className="group-hover:rotate-180 duration-300" />
                 </span>
