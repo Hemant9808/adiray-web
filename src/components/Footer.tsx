@@ -9,9 +9,7 @@ import { BsFacebook, BsTwitterX, BsYoutube, BsLinkedin } from "react-icons/bs";
 const Footer = () => {
   const { t } = useTranslation();
   return (
-    <footer
-      className="flex flex-col bg-[#0B1321]  justify-center "
-    >
+    <footer className="flex flex-col bg-[#0B1321]  justify-center ">
       <div className="flex pl-12 pb-8 sm:pl-0 justify-around items-start flex-col sm:flex-row gap-9 sm:gap-0 bg-[#0B1321] sm:pb-8 pt-8">
       <div className="">
           <img
@@ -19,7 +17,7 @@ const Footer = () => {
             src={silverlogo}
             alt="adiray"
           />
-        </div>
+      </div>
 
 
         <ul className="flex flex-col ">
@@ -95,7 +93,7 @@ const Footer = () => {
         </ul>
       </div>
        
-        <div className="flex  justify-center items-center text-center p-4 text-gray-500 ">
+        <div className="flex  justify-center items-center text-center p-4 text-white ">
         ©2024 adirayglobal.com{' '}
         
         {t('footer.All rights reserved')}
