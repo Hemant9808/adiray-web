@@ -49,7 +49,7 @@ const Home = () => {
         muted
         playsInline
         loop
-        webkit-playsinline="true"
+        webkit-playsInline="true"
       />
     </div>
   </div>
@@ -90,13 +90,22 @@ const Home = () => {
                 </p>
                 {/*download button*/}
                 <div className="mt-3 w-full flex justify-center">
-                  {hindiPdf ? <button className="bg-white w-[15%] text-md h-10 rounded-lg">
-                    <a className="text-md" href={AdirayPortfoliohindi} download="Adiray Portfolio">
+                  {hindiPdf ? 
+                    <button className="bg-white w-[15%] text-md h-10 rounded-lg">
+                      <a 
+                        className="text-md" 
+                        href={AdirayPortfoliohindi} 
+                        download="Adiray Portfolio"
+                        aria-label="Download Adiray Portfolio"
+                      >
                       Read more
-                    </a>
+                      </a>
                   </button> :
-                    <button className="bg-white w-[200px] text-md h-10 rounded-lg">
-                      <a className="text-md" href={AdirayPortfolio} download="Adiray Portfolio">
+                    <button 
+                      className="bg-white w-[200px] text-md h-10 rounded-lg">
+                      <a className="text-md" 
+                      href={AdirayPortfolio} 
+                      download="Adiray Portfolio">
                         Read more
                       </a>
                     </button>}
@@ -110,13 +119,13 @@ const Home = () => {
                     <img
                       className="sm:w-[200px] w-[100px]"
                       src={fieo}
-                      alt=""
+                      alt="Fieo"
                     />
                  
                 </Link>
 
-                <img className="sm:w-[200px] w-[100px] " src={msme} alt="" />
-                <img className="sm:w-[200px] w-[100px] " src={vision3} alt="" />
+                <img className="sm:w-[200px] w-[100px] " src={msme} alt="MSME logo" />
+                <img className="sm:w-[200px] w-[100px] " src={vision3} alt="Vision Logo" />
               </div>
 
               {/* End of Logo Insertion */}
