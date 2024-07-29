@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import commodities from "../../assets/commodities.mp4";
+import commodities from "../../new_assets/commodities.mp4";
 import { CategoryData } from "../products/Products";
 import axiosInstance from "../../config/axios";
 
@@ -37,8 +37,6 @@ const Enquiry = () => {
 
   async function getProductList() {
     try {
-      // console.log("Getting Product list");
-      // console.log('a'+categoryName+'e')  
       const encodedCategoryName = await encodeURIComponent(categoryName);
       const response = await axiosInstance.get(
         `/category/product/name/${encodedCategoryName}`
@@ -97,9 +95,6 @@ const Enquiry = () => {
   return (
     <div className="relative flex  bg-gray-800 flex-col items-center justify-center w-full min-h-screen bg-cover bg-center">
       <video
-        // className="relative inset-0 w-full h-[100%] object-cover opacity-100"
-        // style={{ marginTop: "0px" }}
-
         className="absolute top-0   inset-0 w-full h-full object-cover opacity-70"
         autoPlay
         playsInline

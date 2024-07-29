@@ -1,7 +1,7 @@
 import React from "react";
 import Hero from "../../components/Hero";
-import supplychain from "../../assets/supplychain crm.mp4";
-import chat from "../../assets/chat.mp4";
+import supplychain from "../../new_assets/supplychain crm.mp4";
+import chat from "../../new_assets/chat.mp4";
 import Blog from "../../components/Blog";
 import Vision from "../../components/Vision";
 import vision3 from "../../new_assets/vision3.webp";

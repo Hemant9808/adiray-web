@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import contactImage from "../new_assets/contact.webp";
-import mail from "../assets/logo/mail.svg";
-import phone from "../assets/logo/phone.svg";
+import mail from "../new_assets/logo/mail.svg";
+import phone from "../new_assets/logo/phone.svg";
 import { useTranslation } from 'react-i18next';
 import axiosInstance from "../config/axios";
 
