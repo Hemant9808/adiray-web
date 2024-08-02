@@ -43,8 +43,8 @@ async function generateSitemap() {
 
         // Add blog posts URLs
         for (const post of posts) {
-            const postId = post._id || 'default-id';
-            const postTitle = post.title ? encodeURIComponent(post.title) : 'default-title';
+            const postId = post._id;
+            const postTitle = post.title.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
             const postUrl = `https://www.adirayglobal.com/blogpost/${postId}/${postTitle}`;
             const lastModified = post.updatedAt ? new Date(post.updatedAt).toISOString() : new Date().toISOString();
 

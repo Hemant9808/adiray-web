@@ -1,6 +1,5 @@
 import styles from "../styles/hero.module.css";
-import bg from "../assets/bg.png";
-import { Button } from "./Button";
+import bg from "../new_assets/bg.webp";
 import { useTranslation } from "react-i18next";
 import ImageSwapAnimation from "./ImageswapAnimation";
 import { Link } from "react-router-dom";
@@ -41,11 +40,6 @@ const Hero = () => {
             
             </div>
             <div data-aos={shouldAnimate ? "fade-left" : ""}>
-              {/*<Link to="login">
-                <Button className="text-white font-Mont bg-blue-800 hover:bg-blue-900 ">
-                  {t("home.hero.btnLogin")}
-                </Button>
-                  </Link>*/}
             </div>
           </div>
         </div>

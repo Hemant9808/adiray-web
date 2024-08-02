@@ -7,21 +7,19 @@ interface MultiLangProps {
 }
 
 export default function MultiLang({ onSelectLanguage }: MultiLangProps) {
-  // Initialize state to store the selected language
   const [selectedLanguage, setSelectedLanguage] = useState<string | null>(null);
 
   useEffect(() => {
-    // Retrieve the selected language from sessionStorage
     const storedLanguage = sessionStorage.getItem('language');
     if (storedLanguage) {
       setSelectedLanguage(storedLanguage);
-      onSelectLanguage(storedLanguage); // Apply the stored language
+      onSelectLanguage(storedLanguage);
     }
   }, [onSelectLanguage]);
 
   const handleLanguageSelect = (language: string) => {
     setSelectedLanguage(language);
-    sessionStorage.setItem('language', language); // Save the selected language to sessionStorage
+    sessionStorage.setItem('language', language);
     onSelectLanguage(language);
   };
 

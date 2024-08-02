@@ -1,7 +1,7 @@
 import { Suspense, lazy, useState, useEffect } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import i18n from './config/i18n';
-import loader from './assets/loader.gif';
+import loader from './new_assets/loader.webp';
 import Chatbot from './pages/AI chatbot/Chatbot';
 
 const Enquiry = lazy(() => import('./pages/Home/Enquiry'));
@@ -17,12 +17,13 @@ const Blogpost = lazy(() => import('./pages/Blogs/Blogpost'));
 const MultiLang = lazy(() => import('./components/MultiLang'));
 const JoinUs = lazy(() => import('./pages/JoinUs'));
 
+
 import CategoryLayout from './pages/products/CategoryLayout';
 import ForgotPassword from './components/ForgetPassword';
 
 function App() {
-  const [showLanguageSelection, setShowLanguageSelection] = useState(true);
-  const [selectedLanguage, setSelectedLanguage] = useState<string>('');
+  const [_showLanguageSelection, setShowLanguageSelection] = useState(true);
+  const [_selectedLanguage, setSelectedLanguage] = useState<string>('');
 
   useEffect(() => {
     // Check sessionStorage for the language selection

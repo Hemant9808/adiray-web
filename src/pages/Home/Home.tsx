@@ -1,19 +1,19 @@
 import React from "react";
 import Hero from "../../components/Hero";
-import supplychain from "../../assets/supplychain crm.mp4";
-import chat from "../../assets/chat.mp4";
+import supplychain from "../../new_assets/supplychain crm.mp4";
+import chat from "../../new_assets/chat.mp4";
 import Blog from "../../components/Blog";
 import Vision from "../../components/Vision";
-import vision3 from "../../assets/vision3.png";
+import vision3 from "../../new_assets/vision3.webp";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useTranslation } from "react-i18next";
-import fieo from "../../assets/fieo.png";
-import msme from "../../assets/msme.png";
+import fieo from "../../new_assets/fieo.webp";
+import msme from "../../new_assets/msme.webp";
 import { Link } from "react-router-dom";
-import { useState, useRef, useEffect } from "react";
-import AdirayPortfolio from "../../assets/AdirayPortfolio.pdf";
-import AdirayPortfoliohindi from "../../assets/AdirayPortfoliohindi.pdf";
+import { useState,useEffect } from "react";
+import AdirayPortfolio from "../../new_assets/AdirayPortfolio.pdf";
+import AdirayPortfoliohindi from "../../new_assets/AdirayPortfoliohindi.pdf";
 const Home = () => {
   const { t } = useTranslation();
   React.useEffect(() => {
@@ -25,7 +25,6 @@ const Home = () => {
     });
     AOS.refresh();
   }, []);
-  const videoRefs = [useRef(), useRef(), useRef(), useRef()];
   const [hindiPdf, setHindiPdf] = useState(false)
   useEffect(() => {
     if (t("home.aboutus.heading") == "हमारे बारे में") {
@@ -50,14 +49,9 @@ const Home = () => {
         muted
         playsInline
         loop
-        webkit-playsinline
+        webkit-playsInline="true"
       />
     </div>
-    {/* <div className="absolute w-full h-full inset-0 flex justify-center items-center backdrop-blur-sm bg-[#7797bc69] content">
-      <h2 className="text-white text-[clamp(40px,3vw,4rem)] font-medium">
-        Chatbot Video Section
-      </h2>
-    </div> */}
   </div>
 </section>
 
@@ -78,7 +72,7 @@ const Home = () => {
 
 
           
-            webkit-playsInline
+            webkit-playsInline="true"
 
           />
           <div className="absolute w-full h-full inset-0 flex items-center justify-center backdrop-blur-md   bg-[#121e2c69]">
@@ -96,13 +90,24 @@ const Home = () => {
                 </p>
                 {/*download button*/}
                 <div className="mt-3 w-full flex justify-center">
-                  {hindiPdf ? <button className="bg-white w-[15%] text-md h-10 rounded-lg">
-                    <a className="text-md" href={AdirayPortfoliohindi} download="Adiray Portfolio">
+                  {hindiPdf ? 
+                    <button className="bg-white w-[15%] text-md h-10 rounded-lg">
+                      <a 
+                        className="text-md" 
+                        href={AdirayPortfoliohindi} 
+                        download="Adiray Portfolio"
+                        aria-label="Download Adiray Portfolio"
+                      >
                       Read more
-                    </a>
-                  </button> :
+                      </a>
+                    </button> :
                     <button className="bg-white w-[200px] text-md h-10 rounded-lg">
-                      <a className="text-md" href={AdirayPortfolio} download="Adiray Portfolio">
+                      <a 
+                        className="text-md" 
+                        href={AdirayPortfolio} 
+                        download="Adiray Portfolio"
+                        aria-label="Download Adiray Portfolio"
+                      >
                         Read more
                       </a>
                     </button>}
@@ -116,13 +121,13 @@ const Home = () => {
                     <img
                       className="sm:w-[200px] w-[100px]"
                       src={fieo}
-                      alt=""
+                      alt="Fieo"
                     />
                  
                 </Link>
 
-                <img className="sm:w-[200px] w-[100px] " src={msme} alt="" />
-                <img className="sm:w-[200px] w-[100px] " src={vision3} alt="" />
+                <img className="sm:w-[200px] w-[100px] " src={msme} alt="MSME logo" />
+                <img className="sm:w-[200px] w-[100px] " src={vision3} alt="Vision Logo" />
               </div>
 
               {/* End of Logo Insertion */}

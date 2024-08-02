@@ -145,17 +145,17 @@ const Login = () => {
                     </Button>
                 </form>
                 <div className="flex items-center justify-center mt-4">
-                    <span className="text-gray-400 text-sm">or</span>
+                    <span className="text-gray-600 text-sm">or</span>
                 </div>
                 <div
                   
                     className="w-full font-medium text-lg py-2 cursor-pointer rounded-md bg-white text-black border mt-4 flex items-center justify-center gap-2"
-                    onClick={()=>{handleGoogleLogin()}} // Ensuring the event handler is correctly bound
+                    onClick={()=>{handleGoogleLogin()}}
                 >
                     <FcGoogle size={24} />
                     Continue with Google
                 </div>
-                <h2 className="text-gray-400 flex gap-2 items-center text-base font-normal mt-6">
+                <h2 className="text-gray-600 flex gap-2 items-center text-base font-normal mt-6">
                     Are you new? <Link to="/sign-up" className="text-[#154B8B] underline">Sign up</Link>
                 </h2>
             </div>

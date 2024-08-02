@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import axios, { AxiosResponse } from 'axios';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import blogbg from '../../assets/blogbg.jpg';
-import loader from '../../assets/loader.gif';
-import blogpage from '../../assets/blogpage.png';
+import blogbg from '../../new_assets/blogbg.webp';
+import loader from '../../new_assets/loader.webp';
+import blogpage from '../../new_assets/blogpage.webp';
 
 import { useTranslation } from 'react-i18next';
 
@@ -118,7 +118,7 @@ const Blog = () => {
               </div>
               <div className="flex flex-col flex-grow">
                 <h2 className="text-lg font-semibold text-black mb-2">
-                  <Link to={`/blogpost/${post._id}/${post.title}`} className="hover:text-blue-900">
+                  <Link to={`/blogpost/${post._id}/${post.title.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '')}`} className="hover:text-blue-900">
                     {post.title}
                   </Link>
                 </h2>

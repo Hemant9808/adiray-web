@@ -1,8 +1,7 @@
 import  { useState } from "react";
-import contactImage from "../assets/contact.png";
-import mail from "../assets/logo/mail.svg";
-import phone from "../assets/logo/phone.svg";
-import gps from "../assets/logo/gps.svg";
+import contactImage from "../new_assets/contact.webp";
+import mail from "../new_assets/logo/mail.svg";
+import phone from "../new_assets/logo/phone.svg";
 import { useTranslation } from 'react-i18next';
 import axiosInstance from "../config/axios";
 import { useNavigate } from "react-router-dom";
@@ -184,24 +183,6 @@ export default function Contact() {
                   </div>
                 </div>
               </div>
-              {/*<div className="h-[78px] md:px-6 px-2 py-5 bg-neutral-100 rounded-xl flex-col justify-start items-start gap-2.5 flex">
-                <div className="w-[100%] justify-start items-center gap-[23px] inline-flex">
-                  <div className="w-11 h-9 relative">
-                    <img
-                      className=" md:w-[100%] w-[30px]  h-[30px] rounded-3xl"
-                      src={gps}
-                    />
-                  </div>
-                  <div className="flex-col justify-start items-start inline-flex">
-                    <div className="text-slate-700 text-lg font-bold ">
-                      Address
-                    </div>
-                    <div className="w-[100%] text-slate-600 text-xs font-semibold ">
-                      D 1807, Shriram Greenfield, Bommenahalli, Bangalore 560049
-                    </div>
-                  </div>
-                </div>
-        </div>*/}
             </div>
           </div>
         </div>

@@ -1,8 +1,8 @@
 import  {  useEffect } from 'react';
-import appleImg from '../assets/MovingImageHomepage/movingimage-1.jpg'
-import clothImg from '../assets/MovingImageHomepage/movingimage-2.jpg'
-import toolbox from '../assets/MovingImageHomepage/movingimage-3.jpg'
-import brick from '../assets/MovingImageHomepage/movingimage-4.jpg'
+import appleImg from '../new_assets/MovingImageHomepage/movingimage-1.webp'
+import clothImg from '../new_assets/MovingImageHomepage/movingimage-2.webp'
+import toolbox from '../new_assets/MovingImageHomepage/movingimage-3.webp'
+import brick from '../new_assets/MovingImageHomepage/movingimage-4.webp'
 // Inline CSS
 const styles = `
   .container {

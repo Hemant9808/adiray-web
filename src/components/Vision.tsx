@@ -1,5 +1,5 @@
-import group from "../assets/Group.png"
-import bg from "../assets/bg.png";
+import group from "../new_assets/Group.webp"
+import bg from "../new_assets/bg.webp";
 import { useTranslation } from 'react-i18next';
 export default function Vision() {
   const { t } = useTranslation();
