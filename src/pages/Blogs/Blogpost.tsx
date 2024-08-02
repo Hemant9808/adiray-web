@@ -1,7 +1,7 @@
 import { FaArrowLeft } from 'react-icons/fa';
-import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from 'react';
+import axiosInstance from '../../config/axios';
 
 interface Post {
   _id: string;
@@ -17,16 +17,16 @@ interface Post {
 }
 
 export default function Blogpost(): JSX.Element {
-  const { id } = useParams();
+  const { id , title} = useParams();
   const navigate = useNavigate();
   const [post, setPost] = useState<Post | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
   const fetchBlogPost = async () => {
     try {
-      
      
-      const response = await axios.get<Post>(`https://node-js-jwt-auth.onrender.com/api/posts/${id}`, {
+     
+      const response = await axiosInstance.get<Post>(`/posts/${id}/${title}`, {
         
       });
       setPost(response.data);
