@@ -2,7 +2,7 @@ import { FaArrowLeft } from 'react-icons/fa';
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import axiosInstance from '../../config/axios';
-
+import { Helmet } from 'react-helmet';
 interface Post {
   _id: string;
   author: string;
@@ -76,6 +76,42 @@ export default function Blogpost(): JSX.Element {
   }
 
   return (
+    <>
+     <Helmet>
+        <title>{post.title || 'Blog Post Title'}</title>
+        <meta name="description" content={post.description || 'Blog post description'} />
+        <meta name="title" content={post.title || 'Blog, Article'} />
+        <meta name="author" content={post.author || 'Unknown'} />
+        <meta name="publication_date" content={post.createdAt || new Date().toISOString()} />
+        <meta property="og:title" content={post.title || 'Blog Post Title'} />
+        <meta property="og:description" content={post.description || 'Blog post description'} />
+        <meta property="og:image" content={post.imageUrl || ''} />
+        <meta property="og:url" content={`https://www.adirayglobal.com/blogpost/${post._id}/${post.title}`} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={post.title || 'Blog Post Title'} />
+        <meta name="twitter:description" content={post.description || 'Blog post description'} />
+        <meta name="twitter:image" content={post.imageUrl || ''} />
+        <meta name="twitter:site" content="@yourtwitterhandle" />
+
+        {/* Schema Markup */}
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "BlogPosting",
+              "headline": "${post.title}",
+              "description": "${post.description}",
+              "image": "${post.imageUrl}",
+              "author": {
+                "@type": "Person",
+                "name": "${post.author}"
+              },
+              "datePublished": "${post.createdAt}",
+              "dateModified": "${post.updatedAt}",
+            }
+          `}
+        </script>
+      </Helmet>
     <div className="h-auto flex flex-col  items-center justify-center pt-8 pb-12">
       <div className="h-auto flex justify-center mt-32 ">
         <div className="w-[80vw]  max-w-[800px] h-auto flex flex-col justify-start gap-7">
@@ -109,5 +145,6 @@ export default function Blogpost(): JSX.Element {
         </div>
       </div>
     </div>
+    </>
   );
 }
