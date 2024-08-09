@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom'; // Import Link from React Router
 import blogbg from "../new_assets/blogbg.webp";
 import blogpage from "../new_assets/blogAuthor.webp";
 import { useTranslation } from 'react-i18next';
-import axios, { AxiosResponse } from 'axios';
-
+import  { AxiosResponse } from 'axios';
+import { Helmet } from 'react-helmet'; 
+import axiosInstance from '../config/axios';
 // Define the interface for blog post
 interface BlogPost {
   _id: string;
@@ -20,8 +21,8 @@ const Blog: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    axios
-      .get<BlogPost[]>('https://node-js-jwt-auth.onrender.com/api/posts/')
+    axiosInstance
+      .get<BlogPost[]>('/posts/')
       .then((response: AxiosResponse<BlogPost[]>) => {
         // Sort blog posts by createdAt in descending order
         const sortedPosts = response.data.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
@@ -112,24 +113,48 @@ const Blog: React.FC = () => {
       
       <section className="flex justify-center items-center py-10 px-5">
         <div className="flex flex-wrap gap-8 justify-center">
-          {blogPosts.map((post) => (
-            <Link key={post._id} to={`/blogpost/${post._id}`} >
-              <div data-aos="fade-up" data-aos-delay="150"
-                className="md:w-[420px] w-[320px] md:h-[320px] h-[250px]  rounded-[14px] shadow border flex-col justify-center items-center inline-flex">
-                <div className="bg-sky-950 bg-opacity-0 rounded-lg z-1">
-                  <img className="z-1 md:w-[420px] md:h-[320px] w-[320px] h-[250px] rounded-xl" src={post.imageUrl || blogpage} alt={post.title} />
+        {blogPosts.map((post) => (
+        <div key={post._id}>
+          {/* SEO Meta Tags */}
+          <Helmet>
+            <title>{truncateText(post.title, 60) || 'Blog Post Title'}</title>
+            <meta name="description" content={truncateText(post.description, 150) || 'Blog post description'} />
+            <meta name="keywords" content={`Blog, ${post.title}`} />
+            <meta property="og:title" content={post.title || 'Blog Post Title'} />
+            <meta property="og:description" content={post.description || 'Blog post description'} />
+            <meta property="og:image" content={post.imageUrl || blogpage} />
+            <meta property="og:url" content={`https://www.adirayglobal.com/blogpost/${post._id}/${post.title}`} />
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:title" content={post.title || 'Blog Post Title'} />
+            <meta name="twitter:description" content={post.description || 'Blog post description'} />
+            <meta name="twitter:image" content={post.imageUrl || blogpage} />
+          </Helmet>
+
+          <Link to={`/blogpost/${post._id}/${post.title}`}>
+            <div
+              data-aos="fade-up"
+              data-aos-delay="150"
+              className="md:w-[420px] w-[320px] md:h-[320px] h-[250px] rounded-[14px] shadow border flex-col justify-center items-center inline-flex"
+            >
+              <div className="bg-sky-950 bg-opacity-0 rounded-lg z-1">
+                <img
+                  className="z-1 md:w-[420px] md:h-[320px] w-[320px] h-[250px] rounded-xl"
+                  src={post.imageUrl || blogpage}
+                  alt={post.title}
+                />
+              </div>
+              <div className="absolute md:w-[420px] w-[320px] h-[150px] md:h-[150px] mt-[120px] md:mt-[170px] mr-1 z-3 text-wrap object-cover self-stretch z-3 p-4 overflow-hidden bg-white bg-opacity-85 rounded-md shadow-inner flex-col justify-start items-start gap-1.5 flex">
+                <div className="font-Mont self-stretch text-gray-900 text-xl md:text-2xl font-bold">
+                  {truncateText(post.title, 50) || t('home.blogsection.cardheading')}
                 </div>
-                <div className="absolute   md:w-[420px] w-[320px] h-[150px] md:h-[150px] mt-[120px] md:mt-[170px] mr-1 z-3 text-wrap object-cover self-stretch z-3 p-4 overflow-hidden bg-white bg-opacity-85 rounded-md shadow-inner flex-col justify-start items-start gap-1.5 flex">
-                  <div className="font-Mont  self-stretch  text-gray-900 text-xl md:text-2xl font-bold">
-                    {truncateText(post.title, 50) || t('home.blogsection.cardheading')}
-                  </div>
-                  <div className="z-3  relative self-stretch text-slate-600 text-[10px] md:text-xs font-semibold">
-                    {truncateText(post.description, 100) || t('home.blogsection.carddescription')}
-                  </div>
+                <div className="z-3 relative self-stretch text-slate-600 text-[10px] md:text-xs font-semibold">
+                  {truncateText(post.description, 100) || t('home.blogsection.carddescription')}
                 </div>
               </div>
-            </Link>
-          ))}
+            </div>
+          </Link>
+        </div>
+      ))}
         </div>
       </section>
     </div>
