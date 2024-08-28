@@ -24,10 +24,6 @@ const Layout = () => {
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.adirayglobal.com" />
-        <meta
-          property="og:image"
-          content="https://www.adirayglobal.com/logo.png"
-        />
       </Helmet>
       <Navbar />
       <Outlet />
