@@ -27,11 +27,11 @@ async function generateSitemap() {
         // Fetch list of all blog posts
         const response = await axios.get('https://node-js-jwt-auth.onrender.com/api/posts/');
         const posts = response.data;
-
+        
         // Initialize the sitemap content
         let sitemapContent = '<?xml version="1.0" encoding="UTF-8"?>\n';
         sitemapContent += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
-
+        
         // Add static URLs
         staticUrls.forEach(url => {
             sitemapContent += '  <url>\n';
@@ -40,7 +40,7 @@ async function generateSitemap() {
             sitemapContent += `    <priority>${url.priority}</priority>\n`;
             sitemapContent += '  </url>\n';
         });
-
+        
         // Add blog posts URLs
         for (const post of posts) {
             const postId = post._id;
@@ -54,9 +54,9 @@ async function generateSitemap() {
             sitemapContent += '    <priority>0.8</priority>\n';
             sitemapContent += '  </url>\n';
         }
-
+        
         sitemapContent += '</urlset>';
-
+        
         // Write the sitemap content to a file
         writeFileSync(join(__dirname, 'public', 'sitemap.xml'), sitemapContent, 'utf8');
         console.log('Sitemap generated successfully.');

@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import contactImage from "../new_assets/contact.webp";
 import mail from "../new_assets/logo/mail.svg";
 import phone from "../new_assets/logo/phone.svg";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 import axiosInstance from "../config/axios";
 
 export default function JoinUs() {
@@ -17,13 +17,13 @@ export default function JoinUs() {
 
   async function handleFormSubmit() {
     setSentMsg(true);
-    const response = await axiosInstance.post('/send-mail/join-us', {
+    const response = await axiosInstance.post("/send-mail/join-us", {
       name: name,
       productName: productName,
       productCategory: productCategory,
       productQuantity: productQuantity,
       contact: contact,
-      message: message
+      message: message,
     });
     const data = response.data;
     if (data.success) {
@@ -50,21 +50,21 @@ export default function JoinUs() {
                       <div className="flex-col justify-start items-start gap-3 flex">
                         <div className="flex-col justify-start items-start flex gap-2">
                           <div className="text-pink-600 font-Mont text-lg font-extrabold ">
-                            {t('contactus.Get in Touch')}
+                            {t("contactus.Get in Touch")}
                           </div>
                           <div className=" font-Mont md:text-5xl text-[clamp(30px,3.5vw,3rem)] ">
                             <span className="text-gray-900  font-bold ">
-                              {t('home.hero.btnManufacturer')}{" "}
+                              {t("home.hero.btnManufacturer")}{" "}
                             </span>
                             <span className="text-gray-900 font-extrabold ">
                               {" "}
                             </span>
-                            
                           </div>
                         </div>
                         <h3 className="w-[100%] h-12 whitespace-normal word-wrap text-slate-500 text-[14px] sm:text-[16px]">
-                          {t('contactus.Address any issue effortlessly with a simple question. Problem-solving simplified.')}
-
+                          {t(
+                            "contactus.Address any issue effortlessly with a simple question. Problem-solving simplified."
+                          )}
                         </h3>
                       </div>
                     </div>
@@ -72,16 +72,20 @@ export default function JoinUs() {
                       <div className=" w-[100%] flex-col justify-start items-start gap-1.5 flex">
                         <div className="flex-col justify-start items-start gap-1.5 flex">
                           <div className="text-slate-700  text-sm font-bold ">
-                            {t('contactus.Name')}
-
+                            {t("contactus.Name")}
                           </div>
                         </div>
 
                         {/* Contact Us Name  */}
                         <div className="w-[100%]  h-11   bg-white rounded-md border border-neutral-300 justify-start items-center gap-2.5 inline-flex">
-                          <input value={name} onChange={(e) => { setName(e.target.value) }} className="w-[100%] h-[100%] pl-5 text-gray-400 text-[12px] font-semibold " placeholder={t('contactus.Name')}>
-
-                          </input>
+                          <input
+                            value={name}
+                            onChange={(e) => {
+                              setName(e.target.value);
+                            }}
+                            className="w-[100%] h-[100%] pl-5 text-gray-400 text-[12px] font-semibold "
+                            placeholder={t("contactus.Name")}
+                          ></input>
                         </div>
                       </div>
 
@@ -89,14 +93,18 @@ export default function JoinUs() {
                       <div className=" w-[100%] flex-col justify-start items-start gap-1.5 flex">
                         <div className="flex-col justify-start items-start gap-1.5 flex">
                           <div className="text-slate-700  text-sm font-bold ">
-                            {t('contactus.Product Name')}
-
+                            {t("contactus.Product Name")}
                           </div>
                         </div>
                         <div className="w-[100%]  h-11   bg-white rounded-md border border-neutral-300 justify-start items-center gap-2.5 inline-flex">
-                          <input value={productName} onChange={(e) => { setProductName(e.target.value) }} className="w-[100%] h-[100%] pl-5 text-gray-400 text-[12px] font-semibold " placeholder={t('contactus.Product Name')}>
-
-                          </input>
+                          <input
+                            value={productName}
+                            onChange={(e) => {
+                              setProductName(e.target.value);
+                            }}
+                            className="w-[100%] h-[100%] pl-5 text-gray-400 text-[12px] font-semibold "
+                            placeholder={t("contactus.Product Name")}
+                          ></input>
                         </div>
                       </div>
 
@@ -104,14 +112,18 @@ export default function JoinUs() {
                       <div className=" w-[100%] flex-col justify-start items-start gap-1.5 flex">
                         <div className="flex-col justify-start items-start gap-1.5 flex">
                           <div className="text-slate-700  text-sm font-bold ">
-                            {t('contactus.Product Category')}
-
+                            {t("contactus.Product Category")}
                           </div>
                         </div>
                         <div className="w-[100%]  h-11   bg-white rounded-md border border-neutral-300 justify-start items-center gap-2.5 inline-flex">
-                          <input value={productCategory} onChange={(e) => { setProductCategory(e.target.value) }} className="w-[100%] h-[100%] pl-5 text-gray-400 text-[12px] font-semibold " placeholder={t('contactus.Product Category')}>
-
-                          </input>
+                          <input
+                            value={productCategory}
+                            onChange={(e) => {
+                              setProductCategory(e.target.value);
+                            }}
+                            className="w-[100%] h-[100%] pl-5 text-gray-400 text-[12px] font-semibold "
+                            placeholder={t("contactus.Product Category")}
+                          ></input>
                         </div>
                       </div>
 
@@ -119,46 +131,63 @@ export default function JoinUs() {
                       <div className=" w-[100%] flex-col justify-start items-start gap-1.5 flex">
                         <div className="flex-col justify-start items-start gap-1.5 flex">
                           <div className="text-slate-700  text-sm font-bold ">
-                            {t('contactus.Product Quantity')}
-
+                            {t("contactus.Product Quantity")}
                           </div>
                         </div>
                         <div className="w-[100%]  h-11   bg-white rounded-md border border-neutral-300 justify-start items-center gap-2.5 inline-flex">
-                          <input value={productQuantity} onChange={(e) => { setProductQuantity(e.target.value) }} className="w-[100%] h-[100%] pl-5 text-gray-400 text-[12px] font-semibold " placeholder={t('contactus.Product Quantity')}>
-
-                          </input>
+                          <input
+                            value={productQuantity}
+                            onChange={(e) => {
+                              setProductQuantity(e.target.value);
+                            }}
+                            className="w-[100%] h-[100%] pl-5 text-gray-400 text-[12px] font-semibold "
+                            placeholder={t("contactus.Product Quantity")}
+                          ></input>
                         </div>
                       </div>
 
                       {/* Contact  */}
                       <div className=" w-[100%] flex-col justify-start items-start gap-1.5 flex">
                         <div className="text-slate-600 text-sm font-bold ">
-                          {t('contactus.Contact')}{" "}
+                          {t("contactus.Contact")}{" "}
                         </div>
                         <div className="w-[100%]  h-11   bg-white rounded-md border border-neutral-300 justify-start items-center gap-2.5 inline-flex">
-                          <input value={contact} onChange={(e) => { setContact(e.target.value) }} className="w-[100%] h-[100%] pl-5 text-gray-400 text-[12px] font-semibold " placeholder={t('contactus.phone number/email address')}>
-
-                          </input>
+                          <input
+                            value={contact}
+                            onChange={(e) => {
+                              setContact(e.target.value);
+                            }}
+                            className="w-[100%] h-[100%] pl-5 text-gray-400 text-[12px] font-semibold "
+                            placeholder={t(
+                              "contactus.phone number/email address"
+                            )}
+                          ></input>
                         </div>
                       </div>
 
                       {/* Message  */}
                       <div className=" w-[100%]  flex-col justify-start items-start gap-1.5 flex">
                         <div className="text-slate-600 text-sm font-bold ">
-                          {t('contactus.Your Message')}
-
+                          {t("contactus.Your Message")}
                         </div>
                         <div className="w-[100%] h-56   bg-white rounded-lg border border-neutral-300 justify-start items-start gap-2.5 inline-flex">
                           <div className="w-[100%] h-56  justify-start items-start gap-2.5 flex">
-                            <textarea value={message} onChange={(e) => { setMessage(e.target.value) }} placeholder={t('contactus.Leave Us Your Message...')}
-                              className="text-gray-400 p-5 w-[100%] h-[100%] text-[13px] font-semibold  rounded-lg border-none">
-                            </textarea>
+                            <textarea
+                              value={message}
+                              onChange={(e) => {
+                                setMessage(e.target.value);
+                              }}
+                              placeholder={t(
+                                "contactus.Leave Us Your Message..."
+                              )}
+                              className="text-gray-400 p-5 w-[100%] h-[100%] text-[13px] font-semibold  rounded-lg border-none"
+                            ></textarea>
                           </div>
                         </div>
                       </div>
                     </div>
                     <button className="w-[100%] h-11 py-2.5 bg-blue-900 text-center text-slate-200 text-sm font-bold rounded-md justify-center items-center gap-2.5 inline-flex">
-                      {t('contactus.Send Message')}
+                      {t("contactus.Send Message")}
                     </button>
                   </div>
                 </div>
@@ -183,7 +212,10 @@ export default function JoinUs() {
             </>
           )}
         </div>
-        <div className="flex-col   gap-[30px] inline-flex justify-center items-center" style={{ maxWidth: "80vw" }}>
+        <div
+          className="flex-col   gap-[30px] inline-flex justify-center items-center"
+          style={{ maxWidth: "80vw" }}
+        >
           <div className="rounded-3xl shadow flex-col justify-center items-center gap-25 flex">
             <img
               className=" md:w-[100%] w-[100%]  h-[80%] rounded-3xl"
@@ -202,7 +234,7 @@ export default function JoinUs() {
                   </div>
                   <div className="flex-col justify-start items-start inline-flex">
                     <div className="text-slate-700 text-lg font-bold ">
-                      {t('Email')}
+                      {t("Email")}
                     </div>
                     <div className=" text-slate-600 text-xs font-semibold ">
                       contact@adirayglobal.com
@@ -220,7 +252,7 @@ export default function JoinUs() {
                   </div>
                   <div className="flex-col justify-start items-start inline-flex">
                     <div className="text-slate-700 text-lg font-bold ">
-                      {t('Phone')}
+                      {t("Phone")}
                     </div>
                     <div className=" text-slate-600 text-xs font-semibold ">
                       9620199884 | 9525500039
