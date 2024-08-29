@@ -126,7 +126,7 @@ const Blog = () => {
             <meta name="twitter:description" content={post.description || 'Blog post description'} />
             <meta name="twitter:image" content={post.imageUrl || blogpage} />
           </Helmet>
-
+          
           <div className="flex-shrink-0 md:w-1/3">
             <Link to={`/blogpost/${post._id}/${post.title}`}>
               <img src={post.imageUrl || blogpage} alt={post.title} className="rounded-lg object-cover w-full h-[200px]" />
