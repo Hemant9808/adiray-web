@@ -66,14 +66,14 @@ const Blog = () => {
 
   const extractFirst20Words = (text: string): string => {
     const words = text.split(' ');
-    const first20Words = words.slice(0, 20);
+    const first20Words = words.slice(0, 16);
     return first20Words.join(' ') + (words.length > 20 ? '...' : '');
   };
-
+  
   if (loading) {
     return <div className='w-full h-screen flex justify-center items-center'><img className='w-8' src={loader} alt="" /></div>;
   }
-
+  
   if (!blogPosts.length) {
     return <div>{t('No posts found')}</div>;
   }

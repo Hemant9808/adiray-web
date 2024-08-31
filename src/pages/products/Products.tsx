@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 
 import image1 from "../../new_assets/image1.webp";
@@ -18,11 +17,11 @@ import image14 from "../../new_assets/image14.webp";
 import image15 from "../../new_assets/image15.webp";
 import image16 from "../../new_assets/image16.webp";
 
-
 import productmain from "../../new_assets/productmain.webp";
 import CategoryCard from "../../components/CategoryCard";
 import { useTranslation } from "react-i18next";
 import Spinner from "../../components/Spinner";
+import { Helmet } from "react-helmet";
 
 export interface CategoryData {
   id: string;
@@ -36,7 +35,9 @@ const Products = () => {
   >();
 
   async function getCategoryList() {
-    const response = await fetch("https://node-js-jwt-auth.onrender.com/api/category");
+    const response = await fetch(
+      "https://node-js-jwt-auth.onrender.com/api/category"
+    );
     const data = await response.json();
     setCategoryList(data);
     console.log(categoryList);
@@ -44,12 +45,10 @@ const Products = () => {
 
   const [imageIndex, setImageIndex] = useState(0);
 
-
   const set1 = [image1, image2, image3, image4];
   const set2 = [image5, image6, image7, image8];
   const set3 = [image9, image10, image11, image12];
   const set4 = [image13, image14, image15, image16];
-
 
   const imageSets = [set1, set2, set3, set4];
 
@@ -57,45 +56,67 @@ const Products = () => {
     getCategoryList();
 
     const interval = setInterval(() => {
-      setImageIndex(prevIndex => (prevIndex + 1));
-
+      setImageIndex((prevIndex) => prevIndex + 1);
     }, 4000); // Change image every 3 seconds
 
     return () => clearInterval(interval);
-
   }, []);
 
   const { t } = useTranslation();
 
   return (
-    <section className="pt-[12vh]">
-      <div className="relative h-64 overflow-hidden group">
-        <img
-          className="object-cover h-full w-full group-hover:scale-150 ease-in-out duration-1000"
-          src={productmain}
-          alt="clothes"
+    <>
+      <Helmet>
+        <title>Adiray Global | Products</title>
+        <meta
+          name="description"
+          content="Adiray Global is a leading company providing top-notch services and products worldwide."
         />
-        <div className="absolute inset-0 overflow-hidden bg-transparent  z-10  flex items-center justify-center">
-          <h1 className="text-[clamp(30px,2.5vw,4rem)] text-white font-Mont font-semibold">
-            {t("Our")} <span className="text-[#FFC900]">{t("Products")}</span>
-          </h1>
+        <meta
+          name="keywords"
+          content="Adiray Global, services, products, worldwide, leading company"
+        />
+        <meta name="author" content="Adiray Global" />
+        <meta property="og:title" content="Adiray Global - Home" />
+        <meta
+          property="og:description"
+          content="Adiray Global is a leading company providing top-notch services and products worldwide."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.adirayglobal.com" />
+      </Helmet>
+      <section className="pt-[12vh]">
+        <div className="relative h-64 overflow-hidden group">
+          <img
+            className="object-cover h-full w-full group-hover:scale-150 ease-in-out duration-1000"
+            src={productmain}
+            alt="clothes"
+          />
+          <div className="absolute inset-0 overflow-hidden bg-transparent  z-10  flex items-center justify-center">
+            <h1 className="text-[clamp(30px,2.5vw,4rem)] text-white font-Mont font-semibold">
+              {t("Our")} <span className="text-[#FFC900]">{t("Products")}</span>
+            </h1>
+          </div>
         </div>
-      </div>
 
-      <section className="flex justify-center items-center py-20 px-5">
-        <div className="flex flex-wrap gap-8 justify-center min-h-screen">
-          {categoryList && categoryList?.length !== 0 ?
-            (categoryList.map((category, index) => (
-              <CategoryCard
-                key={index}
-                categoryId={category.id}
-                categoryName={category.name}
-                imageUrl={category.imageUrl}
-              />
-            ))) : <Spinner />}
-        </div>
+        <section className="flex justify-center items-center py-20 px-5">
+          <div className="flex flex-wrap gap-8 justify-center min-h-screen">
+            {categoryList && categoryList?.length !== 0 ? (
+              categoryList.map((category, index) => (
+                <CategoryCard
+                  key={index}
+                  categoryId={category.id}
+                  categoryName={category.name}
+                  imageUrl={category.imageUrl}
+                />
+              ))
+            ) : (
+              <Spinner />
+            )}
+          </div>
+        </section>
       </section>
-    </section>
+    </>
   );
 };
 

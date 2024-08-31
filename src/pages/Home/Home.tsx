@@ -14,6 +14,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import AdirayPortfolio from "../../new_assets/AdirayPortfolio.pdf";
 import AdirayPortfoliohindi from "../../new_assets/AdirayPortfoliohindi.pdf";
+import { Helmet } from "react-helmet";
 const Home = () => {
   const { t } = useTranslation();
   React.useEffect(() => {
@@ -36,6 +37,25 @@ const Home = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Adiray Global | Home</title>
+        <meta
+          name="description"
+          content="Adiray Global is a leading company providing top-notch services and products worldwide."
+        />
+        <meta
+          name="keywords"
+          content="Adiray Global, services, products, worldwide, leading company"
+        />
+        <meta name="author" content="Adiray Global" />
+        <meta property="og:title" content="Adiray Global - Home" />
+        <meta
+          property="og:description"
+          content="Adiray Global is a leading company providing top-notch services and products worldwide."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.adirayglobal.com" />
+      </Helmet>
       <main className="pt-[10vh]  flex-auto gap-10 relative">
         <Hero />
         <section className="relative  flex justify-center items-center overflow-hidden ">
