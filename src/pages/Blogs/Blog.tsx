@@ -114,7 +114,8 @@ const Blog = () => {
           
           {/* SEO Meta Tags */}
           <Helmet>
-            <title>{post.title || 'Blog Post Title'}</title>
+            {/* <title>{post.title || 'Blog Post Title'}</title> */}
+            <title>Adiray Global | Blogs</title>
             <meta name="description" content={extractFirst20Words(post.description) || 'Blog post description'} />
             <meta name="keywords" content={`Blog, ${post.title}`} />
             <meta property="og:title" content={post.title || 'Blog Post Title'} />
