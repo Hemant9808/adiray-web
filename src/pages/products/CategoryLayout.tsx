@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import productmain from "../../new_assets/productmain.webp"
 import { Link, Outlet } from "react-router-dom";
 import { CategoryData } from "./Products";

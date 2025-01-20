@@ -99,8 +99,8 @@ const Products = () => {
           </div>
         </div>
 
-        <section className="flex justify-center items-center py-20 px-5">
-          <div className="flex flex-wrap gap-8 justify-center min-h-screen">
+        <section className="flex justify-center items-center bg-[#E8EDF3] py-20 px-5">
+          <div className="flex flex-wrap gap-8 justify-center ">
             {categoryList && categoryList?.length !== 0 ? (
               categoryList.map((category, index) => (
                 <CategoryCard
