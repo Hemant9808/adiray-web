@@ -6,30 +6,70 @@ import { useTranslation } from "react-i18next";
 import axiosInstance from "../config/axios";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import { z } from "zod";
+
+const ContactFormSchema = z.object({
+  name: z.string().min(1, { message: "Name is required" }),
+  contact: z
+    .string()
+    .min(1, { message: "Contact is required" })
+    .refine(
+      (value) =>
+        /\S+@\S+\.\S+/.test(value) || /^[0-9]{10,}$/.test(value),
+      { message: "Provide a valid email or phone number" }
+    ),
+  message: z.string().min(1, { message: "Message is required" }),
+});
 
 export default function Contact() {
   const { t } = useTranslation();
   const [sentMsg, setSentMsg] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [name, setName] = useState("");
   const [contact, setContact] = useState("");
   const [message, setMessage] = useState("");
-  const navigate = useNavigate();
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
   async function handleFormSubmit() {
-    const response = await axiosInstance.post("/send-mail/contact-us", {
-      name: name,
-      contact: contact,
-      message: message,
-    });
-    const data = response.data;
-    if (data.success) {
-      setSentMsg(true);
-    } else {
-      setSentMsg(false);
-      console.error(data.message);
+    const formData = { name, contact, message };
+
+
+    try {
+      // Validate form data using Zod
+      ContactFormSchema.parse(formData);
+
+      setErrors({}); // Clear errors if validation passes
+      setIsSubmitting(true);
+      // Submit form data via API
+      const response = await axiosInstance.post("/send-mail/contact-us", {
+        name,
+        contact,
+        message,
+      });
+
+      const data = response.data;
+      if (data.success) {
+        setSentMsg(true);
+      } else {
+        setSentMsg(false);
+        console.error(data.message);
+      }
+    } catch (validationError) {
+      if (validationError instanceof z.ZodError) {
+        // Set errors based on Zod validation
+        const zodErrors = validationError.flatten().fieldErrors;
+        setErrors({
+          name: zodErrors.name?.[0] || "",
+          contact: zodErrors.contact?.[0] || "",
+          message: zodErrors.message?.[0] || "",
+        });
+      } else {
+        console.error("Unexpected error during validation:", validationError);
+      }
+    } finally {
+      setIsSubmitting(false);
     }
-    //Temporarily Navigate to home despite the result
-    navigate("/");
+
   }
 
   return (
@@ -105,7 +145,8 @@ export default function Contact() {
                                 {t("contactus.Name")}
                               </div>
                             </div>
-                            <div className="w-[100%]  h-11   bg-white rounded-md border border-neutral-300 justify-start items-center gap-2.5 inline-flex">
+                            <div className={`w-[100%]  h-11   bg-white rounded-md border border-neutral-300 justify-start items-center gap-2.5 inline-flex ${errors.name ? "border-red-500" : "border-neutral-300"
+                              }`}>
                               <input
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
@@ -113,28 +154,36 @@ export default function Contact() {
                                 placeholder={t("contactus.Name")}
                               ></input>
                             </div>
+                            {errors.name && (
+                              <div className="text-red-500 text-xs">{errors.name}</div>
+                            )}
                           </div>
                           <div className=" w-[100%] flex-col justify-start items-start gap-1.5 flex">
                             <div className="text-slate-600 text-sm font-bold ">
                               {t("contactus.Contact")}{" "}
                             </div>
-                            <div className="w-[100%]  h-11   bg-white rounded-md border border-neutral-300 justify-start items-center gap-2.5 inline-flex">
+                            <div className={`w-[100%]  h-11 ${errors.contact ? "border-red-500" : "border-neutral-300"
+                              }   bg-white rounded-md border border-neutral-300 justify-start items-center gap-2.5 inline-flex`}>
                               <input
                                 value={contact}
                                 onChange={(e) => setContact(e.target.value)}
-                                className="w-[100%] h-[100%] pl-5 text-gray-400 text-[12px] font-semibold "
+                                className="w-[100%] h-[100%] pl-5 text-gray-400 text-[12px]  font-semibold "
                                 placeholder={t(
                                   "contactus.phone number/email address"
                                 )}
                               ></input>
                             </div>
+                            {errors.contact && (
+                              <div className="text-red-500 text-xs">{errors.contact}</div>
+                            )}
                           </div>
-                          <div className=" w-[100%]  flex-col justify-start items-start gap-1.5 flex">
+                          <div className=" w-[100%]  flex-col justify-start items-start gap-1.5  flex">
                             <div className="text-slate-600 text-sm font-bold ">
                               {t("contactus.Your Message")}
                             </div>
-                            <div className="w-[100%] h-56   bg-white rounded-lg border border-neutral-300 justify-start items-start gap-2.5 inline-flex">
-                              <div className="w-[100%] h-56  justify-start items-start gap-2.5 flex">
+                            <div className={`w-[100%] h-56   bg-white rounded-lg border border-neutral-300 justify-start items-start gap-2.5 inline-flex ${errors.message ? "border-red-500" : "border-neutral-300"
+                              }`}>
+                              <div className="w-[100%] h-56  justify-start items-start gap-2.5 flex ">
                                 <textarea
                                   value={message}
                                   onChange={(e) => setMessage(e.target.value)}
@@ -145,14 +194,22 @@ export default function Contact() {
                                 ></textarea>
                               </div>
                             </div>
+                            {errors.message && (
+                              <div className="text-red-500 text-xs">{errors.message}</div>
+                            )}
                           </div>
                         </div>
-                        <div className="w-[100%] h-11 py-2.5 bg-blue-900 rounded-md justify-center items-center gap-2.5 inline-flex">
+                        <div className={` w-[100%] h-11 py-2.5 bg-blue-900 rounded-md justify-center items-center gap-2.5 inline-flex ${isSubmitting ? "bg-gray-400" : "bg-blue-600 text-white"
+                          }`} >
                           <button
                             type="submit"
-                            className="text-slate-200 text-sm font-bold "
+                            className="text-slate-200 text-sm font-bold  "
+                            disabled={isSubmitting}
                           >
-                            {t("contactus.Send Message")}
+                            {isSubmitting
+                              ? t("contactus.Sending...") // Change button text when submitting
+                              : t("contactus.Send Message")}
+
                           </button>
                         </div>
                       </div>
@@ -231,7 +288,7 @@ export default function Contact() {
             </div>
           </div>
         </div>
-      </div>
+      </div >
     </>
   );
 }

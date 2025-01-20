@@ -117,7 +117,8 @@ i18n.use(initReactI18next).init({
           "Your Message": "Your Message",
           "Send Message": "Send Message",
           "Leave Us Your Message...": "Leave Us Your Message...",
-          "phone number/email address": "phone number/email address"
+          "phone number/email address": "phone number/email address",
+          "Sending..." : "Sending..." 
       },
 
         "Latest":"Latest",
@@ -204,7 +205,7 @@ i18n.use(initReactI18next).init({
         "Blog":"ब्लॉग",
         "Language" :"भाषा"
         },
-        "charbot":{
+        "chatbot":{
           "Welcome to ITrade": "आदिरे में आपका स्वागत है",
           "Start Your": "शुरुआत करें अपनी",
           "Trade Journey": "व्यापारिक यात्रा",
@@ -244,7 +245,8 @@ i18n.use(initReactI18next).init({
           "Your Message": "आपका संदेश",
           "Send Message": "संदेश भेजें",
           "Leave Us Your Message...": "हमें अपना संदेश छोड़ें...",
-          "phone number/email address": "फोन नंबर/ईमेल पता"
+          "phone number/email address": "फोन नंबर/ईमेल पता",
+          "Sending...": "भेज रहा हूँ..."
       },
       
         "Latest": "नवीनतम",
