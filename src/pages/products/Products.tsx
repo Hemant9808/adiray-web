@@ -111,7 +111,18 @@ const Products = () => {
                 />
               ))
             ) : (
-              <Spinner />
+              Array.from({ length: 4 }).map((_, index) => (
+                <div
+                  key={index}
+                  className="w-64 h-80 bg-gray-200 rounded-lg shadow-md animate-pulse border border-gray-300"
+                >
+                  <div className="h-2/3 bg-gray-300 rounded-t-lg"></div>
+                  <div className="h-1/3 p-4">
+                    <div className="w-3/4 h-4 bg-gray-400 rounded mb-2"></div>
+                    <div className="w-1/2 h-4 bg-gray-400 rounded"></div>
+                  </div>
+                </div>
+              ))
             )}
           </div>
         </section>
