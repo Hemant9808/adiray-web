@@ -4,7 +4,6 @@ import mail from "../new_assets/logo/mail.svg";
 import phone from "../new_assets/logo/phone.svg";
 import { useTranslation } from "react-i18next";
 import axiosInstance from "../config/axios";
-import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { z } from "zod";
 
@@ -40,7 +39,7 @@ export default function Contact() {
 
       setErrors({}); // Clear errors if validation passes
       setIsSubmitting(true);
-      // Submit form data via API
+
       const response = await axiosInstance.post("/send-mail/contact-us", {
         name,
         contact,

@@ -77,7 +77,7 @@ i18n.use(initReactI18next).init({
           "Blog":"Blog",
           "Language" :"Language"
          },
-         "charbot":{
+         "chatbot":{
           "Welcome to ITrade": "Welcome to ITrade",
           "Start Your": "Start Your",
           "Trade Journey": "Trade Journey",
@@ -101,7 +101,8 @@ i18n.use(initReactI18next).init({
             "Product Name": "Product Name",
             "Quantity": "Quantity",
             "Additional Comments": "Additional Comments",
-            "Send your query": "Send your query"
+            "Send your query": "Send your query",
+            "Submitting...": "Submitting..."
         },
         "contactus":{
           "Get in Touch": "Get in Touch",
@@ -230,7 +231,8 @@ i18n.use(initReactI18next).init({
             "Product Name": "उत्पाद का नाम",
             "Quantity": "मात्रा",
             "Additional Comments": "अतिरिक्त टिप्पणियाँ",
-            "Send your query": "अपना प्रश्न भेजें"
+            "Send your query": "अपना प्रश्न भेजें",
+            "Submitting...": "जमा कर रहा हूं..."
         },
         "contactus":{
           "Get in Touch": "संपर्क में रहें",
