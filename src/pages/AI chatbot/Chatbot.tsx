@@ -236,16 +236,16 @@ export default function Chatbot() {
                 onClick={() => setpopup(true)}
               >
                 <div className="text-blue-950 text-base font-semibold font-Mont">
-                  {t("charbot.New Chat")}
+                  {t("chatbot.New Chat")}
                 </div>
               </div>
               <div className="px-[21px] flex-col justify-start items-start gap-[30px] flex">
                 <div className="text-slate-500 font-Mont text-base font-semibold ">
-                  {t("charbot.News")}
+                  {t("chatbot.News")}
                 </div>
                 <div className="">
                   <div className="text-slate-600 text-lg font-Mont font-bold mb-3">
-                    {t("charbot.Library")}
+                    {t("chatbot.Library")}
                   </div>
                   <div className="flex ml-3">
                     <div className="w-1 h-auto bg-slate-400"></div>{" "}
@@ -275,7 +275,7 @@ export default function Chatbot() {
             </div>
             <Link to="/">
               <div className="left-[46px] top-[43px] absolute text-blue-950 text-base font-extrabold ">
-                {t("charbot.Home")}
+                {t("chatbot.Home")}
               </div>
             </Link>
           </div>
@@ -294,16 +294,16 @@ export default function Chatbot() {
                     onClick={() => setpopup(true)}
                   >
                     <div className="text-blue-950  text-base font-semibold ">
-                      {t("charbot.New Chat")}
+                      {t("chatbot.New Chat")}
                     </div>
                   </div>
                   <div className="px-[21px] flex-col justify-start items-start gap-[30px] flex">
                     <div className="text-slate-500 text-base font-semibold ">
-                      {t("charbot.News")}
+                      {t("chatbot.News")}
                     </div>
                     <div className="">
                       <div className="text-slate-600 text-lg font-bold mb-3">
-                        {t("charbot.Library")}
+                        {t("chatbot.Library")}
                       </div>
                       <div className="flex ml-3">
                         <div className="w-1 h-auto bg-slate-400"></div>
@@ -335,7 +335,7 @@ export default function Chatbot() {
                 </div>
                 <Link to="/">
                   <div className="left-[46px] top-[43px] absolute text-blue-950 text-base font-extrabold ">
-                    {t("charbot.Home")}
+                    {t("chatbot.Home")}
                   </div>
                 </Link>
               </div>
@@ -359,21 +359,20 @@ export default function Chatbot() {
 
           {/* chatbot component */}
           <div
-            className={`w-full font-Mont h-screen   flex flex-col ${
-              chat.length > 0 ? "justify-between" : "justify-center"
-            } items-center`}
+            className={`w-full font-Mont h-screen   flex flex-col ${chat.length > 0 ? "justify-between" : "justify-center"
+              } items-center`}
           >
             {chat.length == 0 && (
               <div className="flex flex-col justify-center items-center ">
                 <div className="text-slate-600  text-[clamp(25px,3.5vw,2.5rem)]  font-medium mb-1">
-                  {t("charbot.Welcome to ITrade")}
+                  {t("chatbot.Welcome to ITrade")}
                 </div>
                 <div className="mb-9 text-[clamp(25px,3.5vw,5rem)]">
                   <span className="text-gray-900   font-bold">
-                    {t("charbot.Start Your")}{" "}
+                    {t("chatbot.Start Your")}{" "}
                   </span>
                   <span className="text-blue-900   font-bold ">
-                    {t("charbot.Trade Journey")}
+                    {t("chatbot.Trade Journey")}
                   </span>
                 </div>
               </div>
@@ -381,9 +380,8 @@ export default function Chatbot() {
 
             {/* chatbox */}
             <div
-              className={` w-[90%] md:w-[80%]  sm:w-[60%] flex  flex-col justify-center items-center ${
-                streaming ? "sm:pb-[2.1rem] pb-[1rem]" : ""
-              }   ${chat.length > 0 ? "absolute bottom-[1rem]" : ""} `}
+              className={` w-[90%] md:w-[80%]  sm:w-[60%] flex  flex-col justify-center items-center ${streaming ? "sm:pb-[2.1rem] pb-[1rem]" : ""
+                }   ${chat.length > 0 ? "absolute bottom-[1rem]" : ""} `}
             >
               <div
                 className="w-[100%] sm:px-[5rem] max-h-[42rem] scrollbar-hide overflow-y-scroll h-auto pb-[8rem]   flex flex-col justify-start rounded-xl overflow-scroll"
@@ -399,15 +397,22 @@ export default function Chatbot() {
                             key={index}
                             className={`w-[100%] md:w-[80%]  flex justify-start `}
                           >
+                            <div className={` ${data.sender == "human" ? " flex items-center justify-center ml-4 mt-2  " : "hidden"} `}>
+
+                              <div className={` ${data.sender == "human" ? " flex items-center justify-center bg-gray-300 rounded-full w-8 h-8  " : "hidden"} `}>
+                                {User?.fullname[0]}
+                              </div>
+
+                            </div>
                             <div
-                              className={`max-w-[90%] rounded-lg px-2  mx-2  ${
-                                data.sender === "human"
-                                  ? " text-stone-700"
+                              className={`max-w-[90%] rounded-lg px-2  mx-2  ${data.sender === "human"
+                                  ? " text-stone-800"
                                   : "font-Mont  text-gray-700"
-                              }`}
+                                }`}
                             >
                               {data.sender === "human" ? (
                                 ""
+
                               ) : (
                                 <div className="flex gap-2 items-start  text-[0.8rem] h-[0.6rem] text-stone-600    text-md  ">
                                   <img
@@ -420,11 +425,10 @@ export default function Chatbot() {
                               )}
                               &nbsp;
                               <div
-                                className={`text-slate-600 font-MontBook ${
-                                  data.sender === "human"
+                                className={`text-slate-600 font-MontBook ${data.sender === "human"
                                     ? "text-3xl font-extrabold mt-3 mb-6"
-                                    : "text-md font-extrabold  mb-9 "
-                                } `}
+                                    : "text-xl font-extrabold  mb-9 "
+                                  } `}
                               >
                                 <Indent text={data.message} />
                               </div>
@@ -454,11 +458,10 @@ export default function Chatbot() {
               {/* inputfield */}
 
               <div
-                className={` absolute h-auto shadow-md w-[100%] p-1.5  bg-white  ${
-                  chat.length > 0
+                className={` absolute h-auto shadow-md w-[100%] p-1.5  bg-white  ${chat.length > 0
                     ? " bottom-[2rem] sm:w-[61%] sm:left-[6rem]"
                     : "sm:w-[45%]"
-                }     flex  justify-start rounded-[30px]`}
+                  }     flex  justify-start rounded-[30px]`}
               >
                 <div className="w-[100%] flex bg-white justify-start pl-5 rounded-[30px] border border-[2px] border-gray-400">
                   <textarea
@@ -471,7 +474,7 @@ export default function Chatbot() {
                     }}
                     onKeyPress={handleKeyPress}
                     className="w-[100%]  p-3 rounded-xl  focus:outline-none focus:ring-0 scrollbar-hide resize-none "
-                    placeholder={t("charbot.Ask Anything")}
+                    placeholder={t("chatbot.Ask Anything")}
                   ></textarea>
                   <div className=" flex justify-between items-center p-3 ">
                     {chat.length > 0 ? (
@@ -487,7 +490,7 @@ export default function Chatbot() {
                         className="w-[113px] h-8 px-3 py-2 bg-blue-600 rounded-xl justify-center  items-center inline-flex text-white"
                         onClick={sendMessage}
                       >
-                        {t("charbot.Start Chat")}
+                        {t("chatbot.Start Chat")}
                       </button>
                     )}
                   </div>
